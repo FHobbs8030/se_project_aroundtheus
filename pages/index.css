@@ -24,3 +24,7 @@
     margin-right: 200px;
     max-width: 880px;
  }
+
+ .profile {
+   display: flex;
+ }
