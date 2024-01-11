@@ -1,4 +1,4 @@
-@import url(../vendor/normalize.css);
+/* @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/card.css);
 @import url(../blocks/cards.css);
@@ -7,25 +7,40 @@
 @import url(../blocks/header.css);
 @import url(../blocks/page.css);
 @import url(../blocks/profile.css);
-@import url(../pages/index.css);
+@import url(../pages/index.css); */
 
-.page {
-    background-color: black;
+   .page {
+   padding: 45px 200px;
+   background-color: black;
     color: white;
     }
- 
- .page__content {
-   margin-left: 200px;
-   margin-right: 200px;
-    }
- 
- .header {
-    margin-top: 45px;
-    max-width: 880px;
- }
 
+   .page__content {
+   /* margin-left: 200px;
+   margin-right: 200px; */
+}
+ 
+  .header {
+   display: flex;
+   /* margin-top: 45px; */
+   max-width: 880px;
+   max-height: 74px;
+   /* margin-left: 200px;
+   margin-right: 200px; */
+}
+
+   .content {
+   display: flex;
+   margin-top: 45px;
+   max-width: 1280px;
+   max-height: 1217px;
+   /* margin-left: 200px;
+   margin-right: 200px; */
+}
  .profile {
    display: flex;
+   /* margin-left: 200px;
+   margin-right: 200px; */
    }
 
    .profile__info {
