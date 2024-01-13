@@ -1,4 +1,4 @@
-/* @import url(../vendor/normalize.css);
+@import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/card.css);
 @import url(../blocks/cards.css);
@@ -7,26 +7,23 @@
 @import url(../blocks/header.css);
 @import url(../blocks/page.css);
 @import url(../blocks/profile.css);
-@import url(../pages/index.css); */
+@import url(../pages/index.css);
 
    .page {
-   padding: 45px 200px;
    background-color: black;
-    color: white;
+   color: white;
+   padding: 45px 200px;
     }
 
    .page__content {
-   /* margin-left: 200px;
-   margin-right: 200px; */
+   margin-left: 200px;
+   margin-right: 200px;
 }
  
   .header {
    display: flex;
-   /* margin-top: 45px; */
    max-width: 880px;
    max-height: 74px;
-   /* margin-left: 200px;
-   margin-right: 200px; */
 }
 
    .content {
@@ -34,22 +31,22 @@
    margin-top: 45px;
    max-width: 1280px;
    max-height: 1217px;
-   /* margin-left: 200px;
-   margin-right: 200px; */
-}
+  }
+
  .profile {
    display: flex;
-   /* margin-left: 200px;
-   margin-right: 200px; */
    }
 
    .profile__info {
    display: grid;
    grid-template-areas: 
    "title button"
-   'description description';
+   "description description";
+   grid-template-columns: minmax(auto, 373px), auto;
    }
 
    .profile__edit-button {
       background: transparent url(../images/edit-icon.svg)  center no-repeat;
+      height: 24px;
+      width: 24px;
    }
