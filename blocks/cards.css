@@ -1,0 +1,22 @@
+.cards {
+   /* fonts */
+}
+
+.cards__list {
+   display: grid;
+   justify-content: space-evenly;
+   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(2, auto);
+   grid-gap: 30px 17px;
+   padding: 0;
+   margin: 0;
+}
+
+/* .cards__list {
+display: grid;
+justify-content: space-evenly;
+grid-template-columns: repeat(auto-fit,282px);
+grid-gap: 30px 17px;
+padding: 0;
+margin: 0;
+} */

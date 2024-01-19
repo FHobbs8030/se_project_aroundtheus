@@ -1,5 +1,7 @@
 .profile {
     display: flex;
+    /* margin-left: 200px; */
+    align-items: center;
     padding-top: 40px;
  }
  
@@ -13,8 +15,8 @@
  
     .profile__edit-button {
        background: transparent url(../images/Edit\ Button.svg)  center no-repeat;
-       width: 24px;
        height: 24px;
+       width: 24px; 
        grid-area: button;
  }
  
@@ -31,11 +33,13 @@
        font-weight: 500;
        grid-area: title;
        margin: 0;
+       padding-right: 18px;
  }
  
     .profile__description {
-       font-size: 18px;
+       width: 415px;
        line-height: 22px;
+       font-size: 18px;
        font-weight: 400;
        grid-area: description;
        margin: 0;
@@ -48,4 +52,5 @@
        object-fit: cover;
        background-position: center;
        margin-right: 24px;
+       margin-bottom: 47.25px;
     }
