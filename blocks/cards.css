@@ -4,7 +4,7 @@
 
 .cards__list {
    display: grid;
-   justify-content: space-evenly;
+   justify-content: start;
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: repeat(2, auto);
    grid-gap: 30px 17px;
