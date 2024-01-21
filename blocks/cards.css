@@ -1,22 +1,39 @@
 .cards {
-   /* fonts */
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   grid-gap: 10px;
+   font-family: "Inter", Arial, sans-serif;
+   width: 900px;
+   height: 864px;
+   font-family: "Inter", Arial, sans-serif;
 }
 
 .cards__list {
+   
+   display: grid;
+   justify-content: space-evenly;
+   grid-template-columns: repeat(auto-fit,282px);
+   grid-gap: 30px 17px;
+   padding: 0;
+   margin: 0;
+   margin-top: 47px;
+   }
+
+
+/* .cards__list {
    display: grid;
    justify-content: start;
    grid-template-columns: repeat(3, 1fr);
    grid-template-rows: repeat(2, auto);
-   grid-gap: 30px 17px;
+   grid-gap: 20px 17px;
    padding: 0;
    margin: 0;
-}
+} */ 
 
-/* .cards__list {
-display: grid;
-justify-content: space-evenly;
-grid-template-columns: repeat(auto-fit,282px);
-grid-gap: 30px 17px;
-padding: 0;
-margin: 0;
-} */
+/* .card__like-button {
+   background: transparent url(../images/like-inactive.svg) center no-repeat;
+   width: 21px;
+   height: 18px;
+   flex-shrink: 0;
+ } */
+

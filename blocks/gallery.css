@@ -1,0 +1,30 @@
+/* FILEPATH: /c:/Users/Owner/projects/se_project_aroundtheus/blocks/gallery.css */
+
+/* Gallery container */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    font-family: "Inter", Arial, sans-serif;
+    
+}
+
+/* Gallery item */
+.gallery-item {
+    width: 100%;
+    height: auto;
+}
+
+/* Gallery image */
+.gallery-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Gallery caption */
+.gallery-caption {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+}

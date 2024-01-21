@@ -1,12 +1,16 @@
+
 .profile {
     display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
+    flex-direction: row;
+    justify-content: center; 
+    width: 892px;
+    height: 120px;
+    
     /* margin-left: 200px; */
     /* align-items: center; */
-    padding-top: 40px;
+    /* padding-top: 40px; */
  }
- 
+
     .profile__info {
     display: grid;
     grid-template-areas: 
@@ -17,7 +21,7 @@
  
     .profile__edit-button {
        background: transparent url(../images/Edit\ Button.svg)  center no-repeat;
-       margin-top: 19px;
+       margin-top: 38px;
        padding-top: 0;
        padding-bottom: 0;
        padding-left: 0;
@@ -32,26 +36,27 @@
        background: transparent url(../images/Add\ Button.svg)  center no-repeat;
        width: 150px;
        height: 50px;
-       margin-left: 730px;
+       margin-top: 27px;
+       margin-left: 150px;
        padding: 0 0 0 0;
  }
  
     .profile__title {
       color: #FFF;
-      font-family: Inter;
+      font-family: "Inter", Arial, sans-serif;
       font-size: 42px;
       font-style: normal;
       font-weight: 500;
       width: 373px;
       height: 48px; /* 114.286% */
       grid-area: title;
-      margin: 0;
+      margin: 20px 0 0;
       padding-right: 18px;
  }
  
     .profile__description {
       color: #FFF;
-      font-family: Inter;
+      font-family: "Inter", Arial, sans-serif;
       font-size: 18px;
       font-style: normal;
       font-weight: 400;
@@ -65,11 +70,26 @@
     }
  
     .profile__image {
-       width: 120px;
-       height: 120px;
+       width: 144px;
+       height: 127px;
        border-radius: 50%;
        object-fit: cover;
        background-position: center;
        margin-right: 24px;
        margin-bottom: 47.25px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .profile {
+         background-color: pink;
+         flex-direction: column;
+       }
+
+    .profile__info {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-left: 62px;
+      margin-right: 62px;
+    }
     }
