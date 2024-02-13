@@ -42,7 +42,7 @@
   /* width: 100%; */
   width: 150px;
   height: 50px;
-  /* margin-left: auto; */
+  margin-left: auto; 
 }
 
 .profile__title {
@@ -53,24 +53,22 @@
   font-weight: 500;
   /* width: 100%; */
   line-height: 48px;
-  /* grid-area: title;
+  grid-area: title;
   margin: 0;
-  padding-right: 18px; */
+  /* padding-right: 18px;   */
 }
 
 .profile__description {
   /* color: #fff;
   font-family: "Inter", Arial, sans-serif; */
-  font-size: 18px;
   /* font-style: normal; */
-  /* font-weight: 400;
-  line-height: normal;
-  width: 100%;
+  /* line-height: normal; */
+  /* width: 100%; */
   line-height: 22px;
   font-size: 18px;
-  font-weight: 400; */
+  font-weight: 400;
   grid-area: description;
-  margin: 0;
+  margin: 0; 
 }
 
 .profile__image {

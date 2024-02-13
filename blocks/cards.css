@@ -12,6 +12,8 @@
 
 .cards__list {
   display: grid;
+  width: 880px;
+  height: 820px;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-gap: 30px 17px;
   padding: 0;
