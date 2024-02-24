@@ -1,17 +1,22 @@
-@media only screen and (min-width: 320px) and (max-width: 1280px) {
+ /* @media only screen and (min-width: 1024px) and (max-width: 1280px) { */
+  /* Add your CSS rules here */
+/* } */
+/* @media only screen and (min-width: 768px) and (max-width: 1023px) { */
+  /* Add your CSS rules here */
+/* } */
+/* @media only screen and (min-width: 320px) and (max-width: 767px)    */
+ /* {   */ 
   .page {
-    max-width: 1217px;
-    height: 1280px;
+    max-width: 880px;
+    /* height: 1280px; */
     margin-left: 200px;
     margin-right: 200px;
-    /* height: 100vh;
-  width: 100vw;  */
+    height: 100vh;
+    width: 100vw;
     background: black;
     color: white;
   }
-}
 
-@media only screen and (min-width: 320px) and (max-width: 1280px) {
   .page__content {
     background-color: black;
     min-height: 100vh;
@@ -26,13 +31,11 @@
   margin-right: 200px; */
     /* max-width: 880px; */
   }
-}
 
 .page__section {
-  /* max-width: 880px; */
   width: 100%;
+  max-width: 880px;
   position: relative;
-  /* box-sizing: border-box; */
   margin: 0 auto;
 }
 
@@ -40,4 +43,6 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
 }
