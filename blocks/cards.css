@@ -19,8 +19,8 @@
     padding-left: 0px;
     margin-top: 0px;
     grid-template-columns: repeat(auto-fit, 282px);
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(3, 1fr); */
+    /* grid-template-columns: repeat(2, 1fr); */
     grid-gap: auto;
     margin-top: 47px;
   }
