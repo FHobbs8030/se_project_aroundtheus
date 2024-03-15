@@ -9,9 +9,8 @@
   }
 
   .card__image {
-    max-width: 282px;
-    max-height: 282px;
-    height: 211px;
+    width: 282px;
+    height: 361px;
   }
 
   .card__description {
@@ -43,4 +42,3 @@
     border-bottom-width: 0px;
     border-right-width: 0px;
   }
-}
