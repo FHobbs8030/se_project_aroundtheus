@@ -182,15 +182,15 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    max-width: 780px;
-    width: 100%;
-    height: 100%;
+    width: 415vw;
+    height: 77vh;
     padding-left: 62px;
     padding-right: 62px;
   }
 
   .profile__description {
-    width: 100%;
+    width: 75vw;
+    height: 22vh;
     text-align: center;
   }
 
