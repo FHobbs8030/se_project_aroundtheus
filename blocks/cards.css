@@ -2,7 +2,7 @@
 .cards__list {
     display: grid;
     padding-left: 0px;
-    margin-top: 0px;
+    margin-top: 51px;
     width: 880px;
     height: 742px;
     grid-template-columns: repeat(auto-fit, 282px);
@@ -13,8 +13,7 @@
 }
 
 @media screen and (max-width: 800px) {
-
-  .cards__list {
+.cards__list {
     display: grid;
     justify-content: center;
     justify-items: center;
@@ -22,7 +21,6 @@
     margin-top: 0px;
     grid-template-columns: repeat(auto-fit, 282px);
     grid-template-rows: repeat(3, 1fr);
-    grid-template-columns: repeat(2, 1fr);
     grid-gap: 17px 20px;
     margin-top: 47px;
   }
