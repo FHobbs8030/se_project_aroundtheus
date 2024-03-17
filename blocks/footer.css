@@ -10,7 +10,7 @@
     width: 318px;
     height: 18px;
     margin: 0;
-    margin-top: 67px;
+    margin-top: 0;
     margin-bottom: 60px;
     padding-left: 0;
     padding-bottom: 30px;
@@ -18,18 +18,20 @@
 }
 
 @media screen and (max-width: 800px) {
-  .footer__copyright {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
+  .footer {
+    /* display: flex; */
+    /* flex-direction: row; */
+    /* align-items: flex-end; */
     width: 318px;
     height: 18px;
-    margin-left: 75px;
-    padding-top: 108px;
+    margin: 0;
+    margin-top: 150px;
+    margin-left: 147px;
     padding-left: 0;
     padding-bottom: 30px;
   }
 }
+
 @media screen and (max-width: 320px) {
   .footer {
     width: 318px;
