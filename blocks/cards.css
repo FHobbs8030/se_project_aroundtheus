@@ -4,6 +4,7 @@
     flex-direction: column;
     margin: 0;
     width: 880px;
+    height: auto;
     list-style: none;
     border-radius: 10px;
   }
@@ -14,8 +15,9 @@
     padding-left: 0;
     margin-top: 51px;
     margin-bottom: 0;
-    width: 880px;
-    height: 742px;
+    width: 100%;
+    max-width: 880px;
+    height: auto;
     grid-template-columns: repeat(auto-fit, 282px);
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
@@ -56,6 +58,7 @@
   .cards {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin: 0;
     width: 645px;
     height: 1142px;
