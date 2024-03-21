@@ -18,7 +18,7 @@
     grid-template-areas:
       "title button"
       "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
+    grid-template-columns: minmax(auto, 375px) auto;
     grid-gap: 9px 17px;
     flex-direction: column;
     flex-wrap: wrap;
@@ -106,7 +106,7 @@
     grid-template-areas:
       "title button"
       "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
+    grid-template-columns: minmax(auto, 375px) auto;
     grid-gap: 9px 17px;
   }
 
