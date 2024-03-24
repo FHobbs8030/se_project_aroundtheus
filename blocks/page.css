@@ -43,27 +43,32 @@
   }
 }
 
+@media screen and (max-width: 620px) {
+}
+
 @media screen and (max-width: 320px) {
-  .page__section {
+  /* .page__section {
     margin: 0 20px;
     width: calc(100% - 40px);
-  }
+  } */
 
   .page {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 320px;
+    width: 280px;
     height: 2812px;
     background: black;
     color: white;
-    margin: auto;
+    margin: 0 0 0 0;
   }
 
   .page__content {
     display: flex;
     flex-direction: column;
+    width: 250px;
+    height: 1200px;
     min-height: 100vh;
-    padding: 0 20px;
+    padding: 0;
   }
 }
