@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     max-width: 880px;
+    width: 880px;
     height: auto;
     margin-top: 40px;
     margin-left: 0;
@@ -30,13 +31,13 @@
     background: transparent url(../images/Edit\ Button.svg) center no-repeat;
     margin: auto;
     margin-top: 15px;
-    margin-left: 25px;
+    margin-left: 0;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    height: 24px;
     width: 24px;
+    height: 24px;
   }
 
   .profile__add-button {
@@ -47,7 +48,7 @@
     border-right: 0;
     border-bottom: 0;
     border-left: 0;
-    margin-left: 0;
+    margin-left: 165px;
     padding: 0 0 0 0;
   }
 
@@ -82,6 +83,7 @@
   .profile__image {
     width: 120px;
     height: 120px;
+    margin-right: 30px;
     border-radius: 50%;
     object-fit: cover;
     background-position: center;
@@ -115,6 +117,7 @@
     background: transparent url(../images/Edit\ Button.svg) center no-repeat;
     margin: auto;
     margin-top: 35px;
+    margin-left: 0;
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
@@ -134,6 +137,8 @@
   .profile__title {
     width: 380px;
     height: 48px;
+    margin-right: 18px;
+    margin-bottom: 11px;
     color: #fff;
     font-family: "Inter", Arial, sans-serif;
     font-size: 42px;
@@ -141,7 +146,6 @@
     line-height: 48px;
     letter-spacing: 0em;
     text-align: left;
-    margin-bottom: 11px;
   }
 
   .profile__description {
@@ -170,8 +174,8 @@
   }
 }
 
-@media screen and (max-width: 620px) {}
-
+@media screen and (max-width: 620px) {
+}
 
 @media screen and (max-width: 320px) {
   .profile {
@@ -202,7 +206,7 @@
   }
 
   .profile__add-button {
-    background: transparent url(../images/Rectangle.svg) center no-repeat;
+    background: transparent url(../images/Add\ Button.png) center no-repeat;
     width: 282px;
     height: 50px;
     margin-top: 36px;
@@ -213,6 +217,7 @@
   .profile__edit-button {
     background: transparent url(../images/Edit\ Button.svg) center no-repeat;
     margin-top: 0;
+    margin-right: 5px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
