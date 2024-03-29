@@ -3,8 +3,9 @@
     width: 880px;
     height: 74px;
     margin-top: 45px;
+
   }
-}
+  }
 
  @media screen and (max-width: 880px) {
   .header {
@@ -15,12 +16,15 @@
   }
 } 
 
+@media screen and (max-width: 620px) {
+}
+
  @media screen and (max-width: 320px) {
   .header {
-    margin-top: 15px;
-    margin-left: 290px;
-    width: 265px;
+    margin-top: 28px;
+    width: 320px;
     height: 56px;
-    
-  }
+    margin-right: 19px;
+    margin-left: 19px;
+    }
 } 
