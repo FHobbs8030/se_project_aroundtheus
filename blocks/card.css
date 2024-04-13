@@ -1,4 +1,3 @@
-@media screen and (max-width: 1280px) {
 .card {
     display: flex;
     flex-direction: column;
@@ -30,7 +29,7 @@
     white-space: nowrap;
     overflow: hidden;
     }
-  }
+
   .card__like-button {
     background: transparent url(../images/like-inactive.svg) center no-repeat;
     margin-top: 8px;
@@ -43,7 +42,12 @@
     border-right-width: 0px;
   }
 
-  @media screen and (max-width: 880px) {
+  .card__like-button:hover {
+    cursor: pointer;
+    opacity: 60%;
+  }
+
+  @media screen and (max-width: 900px) {
     .card {
       display: flex;
       flex-direction: column;
@@ -88,10 +92,7 @@
       border-right-width: 0px;
     }
 
-    @media screen and (max-width: 620px) {
-    }
-
-    @media screen and (max-width: 320px) {
+    @media screen and (max-width: 595px) {
       .card {
         display: flex;
         flex-direction: column;

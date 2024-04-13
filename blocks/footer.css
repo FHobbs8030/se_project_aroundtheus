@@ -1,9 +1,4 @@
-/* .footer__social-link:hover {
-    color: #c1c1c1;
-    transition: color 1s ease-in;
-  } */
-@media screen and (max-width: 1280px) {
-  .footer {
+.footer {
   
     width: 318px;
     height: 18px;
@@ -13,9 +8,9 @@
     padding-left: 0;
     padding-bottom: 0;
   }
-}
 
-@media screen and (max-width: 880px) {
+
+@media screen and (max-width: 900px) {
   .footer {
     display: flex;
     flex-direction: row;
@@ -23,17 +18,14 @@
     width: 318px;
     height: 18px;
     margin: 0;
-    margin-top: 150px;
-    margin-left: 147px;
+    margin-top: 0;
+    margin-left: 0;
     padding-left: 0;
     padding-bottom: 30px;
   }
 }
 
-@media screen and (max-width: 620px) {
-}
-
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 595px) {
   .footer {
     max-width: 282px;
     width: 318px;
@@ -44,4 +36,8 @@
     padding-left: 0;
     padding-bottom: 0;
   }
+}
+
+@media screen and (max-width: 400px) {
+  
 }
