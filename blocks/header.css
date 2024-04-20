@@ -40,3 +40,11 @@
     margin-top: 40px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .header {
+    max-width: 880vw;
+    height: 74hw;
+    margin-top: 45%;
+  }
+}
