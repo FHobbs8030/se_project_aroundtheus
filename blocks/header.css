@@ -1,5 +1,5 @@
 .header {
-  width: 880px;
+  max-width: 880px;
   height: 74px;
   margin-top: 45px;
 }
@@ -20,7 +20,7 @@
   }
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 620px) {
   .header {
     background-color: black;
     color: white;
@@ -30,5 +30,13 @@
     height: 56px;
     margin-top: 19px;
     border: 1px solid #545454;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    text-align: center;
+    margin-left: 19px;
+    margin-top: 40px;
   }
 }

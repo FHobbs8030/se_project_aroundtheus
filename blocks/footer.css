@@ -25,7 +25,7 @@
   }
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 620px) {
   .footer {
     max-width: 282px;
     width: 318px;
@@ -38,6 +38,6 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   
 }

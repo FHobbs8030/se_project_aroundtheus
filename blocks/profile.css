@@ -1,15 +1,21 @@
 .profile {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  /* justify-content: space-evenly; */
   max-width: 880px;
-  width: 880px;
-  height: auto;
+  /* height: auto; */
   margin-top: 40px;
-  margin-left: 0;
-  margin-right: 0;
+  /* margin-left: 0; */
+  /* margin-right: 0; */
+}
+
+.profile__page-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 120px;
+  max-width: 880px;
 }
 
 .profile__info {
@@ -29,14 +35,16 @@
 
 .profile__edit-button {
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
-  margin: auto;
-  margin-top: 15px;
-  margin-left: 25px;
-  margin-left: 0;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
+  /* margin: auto; */
+  /* margin-top: 15px; */
+  /* margin-left: 25px; */
+  /* margin-left: 0; */
+  /* padding-top: 0; */
+  /* padding-bottom: 0; */
+  /* padding-left: 0; */
+  /* padding-right: 0; */
+  border: 1px solid #fff;
+  grid-area: button;
   width: 24px;
   height: 24px;
 }
@@ -51,6 +59,7 @@
   background: transparent url(../images/Add\ Button.svg) center no-repeat;
   width: 150px;
   height: 50px;
+  margin-left: auto;
   border-top: 0;
   border-right: 0;
   border-bottom: 0;
@@ -65,27 +74,28 @@
 }
 
 .profile__title {
-  width: 375px;
+  max-width: 375px;
   color: #fff;
   font-family: "Inter", Arial, sans-serif;
   font-size: 42px;
   font-weight: 500;
   line-height: 48px;
-  letter-spacing: 0em;
-  text-align: left;
-  margin: 0 0 0 0;
+  grid-area: title;
+  /* letter-spacing: 0em; */
+  /* text-align: left; */
+  /* margin: 0 0 0 0; */
 }
 
 .profile__description {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  /* margin-top: 0px; */
+  /* margin-bottom: 0px; */
   color: #fff;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
-  line-height: normal;
-  width: 75px;
-  height: 22px;
-  margin-bottom: 11px;
+  line-height: 22px;
+  /* max-width: 75px; */
+  /* height: 22px; */
+  /* margin-bottom: 11px; */
   font-size: 18px;
   font-weight: 400;
   grid-area: description;
@@ -95,7 +105,7 @@
 .profile__image {
   width: 120px;
   height: 120px;
-  margin-right: 30px;
+  margin-right: 24px;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
@@ -145,8 +155,8 @@
     letter-spacing: 0em;
     text-align: left;
     font-size: 28px;
-    width: 100%;
-    max-width: 222px;
+    /* width: 100%; */
+    /* max-width: 222px; */
   }
 
   .profile__description {
@@ -167,6 +177,10 @@
     max-width: 282px;
   }
 
+  .profile__info {
+    margin-left: 30px;
+  }
+
   .profile__edit-button {
     background: transparent url(../images/Edit\ Button.svg) center no-repeat;
     margin: auto;
@@ -178,30 +192,19 @@
     border-left: 0;
     width: 24px;
     height: 24px;
-    width: 18px;
-    height: 18px;
+    /* width: 18px; */
+    /* height: 18px; */
   }
 
   .profile__add-button {
     background: transparent url(../images/Add\ Button.svg) center no-repeat;
-    width: 100%;
     width: 150px;
     height: 50px;
     margin-right: 0;
     padding: 0 0 0 0;
   }
 
-  /* .profile__image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    background-position: center;
-    margin-right: 24px;
-  } */
-}
-
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 620px) {
   .profile {
     display: flex;
     flex-direction: column;
@@ -274,16 +277,62 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
   .profile {
+    background: transparent url(../images/Edit\ Button.svg) center no-repeat;
+    margin-top: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     margin-top: 42px;
     margin-right: 19px;
-    margin-left: 19px;
+    margin-left: 75px;
     width: 282px;
     height: 286px;
     left: 19px;
   } 
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  width: 282px;
+  height: 286px;
+  margin-right: 19px;
+  margin-left: 19px;
+}
+
+.profile__title {
+  width: 375px;
+  color: #fff;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 500;
+  line-height: 48px;
+  text-align: left;
+  margin-right: 120px;
+}
+
+.profile__description {
+  margin-left: 100px;
+}
+
+.profile__edit-button {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  height: 24px;
+  width: 24px;
+}
+
+.profile__add-button {
+  background: transparent url(../images/Rectangle.svg) center no-repeat;
+  width: 100%;
+  width: 150px;
+  height: 50px;
+  margin-right: 0;
+  padding: 0 0 0 0;
 }

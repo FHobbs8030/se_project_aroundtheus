@@ -92,7 +92,7 @@
       border-right-width: 0px;
     }
 
-    @media screen and (max-width: 595px) {
+    @media screen and (max-width: 620px) {
       .card {
         display: flex;
         flex-direction: column;
