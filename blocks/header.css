@@ -42,13 +42,13 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
   .header {
     max-width: 880vw;
     width: 320px;
     height: 56px;
     margin-top: 28px;
-    border: 0;
+    border: 1px solid #545454;
   }
 
   .header__page-section {
