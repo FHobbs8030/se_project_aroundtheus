@@ -14,8 +14,12 @@
 }
 
 .page__content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin-left: 100px;
   margin-right: 100px;
+  /* height: 100%; */
   width: 80%;
 }
 
