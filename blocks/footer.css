@@ -9,8 +9,7 @@
     padding-bottom: 0;
   }
 
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 920px) {
   .footer {
     display: flex;
     flex-direction: row;
@@ -25,23 +24,22 @@
   }
 }
 
-@media screen and (max-width: 620px) {
-  .footer {
-    max-width: 282px;
-    width: 318px;
-    height: 18px;
-    margin-top: 1100px;
-    margin-left: 0;
-    padding-top: 0;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 420px) {
   
 }
 
 @media screen and (max-width: 340px) {
+  .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 318px;
+    height: 18px;
+    margin: 0;
+    margin-top: 1100px;
+    margin-left: 0;
+    padding-left: 0;
+    padding-bottom: 30px;
+  }
   
 }
