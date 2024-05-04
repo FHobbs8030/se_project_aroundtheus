@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: space-around;
   width: 880px;
   height: auto;
   margin-top: 40px;
@@ -23,7 +24,7 @@
 .profile__image {
   width: 120px;
   height: 120px;
-  margin-right: 24px;
+  margin-right: 0;
   border-radius: 50%;
   object-fit: cover;
   background-position: center;
@@ -84,7 +85,7 @@
   width: 150px;
   height: 50px;
   margin-top: 36px;
-  margin-left: 170px;
+  margin-left: 190px;
   margin-right: 0;
   border-top: 0;
   border-right: 0;
@@ -254,7 +255,7 @@
   }
 
   .profile__add-button {
-    background: transparent url(../images/Add\ Button\ \(1\).svg) center no-repeat;
+    background: transparent url(../images/Add\ Button.svg) center no-repeat;
     width: 282px;
     height: 50px;
     /* margin-top: 36px; */
