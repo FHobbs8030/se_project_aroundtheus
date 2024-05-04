@@ -10,7 +10,6 @@
   max-width: 880px;
   box-sizing: border-box;
   position: relative;
-  width: calc(100% - 40px);
 }
 
 .page__content {
@@ -23,7 +22,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 770px) {
  
   .page__section {
     max-width: 880px;
@@ -40,26 +39,25 @@
 
   }
  
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
   .page__content {
     margin-left: auto;
     margin-right: auto;
     width: 80%;
   }
-}
 
-@media screen and (max-width: 340px) {
-  .page {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    background: black;
-    color: white;
-  }
-  .page__content {
-    /* margin-left: auto;
-    margin-right: auto; */
-    width: 100%;
-  }
+  @media screen and (max-width: 340px) {
+    .page {
+      width: 100%;
+      height: auto;
+      min-height: 100vh;
+      background: black;
+      color: white;
+    }
+    .page__content {
+      /* margin-left: auto;
+      margin-right: auto; */
+      width: 100%;
+    }
 }
-  
+}

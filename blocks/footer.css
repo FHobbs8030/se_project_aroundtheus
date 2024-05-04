@@ -9,7 +9,7 @@
     padding-bottom: 0;
   }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 770px) {
   .footer {
     display: flex;
     flex-direction: row;
@@ -24,9 +24,10 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
   
 }
+
 
 @media screen and (max-width: 340px) {
   .footer {

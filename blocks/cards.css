@@ -24,7 +24,7 @@
   grid-gap: 17px 20px;
 }
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 770px) {
   .cards {
     display: flex;
     flex-direction: column;
@@ -50,7 +50,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 620px) {
   .cards {
     display: flex;
     flex-direction: column;
@@ -79,6 +79,7 @@
   }
 }
 
+  
 @media screen and (max-width: 340px) {
   .cards {
     display: flex;
