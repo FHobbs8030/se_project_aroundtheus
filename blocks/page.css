@@ -1,5 +1,5 @@
 .page {
-  width: 100%;
+  width: 880px;
   height: auto;
   min-height: 100vh;
   background: black;
@@ -23,7 +23,6 @@
 }
 
 @media screen and (max-width: 920px) {
- 
   .page__section {
     max-width: 880px;
     box-sizing: border-box;
@@ -36,9 +35,8 @@
     margin-right: auto;
     width: 80%;
   }
+}
 
-  }
- 
 @media screen and (max-width: 770px) {
   .page__content {
     margin-left: auto;
@@ -46,7 +44,8 @@
     width: 80%;
   }
 
-  @media screen and (max-width: 607px) {}
+  @media screen and (max-width: 607px) {
+  }
 
   @media screen and (max-width: 340px) {
     .page {
@@ -55,11 +54,14 @@
       min-height: 100vh;
       background: black;
       color: white;
+      margin: auto;
+      /* margin-right: 19px; */
+      /* margin-left: 19px; */
     }
     .page__content {
       /* margin-left: auto;
       margin-right: auto; */
       width: 100%;
     }
-}
+  }
 }
