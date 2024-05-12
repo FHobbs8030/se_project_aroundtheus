@@ -6,7 +6,6 @@
   height: auto;
   list-style: none;
   border-radius: 10px;
-  width: calc(100% - 40px);
 }
 
 .cards__list {
