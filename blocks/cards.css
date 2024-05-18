@@ -14,9 +14,9 @@
   padding-left: 0;
   margin-top: 51px;
   margin-bottom: 67px;
-  width: 100%;
+  width: 880px;
   max-width: 880px;
-  height: auto;
+  height: 742px;
   margin-top: 51px;
   grid-template-columns: repeat(auto-fit, 282px);
   grid-template-rows: repeat(2, 1fr);

@@ -2,7 +2,7 @@
   max-width: 880px;
   height: 74px;
   margin-top: 45px;
-  margin-left: 27px;
+  margin-left: 0;
 }
 
 .header__page-section {
@@ -12,7 +12,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 920px) {
+/* @media screen and (max-width: 920px) {
   .header {
     width: 765px;
     height: 74px;
@@ -49,4 +49,4 @@
       
     }
   }
-}
+} */

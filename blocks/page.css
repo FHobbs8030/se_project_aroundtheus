@@ -1,6 +1,7 @@
 .page {
+  max-width: 1280px;
   width: 1280px;
-  height: auto;
+  height: 1217px;
   min-height: 100vh;
   background: black;
   color: white;
@@ -20,7 +21,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 920px) {
+/* @media screen and (max-width: 920px) {
   .page {
     width: 880px;
     height: auto;
@@ -67,7 +68,7 @@
     /* min-height: 100vh; */
     /* background: black; */
     /* color: white; */
-    margin: auto;
+   /* margin: auto;
     margin-right: 0;
     margin-left: 0;
   }
@@ -75,4 +76,4 @@
     margin-left: 0;
     margin-right: 0;
   }
-}
+} */
