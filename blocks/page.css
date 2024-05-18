@@ -59,16 +59,16 @@
     margin-right: auto;
     width: 60%;
   }
-}
+/* } */
 
 @media screen and (max-width: 340px) {
   .page {
     width: 100%;
-    /* height: auto; */
-    /* min-height: 100vh; */
-    /* background: black; */
-    /* color: white; */
-   /* margin: auto;
+    height: auto;
+    min-height: 100vh;
+    background: black;
+    color: white;
+    margin: auto;
     margin-right: 0;
     margin-left: 0;
   }
@@ -76,4 +76,4 @@
     margin-left: 0;
     margin-right: 0;
   }
-} */
+}

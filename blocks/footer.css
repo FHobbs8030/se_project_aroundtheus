@@ -1,13 +1,12 @@
 .footer {
-  
-    width: 318px;
-    height: 18px;
-    margin: 0;
-    margin-top: 0;
-    margin-bottom: 60px;
-    padding-left: 0;
-    padding-bottom: 0;
-  }
+  color: #545454;
+  width: 318px;
+  height: 18px;
+  margin-top: 67px;
+  margin-bottom: 60px;
+  padding-left: 0;
+  padding-bottom: 0;
+}
 
 /* @media screen and (max-width: 920px) {
   .footer {
@@ -24,12 +23,11 @@
   }
 } */
 
-@media screen and (max-width: 770px) {
-  
+/* @media screen and (max-width: 770px) {
 }
 
-@media screen and (max-width: 607px) {}
-
+@media screen and (max-width: 607px) {
+} */
 
 @media screen and (max-width: 340px) {
   .footer {
@@ -44,5 +42,4 @@
     padding-left: 0;
     padding-bottom: 30px;
   }
-  
 }
