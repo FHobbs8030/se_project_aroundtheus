@@ -25,9 +25,10 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 29px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  width: 220px; /* Adjust as needed */
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card__like-button {
@@ -95,5 +96,5 @@
 
 @media screen and (max-width: 607px) {} */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
 }

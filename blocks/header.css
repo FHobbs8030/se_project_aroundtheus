@@ -31,7 +31,7 @@
 
   /* @media screen and (max-width: 607px) {} */
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 360px) {
   .header {
     max-width: 320px;
     width: 320px;
