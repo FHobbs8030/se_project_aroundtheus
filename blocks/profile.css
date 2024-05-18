@@ -87,15 +87,13 @@
   background: transparent url(../images/Vector.png) center no-repeat;
   width: 150px;
   height: 50px;
-  margin-top: 36px;
-  margin-left: 0;
-  margin-right: 0;
+  margin: auto;
+  margin-left: 180px;
   border-top: 1px solid #fff;
   border-right: 1px solid #fff;
   border-bottom: 1px solid #fff;
   border-left: 1px solid #fff;
   padding: 0 0 0 0;
-  margin: auto;
 }
 
 .profile__add-button:hover {
@@ -382,7 +380,7 @@
   }
 } */
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 320px) {
   .profile {
     display: flex;
     flex-direction: column;

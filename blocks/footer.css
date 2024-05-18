@@ -29,7 +29,7 @@
 @media screen and (max-width: 607px) {
 } */
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 320px) {
   .footer {
     display: flex;
     flex-direction: row;
