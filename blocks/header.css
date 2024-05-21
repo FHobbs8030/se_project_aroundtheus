@@ -5,14 +5,14 @@
   margin-left: 0;
 }
 
-/* .header__page-section {
+ .header__page-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 100%;
-} */
+} 
 
-/* @media screen and (max-width: 920px) {
+ @media screen and (max-width: 920px) {
   .header {
     width: 765px;
     height: 74px;
@@ -21,15 +21,9 @@
   }
 }
 
-@media screen and (max-width: 770px) {
-  .header {
-    text-align: center;
-    margin-left: 19px;
-    margin-top: 40px;
-    border: 0;
-  }
+@media screen and (max-width: 600px) {
 
-  /* @media screen and (max-width: 607px) {} */
+   } 
 
 @media screen and (max-width: 360px) {
   .header {

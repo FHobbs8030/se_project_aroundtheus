@@ -103,6 +103,12 @@
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  .profile_add-button {
+    background-size: 20px 20px; /* Adjust the size to fit your design */
+  }
+}
+
 @media screen and (max-width: 360px) {
   .profile {
     display: flex;
@@ -202,3 +208,4 @@
     cursor: pointer;
   }
 }
+
