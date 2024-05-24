@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 # # se_project_aroundtheus
 
 This is the 3rd project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
@@ -9,12 +10,12 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 - Flexbox
 - Positioning
 - Flat BEM file structure
-- A custom form
 - CSS animation and transform
+- media queries
 
 ## The Plans on improving this project are:
+
 - More Animations
-- Png's for Drinks
+- Add Audio and Videos
 
 =======
-
