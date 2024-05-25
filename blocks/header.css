@@ -1,7 +1,6 @@
  .header { 
   max-width: 880px;
-  height: 74px; 
-  margin-top: 45px;
+  margin: 45px;
   margin-left: 0;
 } 
 
@@ -10,14 +9,18 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
-} 
-
-.header {
-  margin-top: 45px;
-  max-width: 880px;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
- }
+}
  
  .header__logo {
-  margin-bottom: 41px;
+  margin-bottom: 0;
  }
+
+ @media screen and (max-width: 320px) {
+.header {
+    margin-top: 28px;
+    margin-left: 15px;
+    /* margin-bottom: 42px; */
+    width: 126px;
+    /* height: 24px; */
+  }
+} 

@@ -4,20 +4,30 @@
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
- }
- 
- .page__content {
+}
+
+.page__content {
   margin: 0 auto;
   max-width: 880px;
   color: #fff;
- }
- 
- @media screen and (max-width: 900px) {
+}
+
+@media screen and (max-width: 900px) {
   .page__content {
-  max-width: 714px;
-  max-width: calc(100% - 40px);
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
- }
- }
+    max-width: 714px;
+    max-width: calc(100% - 40px);
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page {
+    max-width: 100%;
+  }
+  .page__content {
+    max-width: 100%;
+    text-overflow: ellipsis; 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
