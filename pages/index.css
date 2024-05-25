@@ -1,19 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/page.css);
-@import url(../blocks/card.css);
 @import url(../blocks/cards.css);
 @import url(../blocks/footer.css);
 @import url(../blocks/profile.css);
 @import url(../blocks/block.css); 
 @import url(../blocks/header.css);
-
-:root {
-  font-family: Inter, sans-serif;
-  font-feature-settings: "liga" 1, "calt" 1; /* fix for Chrome */
-}
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: InterVariable, sans-serif;
-  }
-}
+@import url(../blocks/heart.css);
