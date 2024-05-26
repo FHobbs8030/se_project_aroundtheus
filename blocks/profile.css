@@ -167,9 +167,17 @@
     height: 18px;
   }
 }
+ 
+  @media (max-width: 320px) {
+    .profile-description {
+        max-width: 282px;
+        height: 14px;
+        font-size: 14px; 
+        line-height: 14px; 
+        overflow-wrap: break-word;    
+    }
 
-@media screen and (max-width: 320px) {
-  .profile__image {
+ .profile__image {
     margin-top: 0;
   }
 

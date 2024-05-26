@@ -23,11 +23,10 @@
 @media screen and (max-width: 320px) {
   .page {
     max-width: 100%;
-  }
+    }
+
   .page__content {
     max-width: 100%;
-    text-overflow: ellipsis; 
-    white-space: nowrap;
     overflow: hidden;
   }
 }
