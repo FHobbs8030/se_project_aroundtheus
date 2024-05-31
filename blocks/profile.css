@@ -113,6 +113,12 @@
   }
 }
 
+@media screen and (max-width: 743px) {
+  .profile__image {
+    margin-top: 42px;
+  }
+}
+
 @media screen and (max-width: 595px) {
   .profile {
     flex-direction: column;
@@ -167,18 +173,18 @@
     height: 18px;
   }
 }
- 
-  @media (max-width: 320px) {
-    .profile-description {
-        max-width: 282px;
-        height: 14px;
-        font-size: 14px; 
-        line-height: 14px; 
-        overflow-wrap: break-word;    
-    }
 
- .profile__image {
-    margin-top: 0;
+@media (max-width: 320px) {
+  .profile-description {
+    max-width: 282px;
+    height: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    overflow-wrap: break-word;
+  }
+
+  .profile__image {
+    margin-top: 42px;
   }
 
   .profile__title {

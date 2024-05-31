@@ -10,6 +10,7 @@
   margin: 0 auto;
   max-width: 880px;
   color: #fff;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 900px) {
@@ -17,6 +18,7 @@
     max-width: 714px;
     max-width: calc(100% - 40px);
     white-space: nowrap;
+    overflow: hidden;
   }
 }
 
