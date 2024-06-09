@@ -6,6 +6,7 @@
   row-gap: 20px;
   max-width: 880px;
   justify-items: center;
+  flex-grow: 1; /* Allows the cards section to grow and take up available space */
 }
 
 .cards__card {

@@ -1,4 +1,11 @@
 .heart {
-    border: none; 
-    background: transparent;
+  border: none;
+  background: transparent;
+  margin: 31px 20px 30px 28px;
+}
+
+.heart:hover {
+  opacity: 0.5;
+  transition: 0.2s;
+  cursor: pointer;
 }
