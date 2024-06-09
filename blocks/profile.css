@@ -109,13 +109,20 @@
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 240px;
+    /* max-width: 240px; */
   }
 }
 
 @media screen and (max-width: 743px) {
   .profile__image {
     margin-top: 0;
+  }
+
+  .profile__title {
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    /* max-width: 240px; */
   }
 }
 
