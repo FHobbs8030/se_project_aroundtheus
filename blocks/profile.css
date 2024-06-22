@@ -129,7 +129,7 @@
 @media screen and (max-width: 595px) {
   .profile {
     flex-direction: column;
-    margin: 40px 19px 36px 19px;
+    margin: 0px 19px 36px 19px;
   }
 
   .profile__add-button {
@@ -148,7 +148,7 @@
   }
 
   .profile__image {
-    margin-right: 0;
+    margin: 42px 0 0 0;
   }
 
   .profile__title {

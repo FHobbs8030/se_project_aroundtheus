@@ -21,6 +21,7 @@
 
 @media screen and (max-width: 900px) {
   .footer {
+    max-width: (2*282) + (2*column-gap);
     margin: 67px 19px 60px 19px; 
   }
 }
@@ -33,6 +34,7 @@
 
 @media screen and (max-width: 595px) {
   .footer {
+    max-width: 282px;
     margin: 48px 19px 36px 19px; 
   }
 }
