@@ -27,10 +27,10 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 
 
 
-![800px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/6ca26dd4-09bc-4cb1-8651-93c262dce35f)
+                                        ![800px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/6ca26dd4-09bc-4cb1-8651-93c262dce35f)
 
 
 
 
-![320px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/c1a7b656-d33c-4944-a650-bcef44ba9ef1)
+                                        ![320px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/c1a7b656-d33c-4944-a650-bcef44ba9ef1)
 
