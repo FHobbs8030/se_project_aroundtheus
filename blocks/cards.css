@@ -6,7 +6,7 @@
   row-gap: 20px;
   max-width: 880px;
   justify-items: center;
-  flex-grow: 1; /* Allows the cards section to grow and take up available space */
+  flex-grow: 1; 
 }
 
 .cards__card {
@@ -38,8 +38,6 @@
 .cards__footer {
   display: flex;
   align-items: center;
-  /* flex-grow: 1; */
-  /* max-width: 320px; */
 }
 
 .cards__heart-image {
@@ -47,6 +45,12 @@
   border-right: 0;
   border-bottom: 0;
   border-left: 0;
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    max-width: 600px;
+  }
 }
 
 @media screen and (max-width: 595px) {
@@ -57,8 +61,3 @@
   }
 }
 
-@media screen and (max-width: 900px) {
-  .cards {
-    max-width: 600px;
-  }
-}
