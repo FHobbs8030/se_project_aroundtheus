@@ -18,7 +18,7 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 - More Animations
 - Add Audio and Videos
 
-====================================================================================
+========================================================================
 
 
 
