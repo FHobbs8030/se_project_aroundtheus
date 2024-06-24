@@ -3,9 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 0;
-  margin: 67px 0 60px 0;
   color: #545454;
-  width: 50%;
   position: relative;
 }
 
@@ -19,9 +17,8 @@
   margin: 0;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 900px) { 
   .footer {
-    max-width: (2*282) + (2*column-gap);
     margin: 67px 19px 60px 80px; 
   }
 }
@@ -41,6 +38,7 @@
 
 @media screen and (max-width: 320px) {
   .footer {
+    width: 200px;
     margin: 48px 19px 36px 19px; 
   }
 }
