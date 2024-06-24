@@ -17,28 +17,28 @@
   margin: 0;
 }
 
-@media screen and (max-width: 900px) { 
+@media screen and (max-width: 900px) {
   .footer {
-    margin: 67px 19px 60px 80px; 
+    margin: 67px 19px 60px 80px;
   }
 }
 
 @media screen and (max-width: 743px) {
   .footer {
-    margin: 48px 19px 36px 55px; 
+    margin: 48px 19px 36px 55px;
   }
 }
 
 @media screen and (max-width: 595px) {
   .footer {
     max-width: 282px;
-    margin: 48px 19px 36px 135px; 
+    margin: 48px 19px 36px 135px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .footer {
     width: 200px;
-    margin: 48px 19px 36px 19px; 
+    margin: 48px 19px 36px 19px;
   }
 }
