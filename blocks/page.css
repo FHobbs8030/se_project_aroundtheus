@@ -12,7 +12,6 @@
   margin: 0 auto;
   max-width: 880px;
   color: #fff;
-  overflow: hidden;
   flex: 1;
 }
 
@@ -20,8 +19,6 @@
   .page__content {
     max-width: 714px;
     max-width: calc(100% - 40px);
-    white-space: nowrap;
-    overflow: hidden;
   }
 }
 
@@ -32,6 +29,5 @@
 
   .page__content {
     max-width: 100%;
-    overflow: hidden;
   }
 }
