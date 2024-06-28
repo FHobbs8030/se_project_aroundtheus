@@ -4,6 +4,9 @@
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
+  height: 1217px;
+  top: 1546px;
+  left: 1167px;
 }
 
 .page__content {
@@ -25,7 +28,7 @@
 @media screen and (max-width: 320px) {
   .page {
     max-width: 100%;
-    }
+  }
 
   .page__content {
     max-width: 100%;
