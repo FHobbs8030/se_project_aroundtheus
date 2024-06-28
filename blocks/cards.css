@@ -60,3 +60,11 @@
     margin: auto;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin: auto;
+  }
+}

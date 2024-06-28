@@ -5,6 +5,10 @@
 }
 
 .header__logo {
+  width: 173px;
+  height: 33px;
+  top: 45px;
+
   margin: 45px 0 42px auto;
 }
 
