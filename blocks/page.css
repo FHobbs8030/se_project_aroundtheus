@@ -4,14 +4,9 @@
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
-  /* height: 1217px; */
 }
 
 .page__content {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
-  max-width: 880px;
   color: #fff;
   flex: 1;
 }
@@ -29,6 +24,6 @@
   }
 
   .page__content {
-    max-width: 100%;
+    margin: 0 19px 0 19px;
   }
 }
