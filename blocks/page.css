@@ -1,5 +1,5 @@
 .page {
-  background-color:  #000;
+  background-color:  #000000;
   max-width: 1280px;
   min-width: 320px;
   margin: 0 auto;
@@ -9,6 +9,6 @@
 
 .page__content {
   margin: 0 auto;
-  color: #fff;
+  color: #ffffff;
   max-width: 880px;
 }
