@@ -1,32 +1,14 @@
 .page {
-  background: #000;
-  max-width: 1000px;
+  background-color:  #000;
+  max-width: 1280px;
+  min-width: 320px;
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
 }
 
 .page__content {
+  margin: 0 auto;
   color: #fff;
-  flex: 1;
-}
-
-@media screen and (max-width: 900px) {
-  .page__content {
-    max-width: 714px;
-    max-width: calc(100% - 40px);
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .page {
-    max-width: 100%;
-  }
-
-  .page__content {
-    display: flex;
-    margin: 0 0 0 0;
-    flex-direction: column;
-    align-items: center;
-}
+  max-width: 880px;
 }
