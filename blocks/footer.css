@@ -27,14 +27,14 @@
 
 @media screen and (max-width: 743px) {
   .footer {
-    margin: 48px 19px 36px 55px;
+    margin: 48px 19px 36px 50px;
   }
 }
 
 @media screen and (max-width: 595px) {
   .footer {
     max-width: 282px;
-    margin: 48px 19px 36px 19px;
+    margin: 48px 19px 36px 150px;
   }
 }
 
