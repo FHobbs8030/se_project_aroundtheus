@@ -6,6 +6,7 @@
 }
 
 .header__logo {
+  width: 173px;
   align-self: start;
   padding-bottom: 41px;
 }
@@ -15,7 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    margin: 0;
   }
 
   .header__logo {
