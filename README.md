@@ -18,7 +18,7 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 - More Animations
 - Add Audio and Videos
 
-- Link to the project: https://github.com/FHobbs8030/se_project_aroundtheus/
+- Link to the project: https://FHobbs8030.github.io/se_project_aroundtheus/
 
 ===============================================================
 
