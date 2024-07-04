@@ -2,7 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 47.25px;
+  padding-top: 40px;
+  padding-bottom: 51px;
+
 }
 
 .profile__image {
@@ -20,7 +22,6 @@
 }
 
 .profile__caption {
-  /* max-width: 580px; */
   display: flex;
   align-items: center;
 }
@@ -52,7 +53,7 @@
 .profile__add-button {
   width: 150px;
   height: 50px;
-  border: 2px solid #fff;
+  border: 2px solid #FFFFFF;
   flex-shrink: 0;
   border-radius: 2px;
   background: transparent url(../images/vector.svg) center no-repeat;
