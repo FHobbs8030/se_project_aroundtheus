@@ -90,7 +90,6 @@
 
   .profile__title {
     text-align: center;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 230px;
@@ -100,7 +99,6 @@
     text-align: left;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
     max-width: 230px;
   }
 
@@ -129,7 +127,6 @@
     max-width: 196px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
   .profile__subtitle {
