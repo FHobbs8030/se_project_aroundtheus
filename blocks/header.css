@@ -7,15 +7,13 @@
 
 .header__logo {
   width: 173px;
-  align-self: start;
-  /* padding-bottom: 41px; */
+  margin: 0 0 0 27px;
 }
 
 @media screen and (max-width: 500px) {
   .header {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin: 0;
   }
 
