@@ -40,7 +40,7 @@
   width: 24px;
   height: 24px;
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
-  border-color: #fff;
+  border: 1px solid #FFFFFF;
   padding: 0;
   margin-left: 18px;
 }
@@ -106,7 +106,7 @@
 
 @media screen and (max-width: 595px) {
   .profile {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     padding: 0;
     margin: 42px 19px 36px 19px;

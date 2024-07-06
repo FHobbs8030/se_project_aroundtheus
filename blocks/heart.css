@@ -1,6 +1,11 @@
 .heart {
   border: none;
-  background: transparent;
+  background-image: url("../images/heart.svg");
+  color: #000000;
+  width: 21px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
   margin: 31px 20px 30px 0;
 }
 
