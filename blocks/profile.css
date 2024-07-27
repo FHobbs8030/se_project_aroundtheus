@@ -39,13 +39,16 @@
   width: 24px;
   height: 24px;
   background: transparent url(../images/Edit\ Button.svg) center no-repeat;
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   padding: 0;
   margin-left: 18px;
 }
 
 .profile__edit-button:hover {
   opacity: 0.6;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
 }
@@ -66,7 +69,7 @@
 .profile__add-button {
   width: 150px;
   height: 50px;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #ffffff;
   flex-shrink: 0;
   border-radius: 2px;
   background: transparent url(../images/vector.svg) center no-repeat;
@@ -78,6 +81,9 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -o-transition: 0.2s;
   transition: 0.2s;
   cursor: pointer;
 }
