@@ -1,23 +1,27 @@
- .header { 
-  max-width: 880px;
-  height: 74px; 
-  margin-top: 45px;
-  margin-left: 0;
-} 
-
- .header__page-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-} 
-
 .header {
-  margin-top: 45px;
   max-width: 880px;
+  margin: 0 auto;
+  margin: 45px 0px 0px 0px;
+  color: #ffffff;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
- }
- 
- .header__logo {
-  margin-bottom: 41px;
- }
+}
+
+.header__logo {
+  width: 173px;
+  height: 33px;
+  padding: 0px 0px 41px 0px;
+}
+
+@media screen and (max-width: 500px) {
+  .header__logo {
+    width: 126px;
+    padding: 28px 167px 32px 27px;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+}
