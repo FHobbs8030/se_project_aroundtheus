@@ -53,18 +53,3 @@
   opacity: 0.5;
   cursor: pointer;
 }
-
-/* @media screen and (max-width: 900px) {
-  .cards {
-    max-width: 600px;
-  }
-}
-
-@media screen and (max-width: 595px) {
-  .cards {
-    grid-template-columns: 1fr;
-    max-width: calc(100% - 40px);
-    margin: auto;
-  }
-} */
-
