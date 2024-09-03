@@ -40,6 +40,8 @@ Header bottom line shouldn't have side spaces on 320 viewport
 
 profile__add-button should be centered horizontally on 320 viewport
 
+footer needs to be postioned correctly on 320 viewport.
+
 There are also some comments for improvement. They don’t mean that you’ve done anything wrong, but they’re things we wanted to point out that can help you further develop your skills
 
 =======

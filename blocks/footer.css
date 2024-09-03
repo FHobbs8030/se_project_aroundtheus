@@ -1,7 +1,7 @@
 .footer {
   display: flex;
-  justify-content: center;  
-  align-items: center;  
+  /* justify-content: center;   */
+  align-items: center;
   max-width: 318px;
   margin: 67px 0px 60px 0px;
 }
@@ -45,5 +45,6 @@
   .footer__title {
     font-size: 14px;
     line-height: 17px;
+    margin: 0px 19px 0px 19px;
   }
 }
