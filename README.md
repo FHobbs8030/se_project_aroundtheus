@@ -29,7 +29,8 @@ click [here](https://github.com/user-attachments/assets/5cfacafb-053e-448f-a66e-
 
 ![1280px](https://github.com/user-attachments/assets/0ba21fc6-f4e6-43d0-9dd4-2e2cd889f56f)
 
-![800px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/1d86ddea-11d1-4231-a256-d04c6494b869)
+![800px](https://g![02 09 2024_23 15 17_REC](https://github.com/user-attachments/assets/36696942-99dc-4fc1-96cb-fc53c40de836)
+ithub.com/FHobbs8030/se_project_aroundtheus/assets/63701522/1d86ddea-11d1-4231-a256-d04c6494b869)
 
 ![320px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/8fb14860-bfbf-4ae8-92b8-7eedb6f5e40a)
 
