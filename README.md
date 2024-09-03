@@ -18,10 +18,11 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 - JavaScript (planned for future enhancements)
 
 =========================================
+## Take a Look at the Project!!!!
 
   [Link to the project](https://FHobbs8030.github.io/se_project_aroundtheus/)
 
-## Watch the Presentation
+## Watch the Presentation!!!!
 
 click [here](https://github.com/user-attachments/assets/5cfacafb-053e-448f-a66e-2a506c7a0679)
 
