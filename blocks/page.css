@@ -15,8 +15,5 @@
 @media screen and (max-width: 900px) {
   .page__content {
     max-width: 600px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
   }
 }
