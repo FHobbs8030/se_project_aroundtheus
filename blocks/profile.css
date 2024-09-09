@@ -29,8 +29,7 @@
 }
 
 .profile__title {
-  display: flex;
-  max-width: 373px;
+  max-width: 360px;
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
@@ -40,7 +39,7 @@
 }
 
 .profile__subtitle {
-  max-width: 240px;
+  max-width: 279px;
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
@@ -60,7 +59,7 @@
   flex-shrink: 0;
   padding: 0;
   cursor: pointer;
-  margin: 0px 0px 15px 18px;
+  margin: 16px 0px 15px 18px;
 }
 
 .profile__add-button:hover {
@@ -77,7 +76,7 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
-  margin: 7px 0px 0px 18px;
+  margin: 21px 0px 14px 18px;
   align-self: center;
 }
 
@@ -93,8 +92,6 @@
   }
 
   .profile__title {
-    font-size: 22px;
-    line-height: 27px;
     text-align: center;
   }
 
@@ -136,7 +133,10 @@
 
   .profile__title {
     max-width: 240px;
-    line-height: 27px;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26.63px;
+    text-align: center;
     padding: 0;
   }
 
