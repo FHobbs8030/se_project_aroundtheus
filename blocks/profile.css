@@ -36,30 +36,18 @@
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
-<<<<<<< HEAD
   overflow: hidden;
 }
 
 .profile__subtitle {
   max-width: 280px;
-=======
-  text-overflow: ellipsis;
-}
-
-.profile__subtitle {
-  max-width: 279px;
->>>>>>> c2aba4ae85f5f32ad2dbf96b631751ec24f22ca9
   font-weight: 400;
   font-size: 18px;
   line-height: 22px;
   margin: 7px 0px 0px 0px;
   text-overflow: ellipsis;
   white-space: nowrap;
-<<<<<<< HEAD
   overflow: hidden;
-=======
-  text-overflow: ellipsis;
->>>>>>> c2aba4ae85f5f32ad2dbf96b631751ec24f22ca9
 }
 
 .profile__add-button {
@@ -147,14 +135,7 @@
 
   .profile__title {
     max-width: 240px;
-<<<<<<< HEAD
     line-height: 27px;
-=======
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 26.63px;
-    text-align: center;
->>>>>>> c2aba4ae85f5f32ad2dbf96b631751ec24f22ca9
     padding: 0;
   }
 
