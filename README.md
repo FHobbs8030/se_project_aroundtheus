@@ -8,14 +8,11 @@ This is the 3rd project of the Software Engineering program at TripleTen. It was
 - Flexbox
 - Positioning
 - Flat BEM file structure
-- CSS animation and transform
 - media queries
 
 ## The Plans on improving this project are
 
-- More Animations
-- Add Audio and Videos
-- JavaScript (planned for future enhancements)
+-This page is presently under construction for Upgrades using javaScript
 
 =========================================
 
