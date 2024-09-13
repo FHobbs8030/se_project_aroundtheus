@@ -38,3 +38,19 @@ const initialCards = [
 ];
 
 console.log(initialCards);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.querySelector(".modal");
+  const openModalButton = document.querySelector(".profile__edit-button");
+  const closeModalButton = document.querySelector(".modal__close-button");
+
+  // Open modal when clicking on edit button
+  openModalButton.addEventListener("click", () => {
+    modal.classList.add("modal_opened");
+  });
+
+  // Close modal when clicking on the close button
+  closeModalButton.addEventListener("click", () => {
+    modal.classList.remove("modal_opened");
+  });
+});
