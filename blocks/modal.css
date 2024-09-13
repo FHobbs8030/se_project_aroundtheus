@@ -1,0 +1,80 @@
+.modal {
+    position: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5); /* Dimmed background */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10; /* Ensure it's on top of other elements */
+    visibility: hidden; /* Hidden by default */
+    opacity: 0; /* Invisible by default */
+    transition: visibility 0s, opacity 0.5s ease; /* Smooth fade-in/out */
+}
+
+.modal_opened {
+    visibility: visible; /* Visible when opened */
+    opacity: 1;
+}
+
+.modal__container {
+    background-color: #FFFFFF; /* White modal background */
+    width: 430px; /* Set the width of the modal */
+    height: 330px;
+    padding: 20px; /* Padding inside modal */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+    position: relative; /* Important for positioning elements inside the modal */
+}
+
+.modal__close-button {
+    background: transparent url("../images/Close-Icon.svg") center no-repeat;
+    background-size: 24px;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 15px; /* Positioning inside modal */
+    right: 15px;
+    width: 24px;
+    height: 24px;
+}
+
+.modal__title {
+    width: 330px;
+    height: 23px;
+    font-size: 24px;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 900;
+    margin: 24px 0px 54px 20px;
+    color: #000000;
+}
+
+.modal__input {
+    width: 358px;
+    /* width: calc(100% - 40px); */
+    margin: 0px 29.74px 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.modal__button {
+    display: block;
+    width: 358px;
+    height: 50.51px;
+    margin-left: 20px;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal__button:hover {
+    background-color: #333333;
+}
