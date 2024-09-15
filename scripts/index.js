@@ -40,17 +40,36 @@ const initialCards = [
 console.log(initialCards);
 
 document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.querySelector(".modal");
-  const openModalButton = document.querySelector(".profile__edit-button");
-  const closeModalButton = document.querySelector(".modal__close-button");
+  const editModal = document.querySelector("#edit-modal");
+  const openEditModalButton = document.querySelector(".profile__edit-button");
+  const closeEditModalButton = editModal.querySelector(".modal__close-button");
 
-  // Open modal when clicking on edit button
-  openModalButton.addEventListener("click", () => {
-    modal.classList.add("modal_opened");
+  openEditModalButton.addEventListener("click", () => {
+    editModal.classList.add("modal_opened");
   });
 
-  // Close modal when clicking on the close button
-  closeModalButton.addEventListener("click", () => {
-    modal.classList.remove("modal_opened");
+  closeEditModalButton.addEventListener("click", () => {
+    editModal.classList.remove("modal_opened");
+  });
+
+  const addModal = document.querySelector("#add-modal");
+  const openAddModalButton = document.querySelector(".profile__add-button");
+  const closeAddModalButton = addModal.querySelector(".modal__close-button");
+
+  openAddModalButton.addEventListener("click", () => {
+    addModal.classList.add("modal_opened");
+  });
+
+  closeAddModalButton.addEventListener("click", () => {
+    addModal.classList.remove("modal_opened");
+  });
+
+  window.addEventListener("click", (event) => {
+    if (event.target === editModal) {
+      editModal.classList.remove("modal_opened");
+    }
+    if (event.target === addModal) {
+      addModal.classList.remove("modal_opened");
+    }
   });
 });

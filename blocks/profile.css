@@ -28,7 +28,7 @@
   align-items: center;
 }
 
-.profile__title {
+.profile__name {
   font-weight: 500;
   font-size: 42px;
   line-height: 48px;
@@ -38,7 +38,7 @@
   overflow: hidden;
 }
 
-.profile__subtitle {
+.profile__profession {
   max-width: 280px;
   font-weight: 400;
   font-size: 18px;
@@ -65,6 +65,8 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .profile__edit-button {
@@ -132,7 +134,7 @@
     margin-right: 0;
   }
 
-  .profile__title {
+  .profile__name {
     max-width: 240px;
     font-size: 22px;
     font-weight: 500;
@@ -141,7 +143,7 @@
     padding: 0;
   }
 
-  .profile__subtitle {
+  .profile__profession {
     margin-top: 14px;
     margin-bottom: 36px;
     font-size: 14px;
