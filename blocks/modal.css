@@ -85,7 +85,13 @@
 
 @media screen and (max-width: 488px) {
   .modal__container {
-    width: 282px;
+    /* width: 282px; */
+    width: 320px;
+    height: 568px;
+    top: 1546px;
+    left: 4347px;
+    gap: 0px;
+    opacity: 0px;
   }
 
   .modal__image {
