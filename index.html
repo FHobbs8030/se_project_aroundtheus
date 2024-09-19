@@ -29,11 +29,11 @@
           <div class="profile__description">
             <div class="profile__caption">
               <h1 class="profile__name">Jacques coustea</h1>
-              <button class="profile__edit-button" type="button"></button>
+              <button class="profile__edit-button" type="button" title="Edit Profile"></button>
             </div>
             <p class="profile__about profile__about_me">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button"></button>
+          <button class="profile__add-button" type="button" title="Add New Item"></button>
         </section>
         <section class="cards">
           <div class="cards__card">
@@ -149,7 +149,7 @@
 
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-button"></button>
+        <button type="button" class="modal__close-button" title="Close"></button>
         <h2 class="modal__title">Edit profile</h2>
         <form class="modal__form" id="edit-profile-form" name="profile-form">
           <label class="modal__label">
@@ -185,7 +185,7 @@
 
     <div class="modal" id="add-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-button"></button>
+        <button type="button" class="modal__close-button" title="Close"></button>
         <h2 class="modal__title">New place</h2>
         <form class="modal__form" id="add-card-form" name="card-form">
           <label class="modal__label">
@@ -223,6 +223,7 @@
           type="button"
           class="modal__close-button"
           id="close-image"
+          title="Close Image"
         ></button>
         <img class="modal__image" alt="Selected Place Image" />
         <p class="modal__name"></p>
