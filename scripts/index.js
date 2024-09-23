@@ -1,4 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const cardsContainer = document.querySelector("#cards-container");
+  const editModal = document.querySelector("#edit-modal");
+  const addModal = document.querySelector("#add-modal");
+
+  const openEditModalButton = document.querySelector(".profile__edit-button");
+  const closeEditModalButton = editModal.querySelector(".modal__close-button");
+  const saveButton = editModal.querySelector(".modal__button");
+
+  const openAddModalButton = document.querySelector(".profile__add-button");
+  const closeAddModalButton = addModal.querySelector(".modal__close-button");
+  const addCardButton = addModal.querySelector(".modal__button");
+
+  const nameInput = document.querySelector("#name");
+  const aboutMeInput = document.querySelector("#about_me");
+
+  const editForm = document.querySelector("#edit-form");
+  const addForm = document.querySelector("#add-form");
+
+  const template = document.querySelector("#card-template");
+
   const initialCards = [
     {
       name: "Yosemite Valley",
@@ -26,26 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  const cardsContainer = document.querySelector("#cards-container");
-  const editModal = document.querySelector("#edit-modal");
-  const addModal = document.querySelector("#add-modal");
-
-  const openEditModalButton = document.querySelector(".profile__edit-button");
-  const closeEditModalButton = editModal.querySelector(".modal__close-button");
-
-  const openAddModalButton = document.querySelector(".profile__add-button");
-  const closeAddModalButton = addModal.querySelector(".modal__close-button");
-
-  const nameInput = document.querySelector("#name");
-  const aboutMeInput = document.querySelector("#about_me");
-
-  const editForm = document.querySelector("#edit-form");
-  const addForm = document.querySelector("#add-form");
-
   function getCardElement(data) {
-    const template = document.querySelector("#card-template");
     const cardElement = template.content.cloneNode(true);
-
     const image = cardElement.querySelector(".cards__image");
     const title = cardElement.querySelector(".cards__title");
 
@@ -77,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   editForm.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const newName = nameInput.value;
     const newAboutMe = aboutMeInput.value;
@@ -97,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addForm.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const placeInput = document.querySelector("#place").value;
     const linkInput = document.querySelector("#link").value;
