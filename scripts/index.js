@@ -32,14 +32,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
-  const saveButton = editModal.querySelector(".modal__button");
 
   const openAddModalButton = document.querySelector(".profile__add-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
-  const addCardButton = addModal.querySelector(".modal__button");
 
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
+
+  const editForm = document.querySelector("#edit-form");
+  const addForm = document.querySelector("#add-form");
 
   function getCardElement(data) {
     const template = document.querySelector("#card-template");
@@ -61,8 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   openEditModalButton.addEventListener("click", () => {
-    originalName = document.querySelector(".profile__name").textContent;
-    originalAboutMe = document.querySelector(".profile__about_me").textContent;
+    const originalName = document.querySelector(".profile__name").textContent;
+    const originalAboutMe =
+      document.querySelector(".profile__about_me").textContent;
 
     nameInput.value = originalName;
     aboutMeInput.value = originalAboutMe;
@@ -71,12 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   closeEditModalButton.addEventListener("click", () => {
-
     editModal.classList.remove("modal_opened");
   });
 
-  saveButton.addEventListener("click", (event) => {
-    event.preventDefault();
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault(); 
 
     const newName = nameInput.value;
     const newAboutMe = aboutMeInput.value;
@@ -95,8 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
     addModal.classList.remove("modal_opened");
   });
 
-  addCardButton.addEventListener("click", (event) => {
-    event.preventDefault();
+  addForm.addEventListener("submit", (event) => {
+    event.preventDefault(); 
 
     const placeInput = document.querySelector("#place").value;
     const linkInput = document.querySelector("#link").value;
