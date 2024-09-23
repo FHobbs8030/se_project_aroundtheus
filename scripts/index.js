@@ -71,9 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   closeEditModalButton.addEventListener("click", () => {
-    // Reset input fields
-    nameInput.value = originalName;
-    aboutMeInput.value = originalAboutMe;
 
     editModal.classList.remove("modal_opened");
   });
