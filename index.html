@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="autor" content="Fred Hobbs" />
+    <meta name="author" content="Fred Hobbs" />
     <link rel="stylesheet" href="./pages/index.css" />
-    <title>Around the us</title>
+    <title>Around the US</title>
   </head>
 
   <body class="page">
@@ -28,58 +28,29 @@
           />
           <div class="profile__description">
             <div class="profile__caption">
-              <h1 class="profile__name">Jacques coustea</h1>
-              <button class="profile__edit-button" type="button" title="Edit Profile"></button>
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button
+                class="profile__edit-button"
+                type="button"
+                title="Edit Profile"
+              ></button>
             </div>
             <p class="profile__about profile__about_me">Explorer</p>
           </div>
-          <button class="profile__add-button" type="button" title="Add New Item"></button>
+          <button
+            class="profile__add-button"
+            type="button"
+            title="Add New Item"
+          ></button>
         </section>
-        <section class="cards">
-          <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/yosemite.jpg"
-              alt="photo-of-yosemite-valley"
-            />
-            <div class="cards__footer">
-              <h2 class="cards__title">Yosemite Valley</h2>
-              <button class="cards__heart" type="button">
-                <img
-                  class="cards__heart-image"
-                  src="./images/heart.svg"
-                  alt="like-button"
-                />
-              </button>
-            </div>
-          </div>
 
-          <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/lake-louise.jpg"
-              alt="photo-of-lake-louise"
-            />
-            <div class="cards__footer">
-              <h2 class="cards__title">Lake Louise</h2>
-              <button class="cards__heart" type="button">
-                <img
-                  class="cards__heart-image"
-                  src="./images/heart.svg"
-                  alt="like-button"
-                />
-              </button>
-            </div>
-          </div>
+        <section class="cards" id="cards-container"></section>
 
+        <template id="card-template">
           <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/bald-mountains.jpg"
-              alt="photo-of-bald-mountains"
-            />
+            <img class="cards__image" alt="" />
             <div class="cards__footer">
-              <h2 class="cards__title">Bald Mountains</h2>
+              <h2 class="cards__title"></h2>
               <button class="cards__heart" type="button">
                 <img
                   class="cards__heart-image"
@@ -89,59 +60,9 @@
               </button>
             </div>
           </div>
-          <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/latemar.jpg"
-              alt="photo-of-latenar"
-            />
-            <div class="cards__footer">
-              <h2 class="cards__title">Latemar</h2>
-              <button class="cards__heart" type="button">
-                <img
-                  class="cards__heart-image"
-                  src="./images/heart.svg"
-                  alt="like-button"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/vanoise.jpg"
-              alt="photo-of-vanoise-national-park"
-            />
-            <div class="cards__footer">
-              <h2 class="cards__title">Vanoise National Park</h2>
-              <button class="cards__heart" type="button">
-                <img
-                  class="cards__heart-image"
-                  src="./images/heart.svg"
-                  alt="like-button"
-                />
-              </button>
-            </div>
-          </div>
-          <div class="cards__card">
-            <img
-              class="cards__image"
-              src="./images/card-images/lago.jpg"
-              alt="photo-of-Lago-Di-Braies"
-            />
-            <div class="cards__footer">
-              <h2 class="cards__title">Lago Di Braies</h2>
-              <button class="cards__heart" type="button">
-                <img
-                  class="cards__heart-image"
-                  src="./images/heart.svg"
-                  alt="like-button"
-                />
-              </button>
-            </div>
-          </div>
-        </section>
+        </template>
       </main>
+
       <footer class="footer">
         <p class="footer__title">© 2024 Around The U.S.</p>
       </footer>
@@ -149,8 +70,12 @@
 
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-button" title="Close"></button>
-        <h2 class="modal__title">Edit profile</h2>
+        <button
+          type="button"
+          class="modal__close-button"
+          title="Close"
+        ></button>
+        <h2 class="modal__title">Edit Profile</h2>
         <form class="modal__form" id="edit-profile-form" name="profile-form">
           <label class="modal__label">
             <input
@@ -185,8 +110,12 @@
 
     <div class="modal" id="add-modal">
       <div class="modal__container">
-        <button type="button" class="modal__close-button" title="Close"></button>
-        <h2 class="modal__title">New place</h2>
+        <button
+          type="button"
+          class="modal__close-button"
+          title="Close"
+        ></button>
+        <h2 class="modal__title">New Place</h2>
         <form class="modal__form" id="add-card-form" name="card-form">
           <label class="modal__label">
             <input
