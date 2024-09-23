@@ -41,9 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
 
-  let originalName;
-  let originalAboutMe;
-
   function getCardElement(data) {
     const template = document.querySelector("#card-template");
     const cardElement = template.content.cloneNode(true);
