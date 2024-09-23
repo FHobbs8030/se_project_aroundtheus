@@ -23,7 +23,6 @@
   background-color: #ffffff;
   width: 430px;
   height: 330px;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
   position: relative;
@@ -48,25 +47,24 @@
   line-height: 29.05px;
   font-size: 24px;
   font-weight: 900;
-  margin: 24px 0px 54px 36px;
+  margin: 34px 64px 54px 36px;
   color: #000000;
 }
 
 .modal__input {
   width: 358px;
-  width: calc(100% - 40px);
-  margin: 0px 29.74px 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin: 0px 36px 0px 36px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 1);
 }
 
 .modal__button {
   display: block;
   width: 358px;
   height: 50.51px;
+  margin: 48px 36px 36.51px 36px;
   margin-left: 20px;
-  padding: 10px;
+  padding: 0;
   background-color: #000000;
   color: #ffffff;
   text-align: center;
