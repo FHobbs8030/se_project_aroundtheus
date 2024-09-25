@@ -2,22 +2,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardsContainer = document.querySelector("#cards-container");
   const editModal = document.querySelector("#edit-modal");
   const addModal = document.querySelector("#add-modal");
-
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
   const saveButton = editModal.querySelector(".modal__button");
-
   const openAddModalButton = document.querySelector(".profile__add-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const addCardButton = addModal.querySelector(".modal__button");
-
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
-
   const editForm = document.querySelector("#edit-form");
   const addForm = document.querySelector("#add-form");
-
   const template = document.querySelector("#card-template");
+  const profileName = document.querySelector(".profile__name");
+  const profileAboutMe = document.querySelector(".profile__about_me");
+  const placeInput = document.querySelector("#place");
+  const linkInput = document.querySelector("#link");
 
   const initialCards = [
     {
@@ -64,9 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   openEditModalButton.addEventListener("click", () => {
-    const originalName = document.querySelector(".profile__name").textContent;
-    const originalAboutMe =
-      document.querySelector(".profile__about_me").textContent;
+    const originalName = profileName.textContent;
+    const originalAboutMe = profileAboutMe.textContent;
 
     nameInput.value = originalName;
     aboutMeInput.value = originalAboutMe;
@@ -84,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const newName = nameInput.value;
     const newAboutMe = aboutMeInput.value;
 
-    document.querySelector(".profile__name").textContent = newName;
-    document.querySelector(".profile__about_me").textContent = newAboutMe;
+    profileName.textContent = newName;
+    profileAboutMe.textContent = newAboutMe;
 
     editModal.classList.remove("modal_opened");
   });
@@ -101,19 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
   addForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const placeInput = document.querySelector("#place").value;
-    const linkInput = document.querySelector("#link").value;
-
     const newCardData = {
-      name: placeInput,
-      link: linkInput,
+      name: placeInput.value,
+      link: linkInput.value,
     };
 
     const cardElement = getCardElement(newCardData);
     cardsContainer.appendChild(cardElement);
 
-    document.querySelector("#place").value = "";
-    document.querySelector("#link").value = "";
+    placeInput.value = "";
+    linkInput.value = "";
 
     addModal.classList.remove("modal_opened");
   });
