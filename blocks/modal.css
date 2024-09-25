@@ -62,10 +62,10 @@
 }
 
 .modal__button {
-  width: 358px; 
+  width: 358px;
   height: 50px;
   margin-top: 22px;
-  margin-bottom: 36.51px; 
+  margin-bottom: 36.51px;
   margin-left: 35px;
   padding: 0;
   background-color: #000000;
@@ -75,7 +75,7 @@
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  align-self: center; 
+  align-self: center;
 }
 
 .modal__button:hover {
