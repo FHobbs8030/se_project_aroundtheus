@@ -2,12 +2,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw; 
-  height: 100vh; 
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); 
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
   visibility: hidden;
   opacity: 0;
@@ -23,8 +23,8 @@
   background-color: #ffffff;
   width: 430px;
   height: 330px;
-  margin-top: 102px;
-  margin-left: 380px;
+  margin-top: 100px;
+  margin-left: 360px;
   margin-right: 425px;
   border-radius: 15px;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.25);
