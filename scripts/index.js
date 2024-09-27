@@ -87,4 +87,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     editModal.classList.remove("modal_opened");
   });
+
+  openAddModalButton.addEventListener("click", () => {
+    addModal.classList.add("modal_opened");
+  });
+
+  closeAddModalButton.addEventListener("click", () => {
+    addModal.classList.remove("modal_opened");
+  });
+
+  addForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const newPlace = {
+      name: placeInput.value,
+      link: linkInput.value,
+    };
+
+    const newCardElement = getCardElement(newPlace);
+    cardsContainer.prepend(newCardElement);  
+
+    placeInput.value = "";
+    linkInput.value = "";
+    addModal.classList.remove("modal_opened");
+  });
 });
