@@ -87,29 +87,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
     editModal.classList.remove("modal_opened");
   });
-
-  openAddModalButton.addEventListener("click", () => {
-    addModal.classList.add("modal_opened");
-  });
-
-  closeAddModalButton.addEventListener("click", () => {
-    addModal.classList.remove("modal_opened");
-  });
-
-  addForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const newCardData = {
-      name: placeInput.value,
-      link: linkInput.value,
-    };
-
-    const cardElement = getCardElement(newCardData);
-    cardsContainer.appendChild(cardElement);
-
-    placeInput.value = "";
-    linkInput.value = "";
-
-    addModal.classList.remove("modal_opened");
-  });
 });
