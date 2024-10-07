@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const cardsContainer = document.querySelector("#cards-container");
+  const template = document.querySelector("#card-template");
   const editModal = document.querySelector("#edit-modal");
   const addModal = document.querySelector("#add-modal");
   const openEditModalButton = document.querySelector(".profile__edit-button");
@@ -7,12 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const saveButton = editModal.querySelector(".modal__button");
   const openAddModalButton = document.querySelector(".profile__add-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
-  const addCardButton = addModal.querySelector(".modal__button");
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const editForm = document.querySelector("#edit-form");
   const addForm = document.querySelector("#add-form");
-  const template = document.querySelector("#card-template");
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
   const placeInput = document.querySelector("#place");
@@ -49,10 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardElement = template.content.cloneNode(true);
     const image = cardElement.querySelector(".cards__image");
     const title = cardElement.querySelector(".cards__title");
+    const deleteButton = cardElement.querySelector(".cards__delete-button");
 
     image.src = data.link;
     image.alt = data.name;
     title.textContent = data.name;
+
+    deleteButton.addEventListener("click", () => {
+      cardElement.remove();
+    });
 
     return cardElement;
   }
@@ -105,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const newCardElement = getCardElement(newPlace);
-    cardsContainer.prepend(newCardElement);  
+    cardsContainer.prepend(newCardElement);
 
     placeInput.value = "";
     linkInput.value = "";
