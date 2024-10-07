@@ -9,6 +9,7 @@
 }
 
 .cards__card {
+  position: relative;
   width: 282px;
   background-color: #fff;
   border-radius: 10px;
@@ -20,6 +21,24 @@
   width: 282px;
   height: 282px;
   border-radius: 10px 10px 0px 0px;
+}
+
+.cards__delete-button {
+  background: transparent url('../images/trash.svg') center no-repeat;
+  border: none;
+  padding: 0;
+  width: 18px;
+  height: 19.3px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 18px 15px 0px 0px;
+  z-index: 1;
+}
+
+.cards__delete-button:hover {
+  cursor: pointer;
+  opacity: 0.6;
 }
 
 .cards__title {
