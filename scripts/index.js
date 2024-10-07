@@ -55,7 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = data.name;
 
     deleteButton.addEventListener("click", () => {
-      cardElement.remove();
+      const card = deleteButton.closest(".cards__card");
+      card.style.backgroundColor = "black";
+      image.style.visibility = "hidden";
+      card.querySelector(".cards__footer").style.visibility = "hidden";
     });
 
     return cardElement;
