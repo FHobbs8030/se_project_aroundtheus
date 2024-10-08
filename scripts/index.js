@@ -118,4 +118,24 @@ document.addEventListener("DOMContentLoaded", () => {
     linkInput.value = "";
     addModal.classList.remove("modal_opened");
   });
+
+  const imageModal = document.querySelector("#image-modal");
+  const imageElement = imageModal.querySelector(".modal__image");
+  const captionElement = imageModal.querySelector(".modal__caption");
+  const imageModalClose = document.querySelector("#image-modal-close");
+
+  cardsContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cards__image")) {
+      const cardImage = event.target;
+      imageElement.src = cardImage.src;
+      imageElement.alt = cardImage.alt;
+      captionElement.textContent = cardImage.alt;
+
+      imageModal.classList.add("modal_opened");
+    }
+  });
+
+  imageModalClose.addEventListener("click", () => {
+    imageModal.classList.remove("modal_opened");
+  });
 });
