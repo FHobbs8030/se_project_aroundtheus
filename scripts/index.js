@@ -56,9 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteButton.addEventListener("click", () => {
       const card = deleteButton.closest(".cards__card");
-      card.style.backgroundColor = "black";
-      image.style.visibility = "hidden";
-      card.querySelector(".cards__footer").style.visibility = "hidden";
+      card.remove(); // This removes the card from the DOM
     });
 
     return cardElement;
