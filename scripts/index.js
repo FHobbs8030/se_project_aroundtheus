@@ -56,7 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     deleteButton.addEventListener("click", () => {
       const card = deleteButton.closest(".cards__card");
-      card.remove(); // This removes the card from the DOM
+      card.remove(); 
+    });
+
+    const heartButton = cardElement.querySelector(".cards__heart");
+    const heartImage = cardElement.querySelector(".cards__heart-image");
+    heartButton.addEventListener("click", function () {
+      if (heartImage.src.includes("heart.svg")) {
+        heartImage.src = "./images/black_heart.svg"; 
+      } else {
+        heartImage.src = "./images/heart.svg"; 
+      }
     });
 
     return cardElement;
@@ -136,4 +146,5 @@ document.addEventListener("DOMContentLoaded", () => {
   imageModalClose.addEventListener("click", () => {
     imageModal.classList.remove("modal_opened");
   });
+  
 });
