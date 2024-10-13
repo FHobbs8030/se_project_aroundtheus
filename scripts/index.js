@@ -104,10 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
   addForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    const imagePath =
+      linkInput.value.trim() || "./images/card-images/grand-canyon.jpg";
+    console.log(`Image path used: ${imagePath}`); // Debugging path
+
     const newPlace = {
-      name: placeInput.value,
-      link: linkInput.value,
+      name: placeInput.value || "Grand Canyon",
+      link: imagePath,
     };
+
+    console.log("New place object:", newPlace); // Log the object to see the data
 
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
@@ -116,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     linkInput.value = "";
     addModal.classList.remove("modal_opened");
   });
+
 
   const imageModal = document.querySelector("#image-modal");
   const imageElement = imageModal.querySelector(".modal__image");
