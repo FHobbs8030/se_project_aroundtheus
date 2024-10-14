@@ -1,14 +1,15 @@
 # se_project_aroundtheus
 
-This is the 3rd project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
+This is the 5th project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
 
 ## Project features
 
+- modals
 - Semantic HTML5
 - Flexbox
 - Positioning
 - Flat BEM file structure
-- media queries
+- Responsive Design 
 
 ## The Plans on improving this project are
 

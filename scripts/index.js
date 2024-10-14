@@ -19,20 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const imagePath = "./images/card-images/grand-canyon.jpg";
   document.querySelector("#preview-image").src = imagePath;
 
-  // Listen for input events on the link field
   linkInput.addEventListener("input", (event) => {
     const url = event.target.value.trim();
 
-    // Validate and update the preview image
     if (isValidUrl(url)) {
       previewImage.src = url;
-      previewImage.style.display = "block"; // Show the image
+      previewImage.style.display = "block"; 
     } else {
-      previewImage.style.display = "none"; // Hide the image if invalid URL
+      previewImage.style.display = "none"; 
     }
   });
 
-  // Helper function to validate URLs
   function isValidUrl(string) {
     try {
       new URL(string);
@@ -87,30 +84,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     heartButton.addEventListener("click", () => {
-      console.log("Heart clicked!"); // Debugging log
+      console.log("Heart clicked!"); 
       if (heartImage.src.includes("heart.svg")) {
-        heartImage.src = "./images/black_heart.svg"; // Change to black heart
+        heartImage.src = "./images/black_heart.svg"; 
       } else {
-        heartImage.src = "./images/heart.svg"; // Revert to regular heart
+        heartImage.src = "./images/heart.svg";
       }
     });
 
     return cardElement;
   }
 
-  // Render initial cards
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
 
-  // Image modal elements
   const imageModal = document.querySelector("#image-modal");
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
   const closeImageModalButton = imageModal.querySelector("#image-modal-close");
 
-  // Open the image modal with the given data
   function openImageModal(imageSrc, captionText) {
     modalImage.src = imageSrc;
     modalImage.alt = captionText;
@@ -118,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
     imageModal.classList.add("modal_opened");
   }
 
-  // Event delegation to open the image modal when any card image is clicked
   document.body.addEventListener("click", (event) => {
     if (event.target.classList.contains("cards__image")) {
       const imgSrc = event.target.src;
@@ -127,7 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Close the image modal when the close button is clicked
   closeImageModalButton.addEventListener("click", () => {
     imageModal.classList.remove("modal_opened");
   });
@@ -157,12 +149,10 @@ document.addEventListener("DOMContentLoaded", () => {
     addModal.classList.remove("modal_opened");
   });
 
-  // Add form submit logic
   addForm.addEventListener("submit", (event) => {
     event.preventDefault();
     let imagePath = linkInput.value.trim();
 
-    // Handle local path conversion to a valid URL format
     if (!imagePath.startsWith("http") && !imagePath.startsWith("https")) {
       imagePath = `${window.location.origin}/${imagePath.replace("./", "")}`;
       console.log(`Converted local path to URL: ${imagePath}`);
@@ -173,11 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
       link: imagePath,
     };
 
-    // Generate the new card and add it to the container
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
 
-    // Reset the form inputs and hide the preview image
     placeInput.value = "";
     linkInput.value = "";
     previewImage.style.display = "none";

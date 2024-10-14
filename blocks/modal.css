@@ -73,10 +73,10 @@
 
 .modal__caption {
   position: absolute;
-  bottom: -40px; 
-  left: 0; 
+  bottom: -40px;
+  left: 0;
   font-size: 18px;
-  color: white; 
+  color: white;
   padding: 10px 0 0 0;
   margin: 0;
   border-radius: 5px;
@@ -127,8 +127,8 @@
 
 .modal__close-button_image {
   position: absolute;
-  top: -90px; 
-  right: -35px; 
+  top: -90px;
+  right: -35px;
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: 32px;
   border: none;
