@@ -26,6 +26,7 @@
             src="./images/jacques-cousteau.jpg"
             alt="photo-of-jacques-cousteau"
           />
+
           <div class="profile__description">
             <div class="profile__caption">
               <h1 class="profile__name">Jacques Cousteau</h1>
@@ -51,7 +52,7 @@
             <img class="cards__image" alt="" />
             <button class="cards__delete-button" title="Delete Card"></button>
             <div class="cards__footer">
-              <h2 class="cards__title"></h2>
+              <h2 class="cards__title">Place Title</h2>
               <button class="cards__heart" type="button">
                 <img
                   class="cards__heart-image"
@@ -130,6 +131,7 @@
           title="Close"
         ></button>
         <h2 class="modal__title">New Place</h2>
+
         <form class="modal__form" id="add-form" name="card-form">
           <label class="modal__label">
             <input
@@ -137,13 +139,15 @@
               type="text"
               class="modal__input"
               id="place"
-              name="name"
+              name="place"
               placeholder="Title"
               minlength="1"
               maxlength="30"
+              autocomplete="off"
             />
             <span class="modal__error" id="place-error"></span>
           </label>
+
           <label class="modal__label">
             <input
               required
@@ -152,11 +156,25 @@
               id="link"
               name="link"
               placeholder="Image link"
-              value="./images/card-images/grand-canyon.jpg"
               autocomplete="off"
             />
             <span class="modal__error" id="link-error"></span>
           </label>
+
+          <div class="modal__image-preview">
+            <img
+              id="preview-image"
+              src="./images/card-images/grand-canyon.jpg"
+              alt="Preview of New Place"
+              style="
+                display: none;
+                max-width: 100%;
+                height: auto;
+                margin-top: 10px;
+              "
+            />
+          </div>
+
           <button type="submit" class="modal__button">Create</button>
         </form>
       </div>
