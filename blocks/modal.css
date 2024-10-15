@@ -71,14 +71,21 @@
   max-height: 60vh;
 }
 
+.modal__image-preview img {
+  display: none;
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
 .modal__caption {
   position: absolute;
   bottom: -40px;
   left: 0;
   font-size: 18px;
   color: white;
-  padding: 10px 0 0 0;
-  margin: 0;
+  padding: 0;
+  margin: 10px 0px 0px 0px;
   border-radius: 5px;
   text-align: left;
 }
@@ -127,7 +134,7 @@
 
 .modal__close-button_image {
   position: absolute;
-  top: -90px;
+  top: -50px;
   right: -35px;
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: 32px;
