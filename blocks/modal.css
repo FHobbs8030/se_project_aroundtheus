@@ -5,14 +5,14 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none; /* Hidden by default */
+  display: none;
   justify-content: center;
   align-items: center;
   z-index: 10;
 }
 
 .modal_opened {
-  display: flex; /* Show the modal when opened */
+  display: flex;
 }
 
 .modal__container {
@@ -49,46 +49,55 @@
   margin: 0px 36px 36px 35px;
 }
 
-/* Modal container with responsive sizing */
 .modal__container_image {
   position: relative;
-  width: 90%; /* Use 90% of the viewport width */
-  max-width: 600px; /* Ensure it doesn’t grow too large */
-  height: auto; /* Allow height to adjust dynamically */
-  max-height: 80vh; /* Ensure it fits within the viewport height */
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  max-height: 80vh;
   display: flex;
-  flex-direction: column; /* Stack image and caption vertically */
-  /* align-items: center; */
+  flex-direction: column;
   background-color: transparent;
   border-radius: 10px;
   overflow: hidden;
+  padding: 25px; /* Add padding to create space for the button */
 }
 
-/* Image with responsive scaling */
+/* .modal__container_image {
+  position: relative;
+  width: 90%; 
+  max-width: 600px; 
+  height: auto; 
+  max-height: 80vh; 
+  display: flex;
+  flex-direction: column; 
+  background-color: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+} */
+
 .modal__image {
-  width: 100%; /* Image fills the container’s width */
-  height: auto; /* Maintain aspect ratio */
-  max-height: 70vh; /* Ensure it doesn’t overflow the viewport */
-  object-fit: cover; /* Prevent distortion */
+  width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: cover;
   border-radius: 10px;
 }
 
-/* Caption below the image */
 .modal__caption {
-  margin-top: 10px; /* Space between the image and caption */
+  margin-top: 10px;
   color: white;
   font-size: 16px;
-  background-color: transparent; /* Fully transparent background */
-  padding: 0; /* Remove extra padding if not needed */
+  background-color: transparent;
+  padding: 0;
   white-space: nowrap;
-  text-align: left; /* Align the text to the left */
+  text-align: left;
 }
 
-/* Ensure the image fits inside the container */
 .modal__image-wrapper {
   position: relative;
   width: 433px;
-  height: 540px; /* Fixed image height */
+  height: 540px;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -142,8 +151,20 @@
   transition: 0.2s;
 }
 
-/* Close button stays outside, top-right */
 .modal__close-button_image {
+  position: absolute;
+  top: -3px; /* Align perfectly at the top edge */
+  right: -3px; /* Align perfectly at the right edge */
+  background: transparent url("../images/large-close-icon.svg") center no-repeat;
+  background-size: 32px;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+/* .modal__close-button_image {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -154,7 +175,7 @@
   height: 32px;
   cursor: pointer;
   z-index: 3;
-}
+} */
 
 .modal__close-button_image:hover {
   background-color: rgba(0, 0, 0, 0.1);
@@ -162,8 +183,6 @@
   transition: 0.2s;
 }
 
-
-/* Extra Large Devices (Desktops beyond 1280px) */
 @media (min-width: 1281px) {
   .modal__container_image {
     width: 433px;
@@ -175,11 +194,10 @@
   }
 }
 
-/* Large Devices (Desktops) - 1025px to 1280px */
 @media (min-width: 1025px) and (max-width: 1280px) {
   .modal__container_image {
-    width: 600px; /* Fixed size for larger screens */
-    height: 600px; /* Keep height proportional */
+    width: 600px;
+    height: 600px;
   }
 
   .modal__caption {
@@ -188,10 +206,9 @@
   }
 }
 
-/* Medium Devices (Landscape Tablets, Small Laptops) - 769px to 1024px */
 @media (min-width: 769px) and (max-width: 1024px) {
   .modal__container_image {
-    width: 70%; /* Use 70% of the viewport width */
+    width: 70%;
     height: auto;
   }
 
@@ -200,40 +217,38 @@
   }
 
   .modal__caption {
-    width: 70%; /* Adjust to container width */
+    width: 70%;
   }
 }
 
-/* Small Devices (Portrait Tablets) - 481px to 768px */
 @media (min-width: 481px) and (max-width: 768px) {
   .modal__container_image {
-    width: 80%; /* Use 80% of the viewport width */
-    height: auto; /* Let the height adjust */
+    width: 80%;
+    height: auto;
   }
 
   .modal__image {
-    max-height: 60vh; /* Prevent image overflow */
+    max-height: 60vh;
   }
 
   .modal__caption {
-    width: 80%; /* Match container width */
-    font-size: 15px; /* Slightly larger font */
+    width: 80%;
+    font-size: 15px;
   }
 }
 
-/* Extra Small Devices (Mobile) - 320px to 480px */
 @media (max-width: 480px) {
   .modal__container_image {
-    width: 90%; /* Use 90% of the viewport width */
-    height: auto; /* Let the height adjust automatically */
+    width: 90%;
+    height: auto;
   }
 
   .modal__image {
-    max-height: 50vh; /* Ensure image doesn't overflow the screen */
+    max-height: 50vh;
   }
 
   .modal__caption {
-    width: 90%; /* Match container width */
-    font-size: 14px; /* Smaller font size for mobile */
+    width: 90%;
+    font-size: 14px;
   }
 }
