@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (isValidUrl(url)) {
       previewImage.src = url;
-      previewImage.style.display = "block"; 
+      previewImage.style.display = "block";
     } else {
-      previewImage.style.display = "none"; 
+      previewImage.style.display = "none";
     }
   });
 
@@ -84,9 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     heartButton.addEventListener("click", () => {
-      console.log("Heart clicked!"); 
+      console.log("Heart clicked!");
       if (heartImage.src.includes("heart.svg")) {
-        heartImage.src = "./images/black_heart.svg"; 
+        heartImage.src = "./images/black_heart.svg";
       } else {
         heartImage.src = "./images/heart.svg";
       }
