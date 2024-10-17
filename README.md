@@ -1,6 +1,6 @@
 # se_project_aroundtheus
 
-This is the 5th project of the Software Engineering program at TripleTen. It was created using HTML and CSS, based on the design brief.
+This is the final project Sprint 5 of the Software Engineering program at TripleTen. It was created using Modals and java script introductory, based on the design brief.
 
 ## Project features
 
@@ -9,7 +9,7 @@ This is the 5th project of the Software Engineering program at TripleTen. It was
 - Flexbox
 - Positioning
 - Flat BEM file structure
-- Responsive Design 
+- Responsive Design
 
 ## The Plans on improving this project are
 
