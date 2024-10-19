@@ -24,7 +24,7 @@
 }
 
 .cards__delete-button {
-  background: transparent url('../images/trash.svg') center no-repeat;
+  background: transparent url('../images/trash.svg') center no-repeat;;
   border: none;
   padding: 0;
   width: 18px;

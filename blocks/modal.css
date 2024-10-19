@@ -50,34 +50,37 @@
 }
 
 .modal__container_image {
-  position: fixed;
-  width: 100vw;
-  max-width: 600px;
-  height: auto;
-  max-height: 80vh;
   display: flex;
+  justify-content: flex-start; 
+  position: fixed; 
+  margin: 90px 423px 90px 424px;
+  padding: 30px;
+  max-height: 540px;
+  max-width: none;
+  overflow: hidden;
+  height: 100%;
   flex-direction: column;
   background-color: transparent;
   border: none;
+  object-fit: cover; 
   border-radius: 10px;
-  overflow: hidden;
-  padding: 30px;
+  overflow: hidden; 
 }
 
 .modal__image {
-  width: 100%;
-  height: auto;
-  max-height: 70vh;
-  object-fit: cover;
-  border-radius: 10px;
+  position: relative;
+  width: 433px; 
+  height: 540px; 
+  object-fit: cover; 
+  margin: 0;
+  z-index: 2; 
 }
 
 .modal__caption {
-  margin-top: 10px;
   color: white;
   font-size: 16px;
   background-color: transparent;
-  padding: 0;
+  padding: 10px;
   white-space: nowrap;
   text-align: left;
 }
@@ -175,7 +178,7 @@
 }
 
 @media screen and (max-width: 480px) {
- .modal__close-button {
+  .modal__close-button {
     width: 32px;
     height: 32px;
     top: -38px;
