@@ -33,13 +33,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardElement = template.content.cloneNode(true);
     const image = cardElement.querySelector(".cards__image");
     const title = cardElement.querySelector(".cards__title");
+    const deleteButton = cardElement.querySelector(".cards__delete-button");
     const heartButton = cardElement.querySelector(".cards__heart");
 
+    // Set image and title
     image.src = data.link;
     image.alt = data.name;
     title.textContent = data.name;
 
-    // Toggle heart button active state
+    // Delete button functionality
+    deleteButton.addEventListener("click", () => {
+      cardElement.remove(); // Removes the card from the DOM
+    });
+
+    // Heart button toggle functionality
     heartButton.addEventListener("click", () => {
       heartButton.classList.toggle("cards__heart__active");
     });
