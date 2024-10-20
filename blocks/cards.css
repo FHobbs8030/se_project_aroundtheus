@@ -24,7 +24,7 @@
 }
 
 .cards__delete-button {
-  background: transparent url('../images/trash.svg') center no-repeat;;
+  background: transparent url("../images/trash.svg") center no-repeat;
   border: none;
   padding: 0;
   width: 18px;
@@ -62,13 +62,21 @@
 }
 
 .cards__heart {
-  background-color: transparent;
+  background: url("./images/heart.svg") no-repeat center;
+  background-size: cover;
+  width: 24px;
+  height: 24px;
   border: none;
-  padding: 0;
-  margin-right: 20px;
-}
-
-.cards__heart:hover {
-  opacity: 0.5;
   cursor: pointer;
 }
+
+.cards__heart__active {
+  background: url("./images/black_heart.svg") no-repeat center;
+  background-size: cover;
+}
+
+
+ .cards__heart:hover {
+  opacity: 0.5;
+  cursor: pointer;
+} 
