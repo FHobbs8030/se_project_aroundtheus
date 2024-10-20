@@ -29,6 +29,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
+  function getCardElement(data) {
+    const cardElement = template.content.cloneNode(true);
+    const image = cardElement.querySelector(".cards__image");
+    const title = cardElement.querySelector(".cards__title");
+    const heartButton = cardElement.querySelector(".cards__heart");
+
+    image.src = data.link;
+    image.alt = data.name;
+    title.textContent = data.name;
+
+    // Toggle heart button active state
+    heartButton.addEventListener("click", () => {
+      heartButton.classList.toggle("cards__heart__active");
+    });
+
+    return cardElement;
+  }
+
   // Initial cards data
   const initialCards = [
     {
@@ -56,30 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
     },
   ];
-
- function getCardElement(data) {
-   const cardElement = template.content.cloneNode(true);
-   const image = cardElement.querySelector(".cards__image");
-   const title = cardElement.querySelector(".cards__title");
-   const deleteButton = cardElement.querySelector(".cards__delete-button");
-   const heartButton = cardElement.querySelector(".cards__heart");
-
-   image.src = data.link;
-   image.alt = data.name;
-   title.textContent = data.name;
-
-   deleteButton.addEventListener("click", () => {
-     deleteButton.closest(".cards__card").remove();
-   });
-
-   // Toggle heart button active state
-   heartButton.addEventListener("click", () => {
-     heartButton.classList.toggle("cards__heart__active");
-   });
-
-   return cardElement;
- }
-
 
   // Add initial cards to container
   initialCards.forEach((cardData) => {

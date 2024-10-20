@@ -62,10 +62,14 @@
 }
 
 .cards__heart {
-  background: url("./images/heart.svg") no-repeat center;
+  background: url("./images/.cards__heart.svg") no-repeat center;
   background-size: cover;
-  width: 24px;
-  height: 24px;
+  width: 20.76px;
+  height: 18.13px;
+  top: 1024px;
+  left: 1037px;
+  gap: 0px;
+  opacity: 0px;
   border: none;
   cursor: pointer;
 }
@@ -75,8 +79,7 @@
   background-size: cover;
 }
 
-
- .cards__heart:hover {
+.cards__heart:hover {
   opacity: 0.5;
   cursor: pointer;
-} 
+}
