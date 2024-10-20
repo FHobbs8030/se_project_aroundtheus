@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
 
+  // Get the container element
   const cardsContainer = document.querySelector("#cards-container");
+  console.log(cardsContainer); // Should not be null
   const template = document.querySelector("#card-template");
   const editModal = document.querySelector("#edit-modal");
   const addModal = document.querySelector("#add-modal");
@@ -29,26 +31,24 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
+  // Function to generate card element from template
   function getCardElement(data) {
+    // Clone the template content
     const cardElement = template.content.cloneNode(true);
+
+    // Get elements inside the card
     const image = cardElement.querySelector(".cards__image");
     const title = cardElement.querySelector(".cards__title");
     const deleteButton = cardElement.querySelector(".cards__delete-button");
-    const heartButton = cardElement.querySelector(".cards__heart");
 
     // Set image and title
     image.src = data.link;
     image.alt = data.name;
     title.textContent = data.name;
 
-    // Delete button functionality
+    // Add delete functionality
     deleteButton.addEventListener("click", () => {
-      cardElement.remove(); // Removes the card from the DOM
-    });
-
-    // Heart button toggle functionality
-    heartButton.addEventListener("click", () => {
-      heartButton.classList.toggle("cards__heart__active");
+      cardElement.remove();
     });
 
     return cardElement;
@@ -82,11 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  // Add initial cards to container
-  initialCards.forEach((cardData) => {
+initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
+});
 
   // Profile edit form submission
   profileForm.addEventListener("submit", (event) => {
@@ -174,5 +174,4 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch {
       return false;
     }
-  }
-});
+  };
