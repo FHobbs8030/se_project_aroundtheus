@@ -62,20 +62,19 @@
 }
 
 .cards__heart {
-  background: url("./images/.cards__heart.svg") no-repeat center;
+  background: url("../images/heart.svg") no-repeat center;
   background-size: cover;
   width: 20.76px;
   height: 18.13px;
-  top: 1024px;
-  left: 1037px;
-  gap: 0px;
+margin-right: 22px;
+margin-bottom: 24px
   opacity: 0px;
   border: none;
   cursor: pointer;
 }
 
 .cards__heart__active {
-  background: url("./images/black_heart.svg") no-repeat center;
+  background: url("../images/black_heart.svg") no-repeat center;
   background-size: cover;
 }
 
