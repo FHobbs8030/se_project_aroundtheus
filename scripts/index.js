@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Universal functions to open and close modals
+  // Helper function to open and close modals
   function openPopup(popup) {
     popup.classList.add("modal_opened");
   }
@@ -8,48 +8,66 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.classList.remove("modal_opened");
   }
 
-  // Accessing forms using document.forms
+  // Form elements and modal elements
   const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
-
-  // Other variables
+  const cardsContainer = document.querySelector("#cards-container");
+  const template = document.querySelector("#card-template");
+  const profileName = document.querySelector(".profile__name");
+  const profileAboutMe = document.querySelector(".profile__about_me");
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
   const linkInput = document.querySelector("#link");
   const previewImage = document.querySelector("#preview-image");
-  const profileName = document.querySelector(".profile__name");
-  const profileAboutMe = document.querySelector(".profile__about_me");
-
-  // Get the container element
-  const cardsContainer = document.querySelector("#cards-container");
-  console.log(cardsContainer); // Should not be null
-  const template = document.querySelector("#card-template");
   const editModal = document.querySelector("#edit-modal");
   const addModal = document.querySelector("#add-modal");
   const imageModal = document.querySelector("#image-modal");
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
-  // Function to generate card element from template
+  // Ensure cardsContainer and template are found in the DOM
+  if (!cardsContainer || !template) {
+    console.error("Cards container or template not found in the DOM.");
+    return;
+  }
+
+  // Function to generate card element
   function getCardElement(data) {
-    // Clone the template content
     const cardElement = template.content.cloneNode(true);
 
     // Get elements inside the card
     const image = cardElement.querySelector(".cards__image");
     const title = cardElement.querySelector(".cards__title");
     const deleteButton = cardElement.querySelector(".cards__delete-button");
+    const heartButton = cardElement.querySelector(".cards__heart");
 
     // Set image and title
     image.src = data.link;
     image.alt = data.name;
     title.textContent = data.name;
 
-    // Add delete functionality
-    deleteButton.addEventListener("click", () => {
-      cardElement.remove();
-    });
+    // Add delete button functionality
+    if (deleteButton) {
+      deleteButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevents image modal from opening
+        console.log("Delete button clicked"); // Debugging line
+        cardElement.remove(); // Removes the card from the DOM
+      });
+    } else {
+      console.warn("Delete button not found in the template.");
+    }
+
+    // Add heart button toggle functionality
+    if (heartButton) {
+      heartButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevents image modal from opening
+        console.log("Heart button clicked"); // Debugging line
+        heartButton.classList.toggle("cards__heart__active");
+      });
+    } else {
+      console.warn("Heart button not found in the template.");
+    }
 
     return cardElement;
   }
@@ -82,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-initialCards.forEach((cardData) => {
+  // Render initial cards
+  initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
-});
 
   // Profile edit form submission
   profileForm.addEventListener("submit", (event) => {
@@ -142,13 +160,14 @@ initialCards.forEach((cardData) => {
       openPopup(addModal);
     });
 
-  // Close modals
+  // Close add modal
   document
     .querySelector("#add-modal .modal__close-button")
     .addEventListener("click", () => {
       closePopup(addModal);
     });
 
+  // Close edit modal
   document
     .querySelector("#edit-modal .modal__close-button")
     .addEventListener("click", () => {
@@ -174,4 +193,5 @@ initialCards.forEach((cardData) => {
     } catch {
       return false;
     }
-  };
+  }
+});
