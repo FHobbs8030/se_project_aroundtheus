@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Helper function to open and close modals
+  // Helper functions to open and close modals
   function openPopup(popup) {
     popup.classList.add("modal_opened");
   }
@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to generate card element
   function getCardElement(data) {
-    const cardElement = template.content.cloneNode(true);
+    // Clone the template content
+    const cardElement = template.content.cloneNode(true).firstElementChild;
 
     // Get elements inside the card
     const image = cardElement.querySelector(".cards__image");
@@ -48,26 +49,22 @@ document.addEventListener("DOMContentLoaded", () => {
     title.textContent = data.name;
 
     // Add delete button functionality
-    if (deleteButton) {
-      deleteButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevents image modal from opening
-        console.log("Delete button clicked"); // Debugging line
+    deleteButton.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevents modal from opening
+      console.log("Delete button clicked");
+      if (cardElement && cardElement.remove) {
         cardElement.remove(); // Removes the card from the DOM
-      });
-    } else {
-      console.warn("Delete button not found in the template.");
-    }
+      } else if (cardElement.parentNode) {
+        cardElement.parentNode.removeChild(cardElement); // Fallback method
+      }
+    });
 
     // Add heart button toggle functionality
-    if (heartButton) {
-      heartButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevents image modal from opening
-        console.log("Heart button clicked"); // Debugging line
-        heartButton.classList.toggle("cards__heart__active");
-      });
-    } else {
-      console.warn("Heart button not found in the template.");
-    }
+    heartButton.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevents modal from opening
+      console.log("Heart button clicked");
+      heartButton.classList.toggle("cards__heart__active");
+    });
 
     return cardElement;
   }
@@ -160,14 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
       openPopup(addModal);
     });
 
-  // Close add modal
+  // Close add card modal
   document
     .querySelector("#add-modal .modal__close-button")
     .addEventListener("click", () => {
       closePopup(addModal);
     });
 
-  // Close edit modal
+  // Close profile edit modal
   document
     .querySelector("#edit-modal .modal__close-button")
     .addEventListener("click", () => {
