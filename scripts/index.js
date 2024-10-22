@@ -34,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to generate card element
   function getCardElement(data) {
-    // Clone the template content
     const cardElement = template.content.cloneNode(true).firstElementChild;
 
     // Get elements inside the card
@@ -52,11 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation(); // Prevents modal from opening
       console.log("Delete button clicked");
-      if (cardElement && cardElement.remove) {
-        cardElement.remove(); // Removes the card from the DOM
-      } else if (cardElement.parentNode) {
-        cardElement.parentNode.removeChild(cardElement); // Fallback method
-      }
+      cardElement.remove(); // Removes the card from the DOM
     });
 
     // Add heart button toggle functionality
@@ -114,12 +109,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add card form submission
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const newPlace = {
       name: placeInput.value || "Grand Canyon",
       link: linkInput.value.trim(),
     };
+
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
+
     placeInput.value = "";
     linkInput.value = "";
     previewImage.style.display = "none";
