@@ -94,7 +94,7 @@
 }
 
 .modal__image-preview img {
-  display: none;
+  display: block;
   max-width: 100%;
   height: auto;
   margin-top: 10px;

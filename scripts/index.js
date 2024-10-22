@@ -32,6 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
+  // URL input validation for preview
+  linkInput.addEventListener("input", (event) => {
+    const url = event.target.value.trim();
+
+    if (isValidUrl(url)) {
+      previewImage.src = url;
+      previewImage.classList.add("modal__image-preview-img_visible");
+    } else {
+      previewImage.classList.remove("modal__image-preview-img_visible");
+    }
+  });
+
   // Function to generate card element
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
