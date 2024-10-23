@@ -144,6 +144,26 @@
 
 .modal__close-button_image {
   position: absolute;
+  top: 5px; /* Adjusted for improved visibility */
+  right: 5px; /* Adjusted for improved visibility */
+  background: transparent url("../images/large-close-icon.svg") center no-repeat;
+  background-size: 32px;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.modal__close-button_image:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  transition: 0.2s;
+}
+
+
+/* .modal__close-button_image {
+  position: absolute;
   top: -5px;
   right: -5px;
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
@@ -159,7 +179,7 @@
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   transition: 0.2s;
-}
+} */
 
 @media screen and (max-width: 595px) {
   .modal__container {
