@@ -8,6 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.classList.remove("modal_opened");
   }
 
+  // Further code logic goes here...
+});
+
+
+  function closePopup(popup) {
+    popup.classList.remove("modal_opened");
+  }
+
+  // Find all close buttons
+  const closeButtons = document.querySelectorAll(".modal__close");
+
+  closeButtons.forEach((button) => {
+    // Find the closest popup only once
+    const popup = button.closest(".modal");
+    // Set the listener
+    button.addEventListener("click", () => closePopup(popup));
+  });
+
   // Form elements and modal elements
   const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
@@ -110,14 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsContainer.appendChild(cardElement);
   });
 
-  // Profile edit form submission
-  profileForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileAboutMe.textContent = aboutMeInput.value;
-    closePopup(editModal);
-  });
-
   // Add card form submission
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -130,10 +140,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
 
-    placeInput.value = "";
-    linkInput.value = "";
-    previewImage.style.display = "none";
-    closePopup(addModal);
+    // Reset the form using the reset method
+    event.target.reset();
+    previewImage.style.display = "none"; // Hide the preview image
+    closePopup(addModal); // Use closePopup here
+  });
+
+  // Profile edit form submission
+  profileForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileAboutMe.textContent = aboutMeInput.value;
+
+    // Reset the form using the reset method
+    event.target.reset();
+    closePopup(editModal); // Use closePopup here
   });
 
   // Image modal setup
@@ -161,44 +182,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   // Open add card modal
-  document
-    .querySelector(".profile__add-button")
-    .addEventListener("click", () => {
-      openPopup(addModal);
-    });
-
-  // Close add card modal
-  document
-    .querySelector("#add-modal .modal__close-button")
-    .addEventListener("click", () => {
-      closePopup(addModal);
-    });
-
-  // Close profile edit modal
-  document
-    .querySelector("#edit-modal .modal__close-button")
-    .addEventListener("click", () => {
-      closePopup(editModal);
-    });
-
-  // URL input validation for preview
-  linkInput.addEventListener("input", (event) => {
-    const url = event.target.value.trim();
-    if (isValidUrl(url)) {
-      previewImage.src = url;
-      previewImage.style.display = "block";
-    } else {
-      previewImage.style.display = "none";
-    }
+document
+  .querySelector(".profile__add-button")
+  .addEventListener("click", () => {
+    openPopup(addModal);
   });
 
-  // Helper function to check if a URL is valid
-  function isValidUrl(string) {
-    try {
-      new URL(string);
-      return true;
-    } catch {
-      return false;
-    }
+// URL input validation for preview
+linkInput.addEventListener("input", (event) => {
+  const url = event.target.value.trim();
+  if (isValidUrl(url)) {
+    previewImage.src = url;
+    previewImage.style.display = "block";
+  } else {
+    previewImage.style.display = "none";
   }
 });
+
+// Helper function to check if a URL is valid
+function isValidUrl(string) {
+  try {
+    new URL(string);
+    return true;
+  } catch {
+    return false;
+  }
+}
