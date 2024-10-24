@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Helper functions
   function openPopup(popup) {
     popup.classList.add("modal_opened");
   }
@@ -8,14 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.classList.remove("modal_opened");
   }
 
-  // Find all close buttons
   const closeButtons = document.querySelectorAll(".modal__close");
   closeButtons.forEach((button) => {
     const popup = button.closest(".modal");
     button.addEventListener("click", () => closePopup(popup));
   });
 
-  // Form elements and modal elements
   const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
   const cardsContainer = document.querySelector("#cards-container");
@@ -33,13 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
-  // Ensure cardsContainer and template are found in the DOM
   if (!cardsContainer || !template) {
     console.error("Cards container or template not found in the DOM.");
-    return; // Stop execution if not found
+    return; 
   }
 
-  // URL input validation for preview
   linkInput.addEventListener("input", (event) => {
     const url = event.target.value.trim();
     if (isValidUrl(url)) {
@@ -50,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Function to create card element
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
 
@@ -59,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteButton = cardElement.querySelector(".cards__delete-button");
     const heartButton = cardElement.querySelector(".cards__heart");
 
-    // Set image and title
     image.src = data.link;
     image.alt = data.name;
     title.textContent = data.name;
@@ -67,14 +60,12 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("Creating card:", data);
     console.log("Image source:", image.src);
 
-    // Add delete button functionality
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log("Delete button clicked");
       cardElement.remove();
     });
 
-    // Add heart button toggle functionality
     heartButton.addEventListener("click", (event) => {
       event.stopPropagation();
       console.log("Heart button clicked");
@@ -84,7 +75,6 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
-  // Initial cards data
   const initialCards = [
     {
       name: "Yosemite Valley",
@@ -114,11 +104,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
-    console.log(cardElement); // Log the card element to the console
+    console.log(cardElement); 
     cardsContainer.appendChild(cardElement);
   });
 
-  // Add card form submission
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -130,24 +119,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
 
-    // Reset the form using the reset method
     event.target.reset();
-    previewImage.style.display = "none"; // Hide the preview image
-    closePopup(addModal); // Use closePopup here
+    previewImage.style.display = "none"; 
+    closePopup(addModal); 
   });
 
-  // Profile edit form submission
   profileForm.addEventListener("submit", (event) => {
     event.preventDefault();
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
 
-    // Reset the form using the reset method
     event.target.reset();
-    closePopup(editModal); // Use closePopup here
+    closePopup(editModal); 
   });
 
-  // Open profile edit modal
   document
     .querySelector(".profile__edit-button")
     .addEventListener("click", () => {
@@ -156,14 +141,12 @@ document.addEventListener("DOMContentLoaded", () => {
       openPopup(editModal);
     });
 
-  // Open add card modal
   document
     .querySelector(".profile__add-button")
     .addEventListener("click", () => {
       openPopup(addModal);
     });
 
-  // Image modal setup
   cardsContainer.addEventListener("click", (event) => {
     if (event.target.classList.contains("cards__image")) {
       modalImage.src = event.target.src;
@@ -178,7 +161,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(imageModal);
   });
 
-  // URL input validation for preview
   linkInput.addEventListener("input", (event) => {
     const url = event.target.value.trim();
     if (isValidUrl(url)) {
@@ -190,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Helper function to check if a URL is valid
 function isValidUrl(string) {
   try {
     new URL(string);
