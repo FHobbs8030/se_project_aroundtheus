@@ -147,21 +147,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(editModal); // Use closePopup here
   });
 
-  // Image modal setup
-  cardsContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("cards__image")) {
-      modalImage.src = event.target.src;
-      modalImage.alt = event.target.alt;
-      modalCaption.textContent = event.target.alt;
-      openPopup(imageModal);
-    }
-  });
-
-  // Close image modal
-  document.querySelector("#image-modal-close").addEventListener("click", () => {
-    closePopup(imageModal);
-  });
-
   // Open profile edit modal
   document
     .querySelector(".profile__edit-button")
@@ -177,6 +162,21 @@ document.addEventListener("DOMContentLoaded", () => {
     .addEventListener("click", () => {
       openPopup(addModal);
     });
+
+  // Image modal setup
+  cardsContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cards__image")) {
+      modalImage.src = event.target.src;
+      modalImage.alt = event.target.alt;
+      modalCaption.textContent = event.target.alt;
+      openPopup(imageModal);
+    }
+  });
+
+  document.querySelector("#image-modal-close").addEventListener("click", () => {
+    console.log("Image modal close button clicked");
+    closePopup(imageModal);
+  });
 
   // URL input validation for preview
   linkInput.addEventListener("input", (event) => {

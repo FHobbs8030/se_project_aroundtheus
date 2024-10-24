@@ -82,7 +82,7 @@
   color: white;
   font-size: 16px;
   background-color: transparent;
-  padding: 10px;
+  padding: 10px 0px 10px 0px;
   white-space: nowrap;
   text-align: left;
   margin: 0;
@@ -129,14 +129,15 @@
 .modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: 40px;
+  top: -35px;
+  right: -35px;
+  height: 32px;
+  width: 32px;
   border: none;
   position: absolute;
   display: block;
-  height: 32px;
-  width: 32px;
   cursor: pointer;
-  top: -35px;
-  right: -35px;
+  z-index: 5;
 }
 
 .modal__close-button:hover {
