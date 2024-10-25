@@ -7,11 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
     popup.classList.remove("modal_opened");
   }
 
-  const closeButtons = document.querySelectorAll(".modal__close");
+  const closeButtons = document.querySelectorAll(".modal__close-button");
   closeButtons.forEach((button) => {
     const popup = button.closest(".modal");
     button.addEventListener("click", () => closePopup(popup));
   });
+
 
   const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
