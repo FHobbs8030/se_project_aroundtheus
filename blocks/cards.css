@@ -63,18 +63,17 @@
 
 .cards__heart {
   background: url("../images/heart.svg") no-repeat center;
-  background-size: cover;
-  width: 20.76px;
-  height: 18.13px;
+  width: 32px;
+  height: 32px;
   border: none;
   margin-top: 31px;
   margin-right: 22.24px;
   margin-bottom: 29.87px;
+  cursor: pointer;
 }
 
 .cards__heart__active {
   background: url("../images/black_heart.svg") no-repeat center;
-  background-size: cover;
 }
 
 .cards__heart:hover {
