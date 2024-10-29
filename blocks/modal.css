@@ -70,7 +70,7 @@
   position: fixed;
   width: 433px;
   margin: 90px 424px 90px 423px;
-  padding: 30px;
+  padding: 35px;
   max-height: 540px;
   max-width: none;
   overflow: hidden;
@@ -86,7 +86,7 @@
   position: relative;
   width: 433px;
   height: 540px;
-  max-width: 90%;
+  max-width: 100%;
   max-height: 80vh;
   object-fit: cover;
   margin: 0;
@@ -97,7 +97,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%; /* Ensure it takes full width */
+  width: 100%;
   color: white;
   font-size: 16px;
   background-color: transparent;
@@ -172,13 +172,13 @@
 
 .modal__close-button_image {
   position: absolute;
-  top: -5px;
-  right: 35px;
+  top: -2px;
+  right: -2px;
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: 32px;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
   z-index: 3;
 }
