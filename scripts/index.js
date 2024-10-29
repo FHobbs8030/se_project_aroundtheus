@@ -128,9 +128,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
 
-    event.target.reset();
-    previewImage.style.display = "none";
-    closePopup(addModal);
+    // event.target.reset();
+    // previewImage.style.display = "none";
+    // closePopup(addModal);
   });
 
   profileForm.addEventListener("submit", (event) => {
