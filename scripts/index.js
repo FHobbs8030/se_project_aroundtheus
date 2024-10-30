@@ -28,26 +28,32 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "Yosemite Valley",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+      alt: "Yosemite Valley",
     },
     {
       name: "Lake Louise",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+      alt: "Lake Louise",
     },
     {
       name: "Bald Mountains",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+      alt: "Bald Mountains",
     },
     {
       name: "Latemar",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+      alt: "Latemar",
     },
     {
       name: "Vanoise National Park",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+      alt: "Vanoise National Park",
     },
     {
       name: "Lago di Braies",
       link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+      alt: "Lago di Braies",
     },
   ];
 
@@ -83,9 +89,18 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(addModal);
   });
 
-  closeImageModalButton.addEventListener("click", () => {
-    closePopup(imageModal);
-  });
+closeImageModalButton.addEventListener("click", () => {
+  const modalImage = imageModal.querySelector(".modal__image");
+  const modalCaption = imageModal.querySelector(".modal__caption");
+
+  // Clear the modal image source and alt attribute
+  modalImage.src = "";
+  modalImage.alt = ""; // Ensure alt is cleared
+  modalCaption.textContent = ""; // Clear the caption
+
+  closePopup(imageModal);
+});
+
 
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
@@ -138,17 +153,18 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(editModal);
   });
 
-  cardsContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("cards__image")) {
-      const modalImage = imageModal.querySelector(".modal__image");
-      const modalCaption = imageModal.querySelector(".modal__caption");
+cardsContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("cards__image")) {
+    const modalImage = imageModal.querySelector(".modal__image");
+    const modalCaption = imageModal.querySelector(".modal__caption");
 
-      modalImage.src = event.target.src;
-      modalImage.alt = event.target.alt;
-      modalCaption.textContent = event.target.alt;
-      openPopup(imageModal);
-    }
-  });
+    // Update the modal image source and alt text
+    modalImage.src = event.target.src;
+    modalImage.alt = event.target.alt || ""; // Set the alt attribute correctly
+    modalCaption.textContent = event.target.alt || ""; // Set the caption
+    openPopup(imageModal);
+  }
+});
 });
 
 function isValidUrl(string) {
