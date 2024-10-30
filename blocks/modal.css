@@ -20,7 +20,7 @@
 .modal__container {
   background-color: #ffffff;
   width: 430px;
-  max-height: 330px;
+  max-height: 540px;
   display: flex;
   justify-content: center;
   align-items: start;
@@ -98,8 +98,8 @@
 }
 
 .modal__image {
-    max-width: 75vw;
-    max-height: 75vh;
+  max-width: 75vw;
+  max-height: 75vh;
   /* object-fit: cover; */
 }
 

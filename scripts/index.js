@@ -89,18 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(addModal);
   });
 
-closeImageModalButton.addEventListener("click", () => {
-  const modalImage = imageModal.querySelector(".modal__image");
-  const modalCaption = imageModal.querySelector(".modal__caption");
+  closeImageModalButton.addEventListener("click", () => {
+    const modalImage = imageModal.querySelector(".modal__image");
+    const modalCaption = imageModal.querySelector(".modal__caption");
 
-  // Clear the modal image source and alt attribute
-  modalImage.src = "";
-  modalImage.alt = ""; // Ensure alt is cleared
-  modalCaption.textContent = ""; // Clear the caption
+    // Clear the modal image source and alt attribute
+    modalImage.src = "";
+    modalImage.alt = ""; // Ensure alt is cleared
+    modalCaption.textContent = ""; // Clear the caption
 
-  closePopup(imageModal);
-});
-
+    closePopup(imageModal);
+  });
 
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
@@ -153,18 +152,18 @@ closeImageModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
-cardsContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("cards__image")) {
-    const modalImage = imageModal.querySelector(".modal__image");
-    const modalCaption = imageModal.querySelector(".modal__caption");
+  cardsContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cards__image")) {
+      const modalImage = imageModal.querySelector(".modal__image");
+      const modalCaption = imageModal.querySelector(".modal__caption");
 
-    // Update the modal image source and alt text
-    modalImage.src = event.target.src;
-    modalImage.alt = event.target.alt || ""; // Set the alt attribute correctly
-    modalCaption.textContent = event.target.alt || ""; // Set the caption
-    openPopup(imageModal);
-  }
-});
+      // Update the modal image source and alt text
+      modalImage.src = event.target.src;
+      modalImage.alt = event.target.alt || ""; // Set the alt attribute correctly
+      modalCaption.textContent = event.target.alt || ""; // Set the caption
+      openPopup(imageModal);
+    }
+  });
 });
 
 function isValidUrl(string) {
