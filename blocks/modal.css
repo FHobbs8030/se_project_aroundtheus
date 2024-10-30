@@ -95,15 +95,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90%;
-  max-height: 80vh;
-  padding: 35px;
-  background-color: transparent;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .modal__image {
@@ -162,7 +153,6 @@
   opacity: 0.6;
   transition: 0.2s;
 }
-
 .modal__close-button_image {
   position: absolute;
   top: -5px;
