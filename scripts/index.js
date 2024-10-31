@@ -1,9 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const imageModal = document.querySelector("#image-modal");
+  const modalImage = imageModal.querySelector(".modal__image");
+  const modalCaption = imageModal.querySelector(".modal__caption");
+
   const cardsContainer = document.querySelector("#cards-container");
+  cardsContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("cards__image")) {
+      modalImage.src = event.target.src;
+      modalImage.alt = event.target.alt || "";
+      modalCaption.textContent = event.target.alt || "";
+
+      openPopup(imageModal);
+    }
+  });
+
   const template = document.querySelector("#card-template");
   const editModal = document.querySelector("#edit-modal");
   const addModal = document.querySelector("#add-modal");
-  const imageModal = document.querySelector("#image-modal");
 
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const openAddModalButton = document.querySelector(".profile__add-button");
@@ -20,8 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
-  const modalImage = imageModal.querySelector(".modal__image");
-  const modalCaption = imageModal.querySelector(".modal__caption");
 
   const initialCards = [
     {
@@ -57,25 +68,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function openPopup(popup) {
-    popup.classList.remove("modal_hidden"); 
-    popup.classList.add("modal_open"); 
+    popup.classList.remove("modal_hidden");
+    popup.classList.add("modal_open");
   }
 
   function closePopup(popup) {
-    popup.classList.remove("modal_open"); 
-    popup.classList.add("modal_hidden"); 
-
-    popup.addEventListener(
-      "transitionend",
-      () => {
-        if (!popup.classList.contains("modal_open")) {
-          popup.classList.remove("modal_hidden");
-        }
-      },
-      { once: true }
-    );
+    popup.classList.remove("modal_open");
+    popup.classList.add("modal_hidden");
   }
-
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
@@ -145,9 +145,16 @@ document.addEventListener("DOMContentLoaded", () => {
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    // Validate the URL before creating a new card
+    const link = linkInput.value.trim();
+    if (!isValidUrl(link)) {
+      alert("Please enter a valid URL.");
+      return;
+    }
+
     const newPlace = {
       name: placeInput.value || "Grand Canyon",
-      link: linkInput.value.trim(),
+      link: link,
     };
 
     const newCardElement = getCardElement(newPlace);
@@ -162,26 +169,13 @@ document.addEventListener("DOMContentLoaded", () => {
     event.target.reset();
     closePopup(editModal);
   });
-});
 
-cardsContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("cards__image")) {
-    const modalImage = imageModal.querySelector(".modal__image");
-    const modalCaption = imageModal.querySelector(".modal__caption");
-
-    modalImage.src = event.target.src;
-    modalImage.alt = event.target.alt || "";
-    modalCaption.textContent = event.target.alt || "";
-
-    openPopup(imageModal);
+  function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch {
+      return false;
+    }
   }
 });
-
-function isValidUrl(string) {
-  try {
-    new URL(string);
-    return true;
-  } catch {
-    return false;
-  }
-}
