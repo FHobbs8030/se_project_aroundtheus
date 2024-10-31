@@ -213,10 +213,12 @@
     z-index: 1000;
   }
 
-  .modal__image {
-    width: 433px;
-    height: 540px;
-  }
+.modal__image {
+  width: 240px;
+  height: 299px;
+  max-width: 75vw;
+  max-height: 75vh;
+}
 
   .modal__close-button_image {
     position: absolute;
