@@ -57,15 +57,14 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function openPopup(popup) {
-    popup.classList.remove("modal_hidden"); // Remove hidden class, if present
-    popup.classList.add("modal_open"); // Add open class
+    popup.classList.remove("modal_hidden"); 
+    popup.classList.add("modal_open"); 
   }
 
   function closePopup(popup) {
-    popup.classList.remove("modal_open"); // Remove open class
-    popup.classList.add("modal_hidden"); // Add hidden class for fade-out effect
+    popup.classList.remove("modal_open"); 
+    popup.classList.add("modal_hidden"); 
 
-    // Optional: Set display to none after transition ends
     popup.addEventListener(
       "transitionend",
       () => {
