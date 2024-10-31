@@ -71,35 +71,44 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 600);
   }
 
+closeEditModalButton.addEventListener("click", () => {
+  closePopup(editModal);
+});
+
   openEditModalButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
   });
 
-  openAddModalButton.addEventListener("click", () => {
-    openPopup(addModal);
-  });
-
-  closeEditModalButton.addEventListener("click", () => {
-    closePopup(editModal);
-  });
-
   closeAddModalButton.addEventListener("click", () => {
+    // Clear the input fields
+    placeInput.value = "";
+    linkInput.value = "";
+
     closePopup(addModal);
   });
 
-  closeImageModalButton.addEventListener("click", () => {
-    const modalImage = imageModal.querySelector(".modal__image");
-    const modalCaption = imageModal.querySelector(".modal__caption");
+  openAddModalButton.addEventListener("click", () => {
+    // Clear the input fields when opening the modal as well, to be extra safe
+    placeInput.value = "";
+    linkInput.value = "";
 
-    // Clear the modal image source and alt attribute
-    modalImage.src = "";
-    modalImage.alt = ""; // Ensure alt is cleared
-    modalCaption.textContent = ""; // Clear the caption
-
-    closePopup(imageModal);
+    openPopup(addModal);
   });
+
+
+closeImageModalButton.addEventListener("click", () => {
+  const modalImage = imageModal.querySelector(".modal__image");
+  const modalCaption = imageModal.querySelector(".modal__caption");
+
+  // Clear the modal image source, alt attribute, and caption text
+  modalImage.src = "";
+  modalImage.alt = "";
+  modalCaption.textContent = ""; // Clear the caption here
+
+  closePopup(imageModal);
+});
 
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;

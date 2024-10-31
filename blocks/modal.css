@@ -158,11 +158,16 @@
   position: absolute;
   top: -5px;
   right: -5px;
+  /* top: 41px;
+  left: 878.28px; */
+  width: 40px;
+  height: 40px;
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: 32px;
   border: none;
-  width: 40px;
-  height: 40px;
+  gap: 0px;
+  opacity: 0px;
+  angle: -45 deg;
   cursor: pointer;
   z-index: 3;
 }
@@ -212,9 +217,9 @@
   }
 
   .modal__image {
-  width: 433px;
-  height: 540px;
-}
+    width: 433px;
+    height: 540px;
+  }
 
   .modal__close-button_image {
     position: absolute;
