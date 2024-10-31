@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    // Validate the URL before creating a new card
     const link = linkInput.value.trim();
     if (!isValidUrl(link)) {
       alert("Please enter a valid URL.");
@@ -159,6 +158,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
+
+    placeInput.value = "";
+    linkInput.value = "";
   });
 
   profileForm.addEventListener("submit", (event) => {
@@ -171,11 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function isValidUrl(string) {
-    try {
-      new URL(string);
-      return true;
-    } catch {
-      return false;
-    }
+    const pattern =
+      /^(https?:\/\/|\/|\.\/|\.\.\/)?[\w\-]+(\.[\w\-]+)*(\.[a-z]+)?(\/[\w\-./?%&=]*)?$/i;
+    return pattern.test(string);
   }
 });
