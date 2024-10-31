@@ -57,18 +57,26 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   function openPopup(popup) {
-    popup.style.display = "flex";
-    setTimeout(() => {
-      popup.classList.add("modal_opened");
-    }, 20);
+    popup.classList.remove("modal_hidden"); // Remove hidden class, if present
+    popup.classList.add("modal_open"); // Add open class
   }
 
   function closePopup(popup) {
-    popup.classList.remove("modal_opened");
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 600);
+    popup.classList.remove("modal_open"); // Remove open class
+    popup.classList.add("modal_hidden"); // Add hidden class for fade-out effect
+
+    // Optional: Set display to none after transition ends
+    popup.addEventListener(
+      "transitionend",
+      () => {
+        if (!popup.classList.contains("modal_open")) {
+          popup.classList.remove("modal_hidden");
+        }
+      },
+      { once: true }
+    );
   }
+
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
