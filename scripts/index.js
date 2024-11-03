@@ -161,15 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     placeInput.value = "";
     linkInput.value = "";
-  });
 
-  profileForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    profileName.textContent = nameInput.value;
-    profileAboutMe.textContent = aboutMeInput.value;
-
-    event.target.reset();
-    closePopup(editModal);
+    closePopup(addModal);
   });
 
   function isValidUrl(string) {
