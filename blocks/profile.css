@@ -16,12 +16,12 @@
   border-radius: 50%;
 }
 
-.profile__description {
+/* .profile__description {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   min-width: 0;
-}
+} */
 
 .profile__caption {
   display: flex;
@@ -104,7 +104,7 @@
   }
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 620px) {
   .profile {
     padding: 0;
     margin: 42px 19px 36px 19px;
@@ -123,6 +123,7 @@
 
   .profile__caption {
     padding-top: 26.25px;
+    max-height: 26.63px;
   }
 
   .profile__image {
@@ -136,6 +137,10 @@
     line-height: 26.63px;
     text-align: center;
     padding: 0;
+  }
+
+  .profile__about_me {
+    text-align: left;
   }
 
   .profile__profession {
@@ -158,9 +163,16 @@
   }
 }
 
-@media screen and (max-width: 488px) {
+@media screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
+  }
+
+  .profile__description {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    min-width: 0;
   }
 
   .profile__add-button {

@@ -18,25 +18,19 @@
   }
 }
 
-@media screen and (max-width: 595px) {
+@media screen and (max-width: 620px) {
   .footer__title {
     font-size: 14px;
     line-height: 17px;
   }
 }
 
-@media screen and (max-width: 488px) {
-  .footer {
-    max-width: 282px;
-  }
-}
-
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 480px) {
   .footer {
     max-width: 282px;
   }
 
   .footer__title {
-    margin: 0px 19px 0px 19px;
+    margin: 0;
   }
 }
