@@ -40,6 +40,11 @@
   transition: all 0.6s ease;
 }
 
+.modal__image {
+  width: 433px;
+  height: 540px;
+}
+
 .modal__title {
   width: 330px;
   height: 23px;
@@ -99,11 +104,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 433px;
-  height: 540px;
-}
-
-.modal__image {
   width: 433px;
   height: 540px;
 }
