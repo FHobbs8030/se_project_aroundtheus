@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
   const editModal = document.getElementById("edit-modal");
+  const editForm = document.forms["edit-form"];
 
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
+
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
@@ -160,6 +162,8 @@ document.addEventListener("DOMContentLoaded", () => {
     openPopup(editModal);
   });
 
+
+
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
@@ -175,6 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
     linkInput.value = "";
     closePopup(addModal);
   });
+
+    editForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+    profileName.textContent = nameInput.value;
+    profileAboutMe.textContent = aboutMeInput.value;
+
+      closePopup(editModal);
+    });
 
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
