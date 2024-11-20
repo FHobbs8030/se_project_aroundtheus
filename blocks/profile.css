@@ -70,7 +70,7 @@
   flex-shrink: 0;
   padding: 10px;
   cursor: pointer;
-  margin: 20px auto;
+  margin: 20px 20px 20px 0px;
 }
 
 .profile__add-button:hover {
@@ -102,7 +102,7 @@
 @media screen and (max-width: 900px) {
   .profile {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
   }
 
@@ -125,6 +125,7 @@
 
 @media screen and (max-width: 620px) {
   .profile {
+    width: 95%;
     padding: 0;
     margin: 42px 19px 36px 19px;
   }
@@ -171,6 +172,7 @@
 @media screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
+    margin: 24px 0px 0px 0px;
   }
 
   .profile__description {
@@ -183,5 +185,17 @@
   .profile__add-button {
     width: 282px;
     margin: 36px 0px 0px 0px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__name {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
+  .profile__profession {
+    font-size: 12px;
+    line-height: 14.52px;
   }
 }
