@@ -27,6 +27,8 @@
 }
 
 .modal__container {
+  position: relative;
+  top: 62px;
   background-color: #ffffff;
   width: 430px;
   max-height: 540px;
@@ -145,7 +147,7 @@
   line-height: 21.78px;
   text-align: center;
   align-self: center;
-  margin: 24px 36px 36.51px 36px;
+  margin: 24px 36px .51px 36px;
   padding: 0px;
   background-color: #000000;
   color: #ffffff;
