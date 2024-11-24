@@ -9,7 +9,7 @@ html {
   flex-direction: column;
   align-items: center;
   background: #000;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   font-family: "Inter", Arial, sans-serif;
   font-style: normal;
@@ -17,7 +17,7 @@ html {
 
 .page__content {
   margin: 0 auto;
-  max-width: 880px;
+  max-width: 100%;
   color: #fff;
 }
 
@@ -36,22 +36,22 @@ html {
 
 @media screen and (max-width: 480px) {
   .page__content {
-    max-width: 282px;
+    max-width: 100%;
     margin: 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .page {
+  /* .page {
      margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
+  } */
 
   .page__content {
-    max-width: 320px;
+    max-width: 100%;
     margin: 0;
   }
 }
