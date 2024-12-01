@@ -1,13 +1,13 @@
-/* body,
+body,
 html {
   margin: 0;
   padding: 0;
-} */
+}
 
 .page {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-self: center;
   background: #000;
   max-width: 100%;
   margin: 0 auto;
@@ -21,37 +21,49 @@ html {
   color: #fff;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
+  .page {
+    /* margin: 0; */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center all child elements vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
+
   .page__content {
-    max-width: 900px;
+    margin: auto 0;
+    max-width: 75%;
   }
 }
 
 @media screen and (max-width: 620px) {
-  .page__content {
-    max-width: 585px;
-    margin: 0 10px 0px 10px;
+  page__content {
+    /* max-width: 100%; */
+    /* margin: 0; */
   }
 }
 
 @media screen and (max-width: 480px) {
   .page__content {
-    max-width: 100%;
-    margin: 0;
+    /* max-width: 100%; */
+    /* margin: 0; */
+    align-self: center;
   }
 }
 
 @media screen and (max-width: 320px) {
-  /* .page {
-     margin: 0;
+  .page {
+    margin: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  } */
+    flex-direction: column; /* Ensure vertical stacking */
+    justify-content: center; /* Center all child elements horizontally */
+    align-items: center; /* Center all child elements vertically */
+    min-height: 100vh; /* Ensure full viewport height */
+  }
 
   .page__content {
-    max-width: 100%;
-    margin: 0;
+    /* max-width: 100%; */
+    /* margin: 0 auto; */
+    align-self: center;
   }
 }
