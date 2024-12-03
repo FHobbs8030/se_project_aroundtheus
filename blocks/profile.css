@@ -181,25 +181,6 @@
   }
 }
 
-@media screen and (max-width: 480px) {
-  .profile {
-    flex-direction: column;
-    margin: 24px 0px 0px 0px;
-  }
-
-  .profile__description {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    min-width: 0;
-  }
-
-  .profile__add-button {
-    width: 282px;
-    margin: 36px 0px 0px 20px;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .profile__name {
     font-size: 18px;
