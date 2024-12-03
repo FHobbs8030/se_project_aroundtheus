@@ -155,9 +155,9 @@
 }
 
 @media screen and (max-width: 620px) {
-  .modal__image {
+  /* .modal__image {
     max-height: 80vh;
-  }
+  } */
 
   .modal__close-button {
     width: 26px;
