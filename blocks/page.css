@@ -38,22 +38,8 @@ html {
 @media screen and (max-width: 620px) {
   .page__content {
     max-width: 95%;
-    /* margin: 0; */
   }
 }
-
-/* @media screen and (max-width: 480px) {
-  .page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-
-  .page__content {
-    align-self: center;
-  }
-} */
 
 @media screen and (max-width: 320px) {
   .page {
