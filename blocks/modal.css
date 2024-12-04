@@ -11,7 +11,6 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
   z-index: 10;
 }
 
@@ -52,8 +51,6 @@
 .modal__title {
   width: 330px;
   height: 23px;
-  top: 229px;
-  left: 461px;
   margin: 0px 64px 54px 0px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 24px;
@@ -61,7 +58,6 @@
   line-height: 29.05px;
   text-align: left;
   color: rgba(0, 0, 0, 1);
-  opacity: 0px;
 }
 
 .modal__input {
@@ -171,7 +167,6 @@
 @media screen and (max-width: 800px) {
   .modal__title {
     width: 330px;
-    margin: 0px 64px 54px 0px;
   }
 
   .modal__button {
@@ -192,33 +187,70 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) { 
+  .modal {
+    top: 80px;
+    padding: 22px;
+  }
+
+  .modal__container { 
+    padding: 22px;
+    position: relative; 
+  } 
+
   .modal__title {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 238px;
-    line-height: 22px;
-    font-size: 18px;
-    padding: 0px;
-    margin: 25px 22px 76px 22px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 20px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 10px 0 20px 0;
   }
 
   .modal__input {
-    width: 238px;
-    padding: 0px;
-    font-size: 14px;
-    margin: 0px 22px 30px 22px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    margin: 10px 0 20px 0;
+    padding: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
   }
 
   .modal__button {
-    width: 238px;
-    height: 46px;
-    top: 374px;
-    left: 44px;
-    gap: 0px;
-    border-radius: 2px 0px 0px 0px;
-    opacity: 0px;
-    margin: 15px 22px 25px 22px;
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    height: 44px;
+    margin: 20px 0 0 0;
+    padding: 10px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .modal__button:hover {
+    background-color: #333333;
+    opacity: 0.8;
+  }
+
+  .modal__close-button {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -32px; 
+    right: 0px; 
+    background: transparent url("../images/large-close-icon.svg") center no-repeat;
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+    z-index: 5;
+  }
+
+  .modal__close-button:hover {
+    opacity: 0.8;
   }
 }
