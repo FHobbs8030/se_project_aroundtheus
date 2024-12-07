@@ -1,22 +1,20 @@
 .modal {
   position: fixed;
-  left: 0;
-  bottom: 0;
-  right: 0;
   top: 0;
-  padding: 0 20px;
-  border-radius: 10px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_open {
@@ -26,13 +24,18 @@
 
 .modal__container {
   position: relative;
+  top: 55px;
+  left: -7px;
   background-color: #ffffff;
-  width: 100%;
-  max-width: 44vw;
-  max-height: 47vh;
+  width: 430px;
+  height: 330px;
+  max-width: 90%;
+  max-height: 90%;
   border: 1px solid #000;
   border-radius: 10px;
   padding: 36px;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .modal__container-image {
@@ -84,22 +87,18 @@
 .modal__button {
   width: 80%;
   height: 50.15px;
-  top: 438.34px;
-  left: 461px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.78px;
   text-align: center;
-  align-self: center;
-  margin: 0px 0px 0px 33px;
+  margin: 18px 0px 0px 33px;
   padding: 0px;
   background-color: #000000;
   color: #ffffff;
   border: none;
   border-radius: 2px 0px 0px 0px;
   cursor: pointer;
-  opacity: 0px;
 }
 
 .modal__button:hover {
@@ -176,57 +175,65 @@
   }
 
   .modal__close-button {
-    left: calc(100% + 0px);
+    left: calc(100% + -35px);
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .modal__container {
+    width: 70%;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 24px;
+    max-width: 100%;
   }
 
-  @media screen and (max-width: 620px) {
-    .modal__container {
-      width: 70%;
-      max-width: 100%;
-      max-height: 100%;
-      padding: 24px;
-      max-width: 100%;
-    }
-
-    .modal__title {
-      font-size: 20px;
-      margin: 0 0 18px 0;
-    }
-
-    .modal__input {
-      font-size: 14px;
-      padding: 10px;
-    }
-
-    .modal__button {
-      font-size: 15px;
-      padding: 12px;
-    }
+  .modal__title {
+    font-size: 20px;
+    margin: 0 0 18px 0;
   }
 
-  @media screen and (max-width: 320px) {
-    .modal__container {
-      width: 70%;
-      max-width: 100%;
-    }
-
-    .modal__title {
-      font-size: 18px;
-      margin: 0 0 14px 0;
-    }
-
-    .modal__input {
-      font-size: 12px;
-      padding: 0;
-    }
-    .modal__button {
-      max-width: 100%;
-      font-size: 12px;
-      margin: 0 0 0 20px;
-    }
+  .modal__input {
+    font-size: 14px;
+    padding: 10px;
   }
 
-  .modal__close-button {
-    left: calc(100% + -50px);
+  .modal__button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .modal__container {
+    width: 90%;
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .modal__input {
+    width: 90%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .modal__button {
+    font-size: 14px;
+    height: 40px;
+    margin-top: 16px;
+    margin: 16px 0px 0px 25px;
+  }
+
+  .modal__title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  Center close button .modal__close-button {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
   }
 }
