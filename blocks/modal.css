@@ -202,14 +202,21 @@
     font-size: 15px;
     padding: 12px;
   }
+
+.modal__close-button {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .modal__container {
+    top: 45px;
     width: 90%;
     height: auto;
     padding: 20px;
     border-radius: 10px;
+    margin: 0 19px 0 19px;
   }
 
   .modal__input {
@@ -228,12 +235,6 @@
   .modal__title {
     font-size: 18px;
     margin-bottom: 16px;
-  }
-
-  Center close button .modal__close-button {
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
+    width: 90%;
   }
 }
