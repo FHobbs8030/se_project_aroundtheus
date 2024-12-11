@@ -12,13 +12,13 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: visibility 1.3s, opacity 1.3s ease-in;
+  transition: visibility 2.3s, opacity 2.3s ease-in;
 }
 
 .modal_hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1.3s, opacity 1.3s ease-in;
+  transition: visibility 2.3s, opacity 2.3s ease-in;
 }
 
 .modal_open {
