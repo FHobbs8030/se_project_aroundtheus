@@ -145,6 +145,7 @@
   .modal__title {
     width: 330px;
     font-size: 22px;
+    line-height: 21.78px;
   }
 
   .modal__button {
@@ -164,6 +165,7 @@
   .modal__title {
     font-size: 18px;
     margin: 0px 0px 76px 0px;
+    width: 96.8%;
   }
 
   .modal__button {
@@ -173,7 +175,7 @@
   }
 
   .modal__close-button {
-    top: -30px;
+    top: -38px;
     right: 0px;
     width: 26px;
     height: 26px;
@@ -185,24 +187,27 @@
     top: 45px;
     width: 90%;
     height: auto;
-    padding: 20px;
     border-radius: 10px;
   }
 
   .modal__button {
+    width: 96.8%;
     font-size: 14px;
     height: 40px;
-    margin-top: 16px;
-    margin: 16px 0px 0px 0px;
+    margin: 15px 0px 3px 0px;
+    padding: 0;
   }
 
   .modal__title {
-    font-size: 18px;
-    margin-bottom: 16px;
-    width: 90%;
+    margin: 3px 0px 75px 0px;
+  }
+
+  .modal__input {
+    width: 96.8%;
   }
 
   .modal__close-button {
-    left: calc(100% + -35px);
+    top:  calc(100% + -350px);
+    left: calc(100% + -27px);
   }
 }
