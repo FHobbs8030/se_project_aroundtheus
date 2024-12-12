@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function openPopup(modal) {
-    closeAllModals();
+    // closeAllModals();
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
   }
