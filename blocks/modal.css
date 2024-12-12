@@ -1,4 +1,4 @@
- .modal {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,30 +12,29 @@
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: visibility 2.3s, opacity 2.3s ease-in;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
 .modal_hidden {
   visibility: hidden;
   opacity: 0;
-  transition: visibility 2.3s, opacity 2.3s ease-in;
 }
 
 .modal_open {
   visibility: visible;
   opacity: 1;
   pointer-events: auto;
-} 
+  transition: opacity 0.3s linear;
+}
 
 .modal__container {
   position: relative;
-  top: 55px;
-  left: -7px;
+  /* top: 55px;
+  left: -7px; */
   background-color: #ffffff;
-  width: 430px;
-  height: 330px;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 430px;
+  max-height: 330px;
+  width: 100%;
   border: 1px solid #000;
   border-radius: 10px;
   padding: 34px 36px 36px 36px;
@@ -44,14 +43,16 @@
 
 .modal__container-image {
   position: relative;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .modal__image {
-  max-width: 95%;
+  max-width: 75vh;
   max-height: 75vh;
 }
 
@@ -115,8 +116,8 @@
 
 .modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
-  top: -40px; 
-  right: -30px; 
+  top: -40px;
+  right: -40px;
   height: 40.7px;
   width: 40.7px;
   border: none;
@@ -135,7 +136,6 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  left: 17px;
   width: 100%;
   color: white;
   font-size: 16px;
@@ -157,10 +157,6 @@
     height: 50.15px;
     top: 438.34px;
     left: 461px;
-  }
-
-  .modal__caption {
-    left: 16px;
   }
 }
 
@@ -184,7 +180,7 @@
 
   .modal__close-button {
     top: -30px;
-    right: 15px;
+    right: 0px;
     width: 26px;
     height: 26px;
   }
@@ -197,7 +193,6 @@
     height: auto;
     padding: 20px;
     border-radius: 10px;
-    margin: 0px 0px 0px 11px;
   }
 
   .modal__button {
@@ -215,9 +210,5 @@
 
   .modal__close-button {
     left: calc(100% + -35px);
-  }
-
-  .modal__caption {
-    left: 13px;
   }
 }
