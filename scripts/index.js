@@ -119,16 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function closeAllModals() {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach((modal) => {
-      modal.classList.remove("modal_open");
-      modal.classList.add("modal_hidden");
-    });
-  }
-
   function openPopup(modal) {
-    closeAllModals();
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
   }

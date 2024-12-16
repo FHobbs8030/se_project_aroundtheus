@@ -119,9 +119,13 @@
     max-width: 100%;
   }
 
+  .profile__name {
+    line-height: 42px;
+  }
+
   .profile__add-button {
     width: 150px;
-    margin: 16px 0px 15px 18px;
+    margin: 16px 0px 0px 18px;
   }
 }
 
@@ -137,6 +141,7 @@
   }
 
   .profile__description {
+    max-width: 282px;
     text-align: center;
     align-items: center;
   }
@@ -146,12 +151,13 @@
   }
 
   .profile__name {
-    max-width: 240px;
+    width: 196px;
+    max-width: 200px;
     font-size: 22px;
     font-weight: 500;
     line-height: 26.63px;
     text-align: center;
-    padding: 0;
+    padding: 0px 0px 0px 0px;
   }
 
   .profile__about_me {
@@ -177,6 +183,7 @@
 
 @media screen and (max-width: 320px) {
   .profile__name {
+    width: 196px;
     font-size: 18px;
     line-height: 22px;
   }
