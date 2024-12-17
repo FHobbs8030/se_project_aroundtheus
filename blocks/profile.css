@@ -1,9 +1,9 @@
 .profile {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: center;
   justify-content: start;
-  max-width: 100%;
+  /* max-width: 100%; */
   padding: 0;
   font-family: "Inter", Arial, sans-serif;
   font-size: 42px;
@@ -112,7 +112,11 @@
   .profile {
     flex-direction: column;
     max-width: 85%;
-    margin: 40px 40px 0px 40px;
+    margin: 42px 40px 0px 40px;
+  }
+
+   .profile__image {
+    margin: 0px 0px 30px 0px;
   }
 
   .profile__caption {
@@ -133,7 +137,9 @@
   .profile {
     max-width: 95%;
     padding: 0;
-    margin: 42px 19px 36px 19px;
+    margin-right: 19px;
+    margin-bottom: 36px;
+    margin-left: 19px;
   }
 
   .profile__caption {
@@ -142,12 +148,9 @@
 
   .profile__description {
     max-width: 282px;
+    height: 50px;
     text-align: center;
     align-items: center;
-  }
-
-  .profile__image {
-    margin-right: 0;
   }
 
   .profile__name {
@@ -161,7 +164,7 @@
   }
 
   .profile__about_me {
-    max-width: 90%;
+    max-width: 100%;
     margin-top: 14px;
     margin-bottom: 36px;
     font-size: 14px;
@@ -182,13 +185,29 @@
 }
 
 @media screen and (max-width: 320px) {
+  .profile {
+    width: 282px;
+    height: 286px;
+    padding: 0;
+  }
+
   .profile__name {
     width: 196px;
     font-size: 18px;
     line-height: 22px;
   }
 
-    .profile__add-button {
+  .profile__caption {
+    height: 22px;
+  }
+
+   .profile__about_me {
+    width: 282px;
+    height: 14px;
+    margin: 0px;
+  }
+
+  .profile__add-button {
     width: 282px;
     padding: 0px;
     margin: 16px 0px 0px 0px;
