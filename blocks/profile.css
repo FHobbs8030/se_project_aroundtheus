@@ -188,8 +188,9 @@
     line-height: 22px;
   }
 
-  .profile__profession {
-    font-size: 12px;
-    line-height: 14.52px;
+    .profile__add-button {
+    width: 282px;
+    padding: 0px;
+    margin: 16px 0px 0px 0px;
   }
 }
