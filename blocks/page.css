@@ -30,7 +30,6 @@ html {
   }
 
   .page__content {
-    margin: auto 0;
     max-width: 75%;
   }
 }
