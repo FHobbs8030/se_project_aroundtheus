@@ -30,14 +30,13 @@ html {
   }
 
   .page__content {
-    margin: auto 0;
     max-width: 75%;
   }
 }
 
 @media screen and (max-width: 620px) {
   .page__content {
-    max-width: 95%;
+    max-width: 100%;
   }
 }
 

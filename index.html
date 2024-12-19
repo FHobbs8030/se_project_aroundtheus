@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Fred Hobbs" />
     <link rel="stylesheet" href="./vendor/normalize.css" />
     <link rel="stylesheet" href="./pages/index.css" />
@@ -69,7 +68,7 @@
       <div class="modal__container-image">
         <button
           type="button"
-          class="modal__close-button"
+          class="image-modal__close-button"
           id="image-modal-close"
           title="Close Image"
         ></button>
@@ -105,7 +104,11 @@
 
     <div class="modal" id="add-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close"></button>
+        <button
+          class="modal__close-button"
+          title="Close"
+          type="button"
+        ></button>
         <form id="add-form" name="card-form">
           <h2 class="modal__title">New place</h2>
           <input

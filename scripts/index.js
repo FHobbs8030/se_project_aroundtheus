@@ -119,16 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function closeAllModals() {
-    const modals = document.querySelectorAll(".modal");
-    modals.forEach((modal) => {
-      modal.classList.remove("modal_open");
-      modal.classList.add("modal_hidden");
-    });
-  }
-
   function openPopup(modal) {
-    closeAllModals();
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
   }
@@ -138,22 +129,11 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("modal_hidden");
   }
 
-  if (closeImageModalButton) {
-    closeImageModalButton.addEventListener("click", () => {
-      modalImage.src = "";
-      modalImage.alt = "";
-      modalCaption.textContent = "";
-      closePopup(imageModal);
-    });
-  }
-
-  window.addEventListener("click", (event) => {
-    if (event.target === imageModal) {
-      modalImage.src = "";
-      modalImage.alt = "";
-      modalCaption.textContent = "";
-      closePopup(imageModal);
-    }
+  closeImageModalButton.addEventListener("click", () => {
+    modalImage.src = "";
+    modalImage.alt = "";
+    modalCaption.textContent = "";
+    closePopup(imageModal);
   });
 
   openEditModalButton.addEventListener("click", () => {
@@ -161,8 +141,6 @@ document.addEventListener("DOMContentLoaded", () => {
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
   });
-
-
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
@@ -180,14 +158,14 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(addModal);
   });
 
-    editForm.addEventListener("submit", (event) => {
-      event.preventDefault();
+  editForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
 
-      closePopup(editModal);
-    });
+    closePopup(editModal);
+  });
 
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
