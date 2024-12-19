@@ -144,12 +144,8 @@
   }
 
   .profile__caption {
-<<<<<<< HEAD
     max-width: 80%;
     margin-left: 70px;
-=======
-    max-width: 100%;
->>>>>>> e4201f08a4285af9dc04e533f465d57f853d92ea
   }
 
   .profile__description {
@@ -159,13 +155,10 @@
     align-items: center;
   }
 
-<<<<<<< HEAD
   /* .profile__image {
     margin-right: 0;
   } */
 
-=======
->>>>>>> e4201f08a4285af9dc04e533f465d57f853d92ea
   .profile__name {
     width: 196px;
     max-width: 200px;
@@ -198,7 +191,6 @@
   }
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 480px) {
   .profile {
     flex-direction: column;
@@ -226,8 +218,6 @@
   }
 }
 
-=======
->>>>>>> e4201f08a4285af9dc04e533f465d57f853d92ea
 @media screen and (max-width: 320px) {
   .profile {
     width: 282px;
