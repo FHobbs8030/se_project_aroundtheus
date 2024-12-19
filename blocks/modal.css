@@ -11,15 +11,17 @@
   z-index: 10;
   visibility: hidden;
   opacity: 0;
-  pointer-events: none;
-  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  transition: opacity 0.3s linear, visibility 0s linear 0.3s;
 }
 
 .modal_open {
   visibility: visible;
   opacity: 1;
-  pointer-events: auto;
-  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+}
+
+.modal_hidden {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .modal__container {
@@ -34,12 +36,14 @@
   border-radius: 10px;
   padding: 34px 36px 36px 36px;
   box-sizing: border-box;
+  transition: transform 0.3s ease;
 }
 
 .modal__container-image {
   position: relative;
   max-width: 100%;
   max-height: 100%;
+  cursor: pointer;
 }
 
 .modal__image {
@@ -137,7 +141,7 @@
 .image-modal__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
-   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
+  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
 .modal__caption {

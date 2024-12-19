@@ -6,7 +6,7 @@ html {
 
 .page {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-self: center;
   background: #000;
   max-width: 100%;
@@ -27,16 +27,6 @@ html {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-
-  .page__content {
-    max-width: 75%;
-  }
-}
-
-@media screen and (max-width: 620px) {
-  .page__content {
-    max-width: 100%;
   }
 }
 
