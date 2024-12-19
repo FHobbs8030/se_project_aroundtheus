@@ -1,6 +1,6 @@
 .modal {
   position: fixed;
-  top: 20px;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
@@ -15,6 +15,7 @@
 }
 
 .modal_open {
+  overflow: hidden;
   visibility: visible;
   opacity: 1;
 }
@@ -41,6 +42,7 @@
 
 .modal__container-image {
   position: relative;
+  top: calc(100% + -587px);
   max-width: 100%;
   max-height: 100%;
   cursor: pointer;
@@ -129,8 +131,8 @@
 
 .image-modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
-  top: -40px;
-  right: -40px;
+  top: -37px;
+  right: -37px;
   height: 40px;
   width: 40px;
   border: none;
@@ -161,9 +163,29 @@
 }
 
 @media screen and (max-width: 800px) {
+  .modal {
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+
   .modal__title {
     width: 330px;
     font-size: 22px;
+  }
+
+  .modal__container-image {
+    top: -20px;
+    left: 20px;
+    max-width: 85%;
+    max-height: 85%;
+    /* cursor: pointer; */
+  }
+
+  .modal__image {
+    width: 85%;
+    height: 85%;
   }
 
   .modal__button {
