@@ -130,9 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   closeImageModalButton.addEventListener("click", () => {
-    modalImage.src = "";
-    modalImage.alt = "";
-    modalCaption.textContent = "";
+    // modalImage.src = "";
+    // modalImage.alt = "";
+    // modalCaption.textContent = "";
     closePopup(imageModal);
   });
 
@@ -147,14 +147,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   openAddModalButton.addEventListener("click", () => {
-    placeInput.value = "";
-    linkInput.value = "";
+    // placeInput.value = "";
+    // linkInput.value = "";
     openPopup(addModal);
   });
 
   closeAddModalButton.addEventListener("click", () => {
-    placeInput.value = "";
-    linkInput.value = "";
+    // placeInput.value = "";
+    // linkInput.value = "";
     closePopup(addModal);
   });
 
