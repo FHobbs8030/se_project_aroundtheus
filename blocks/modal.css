@@ -51,7 +51,7 @@
 .modal__image {
   width: 433px;
   height: 540px;
-  max-width: 75vh;
+  max-width: 75vw;
 }
 
 .modal__title {
@@ -77,8 +77,6 @@
   text-align: left;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  /* margin: 0px 0px 30px 0px;
-  padding: 0px 0px 0px 0px; */
   outline: none;
 }
 
@@ -143,12 +141,12 @@
 
 .image-modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
+  position: absolute;
   top: -37px;
   right: -37px;
   height: 40px;
   width: 40px;
   border: none;
-  position: absolute;
   z-index: 10;
 }
 
@@ -159,9 +157,6 @@
 }
 
 .modal__caption {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
   position: relative;
   width: 100%;
   color: white;
@@ -175,12 +170,12 @@
 }
 
 @media screen and (max-width: 800px) {
-  .modal {
+  /* .modal {
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-  }
+  } */
 
   .modal__title {
     width: 330px;
@@ -188,16 +183,27 @@
   }
 
   .modal__container-image {
-    top: -20px;
-    left: 20px;
-    max-width: 85%;
-    max-height: 85%;
-    /* cursor: pointer; */
+    top: 10px;
+    left: 0px;
+    max-width: 40%;
+    cursor: pointer;
   }
 
   .modal__image {
-    width: 85%;
-    height: 85%;
+    position: relative;
+    top: 0px;
+    left: 15px;
+    width: 90%;
+    height: 100%;
+  }
+
+  .modal__caption {
+    left: 15px;
+  }
+
+  .image-modal__close-button {
+    top: -3px;
+    right: -25px;
   }
 
   .modal__button {
@@ -215,12 +221,18 @@
   }
 
   .modal__container-image {
+    top: -50px;
     right: 0px;
     width: 240px;
     height: 299px;
   }
 
+  .modal__caption {
+    left: 0px;
+  }
+
   .modal__image {
+    left: 0px;
     width: 100%;
     height: 100%;
   }
@@ -241,6 +253,24 @@
     top: calc(100% - 355px);
     width: 26px;
     height: 26px;
+  }
+
+  .image-modal__close-button {
+    top: -5px;
+    right: -35px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  .image-modal__close-button {
+    position: relative;
+    top: 5px;
+    left: 190px;
   }
 }
 
@@ -271,4 +301,9 @@
     top: calc(100% + -280px);
     left: calc(100% + -35px);
   }
+
+   .image-modal__close-button {
+   top: 5px;
+        left: 125px;
+    }
 }
