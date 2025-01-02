@@ -140,8 +140,8 @@
 
 .modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
-  top: -40px;
-  right: -40px;
+  top: -35px;
+  right: -35px;
   height: 40px;
   width: 40px;
   border: none;
@@ -195,10 +195,21 @@
   }
 
   .modal__image {
-    width: 100%;
+    width: 80%;
     height: auto;
     max-width: 400px;
-    max-height: 500px;
+    max-height: 460px;
+  }
+
+  .modal__caption {
+    width: 276px;
+  }
+
+  .image-modal__close-button {
+    top: -10px;
+    right: 26px;
+    height: 30px;
+    width: 30px;
   }
 
   .modal__button {
@@ -221,7 +232,18 @@
   .modal__image {
     width: 300px;
     height: auto;
-    max-height: 400px;
+    max-height: 375px;
+  }
+
+  .modal__caption {
+    width: 295px;
+  }
+
+  .image-modal__close-button {
+    top: -8px;
+    right: -12px;
+    height: 30px;
+    width: 30px;
   }
 
   .modal__button {
@@ -252,7 +274,11 @@
 
   .modal__image {
     width: 260px;
-    height: 300px;
+    max-height: 350px;
+  }
+
+   .modal__caption {
+    width: 253px; 
   }
 
   .modal__button {
@@ -262,14 +288,6 @@
 
   .modal__title {
     font-size: 16px;
-  }
-
-  .modal__close-button,
-  .image-modal__close-button {
-    top: -10px;
-    right: -10px;
-    height: 30px;
-    width: 30px;
   }
 }
 
@@ -287,7 +305,12 @@
 
   .modal__image {
     width: 240px;
-    height: 249px;
+    max-height: 299px;
+    padding:0px;
+  }
+
+   .modal__caption {
+    width: 229px;
   }
 
   .modal__button {
