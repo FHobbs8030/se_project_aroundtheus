@@ -183,7 +183,8 @@
 }
 
 @media screen and (max-width: 600px) {
- .modal__container {
+  .modal__container {
+    left: auto;
     max-width: 320px;
     max-height: 280px;
     padding: 16px;
@@ -218,10 +219,10 @@
   .modal__input {
     font-size: 12px;
   }
-} 
+}
 
 @media screen and (max-width: 480px) {
- .modal__container {
+  .modal__container {
     max-width: 280px;
     max-height: 250px;
     padding: 12px;
@@ -237,13 +238,14 @@
     max-height: 350px;
   }
 
-   .modal__caption {
-    width: 253px; 
+  .modal__caption {
+    width: 253px;
   }
 
   .modal__button {
     font-size: 12px;
     height: 36px;
+    margin: auto;
   }
 
   .modal__title {
@@ -252,10 +254,14 @@
 }
 
 @media screen and (max-width: 320px) {
+  .modal {
+    left: 19px;
+  }
+
   .modal__container {
-    max-width: 250px;
-    max-height: 220px;
-    padding: 8px;
+    max-width: 282px;
+    max-height: 322px;
+    padding: 25px 22px;
   }
 
   .modal__image-wrapper {
@@ -266,10 +272,10 @@
   .modal__image {
     width: 240px;
     max-height: 299px;
-    padding:0px;
+    padding: 0px;
   }
 
-   .modal__caption {
+  .modal__caption {
     width: 229px;
   }
 
@@ -284,12 +290,12 @@
 
   .modal__input {
     font-size: 10px;
+    padding: 0px;
   }
 
-  .modal__close-button,
   .image-modal__close-button {
-    top: -8px;
-    right: -8px;
+    top: -9px;
+    right: 26px;
     height: 25px;
     width: 25px;
   }
