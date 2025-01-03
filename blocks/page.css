@@ -21,15 +21,6 @@ html {
   color: #fff;
 }
 
-@media screen and (max-width: 800px) {
-  .page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-}
-
 @media screen and (max-width: 320px) {
   .page {
     margin: 0;

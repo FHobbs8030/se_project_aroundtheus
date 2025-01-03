@@ -182,47 +182,7 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
-@media screen and (max-width: 800px) {
- .modal__container {
-    max-width: 380px;
-    max-height: 300px;
-    padding: 20px;
-  }
-
-  .modal__image-wrapper {
-    width: auto;
-    height: auto;
-  }
-
-  .modal__image {
-    width: 80%;
-    height: auto;
-    max-width: 400px;
-    max-height: 460px;
-  }
-
-  .modal__caption {
-    width: 276px;
-  }
-
-  .image-modal__close-button {
-    top: -10px;
-    right: 26px;
-    height: 30px;
-    width: 30px;
-  }
-
-  .modal__button {
-    font-size: 16px;
-    height: 45px;
-  }
-
-  .modal__title {
-    font-size: 20px;
-  }
-} 
-
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 600px) {
  .modal__container {
     max-width: 320px;
     max-height: 280px;
