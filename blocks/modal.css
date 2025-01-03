@@ -183,6 +183,10 @@
 }
 
 @media screen and (max-width: 600px) {
+  .modal_open {
+    width: 600px;
+  }
+
   .modal__container {
     left: auto;
     max-width: 320px;
@@ -222,6 +226,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .modal_open {
+    width: 480px;
+  }
+
   .modal__container {
     max-width: 280px;
     max-height: 250px;
@@ -254,8 +262,8 @@
 }
 
 @media screen and (max-width: 320px) {
-  .modal {
-    left: 19px;
+  .modal_open {
+    width: 320px;
   }
 
   .modal__container {
@@ -298,5 +306,12 @@
     right: 26px;
     height: 25px;
     width: 25px;
+  }
+
+  .modal__close-button {
+    top: -33px;
+    right: 4px;
+    height: 30px;
+    width: 30px;
   }
 }
