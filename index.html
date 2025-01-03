@@ -82,13 +82,15 @@
         <button class="modal__close-button" title="Close"></button>
         <form id="edit-form" name="profile-form">
           <h2 class="modal__title">Edit profile</h2>
-          <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
-            class="modal__input"
-            autocomplete="name"
-          />
+          <label class="modal__input-label">
+            <input
+              type="text"
+              id="name"
+              placeholder="Your Name"
+              class="modal__input"
+              autocomplete="name"
+            />
+          </label>
 
           <input
             type="text"
@@ -114,11 +116,10 @@
 
           <label class="modal__input-label">
             <input
-              class="modal__input"
-              id="place"
               type="text"
-              required
+              id="place"
               placeholder="Title"
+              class="modal__input"
             />
           </label>
 
@@ -131,13 +132,6 @@
               placeholder="Image Link"
             />
           </label>
-
-          <!-- <input
-            type="text"
-            id="link"
-            placeholder="Image link"
-            class="modal__input"
-          /> -->
           <button type="submit" class="modal__button">Create</button>
         </form>
       </div>
