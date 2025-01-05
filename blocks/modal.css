@@ -57,7 +57,7 @@
 
 .modal__image {
   display: block;
-  width: 100%;
+  width: 433px;
   height: 540px;
   object-fit: cover;
   border-radius: 10px;
@@ -197,7 +197,7 @@
   .modal__image {
     width: 300px;
     height: auto;
-    max-height: 375px;
+    height: 299px;
   }
 
   .modal__caption {
@@ -243,7 +243,7 @@
 
   .modal__image {
     width: 260px;
-    max-height: 350px;
+    height: 299px;
   }
 
   .modal__caption {
@@ -279,7 +279,7 @@
 
   .modal__image {
     width: 240px;
-    max-height: 299px;
+    height: 299px;
     padding: 0px;
   }
 
