@@ -35,7 +35,7 @@
   width: 100%;
   border: 1px solid #000;
   border-radius: 10px;
-  padding: 34px 36px 36px 36px;
+  padding: 34px 36px 36px 36.51px;
   box-sizing: border-box;
   transition: transform 0.3s ease;
 }
@@ -88,15 +88,16 @@
 
 .modal__input {
   width: 100%;
-  color: #000000;
   font-family: "Inter", Arial, sans-serif;
+  color: rgba(196, 196, 196, 1);
   font-size: 14px;
   font-weight: 400;
-  line-height: 17px;
+  line-height: 16.94px;
   text-align: left;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
+  margin-bottom: 30px;
 }
 
 .modal__image-wrapper {
@@ -155,16 +156,6 @@
   transition: 0.2s;
 }
 
-.modal__input-label {
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.78px;
-  display: block;
-  position: relative;
-  margin-bottom: 30px;
-}
-
 .image-modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   position: absolute;
@@ -189,9 +180,9 @@
 
   .modal__container {
     left: auto;
-    max-width: 320px;
-    max-height: 280px;
-    padding: 16px;
+    width: 282px;
+    height: 322px;
+    padding: 25px 22px;
   }
 
   .modal__image {
@@ -212,28 +203,34 @@
   }
 
   .modal__button {
+    width: 238px;
+    line-height: 16.94px;
     font-size: 14px;
-    height: 40px;
+    height: 46px;
+    margin: 46px 0px 0px 0px;
+  }
+
+  .modal__close-button {
+    width: 26px;
+    height: 26px;
+    top: -26.62px;
+    left: 279px;
   }
 
   .modal__title {
     font-size: 18px;
+    margin: 0px 0px 76px 0px;
   }
 
   .modal__input {
-    font-size: 12px;
+    line-height: 16.94px;
+    text-align: left;
   }
 }
 
 @media screen and (max-width: 480px) {
   .modal_open {
     width: 480px;
-  }
-
-  .modal__container {
-    max-width: 280px;
-    max-height: 250px;
-    padding: 12px;
   }
 
   .modal__image-wrapper {
@@ -253,7 +250,7 @@
   .modal__button {
     font-size: 12px;
     height: 36px;
-    margin: auto;
+    margin: 46px 22px 0px 0px;
   }
 
   .modal__title {
@@ -293,7 +290,9 @@
   }
 
   .modal__title {
-    font-size: 14px;
+    width: 238px;
+    height: 22px;
+    font-size: 18px;
   }
 
   .modal__input {
