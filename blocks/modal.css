@@ -1,5 +1,5 @@
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -11,7 +11,7 @@
   z-index: 10;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s linear, visibility 0s linear 0.3s;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_open {
