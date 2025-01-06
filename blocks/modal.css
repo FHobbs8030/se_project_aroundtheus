@@ -20,11 +20,6 @@
   opacity: 1;
 }
 
-.modal_hidden {
-  visibility: hidden;
-  opacity: 0;
-}
-
 .modal__container {
   position: relative;
   top: 53px;
