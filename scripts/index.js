@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
-  const profileForm = document.forms["profile-form"];
   const cardForm = document.forms["card-form"];
 
   const nameInput = document.querySelector("#name");
@@ -130,9 +129,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   closeImageModalButton.addEventListener("click", () => {
-    // modalImage.src = "";
-    // modalImage.alt = "";
-    // modalCaption.textContent = "";
     closePopup(imageModal);
   });
 
@@ -147,14 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   openAddModalButton.addEventListener("click", () => {
-    // placeInput.value = "";
-    // linkInput.value = "";
     openPopup(addModal);
   });
 
   closeAddModalButton.addEventListener("click", () => {
-    // placeInput.value = "";
-    // linkInput.value = "";
     closePopup(addModal);
   });
 
@@ -206,19 +198,4 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
   }
-
-  const cssStyle = document.createElement("style");
-  cssStyle.textContent = `
-    .modal_hidden {
-      display: none;
-    }
-  `;
-  document.head.appendChild(cssStyle);
-
-  function applyJavaScriptModalLogic() {
-    document.querySelectorAll(".modal").forEach((modal) => {
-      modal.classList.add("modal_hidden");
-    });
-  }
-  applyJavaScriptModalLogic();
 });

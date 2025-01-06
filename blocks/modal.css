@@ -11,7 +11,7 @@
   z-index: 10;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition: opacity 0.3s linear, visibility 0.3s linear;
 }
 
 .modal_open {
@@ -169,7 +169,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .modal_open {
+  .modal {
     width: 600px;
   }
 
@@ -224,7 +224,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .modal_open {
+  .modal{
     width: 480px;
   }
 
@@ -239,7 +239,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .modal_open {
+  .modal {
     width: 320px;
   }
 
