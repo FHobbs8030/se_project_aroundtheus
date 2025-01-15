@@ -120,61 +120,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Function to open modal
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
   }
 
+  // Function to close modal
   function closePopup(modal) {
     modal.classList.remove("modal_open");
     modal.classList.add("modal_hidden");
   }
 
+  // Close Image Modal
   closeImageModalButton.addEventListener("click", () => {
     closePopup(imageModal);
   });
 
+  // Open Edit Profile Modal
   openEditModalButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
-    openEditModal();
+    setButtonState(); // Ensure the button is disabled on modal open
   });
 
+  // Close Edit Profile Modal
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
+  // Open Add Item Modal
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
     setButtonState();
   });
 
+  // Close Add Item Modal
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
-const setButtonState = () => {
-  if (editForm.checkValidity()) {
-    saveButton.disabled = false;
-    saveButton.classList.remove("button_inactive");
-  } else {
-    saveButton.disabled = true;
-    saveButton.classList.add("button_inactive");
-  }
+  // Set the Save button state based on the form validity
+  const setButtonState = () => {
+    if (editForm.checkValidity()) {
+      saveButton.disabled = false;
+      saveButton.classList.remove("button_inactive");
+    } else {
+      saveButton.disabled = true;
+      saveButton.classList.add("button_inactive");
+    }
 
-  // Clear error messages when the user starts typing again
-  nameInput.addEventListener("input", () => {
-    nameInput.setCustomValidity("");
-    nameInput.reportValidity();
-  });
+    // Clear error messages when user starts typing again
+    nameInput.addEventListener("input", () => {
+      nameInput.setCustomValidity("");
+      nameInput.reportValidity();
+    });
 
-  aboutMeInput.addEventListener("input", () => {
-    aboutMeInput.setCustomValidity("");
-    aboutMeInput.reportValidity();
-  });
-};
-
+    aboutMeInput.addEventListener("input", () => {
+      aboutMeInput.setCustomValidity("");
+      aboutMeInput.reportValidity();
+    });
+  };
 
   // Ensure the error messages are displayed
   nameInput.addEventListener("input", setButtonState);
@@ -196,26 +203,6 @@ const setButtonState = () => {
     }
   });
 
-  openEditModalButton.addEventListener("click", () => {
-    nameInput.value = document.querySelector(".profile__name").textContent;
-    aboutMeInput.value =
-      document.querySelector(".profile__about_me").textContent;
-    setButtonState(); // Ensure the button is disabled on modal open
-    openPopup(editModal);
-  });
-
-  closeEditModalButton.addEventListener("click", () => {
-    closePopup(editModal);
-  });
-
-  // Modal open/close functions
-  function openPopup(modal) {
-    modal.classList.remove("modal_hidden");
-    modal.classList.add("modal_open");
-  }
-
-  function closePopup(modal) {
-    modal.classList.remove("modal_open");
-    modal.classList.add("modal_hidden");
-  }
+  // Ensure the form button is inactive if input fields are empty on modal open
+  setButtonState();
 });

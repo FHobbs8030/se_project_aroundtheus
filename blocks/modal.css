@@ -178,12 +178,18 @@
   background-color: #d3d3d3; /* No hover effect */
 }
 
+/* Style the error message text */
 .error-message {
   color: red;
   font-size: 12px;
-  margin-top: 4px;
-  display: block;
+  visibility: hidden; /* Hide by default */
 }
+
+/* Show error message when field is invalid */
+input:invalid + .error-message {
+  visibility: visible;
+}
+
 
 
 
