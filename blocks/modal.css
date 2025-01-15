@@ -168,6 +168,25 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
+.button_inactive {
+  background-color: #d3d3d3; /* Greyed out */
+  color: #a1a1a1; /* Light grey text */
+  cursor: not-allowed;
+}
+
+.button_inactive:hover {
+  background-color: #d3d3d3; /* No hover effect */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+}
+
+
+
 @media screen and (max-width: 600px) {
   .modal {
     width: 600px;

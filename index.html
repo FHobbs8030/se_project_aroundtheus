@@ -82,6 +82,8 @@
         <button class="modal__close-button" title="Close"></button>
         <form id="edit-form" name="profile-form">
           <h2 class="modal__title">Edit profile</h2>
+
+          <!-- Name Input Field with Validation -->
           <label class="modal__input-label">
             <input
               type="text"
@@ -89,17 +91,29 @@
               placeholder="Your Name"
               class="modal__input"
               autocomplete="name"
+              required
+              minlength="2"
+              maxlength="40"
             />
+            <span class="error-message"></span> <!-- Error message container -->
           </label>
 
-          <input
-            type="text"
-            id="about_me"
-            placeholder="About Me"
-            class="modal__input"
-            autocomplete="off"
-          />
-          <button type="submit" class="modal__button">Save</button>
+          <!-- About Me Input Field with Validation -->
+          <label class="modal__input-label">
+            <input
+              type="text"
+              id="about_me"
+              placeholder="About Me"
+              class="modal__input"
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="error-message"></span> <!-- Error message container -->
+          </label>
+
+          <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
     </div>
