@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
+  const saveButton = document.querySelector(".modal__button");
+
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -136,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
+    openEditModal();
   });
 
   closeEditModalButton.addEventListener("click", () => {
@@ -144,12 +147,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
+    setButtonState();
   });
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
+  // Disable Save button if the form fields are empty
+  const setButtonState = () => {
+    if (editForm.checkValidity()) {
+      saveButton.disabled = false;
+      saveButton.classList.remove("button_inactive");
+    } else {
+      saveButton.disabled = true;
+      saveButton.classList.add("button_inactive");
+    }
+  };
+
+  // Handle form input validation on each field
+  nameInput.addEventListener("input", setButtonState);
+  aboutMeInput.addEventListener("input", setButtonState);
+
+  // Open the Edit Profile Modal and ensure Save button is disabled initially
+  const openEditModal = () => {
+    saveButton.disabled = true;
+    saveButton.classList.add("button_inactive");
+    setButtonState();
+  };
+
+  // Handle form submission for editing profile
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -159,6 +186,7 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(editModal);
   });
 
+  // Handle card form submission for adding new places
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -188,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     linkInput.value = "";
 
     closePopup(addModal);
+    setButtonState();
   });
 
   function isValidUrl(string) {

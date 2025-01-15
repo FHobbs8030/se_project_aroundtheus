@@ -79,7 +79,7 @@
 
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close"></button>
+        <button class="modal__close-button" title="Close" aria-label="Close Edit Profile Modal"></button>
         <form id="edit-form" name="profile-form">
           <h2 class="modal__title">Edit profile</h2>
           <label class="modal__input-label">
@@ -99,7 +99,7 @@
             class="modal__input"
             autocomplete="off"
           />
-          <button type="submit" class="modal__button">Save</button>
+          <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
     </div>
@@ -132,7 +132,7 @@
               placeholder="Image Link"
             />
           </label>
-          <button type="submit" class="modal__button">Create</button>
+          <button type="submit" class="modal__button" disabled>Create</button>
         </form>
       </div>
     </div>
