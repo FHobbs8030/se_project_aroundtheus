@@ -95,13 +95,13 @@
   margin-bottom: 30px;
 }
 
-.modal__image-wrapper {
+/* .modal__image-wrapper {
   position: relative;
   width: auto;
   max-width: 100%;
   max-height: calc(100vh - 60px);
   overflow: hidden;
-}
+} */
 
 .modal__image-wrapper {
   position: relative;
@@ -132,6 +132,12 @@
   background-color: #333333;
   opacity: 0.6;
   transition: 0.2s;
+}
+
+.modal__button:disabled {
+  background-color: #e0e0e0; /* Ensure it looks inactive when disabled */
+  color: #9e9e9e;
+  cursor: not-allowed;
 }
 
 .modal__close-button {
@@ -168,9 +174,17 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
+/* Active Button State */
+.button_active {
+  background-color: #6200ea; /* Your active button color */
+  color: white;
+  cursor: pointer;
+}
+
+/* Inactive Button State */
 .button_inactive {
-  background-color: #d3d3d3; /* Greyed out */
-  color: #a1a1a1; /* Light grey text */
+  background-color: #e0e0e0; /* Light grey or your design's inactive color */
+  color: #9e9e9e; /* Light grey text or your design's inactive text color */
   cursor: not-allowed;
 }
 
@@ -178,20 +192,31 @@
   background-color: #d3d3d3; /* No hover effect */
 }
 
-/* Style the error message text */
-.error-message {
-  color: red;
-  font-size: 12px;
-  visibility: hidden; /* Hide by default */
-}
-
-/* Show error message when field is invalid */
+/* Show the error message when input is invalid */
 input:invalid + .error-message {
-  visibility: visible;
+  visibility: hidden;
+  color: red; /* Red text color for error message */
+  background-color: white; /* White background for error message */
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid red; /* Red border for error message box */
+  margin-top: 5px;
 }
 
+/* Inactive Button State */
+.button_inactive {
+  background-color: #e0e0e0; /* Light grey for inactive button */
+  color: #9e9e9e; /* Light grey text for inactive button */
+  cursor: not-allowed;
+}
 
-
+/* Active Button State */
+.button_active {
+  background-color: #6200ea; /* Your active button color */
+  color: white;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 600px) {
   .modal {
@@ -212,14 +237,6 @@ input:invalid + .error-message {
 
   .modal__caption {
     width: 240px;
-  }
-
-  .modal__button {
-    width: 238px;
-    line-height: 16.94px;
-    font-size: 14px;
-    height: 46px;
-    margin: 18px 0px 0px 0px;
   }
 
   .modal__close-button {
