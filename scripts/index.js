@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
   const editModal = document.getElementById("edit-modal");
-  const editForm = document.forms["profile-form"];
+  const editForm = document.forms["edit-form"];
 
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
@@ -25,8 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
-
-  const saveButton = document.querySelector(".modal__button");
 
   const imageLibrary = {
     "The Grand Canyon": {
@@ -120,89 +118,84 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Function to open modal
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
   }
 
-  // Function to close modal
   function closePopup(modal) {
     modal.classList.remove("modal_open");
     modal.classList.add("modal_hidden");
   }
 
-  // Close Image Modal
   closeImageModalButton.addEventListener("click", () => {
     closePopup(imageModal);
   });
 
-  // Open Edit Profile Modal
   openEditModalButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
-    setButtonState(); // Ensure the button is disabled on modal open
   });
 
-  // Close Edit Profile Modal
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
-  // Open Add Item Modal
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
-    setButtonState();
   });
 
-  // Close Add Item Modal
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
-  // Set the Save button state based on the form validity
-  const setButtonState = () => {
-    if (editForm.checkValidity()) {
-      saveButton.disabled = false;
-      saveButton.classList.remove("button_inactive");
-    } else {
-      saveButton.disabled = true;
-      saveButton.classList.add("button_inactive");
-    }
-
-    // Clear error messages when user starts typing again
-    nameInput.addEventListener("input", () => {
-      nameInput.setCustomValidity("");
-      nameInput.reportValidity();
-    });
-
-    aboutMeInput.addEventListener("input", () => {
-      aboutMeInput.setCustomValidity("");
-      aboutMeInput.reportValidity();
-    });
-  };
-
-  // Ensure the error messages are displayed
-  nameInput.addEventListener("input", setButtonState);
-  aboutMeInput.addEventListener("input", setButtonState);
-
-  // Validate form on submit and show default error messages
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!editForm.checkValidity()) {
-      nameInput.reportValidity(); // Show the validation error for the name field
-      aboutMeInput.reportValidity(); // Show the validation error for the about me field
-    } else {
-      // If valid, update profile and close modal
-      document.querySelector(".profile__name").textContent = nameInput.value;
-      document.querySelector(".profile__about_me").textContent =
-        aboutMeInput.value;
-      closePopup(editModal);
-    }
+    profileName.textContent = nameInput.value;
+    profileAboutMe.textContent = aboutMeInput.value;
+
+    closePopup(editModal);
   });
 
-  // Ensure the form button is inactive if input fields are empty on modal open
-  setButtonState();
+  cardForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const placeName = placeInput.value.trim();
+    const link = linkInput.value.trim();
+
+    if (!isValidUrl(link)) {
+      alert("Please enter a valid URL.");
+      return;
+    }
+
+    let newPlace;
+    if (imageLibrary[placeName]) {
+      newPlace = imageLibrary[placeName];
+    } else {
+      newPlace = {
+        name: placeName,
+        link: link,
+        alt: placeName,
+      };
+    }
+
+    const newCardElement = getCardElement(newPlace);
+    cardsContainer.prepend(newCardElement);
+
+    placeInput.value = "";
+    linkInput.value = "";
+
+    closePopup(addModal);
+  });
+
+  function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 });
