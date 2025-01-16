@@ -81,7 +81,7 @@
   margin: 0 0 54px 0;
 }
 
-.modal__input {
+.modal__input:invalid {
   width: 100%;
   font-family: "Inter", Arial, sans-serif;
   font-size: 14px;
@@ -89,9 +89,15 @@
   line-height: 16.94px;
   text-align: left;
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
   outline: none;
-  margin-bottom: 0;
+  margin-bottom: 30px;
+}
+
+.modal__input:valid {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
 .modal__image-wrapper {

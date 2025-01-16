@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Image Modal
   const imageModal = document.querySelector("#image-modal");
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
+  // Card Template
   const template = document.querySelector("#card-template");
 
+  // Modals
   const openAddModalButton = document.querySelector(".profile__add-button");
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
@@ -15,23 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
+  // Card Form and Inputs
   const cardForm = document.forms["card-form"];
-
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
   const linkInput = document.querySelector("#link");
 
+  // Profile Section
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
+  // Save Button
   const saveButton = document.querySelector(".modal__button");
 
-  // Error message elements
-  const nameError = document.querySelector("#name-error");
-  const aboutError = document.querySelector("#about-error");
-
+  // Image Library (predefined locations)
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -79,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageLibrary["Lago di Braies"],
   ];
 
+  // Function to get card element
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
     const image = cardElement.querySelector(".cards__image");
@@ -110,11 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
+  // Add initial cards to container
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
 
+  // Update link input based on place input
   placeInput.addEventListener("input", () => {
     const placeName = placeInput.value.trim();
     if (imageLibrary[placeName]) {
@@ -124,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Popup open/close functionality
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
@@ -162,38 +168,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const setButtonState = () => {
     if (editForm.checkValidity()) {
       saveButton.disabled = false; // Enable the Save button if form is valid
-      saveButton.classList.remove("button_inactive"); // Remove inactive button class
-      saveButton.classList.add("button_active"); // Add active button class
+      saveButton.classList.remove("button_inactive");
+      saveButton.classList.add("button_active");
     } else {
       saveButton.disabled = true; // Disable the Save button if form is invalid
-      saveButton.classList.remove("button_active"); // Remove active button class
-      saveButton.classList.add("button_inactive"); // Add inactive button class
+      saveButton.classList.remove("button_active");
+      saveButton.classList.add("button_inactive");
     }
   };
 
-  // Handle form input validation on each field
-  nameInput.addEventListener("input", () => {
-    if (!nameInput.validity.valid) {
-      nameError.textContent = "Name must be between 2 and 40 characters."; // Default error message for Name
-    } else {
-      nameError.textContent = ""; // Clear error message
-    }
-    setButtonState();
-  });
-
-  aboutMeInput.addEventListener("input", () => {
-    if (!aboutMeInput.validity.valid) {
-      aboutError.textContent = "About Me must be between 2 and 200 characters."; // Default error message for About Me
-    } else {
-      aboutError.textContent = ""; // Clear error message
-    }
-    setButtonState();
-  });
+  // Handle form input validation for "name" and "about me" fields
+  nameInput.addEventListener("input", setButtonState);
+  aboutMeInput.addEventListener("input", setButtonState);
 
   // Open the Edit Profile Modal and ensure Save button is disabled initially
   const openEditModal = () => {
     saveButton.disabled = true;
-    saveButton.classList.add("button_inactive"); // Add inactive button class
+    saveButton.classList.add("button_inactive");
     setButtonState();
   };
 
