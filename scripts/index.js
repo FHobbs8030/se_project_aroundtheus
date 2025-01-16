@@ -28,6 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const saveButton = document.querySelector(".modal__button");
 
+  // Error message elements
+  const nameError = document.querySelector("#name-error");
+  const aboutError = document.querySelector("#about-error");
+
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -166,8 +170,23 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Handle form input validation on each field
-  nameInput.addEventListener("input", setButtonState);
-  aboutMeInput.addEventListener("input", setButtonState);
+  nameInput.addEventListener("input", () => {
+    if (!nameInput.validity.valid) {
+      nameError.textContent = "Name must be between 2 and 40 characters."; // Default error message for Name
+    } else {
+      nameError.textContent = ""; // Clear error message
+    }
+    setButtonState();
+  });
+
+  aboutMeInput.addEventListener("input", () => {
+    if (!aboutMeInput.validity.valid) {
+      aboutError.textContent = "About Me must be between 2 and 200 characters."; // Default error message for About Me
+    } else {
+      aboutError.textContent = ""; // Clear error message
+    }
+    setButtonState();
+  });
 
   // Open the Edit Profile Modal and ensure Save button is disabled initially
   const openEditModal = () => {

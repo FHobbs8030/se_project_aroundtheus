@@ -167,6 +167,13 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
+.error-message {
+  color: red;
+  font-size: 12px;
+  display: block;
+  margin-top: 5px;
+}
+
 @media screen and (max-width: 600px) {
   .modal {
     width: 600px;
