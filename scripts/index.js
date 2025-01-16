@@ -158,14 +158,16 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(addModal);
   });
 
-  // Disable Save button if the form fields are empty
+  // Function to set the button state based on form validation
   const setButtonState = () => {
     if (editForm.checkValidity()) {
-      saveButton.disabled = false;
-      saveButton.classList.remove("button_inactive");
+      saveButton.disabled = false; // Enable the Save button if form is valid
+      saveButton.classList.remove("button_inactive"); // Remove inactive button class
+      saveButton.classList.add("button_active"); // Add active button class
     } else {
-      saveButton.disabled = true;
-      saveButton.classList.add("button_inactive");
+      saveButton.disabled = true; // Disable the Save button if form is invalid
+      saveButton.classList.remove("button_active"); // Remove active button class
+      saveButton.classList.add("button_inactive"); // Add inactive button class
     }
   };
 
@@ -191,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Open the Edit Profile Modal and ensure Save button is disabled initially
   const openEditModal = () => {
     saveButton.disabled = true;
-    saveButton.classList.add("button_inactive");
+    saveButton.classList.add("button_inactive"); // Add inactive button class
     setButtonState();
   };
 

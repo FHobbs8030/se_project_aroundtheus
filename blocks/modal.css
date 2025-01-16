@@ -167,6 +167,16 @@
   transition: visibility 0s linear 0.3s, opacity 0.3s linear;
 }
 
+.button_inactive {
+  background-color: #ccc; /* Gray or the color from your design */
+  cursor: not-allowed;
+}
+
+.button_active {
+  background-color: #4CAF50; /* Green or the color from your design */
+  cursor: pointer;
+}
+
 .error-message {
   color: red;
   font-size: 12px;
