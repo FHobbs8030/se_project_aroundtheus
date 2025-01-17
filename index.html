@@ -82,37 +82,70 @@
     <!-- Edit Profile Modal -->
     <div class="modal" id="edit-modal">
       <div class="modal__container">
+<<<<<<< HEAD
         <button class="modal__close-button" title="Close"></button>
         <form id="edit-form" name="profile-form" novalidate>
+=======
+        <button
+          class="modal__close-button"
+          title="Close"
+          aria-label="Close Edit Profile Modal"
+        ></button>
+        <form id="edit-form" name="profile-form">
+>>>>>>> form-branch
           <h2 class="modal__title">Edit profile</h2>
           <label class="modal__input-label">
             <input
+              class="modal__input"
               type="text"
               id="name"
+<<<<<<< HEAD
               placeholder="Your Name"
               class="modal__input"
               autocomplete="name"
+=======
+              placeholder="Name"
+              autocomplete="off"
+>>>>>>> form-branch
               required
               minlength="2"
               maxlength="40"
             />
+<<<<<<< HEAD
             <span class="error-message" id="name-error"></span> <!-- Error message for name -->
+=======
+            <span class="error-message" id="name-error"></span>
+>>>>>>> form-branch
           </label>
 
           <label class="modal__input-label">
             <input
+<<<<<<< HEAD
               type="text"
               id="about_me"
               placeholder="About Me"
               class="modal__input"
+=======
+              class="modal__input"
+              type="text"
+              id="about_me"
+              placeholder="About"
+>>>>>>> form-branch
               autocomplete="off"
               required
               minlength="2"
               maxlength="200"
             />
+<<<<<<< HEAD
             <span class="error-message" id="about_me-error"></span> <!-- Error message for about me -->
           </label>
           <button type="submit" class="modal__button" id="save-button" disabled>Save</button>
+=======
+            <span class="error-message" id="about_me-error"></span>
+          </label>
+
+          <button type="submit" class="modal__button" disabled>Save</button>
+>>>>>>> form-branch
         </form>
       </div>
     </div>
@@ -130,24 +163,39 @@
 
           <label class="modal__input-label">
             <input
+              class="modal__input"
               type="text"
               id="place"
               placeholder="Title"
+<<<<<<< HEAD
               class="modal__input"
               required
+=======
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="200"
+>>>>>>> form-branch
             />
           </label>
 
           <label class="modal__input-label">
             <input
               class="modal__input"
-              id="link"
               type="url"
-              required
+              id="link"
               placeholder="Image Link"
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="200"
             />
           </label>
+<<<<<<< HEAD
           <button type="submit" class="modal__button" id="create-button" disabled>Create</button>
+=======
+          <button type="submit" class="modal__button" disabled>Create</button>
+>>>>>>> form-branch
         </form>
       </div>
     </div>

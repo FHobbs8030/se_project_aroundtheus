@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Image Modal
   const imageModal = document.querySelector("#image-modal");
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
+  // Card Template
   const template = document.querySelector("#card-template");
 
+  // Modals
   const openAddModalButton = document.querySelector(".profile__add-button");
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
@@ -15,17 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
+  // Card Form and Inputs
   const cardForm = document.forms["card-form"];
-
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
   const linkInput = document.querySelector("#link");
 
+  // Profile Section
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
+  // Save Button
+  const saveButton = document.querySelector(".modal__button");
+
+  // Image Library (predefined locations)
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -73,6 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageLibrary["Lago di Braies"],
   ];
 
+  // Function to get card element
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
     const image = cardElement.querySelector(".cards__image");
@@ -104,11 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
+  // Add initial cards to container
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
 
+  // Update link input based on place input
   placeInput.addEventListener("input", () => {
     const placeName = placeInput.value.trim();
     if (imageLibrary[placeName]) {
@@ -118,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Popup open/close functionality
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
@@ -136,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
+    openEditModal();
   });
 
   closeEditModalButton.addEventListener("click", () => {
@@ -144,21 +157,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
+    setButtonState();
   });
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
+  // Error message handling
+  const nameError = document.getElementById("name-error");
+  const aboutMeError = document.getElementById("about_me-error");
+
+  // Function to display validation error messages
+  const showError = (input, errorMessageElement) => {
+    if (input.validity.valid) {
+      errorMessageElement.textContent = ""; // Clear the error message
+    } else {
+      errorMessageElement.textContent = input.validationMessage; // Show default error message
+    }
+  };
+
+  // Validate fields on input
+  nameInput.addEventListener("input", () => showError(nameInput, nameError));
+  aboutMeInput.addEventListener("input", () =>
+    showError(aboutMeInput, aboutMeError)
+  );
+
+  // Button state management
+  const setButtonState = () => {
+    if (editForm.checkValidity()) {
+      saveButton.disabled = false; // Enable the Save button if form is valid
+      saveButton.classList.remove("button_inactive");
+      saveButton.classList.add("button_active");
+    } else {
+      saveButton.disabled = true; // Disable the Save button if form is invalid
+      saveButton.classList.remove("button_active");
+      saveButton.classList.add("button_inactive");
+    }
+  };
+
+  // Handle form submission for editing profile
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    // Check validation before submitting
+    if (!editForm.checkValidity()) {
+      return;
+    }
 
+    // Update profile with form values
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
 
+    // Close modal after successful form submission
     closePopup(editModal);
   });
 
+  // Enable button on input
+  nameInput.addEventListener("input", setButtonState);
+  aboutMeInput.addEventListener("input", setButtonState);
+
+  // Handle card form submission for adding new places
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -188,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     linkInput.value = "";
 
     closePopup(addModal);
+    setButtonState();
   });
 
   function isValidUrl(string) {
