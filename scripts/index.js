@@ -148,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
-    openEditModal();
   });
 
   closeEditModalButton.addEventListener("click", () => {
@@ -167,7 +166,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // Error message handling
   const nameError = document.getElementById("name-error");
   const aboutMeError = document.getElementById("about_me-error");
-
+  const placeError = document.getElementById("place-error");
+  const linkError = document.getElementById("link-error");
+  
   // Function to display validation error messages
   const showError = (input, errorMessageElement) => {
     if (input.validity.valid) {
