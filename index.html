@@ -88,11 +88,12 @@
       id="name"
       placeholder="Your Name"
       class="modal__input"
-      autocomplete="name"
+      autocomplete="off"
       required
       minlength="2"
       maxlength="40"
     />
+    <span class="error-message" id="name-error"></span> 
   </label>
 
   <label class="modal__input-label">
@@ -106,6 +107,7 @@
       minlength="2"
       maxlength="200"
     />
+    <span class="error-message" id="about_me-error"></span> 
   </label>
 
   <button type="submit" class="modal__button" disabled>Save</button>

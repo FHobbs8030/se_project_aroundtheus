@@ -164,7 +164,26 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(addModal);
   });
 
-  // Function to set the button state based on form validation
+  // Error message handling
+  const nameError = document.getElementById("name-error");
+  const aboutMeError = document.getElementById("about_me-error");
+
+  // Function to display validation error messages
+  const showError = (input, errorMessageElement) => {
+    if (input.validity.valid) {
+      errorMessageElement.textContent = ""; // Clear the error message
+    } else {
+      errorMessageElement.textContent = input.validationMessage; // Show default error message
+    }
+  };
+
+  // Validate fields on input
+  nameInput.addEventListener("input", () => showError(nameInput, nameError));
+  aboutMeInput.addEventListener("input", () =>
+    showError(aboutMeInput, aboutMeError)
+  );
+
+  // Button state management
   const setButtonState = () => {
     if (editForm.checkValidity()) {
       saveButton.disabled = false; // Enable the Save button if form is valid
@@ -177,26 +196,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  // Handle form input validation for "name" and "about me" fields
-  nameInput.addEventListener("input", setButtonState);
-  aboutMeInput.addEventListener("input", setButtonState);
-
-  // Open the Edit Profile Modal and ensure Save button is disabled initially
-  const openEditModal = () => {
-    saveButton.disabled = true;
-    saveButton.classList.add("button_inactive");
-    setButtonState();
-  };
-
   // Handle form submission for editing profile
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    // Check validation before submitting
+    if (!editForm.checkValidity()) {
+      return;
+    }
 
+    // Update profile with form values
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
 
+    // Close modal after successful form submission
     closePopup(editModal);
   });
+
+  // Enable button on input
+  nameInput.addEventListener("input", setButtonState);
+  aboutMeInput.addEventListener("input", setButtonState);
 
   // Handle card form submission for adding new places
   cardForm.addEventListener("submit", (event) => {
