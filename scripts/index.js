@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Save Button
   const saveButton = document.querySelector(".modal__button");
-
+  
   // Image Library (predefined locations)
   const imageLibrary = {
     "The Grand Canyon": {
