@@ -81,21 +81,6 @@
   margin: 0 0 54px 0;
 }
 
-/* .modal__input {
-  font-size: 14px;
-  padding: 10px;
-  margin-bottom: 30px; 
-  width: 100%;
-  box-sizing: border-box; 
-} */
-
-/* .modal__input:focus {
-  border: none; 
-  outline: none; 
-  border-bottom: 2px solid #4a90e2; 
-} */
-
-
 .modal__input:invalid {
   width: 100%;
   font-family: "Inter", Arial, sans-serif;

@@ -12,14 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
   const editModal = document.getElementById("edit-modal");
-  const editForm = document.forms["edit-form"];
+
+  const saveButtonAdd = document.querySelector("#add-modal .modal__button"); // Ensure you're selecting the correct button inside the add modal
+  const saveButtonEdit = document.querySelector("#edit-modal .modal__button");
 
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
+
+  
   // Card Form and Inputs
   const cardForm = document.forms["card-form"];
+  const editForm = document.forms["edit-form"];
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
@@ -32,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Save Button
   const saveButton = document.querySelector(".modal__button");
-  
+
   // Image Library (predefined locations)
   const imageLibrary = {
     "The Grand Canyon": {
@@ -144,91 +149,80 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(imageModal);
   });
 
+  // Open Edit Modal
   openEditModalButton.addEventListener("click", () => {
-    nameInput.value = profileName.textContent;
-    aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
-    openEditModal();
+    saveButtonEdit.disabled = true; // Disable the button initially
+    saveButtonEdit.classList.add("button_inactive");
+    setButtonStateEdit();
   });
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
+  // Open Add Modal
   openAddModalButton.addEventListener("click", () => {
-    openPopup(addModal);
-    setButtonState();
+    openPopup(addModal); // Open the add modal
+    saveButtonAdd.disabled = true; // Disable the button initially
+    saveButtonAdd.classList.add("button_inactive"); // Apply the inactive class
+    setButtonStateAdd(); // Ensure the button state is checked for the add modal
   });
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
-  // Function to set the button state based on form validation
-  const setButtonState = () => {
-    if (editForm.checkValidity()) {
-      saveButton.disabled = false; // Enable the Save button if form is valid
-      saveButton.classList.remove("button_inactive");
-      saveButton.classList.add("button_active");
-    } else {
-      saveButton.disabled = true; // Disable the Save button if form is invalid
-      saveButton.classList.remove("button_active");
-      saveButton.classList.add("button_inactive");
-    }
-  };
+const setButtonStateAdd = () => {
+  const saveButtonAdd = document.querySelector("#add-modal .modal__button");
+  const placeInput = document.querySelector("#place");
+  const linkInput = document.querySelector("#link");
 
-  // Handle form input validation for "name" and "about me" fields
-  nameInput.addEventListener("input", setButtonState);
-  aboutMeInput.addEventListener("input", setButtonState);
+  if (placeInput.value.trim() && linkInput.value.trim()) {
+    saveButtonAdd.disabled = false; // Enable if both fields are filled
+    saveButtonAdd.classList.remove("button_inactive");
+    saveButtonAdd.classList.add("button_active");
+  } else {
+    saveButtonAdd.disabled = true; // Disable if the fields are empty
+    saveButtonAdd.classList.remove("button_active");
+    saveButtonAdd.classList.add("button_inactive");
+  }
+};
 
-  // Open the Edit Profile Modal and ensure Save button is disabled initially
-  const openEditModal = () => {
-    saveButton.disabled = true;
-    saveButton.classList.add("button_inactive");
-    setButtonState();
-  };
+// Ensure that the button state is checked when the user types in the fields
+document.querySelector("#place").addEventListener("input", setButtonStateAdd);
+document.querySelector("#link").addEventListener("input", setButtonStateAdd);
 
-  // Handle form submission for editing profile
+
+  // Add input event listeners to handle validation for the modals
+  placeInput.addEventListener("input", setButtonStateAdd);
+  linkInput.addEventListener("input", setButtonStateAdd);
+  nameInput.addEventListener("input", setButtonStateEdit);
+  aboutMeInput.addEventListener("input", setButtonStateEdit);
+
+  // Form submissions for the modals
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
-
     closePopup(editModal);
   });
 
-  // Handle card form submission for adding new places
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const placeName = placeInput.value.trim();
     const link = linkInput.value.trim();
-
     if (!isValidUrl(link)) {
       alert("Please enter a valid URL.");
       return;
     }
-
-    let newPlace;
-    if (imageLibrary[placeName]) {
-      newPlace = imageLibrary[placeName];
-    } else {
-      newPlace = {
-        name: placeName,
-        link: link,
-        alt: placeName,
-      };
-    }
-
+    let newPlace = { name: placeName, link: link, alt: placeName };
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
-
     placeInput.value = "";
     linkInput.value = "";
-
     closePopup(addModal);
-    setButtonState();
+    setButtonStateAdd();
   });
 
   function isValidUrl(string) {

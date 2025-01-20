@@ -76,41 +76,43 @@
         <p class="modal__caption"></p>
       </div>
     </div>
-
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close" aria-label="Close Edit Profile Modal"></button>
-        <form id="edit-form" name="profile-form">
-  <h2 class="modal__title">Edit profile</h2>
-  <label class="modal__input-label">
-    <input
-      type="text"
-      id="name"
-      placeholder="Your Name"
-      class="modal__input"
-      autocomplete="name"
-      required
-      minlength="2"
-      maxlength="40"
-    />
-  </label>
-
-  <label class="modal__input-label">
-    <input
-      type="text"
-      id="about_me"
-      placeholder="About Me"
-      class="modal__input"
-      autocomplete="off"
-      required
-      minlength="2"
-      maxlength="200"
-    />
-  </label>
-
-  <button type="submit" class="modal__button" disabled >Save</button>
-</form>
-
+        <button
+          class="modal__close-button"
+          title="Close"
+          type="button"
+        ></button>
+        <form id="edit-form" name="edit-form">
+          <h2 class="modal__title">Edit profile</h2>
+          <label class="modal__input">
+            <input
+              class="modal__input-label"
+              type="text"
+              id="name"
+              placeholder="Name"
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="40"
+            />
+            <span class="message__error" id="edit-name-error"></span>
+          </label>
+          <label class="modal__input">
+            <input
+              type="text"
+              id="about-me"
+              placeholder="About"
+              class="modal__input-label"
+              autocomplete="off"
+              required
+              minlength="2"
+              maxlength="200"
+            />
+            <span class="form__error" id="about-error"></span>
+          </label>
+          <button type="submit" class="modal__button" disabled>Save</button>
+        </form>
       </div>
     </div>
 
@@ -123,32 +125,30 @@
         ></button>
         <form id="add-form" name="card-form">
           <h2 class="modal__title">New place</h2>
-
-          <label class="modal__input-label">
+          <label class="modal__input">
             <input
-            class="modal__input-label"
+              class="modal__input-label"
               type="text"
               id="place"
               placeholder="Title"
-              
             />
+            <span class="message__error" id="place-error"></span>
           </label>
-
-          <label class="modal__input-label">
+          <label class="modal__input">
             <input
-              class="modal__input"
+              class="modal__input-label"
               id="link"
               type="url"
-              required
               placeholder="Image Link"
             />
+            <span class="message__error" id="link-error"></span>
           </label>
-          <button type="submit" class="modal__button" disabled>Create</button>
+          <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
     </div>
 
     <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
+    <!-- <script src="./scripts/validation.js"></script> -->
   </body>
 </html>
