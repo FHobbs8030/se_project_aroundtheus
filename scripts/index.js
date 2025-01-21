@@ -1,44 +1,31 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Image Modal
   const imageModal = document.querySelector("#image-modal");
   const modalImage = imageModal.querySelector(".modal__image");
   const modalCaption = imageModal.querySelector(".modal__caption");
 
-  // Card Template
   const template = document.querySelector("#card-template");
 
-  // Modals
   const openAddModalButton = document.querySelector(".profile__add-button");
   const openEditModalButton = document.querySelector(".profile__edit-button");
   const addModal = document.getElementById("add-modal");
   const editModal = document.getElementById("edit-modal");
-
-  const saveButtonAdd = document.querySelector("#add-modal .modal__button"); // Ensure you're selecting the correct button inside the add modal
-  const saveButtonEdit = document.querySelector("#edit-modal .modal__button");
+  const editForm = document.forms["edit-form"];
 
   const closeEditModalButton = editModal.querySelector(".modal__close-button");
   const closeAddModalButton = addModal.querySelector(".modal__close-button");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
-
-  
-  // Card Form and Inputs
   const cardForm = document.forms["card-form"];
-  const editForm = document.forms["edit-form"];
+
   const nameInput = document.querySelector("#name");
   const aboutMeInput = document.querySelector("#about_me");
   const placeInput = document.querySelector("#place");
   const linkInput = document.querySelector("#link");
 
-  // Profile Section
   const profileName = document.querySelector(".profile__name");
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
-  // Save Button
-  const saveButton = document.querySelector(".modal__button");
-
-  // Image Library (predefined locations)
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -86,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     imageLibrary["Lago di Braies"],
   ];
 
-  // Function to get card element
   function getCardElement(data) {
     const cardElement = template.content.cloneNode(true).firstElementChild;
     const image = cardElement.querySelector(".cards__image");
@@ -118,13 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
-  // Add initial cards to container
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
 
-  // Update link input based on place input
   placeInput.addEventListener("input", () => {
     const placeName = placeInput.value.trim();
     if (imageLibrary[placeName]) {
@@ -134,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Popup open/close functionality
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
@@ -149,80 +132,62 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(imageModal);
   });
 
-  // Open Edit Modal
   openEditModalButton.addEventListener("click", () => {
+    nameInput.value = profileName.textContent;
+    aboutMeInput.value = profileAboutMe.textContent;
     openPopup(editModal);
-    saveButtonEdit.disabled = true; // Disable the button initially
-    saveButtonEdit.classList.add("button_inactive");
-    setButtonStateEdit();
   });
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
-  // Open Add Modal
   openAddModalButton.addEventListener("click", () => {
-    openPopup(addModal); // Open the add modal
-    saveButtonAdd.disabled = true; // Disable the button initially
-    saveButtonAdd.classList.add("button_inactive"); // Apply the inactive class
-    setButtonStateAdd(); // Ensure the button state is checked for the add modal
+    openPopup(addModal);
   });
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
-const setButtonStateAdd = () => {
-  const saveButtonAdd = document.querySelector("#add-modal .modal__button");
-  const placeInput = document.querySelector("#place");
-  const linkInput = document.querySelector("#link");
-
-  if (placeInput.value.trim() && linkInput.value.trim()) {
-    saveButtonAdd.disabled = false; // Enable if both fields are filled
-    saveButtonAdd.classList.remove("button_inactive");
-    saveButtonAdd.classList.add("button_active");
-  } else {
-    saveButtonAdd.disabled = true; // Disable if the fields are empty
-    saveButtonAdd.classList.remove("button_active");
-    saveButtonAdd.classList.add("button_inactive");
-  }
-};
-
-// Ensure that the button state is checked when the user types in the fields
-document.querySelector("#place").addEventListener("input", setButtonStateAdd);
-document.querySelector("#link").addEventListener("input", setButtonStateAdd);
-
-
-  // Add input event listeners to handle validation for the modals
-  placeInput.addEventListener("input", setButtonStateAdd);
-  linkInput.addEventListener("input", setButtonStateAdd);
-  nameInput.addEventListener("input", setButtonStateEdit);
-  aboutMeInput.addEventListener("input", setButtonStateEdit);
-
-  // Form submissions for the modals
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
+
     closePopup(editModal);
   });
 
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const placeName = placeInput.value.trim();
     const link = linkInput.value.trim();
+
     if (!isValidUrl(link)) {
       alert("Please enter a valid URL.");
       return;
     }
-    let newPlace = { name: placeName, link: link, alt: placeName };
+
+    let newPlace;
+    if (imageLibrary[placeName]) {
+      newPlace = imageLibrary[placeName];
+    } else {
+      newPlace = {
+        name: placeName,
+        link: link,
+        alt: placeName,
+      };
+    }
+
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
+
     placeInput.value = "";
     linkInput.value = "";
+
     closePopup(addModal);
-    setButtonStateAdd();
   });
 
   function isValidUrl(string) {
