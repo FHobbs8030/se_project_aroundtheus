@@ -83,7 +83,12 @@
     <!-- Edit Profile Modal -->
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close" type="button" id="edit-modal-close"></button>
+        <button
+          class="modal__close-button"
+          title="Close"
+          type="button"
+          id="edit-modal-close"
+        ></button>
         <form id="edit-form" name="profile-form">
           <h2 class="modal__title">Edit profile</h2>
           <label class="modal__input-label">
@@ -93,23 +98,23 @@
               placeholder="Name"
               class="modal__input"
               minlength="2"
-              maxlength="40"
+              maxlength="200"
               required
             />
-             <span class="modal__input-error" id="name-error"></span>
+            <span class="modal__input-error" id="name-error"></span>
           </label>
-<label class="modal__input-label">
-          <input
-            type="text"
-            id="about"
-            placeholder="About"
-            class="modal__input"
-            minlength="2"
-            maxlength="200"
-            required
-          />
-           <span class="modal__input-error" id="about-error"></span>
-        </label>
+          <label class="modal__input-label">
+            <input
+              type="text"
+              id="about"
+              placeholder="About"
+              class="modal__input"
+              minlength="2"
+              maxlength="200"
+              required
+            />
+            <span class="modal__input-error" id="about-error"></span>
+          </label>
           <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
@@ -133,12 +138,12 @@
               id="place"
               placeholder="Title"
               class="modal__input"
+              minlength="2"
+              maxlength="40"
               required
             />
-             <span class="modal__input-error" id="place-error"></span>
-             </label>
-           
-         
+            <span class="modal__input-error" id="place-error"></span>
+          </label>
 
           <label class="modal__input-label">
             <input
@@ -146,12 +151,11 @@
               id="link"
               type="url"
               required
-              placeholder="Image Link"
+              placeholder="URL"
             />
-             <span class="modal__input-error" id="link-error"></span>
-            </label>
-            
-          
+            <span class="modal__input-error" id="link-error"></span>
+          </label>
+
           <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>

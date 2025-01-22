@@ -132,19 +132,27 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(imageModal);
   });
 
-  openEditModalButton.addEventListener("click", () => {
-    nameInput.value = profileName.textContent;
-    aboutMeInput.value = profileAboutMe.textContent;
-    openPopup(editModal);
-  });
+openEditModalButton.addEventListener("click", () => {
+  nameInput.value = profileName.textContent;
+  aboutMeInput.value = profileAboutMe.textContent;
+  openPopup(editModal);
+
+  // Trigger validation immediately after opening the modal
+  checkInputValidity(editForm, nameInput, config);
+  checkInputValidity(editForm, aboutMeInput, config);
+});
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
-  openAddModalButton.addEventListener("click", () => {
-    openPopup(addModal);
-  });
+openAddModalButton.addEventListener("click", () => {
+  openPopup(addModal);
+
+  // Trigger validation immediately after opening the modal
+  checkInputValidity(cardForm, placeInput, config);
+  checkInputValidity(cardForm, linkInput, config);
+});
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
