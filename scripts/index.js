@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardForm = document.forms["card-form"];
 
   const nameInput = document.querySelector("#name");
-  const aboutMeInput = document.querySelector("#about_me");
+  const aboutMeInput = document.querySelector("#about");
   const placeInput = document.querySelector("#place");
   const linkInput = document.querySelector("#link");
 

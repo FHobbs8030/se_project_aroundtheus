@@ -34,6 +34,7 @@
                 class="profile__edit-button"
                 type="button"
                 title="Edit profile"
+                id="edit-profile-button"
               ></button>
             </div>
             <p class="profile__about profile__about_me">Explorer</p>
@@ -42,6 +43,7 @@
             class="profile__add-button"
             type="button"
             title="Add New Item"
+            id="add-item-button"
           ></button>
         </section>
 
@@ -64,6 +66,7 @@
       </footer>
     </div>
 
+    <!-- Image Modal -->
     <div class="modal" id="image-modal">
       <div class="modal__container-image">
         <button
@@ -77,39 +80,49 @@
       </div>
     </div>
 
+    <!-- Edit Profile Modal -->
     <div class="modal" id="edit-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close"></button>
+        <button class="modal__close-button" title="Close" type="button" id="edit-modal-close"></button>
         <form id="edit-form" name="profile-form">
           <h2 class="modal__title">Edit profile</h2>
           <label class="modal__input-label">
             <input
               type="text"
               id="name"
-              placeholder="Your Name"
+              placeholder="Name"
               class="modal__input"
-              autocomplete="name"
+              minlength="2"
+              maxlength="40"
+              required
             />
+             <span class="modal__input-error" id="name-error"></span>
           </label>
-
+<label class="modal__input-label">
           <input
             type="text"
-            id="about_me"
-            placeholder="About Me"
+            id="about"
+            placeholder="About"
             class="modal__input"
-            autocomplete="off"
+            minlength="2"
+            maxlength="200"
+            required
           />
-          <button type="submit" class="modal__button">Save</button>
+           <span class="modal__input-error" id="about-error"></span>
+        </label>
+          <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
     </div>
 
+    <!-- Add Place Modal -->
     <div class="modal" id="add-modal">
       <div class="modal__container">
         <button
           class="modal__close-button"
           title="Close"
           type="button"
+          id="add-modal-close"
         ></button>
         <form id="add-form" name="card-form">
           <h2 class="modal__title">New place</h2>
@@ -120,8 +133,12 @@
               id="place"
               placeholder="Title"
               class="modal__input"
+              required
             />
-          </label>
+             <span class="modal__input-error" id="place-error"></span>
+             </label>
+           
+         
 
           <label class="modal__input-label">
             <input
@@ -131,12 +148,16 @@
               required
               placeholder="Image Link"
             />
-          </label>
-          <button type="submit" class="modal__button">Create</button>
+             <span class="modal__input-error" id="link-error"></span>
+            </label>
+            
+          
+          <button type="submit" class="modal__button" disabled>Save</button>
         </form>
       </div>
     </div>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>
