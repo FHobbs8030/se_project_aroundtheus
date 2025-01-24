@@ -73,7 +73,7 @@
           type="button"
           class="image-modal__close-button"
           id="image-modal-close"
-          title="Close Image"
+          title="close image"
         ></button>
         <img class="modal__image" src="" alt="" />
         <p class="modal__caption"></p>
@@ -115,7 +115,9 @@
             />
             <span class="modal__input-error" id="about-error"></span>
           </label>
-          <button type="submit" class="modal__button" disabled>Save</button>
+          <button type="submit" class="modal__save-button" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>
@@ -138,8 +140,8 @@
               id="place"
               placeholder="Title"
               class="modal__input"
-              minlength="2"
-              maxlength="40"
+              minlength="1"
+              maxlength="30"
               required
             />
             <span class="modal__input-error" id="place-error"></span>
@@ -150,13 +152,17 @@
               class="modal__input"
               id="link"
               type="url"
+              placeholder="ImageURL"
+              minlength=""
+              maxlength=""
               required
-              placeholder="URL"
             />
             <span class="modal__input-error" id="link-error"></span>
           </label>
 
-          <button type="submit" class="modal__button" disabled>Save</button>
+          <button type="submit" class="modal__save-button" disabled>
+            Save
+          </button>
         </form>
       </div>
     </div>

@@ -132,32 +132,45 @@ document.addEventListener("DOMContentLoaded", () => {
     closePopup(imageModal);
   });
 
-openEditModalButton.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  aboutMeInput.value = profileAboutMe.textContent;
-  openPopup(editModal);
+  // Open Edit Profile Modal
+  openEditModalButton.addEventListener("click", () => {
+    nameInput.value = profileName.textContent;
+    aboutMeInput.value = profileAboutMe.textContent;
+    openPopup(editModal);
 
-  // Trigger validation immediately after opening the modal
-  checkInputValidity(editForm, nameInput, config);
-  checkInputValidity(editForm, aboutMeInput, config);
-});
+    // Reset Save button to be disabled
+    const saveButton = editForm.querySelector("button[type='submit']");
+    saveButton.disabled = true;
+    saveButton.classList.add("popup__button_disabled");
+
+    // Trigger validation immediately after opening the modal
+    checkInputValidity(editForm, nameInput, config);
+    checkInputValidity(editForm, aboutMeInput, config);
+  });
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
-openAddModalButton.addEventListener("click", () => {
-  openPopup(addModal);
+  // Open Add Place Modal
+  openAddModalButton.addEventListener("click", () => {
+    openPopup(addModal);
 
-  // Trigger validation immediately after opening the modal
-  checkInputValidity(cardForm, placeInput, config);
-  checkInputValidity(cardForm, linkInput, config);
-});
+    // Reset Save button to be disabled
+    const saveButton = cardForm.querySelector("button[type='submit']");
+    saveButton.disabled = true;
+    saveButton.classList.add("popup__button_disabled");
+
+    // Trigger validation immediately after opening the modal
+    checkInputValidity(cardForm, placeInput, config);
+    checkInputValidity(cardForm, linkInput, config);
+  });
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
   });
 
+  // Handle Edit Profile Form Submission
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -167,6 +180,7 @@ openAddModalButton.addEventListener("click", () => {
     closePopup(editModal);
   });
 
+  // Handle Add Place Form Submission
   cardForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
