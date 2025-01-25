@@ -128,6 +128,67 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.classList.add("modal_hidden");
   }
 
+  // Function to reset the form inside the modal
+  function resetModal(modal) {
+    const form = modal.querySelector("form");
+    form.reset(); // Clear all the form inputs
+
+    // Remove error messages
+    const errorMessages = modal.querySelectorAll(".modal__input-error");
+    errorMessages.forEach((errorMessage) => {
+      errorMessage.textContent = "";
+    });
+
+    // Remove error styles from inputs
+    const inputs = form.querySelectorAll(".modal__input");
+    inputs.forEach((input) => {
+      input.classList.remove("popup__input_type_error");
+    });
+
+    // Disable the save button
+    const saveButton = modal.querySelector(".modal__save-button");
+    saveButton.disabled = true;
+    saveButton.classList.add("popup__button_disabled");
+  }
+
+  // Reset the Add and Edit modals when they are closed
+  closeAddModalButton.addEventListener("click", () => {
+    closePopup(addModal);
+    resetModal(addModal); // Reset Add Modal
+  });
+
+  closeEditModalButton.addEventListener("click", () => {
+    closePopup(editModal);
+    resetModal(editModal); // Reset Edit Modal
+  });
+
+  // Close Add modal if the user clicks on the background
+  addModal.addEventListener("click", (event) => {
+    if (event.target === addModal) {
+      // Check if the click is on the background
+      closePopup(addModal);
+      resetModal(addModal); // Reset Add Modal
+    }
+  });
+
+  // Close Edit modal if the user clicks on the background
+  editModal.addEventListener("click", (event) => {
+    if (event.target === editModal) {
+      // Check if the click is on the background
+      closePopup(editModal);
+      resetModal(editModal); // Reset Edit Modal
+    }
+  });
+
+  // Close Image modal if the user clicks on the background
+  imageModal.addEventListener("click", (event) => {
+    if (event.target === imageModal) {
+      // Check if the click is on the background
+      closePopup(imageModal);
+    }
+  });
+
+  // Close Image modal if the user clicks the close button
   closeImageModalButton.addEventListener("click", () => {
     closePopup(imageModal);
   });
@@ -148,10 +209,6 @@ document.addEventListener("DOMContentLoaded", () => {
     checkInputValidity(editForm, aboutMeInput, config);
   });
 
-  closeEditModalButton.addEventListener("click", () => {
-    closePopup(editModal);
-  });
-
   // Open Add Place Modal
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
@@ -161,13 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.disabled = true;
     saveButton.classList.add("popup__button_disabled");
 
-    // Trigger validation immediately after opening the modal
-    checkInputValidity(cardForm, placeInput, config);
-    checkInputValidity(cardForm, linkInput, config);
-  });
-
-  closeAddModalButton.addEventListener("click", () => {
-    closePopup(addModal);
+    // Don't trigger validation immediately, only when the user starts interacting
   });
 
   // Handle Edit Profile Form Submission
@@ -220,4 +271,18 @@ document.addEventListener("DOMContentLoaded", () => {
       return false;
     }
   }
+
+  // Function to enable closing the modal with Esc key
+  function closePopupOnEsc(popupEl) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closePopup(popupEl);
+      }
+    });
+  }
+
+  // Enable escape key to close modals
+  closePopupOnEsc(addModal);
+  closePopupOnEsc(editModal);
+  closePopupOnEsc(imageModal);
 });

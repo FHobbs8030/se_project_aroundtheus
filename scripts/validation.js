@@ -12,6 +12,7 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   }
 
   inputEl.classList.add(inputErrorClass);
+
   errorMessageEl.classList.add(errorClass);
 }
 
