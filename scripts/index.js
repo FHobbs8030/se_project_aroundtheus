@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const editModal = document.getElementById("edit-modal");
   const editForm = document.forms["edit-form"];
 
-  const closeEditModalButton = editModal.querySelector(".modal__close-button");
-  const closeAddModalButton = addModal.querySelector(".modal__close-button");
+  const closeEditModalButton = editModal.querySelector("#edit-modal-close");
+  const closeAddModalButton = addModal.querySelector("#add-modal-close");
   const closeImageModalButton = document.querySelector("#image-modal-close");
 
   const cardForm = document.forms["card-form"];

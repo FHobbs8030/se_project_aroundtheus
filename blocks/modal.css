@@ -136,11 +136,28 @@
   transition: 0.2s;
 }
 
-/* For the image modal */
 #image-modal .modal__close-button {
-  position: fixed;
-  top: -16px;
-  right: -16px;
+  position: absolute;
+  top: -15px;  
+  right: -15px; 
+  border: none;
+  font-size: 24px;
+}
+
+#edit-modal .modal__close-button {
+  position: absolute;
+  top: -35px;  
+  right: -35px; 
+  border: none;
+  font-size: 24px;
+}
+
+#add-modal .modal__close-button {
+  position: absolute;
+  top: -35px;  
+  right: -35px; 
+  border: none;
+  font-size: 24px;
 }
 
 .popup__input_type_error {
