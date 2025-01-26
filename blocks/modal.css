@@ -136,23 +136,6 @@
   transition: 0.2s;
 }
 
-.image-modal__close-button {
-  background: transparent url("../images/large-close-icon.svg") center no-repeat;
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  height: 40px;
-  width: 40px;
-  border: none;
-  z-index: 10;
-}
-
-.image-modal__close-button:hover {
-  opacity: 0.6;
-  cursor: pointer;
-  transition: visibility 0s linear 0.3s, opacity 0.3s linear;
-}
-
 .popup__input_type_error {
   border-color: red;
 }
@@ -230,11 +213,6 @@
   .modal__close-button {
     top: -39px;
     left: 242px;
-  }
-
-  .image-modal__close-button {
-    top: -38px;
-    left: 244px;
   }
 
   .modal__title {
