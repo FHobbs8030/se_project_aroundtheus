@@ -33,7 +33,7 @@
   padding: 34px 36px 36px 36.51px;
   box-sizing: border-box;
   transition: transform 0.3s ease;
-  outline: none; 
+  outline: none;
 }
 
 .modal__image {
@@ -136,6 +136,13 @@
   transition: 0.2s;
 }
 
+/* For the image modal */
+#image-modal .modal__close-button {
+  position: fixed;
+  top: -16px;
+  right: -16px;
+}
+
 .popup__input_type_error {
   border-color: red;
 }
@@ -144,12 +151,12 @@
   visibility: visible;
   color: red;
   font-size: 12px;
-} 
+}
 
 .popup__button_disabled {
   opacity: 0.5;
   cursor: not-allowed;
-} 
+}
 
 .popup__button_enabled {
   opacity: 1;
