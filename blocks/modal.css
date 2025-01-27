@@ -144,7 +144,7 @@
   font-size: 24px;
 }
 
-#edit-modal .modal__close-button {
+/* #edit-modal .modal__close-button {
   position: absolute;
   top: -35px;  
   right: -35px; 
@@ -158,7 +158,7 @@
   right: -35px; 
   border: none;
   font-size: 24px;
-}
+} */
 
 .popup__input_type_error {
   border-color: red;

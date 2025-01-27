@@ -109,14 +109,14 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsContainer.appendChild(cardElement);
   });
 
-  placeInput.addEventListener("input", () => {
-    const placeName = placeInput.value.trim();
-    if (imageLibrary[placeName]) {
-      linkInput.value = imageLibrary[placeName].link;
-    } else {
-      linkInput.value = "";
-    }
-  });
+  // placeInput.addEventListener("input", () => {
+  //   const placeName = placeInput.value.trim();
+  //   if (imageLibrary[placeName]) {
+  //     linkInput.value = imageLibrary[placeName].link;
+  //   } else {
+  //     linkInput.value = "";
+  //   }
+  // });
 
   function openPopup(modal) {
     modal.classList.remove("modal_hidden");
