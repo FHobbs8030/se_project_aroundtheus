@@ -136,29 +136,10 @@
   transition: 0.2s;
 }
 
-#image-modal .modal__close-button {
-  position: absolute;
+.modal__close-button_image {
   top: -15px;  
   right: -15px; 
-  border: none;
-  font-size: 24px;
 }
-
-/* #edit-modal .modal__close-button {
-  position: absolute;
-  top: -35px;  
-  right: -35px; 
-  border: none;
-  font-size: 24px;
-}
-
-#add-modal .modal__close-button {
-  position: absolute;
-  top: -35px;  
-  right: -35px; 
-  border: none;
-  font-size: 24px;
-} */
 
 .popup__input_type_error {
   border-color: red;
