@@ -149,12 +149,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
-    resetModal(addModal); 
+    // resetModal(addModal); 
   });
 
   closeEditModalButton.addEventListener("click", () => {
     closePopup(editModal);
-    resetModal(editModal); 
+    // resetModal(editModal); 
   });
 
   addModal.addEventListener("click", (event) => {
@@ -197,9 +197,9 @@ document.addEventListener("DOMContentLoaded", () => {
   openAddModalButton.addEventListener("click", () => {
     openPopup(addModal);
 
-    const saveButton = cardForm.querySelector("button[type='submit']");
-    saveButton.disabled = true;
-    saveButton.classList.add("popup__button_disabled");
+    // const saveButton = cardForm.querySelector("button[type='submit']");
+    // saveButton.disabled = true;
+    // saveButton.classList.add("popup__button_disabled");
   });
 
   editForm.addEventListener("submit", (event) => {
