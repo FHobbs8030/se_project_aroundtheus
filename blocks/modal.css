@@ -1,15 +1,18 @@
 .modal {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  bottom: 0;
+  right: 0;
+  /* width: 100vw; */
+  /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 10;
   visibility: hidden;
+  margin: 0;
   opacity: 0;
   transition: opacity 0.3s linear, visibility 0.3s linear;
 }
@@ -146,8 +149,8 @@
 }
 
 .modal__close-button_image {
-  top: -15px;  
-  right: -15px; 
+  top: -15px;
+  right: -15px;
 }
 
 .popup__input_type_error {

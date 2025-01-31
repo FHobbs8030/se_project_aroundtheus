@@ -1,15 +1,15 @@
 function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
 
-  if (inputEl.validity.valueMissing) {
-    errorMessageEl.textContent = "Please fill out this field";
-  } else if (inputEl.validity.tooShort) {
-    errorMessageEl.textContent = `Minimum length is ${inputEl.minLength} characters`;
-  } else if (inputEl.validity.tooLong) {
-    errorMessageEl.textContent = `Maximum length is ${inputEl.maxLength} characters`;
-  } else {
-    errorMessageEl.textContent = inputEl.validationMessage;
-  }
+  // if (inputEl.validity.valueMissing) {
+  //   errorMessageEl.textContent = "Please fill out this field";
+  // } else if (inputEl.validity.tooShort) {
+  //   errorMessageEl.textContent = `Minimum length is ${inputEl.minLength} characters`;
+  // } else if (inputEl.validity.tooLong) {
+  //   errorMessageEl.textContent = `Maximum length is ${inputEl.maxLength} characters`;
+  // } else {
+  errorMessageEl.textContent = inputEl.validationMessage;
+  // }
 
   inputEl.classList.add(inputErrorClass);
 
@@ -27,6 +27,7 @@ function checkInputValidity(formEl, inputEl, options) {
   if (inputEl.validity.valid) {
     hideInputError(formEl, inputEl, options);
   } else {
+    console.log("yo its invalud bro");
     showInputError(formEl, inputEl, options);
   }
 }
