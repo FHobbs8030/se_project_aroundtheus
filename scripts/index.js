@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeAddModalButton.addEventListener("click", () => {
     closePopup(addModal);
-    // resetModal(addModal); 
+    resetModal(addModal); 
   });
 
   closeEditModalButton.addEventListener("click", () => {
@@ -160,14 +160,14 @@ document.addEventListener("DOMContentLoaded", () => {
   addModal.addEventListener("click", (event) => {
     if (event.target === addModal) {
       closePopup(addModal);
-      resetModal(addModal); 
+      // resetModal(addModal); 
     }
   });
 
   editModal.addEventListener("click", (event) => {
     if (event.target === editModal) {
       closePopup(editModal);
-      resetModal(editModal); 
+      // resetModal(editModal); 
     }
   });
 
@@ -251,11 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closePopupOnEsc(popupEl) {
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closePopup(popupEl);
-      }
-    });
   }
 
   closePopupOnEsc(addModal);
