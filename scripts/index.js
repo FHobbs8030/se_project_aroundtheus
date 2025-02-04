@@ -109,15 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsContainer.appendChild(cardElement);
   });
 
-  // placeInput.addEventListener("input", () => {
-  //   const placeName = placeInput.value.trim();
-  //   if (imageLibrary[placeName]) {
-  //     linkInput.value = imageLibrary[placeName].link;
-  //   } else {
-  //     linkInput.value = "";
-  //   }
-  // });
-
   function openmodal(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
@@ -193,11 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
   openAddModalButton.addEventListener("click", () => {
     openmodal(addModal);
 
-    // const saveButton = cardForm.querySelector("button[type='submit']");
-    // saveButton.disabled = true;
-    // saveButton.classList.add("modal__button_disabled");
-  });
-
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -252,4 +238,5 @@ document.addEventListener("DOMContentLoaded", () => {
   closemodalOnEsc(addModal);
   closemodalOnEsc(editModal);
   closemodalOnEsc(imageModal);
+});
 });

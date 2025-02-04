@@ -4,8 +4,6 @@
   left: 0;
   bottom: 0;
   right: 0;
-  /* width: 100vw; */
-  /* height: 100vh; */
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
@@ -28,8 +26,6 @@
   top: 57px;
   left: 0px;
   background-color: #ffffff;
-  /* max-width: 430px;
-  /* max-height: none; */
   width: 100%;
   max-width: 430px;
   min-height: 331px;
@@ -101,14 +97,14 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
-  padding: 0; /* Remove padding to control height more easily */
-  height: 27.26px; /* Set the height explicitly to 27.26px */
-  margin-bottom: 5px; /* Small margin to separate input from error */
+  padding: 0; 
+  height: 27.26px; 
+  margin-bottom: 5px; 
 }
 
 .modal__input-wrapper {
   display: flex;
-  flex-direction: column;  /* Stack input and error message vertically */
+  flex-direction: column;  
   position: relative;
 }
 
@@ -121,7 +117,6 @@
   line-height: 16.94px;
   text-align: left;
   margin-bottom: 10px;
-  /* height */
 }
 
 .modal__save-button {
@@ -176,13 +171,13 @@
   font-weight: 400;
   line-height: 14.52px;
   text-align: left;
-  margin-top: 3px;  /* Space between input and error */
-  visibility: hidden;  /* Hidden by default */
-  height: 16px;  /* Set a fixed height to reserve space */
+  margin-top: 3px;  
+  visibility: hidden;  
+  height: 16px;  
 }
 
 .modal__input-error.visible {
-  visibility: visible;  /* Show error when needed */
+  visibility: visible;  
 }
 
 .modal__button_disabled {
