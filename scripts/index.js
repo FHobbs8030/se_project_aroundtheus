@@ -149,25 +149,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   closeAddModalButton.addEventListener("click", () => {
     closemodal(addModal);
-    resetModal(addModal); 
   });
 
   closeEditModalButton.addEventListener("click", () => {
     closemodal(editModal);
-    // resetModal(editModal); 
   });
 
   addModal.addEventListener("click", (event) => {
     if (event.target === addModal) {
       closemodal(addModal);
-      // resetModal(addModal); 
     }
   });
 
   editModal.addEventListener("click", (event) => {
     if (event.target === editModal) {
       closemodal(editModal);
-      // resetModal(editModal); 
     }
   });
 

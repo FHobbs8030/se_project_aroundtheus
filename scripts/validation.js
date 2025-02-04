@@ -3,6 +3,7 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.textContent = inputEl.validationMessage;
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.classList.add(errorClass);
+  errorMessageEl.classList.add("visible");
 }
 
 function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
@@ -10,6 +11,7 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
+   errorMessageEl.classList.remove("visible");
 }
 
 function checkInputValidity(formEl, inputEl, options) {
@@ -54,17 +56,17 @@ function enableValidation(options) {
       evt.preventDefault();
       console.log("Form submitted successfully!");
     });
-    });
-  }
-  
-   function setEventListeners(formEl, options) {
+  });
+}
+
+function setEventListeners(formEl, options) {
   const inputEls = formEl.querySelectorAll(options.inputSelector);
   const saveButton = formEl.querySelector(options.saveButtonSelector);
 
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", () => {
       checkInputValidity(formEl, inputEl, options);
-      toggleSaveButtonState(inputEls, saveButton, options);  
+      toggleSaveButtonState(inputEls, saveButton, options);
     });
   });
 }
@@ -77,17 +79,17 @@ function enableValidation(options) {
       console.log("Form submitted successfully!");
     });
 
-    setEventListeners(formEl, options);  
+    setEventListeners(formEl, options);
   });
 }
 
 const config = {
   formSelector: "#edit-form, #add-form",
-  inputSelector: ".modal__input", 
-  saveButtonSelector: ".modal__save-button", 
-  inactiveButtonClass: "modal__button_disabled", 
-  inputErrorClass: "modal__input_type_error", 
-  errorClass: "modal__error_visible", 
+  inputSelector: ".modal__input",
+  saveButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
 };
 
 enableValidation(config);

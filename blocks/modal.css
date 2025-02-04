@@ -26,13 +26,13 @@
 .modal__container {
   position: relative;
   top: 57px;
-  left: 30px;
+  left: 0px;
   background-color: #ffffff;
   /* max-width: 430px;
   /* max-height: none; */
-  width: 100%; 
+  width: 100%;
   max-width: 430px;
-  min-height: 331px;  
+  min-height: 331px;
   height: auto;
   border: 1px solid #000;
   border-radius: 10px;
@@ -94,7 +94,6 @@
   width: 100%;
   font-family: "Inter", Arial, sans-serif;
   color: rgba(0, 0, 0, 1);
-  /* color: rgba(196, 196, 196, 1); */
   font-size: 14px;
   font-weight: 400;
   line-height: 16.94px;
@@ -102,18 +101,30 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
-  margin: 0px 0px 0px 0px;
-  padding: 0px;
+  padding: 0; /* Remove padding to control height more easily */
+  height: 27.26px; /* Set the height explicitly to 27.26px */
+  margin-bottom: 5px; /* Small margin to separate input from error */
+}
+
+.modal__input-wrapper {
+  display: flex;
+  flex-direction: column;  /* Stack input and error message vertically */
+  position: relative;
 }
 
 .modal__input-label {
-  margin: 0px;
+  position: relative;
+  display: block;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.94px;
+  text-align: left;
+  margin-bottom: 10px;
+  /* height */
 }
 
 .modal__save-button {
-  position: relative;
-  top: 64.5px;
-  left: 2px;
   width: 100%;
   height: 50.15px;
   font-family: "Inter", Arial, sans-serif;
@@ -122,7 +133,7 @@
   line-height: 21.78px;
   text-align: center;
   margin: 18px 0px 0px 0px;
-  padding: 0px;
+  /* padding: 0px; */
   background-color: #000000;
   color: #ffffff;
   border: none;
@@ -138,14 +149,12 @@
 
 .modal__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
+  position: absolute;
   top: -35px;
   right: -35px;
   height: 40.7px;
   width: 40.7px;
   border: none;
-  position: absolute;
-  top: -38px;
-  right: -38px;
   z-index: 5;
 }
 
@@ -160,14 +169,20 @@
   right: -15px;
 }
 
-/* .modal__input_type_error {
-  border-color: transparent;
-} */
-
-.modal__error_visible {
-  visibility: visible;
+.modal__input-error {
   color: red;
   font-size: 12px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+  margin-top: 3px;  /* Space between input and error */
+  visibility: hidden;  /* Hidden by default */
+  height: 16px;  /* Set a fixed height to reserve space */
+}
+
+.modal__input-error.visible {
+  visibility: visible;  /* Show error when needed */
 }
 
 .modal__button_disabled {
