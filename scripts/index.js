@@ -232,11 +232,19 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Function to close modal on Escape key press
   function closemodalOnEsc(modalEl) {
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closemodal(modalEl);
+      }
+    });
   }
 
+  // Attach the closemodalOnEsc function to each modal
   closemodalOnEsc(addModal);
   closemodalOnEsc(editModal);
   closemodalOnEsc(imageModal);
+
 });
-});
+})
