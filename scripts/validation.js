@@ -84,7 +84,7 @@ function enableValidation(options) {
 }
 
 const config = {
-  formSelector: "#edit-form, #add-form",
+  formSelector: "#edit-form, #add-form, modal-form",
   inputSelector: ".modal__input",
   saveButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__button_disabled",
