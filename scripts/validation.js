@@ -11,7 +11,7 @@ function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   inputEl.classList.remove(inputErrorClass);
   errorMessageEl.textContent = "";
   errorMessageEl.classList.remove(errorClass);
-   errorMessageEl.classList.remove("visible");
+  errorMessageEl.classList.remove("visible");
 }
 
 function checkInputValidity(formEl, inputEl, options) {
@@ -40,29 +40,7 @@ function toggleSaveButtonState(inputEls, saveButton, { inactiveButtonClass }) {
 function setEventListeners(formEl, options) {
   const inputEls = formEl.querySelectorAll(options.inputSelector);
   const saveButton = formEl.querySelector(options.saveButtonSelector);
-
-  inputEls.forEach((inputEl) => {
-    inputEl.addEventListener("input", () => {
-      checkInputValidity(formEl, inputEl, options);
-      toggleSaveButtonState(inputEls, saveButton, options);
-    });
-  });
-}
-
-function enableValidation(options) {
-  const formEls = [...document.querySelectorAll(options.formSelector)];
-  formEls.forEach((formEl) => {
-    formEl.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      console.log("Form submitted successfully!");
-    });
-  });
-}
-
-function setEventListeners(formEl, options) {
-  const inputEls = formEl.querySelectorAll(options.inputSelector);
-  const saveButton = formEl.querySelector(options.saveButtonSelector);
-
+  toggleSaveButtonState(inputEls, saveButton, options);
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", () => {
       checkInputValidity(formEl, inputEl, options);

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const addModal = document.getElementById("add-modal");
   const editModal = document.getElementById("edit-modal");
   const editForm = document.forms["edit-form"];
+  const addForm = document.forms["add-form"];
 
   const closeEditModalButton = editModal.querySelector("#edit-modal-close");
   const closeAddModalButton = addModal.querySelector("#add-modal-close");
@@ -121,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetModal(modal) {
     const form = modal.querySelector("form");
-    form.reset(); 
+    form.reset();
 
     const errorMessages = modal.querySelectorAll(".modal__input-error");
     errorMessages.forEach((errorMessage) => {
@@ -184,67 +185,69 @@ document.addEventListener("DOMContentLoaded", () => {
   openAddModalButton.addEventListener("click", () => {
     openmodal(addModal);
 
-  editForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+    editForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    profileName.textContent = nameInput.value;
-    profileAboutMe.textContent = aboutMeInput.value;
-    closemodal(editModal);
-  });
-
-  cardForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const placeName = placeInput.value.trim();
-    const link = linkInput.value.trim();
-
-    if (!isValidUrl(link)) {
-      alert("Please enter a valid URL.");
-      return;
-    }
-
-    let newPlace;
-    if (imageLibrary[placeName]) {
-      newPlace = imageLibrary[placeName];
-    } else {
-      newPlace = {
-        name: placeName,
-        link: link,
-        alt: placeName,
-      };
-    }
-
-    const newCardElement = getCardElement(newPlace);
-    cardsContainer.prepend(newCardElement);
-
-    placeInput.value = "";
-    linkInput.value = "";
-
-    closemodal(addModal);
-  });
-
-  function isValidUrl(string) {
-    try {
-      new URL(string);
-      return true;
-    } catch (_) {
-      return false;
-    }
-  }
-
-  // Function to close modal on Escape key press
-  function closemodalOnEsc(modalEl) {
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape") {
-        closemodal(modalEl);
-      }
+      profileName.textContent = nameInput.value;
+      profileAboutMe.textContent = aboutMeInput.value;
+      closemodal(editModal);
     });
-  }
 
-  // Attach the closemodalOnEsc function to each modal
-  closemodalOnEsc(addModal);
-  closemodalOnEsc(editModal);
-  closemodalOnEsc(imageModal);
+    cardForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
+      const placeName = placeInput.value.trim();
+      const link = linkInput.value.trim();
+
+      if (!isValidUrl(link)) {
+        alert("Please enter a valid URL.");
+        return;
+      }
+
+      let newPlace;
+      if (imageLibrary[placeName]) {
+        newPlace = imageLibrary[placeName];
+      } else {
+        newPlace = {
+          name: placeName,
+          link: link,
+          alt: placeName,
+        };
+      }
+
+      const newCardElement = getCardElement(newPlace);
+      cardsContainer.prepend(newCardElement);
+
+      placeInput.value = "";
+      linkInput.value = "";
+      const saveButton = addForm.querySelector(".modal__save-button");
+      // disableButton(saveButton) future state
+      saveButton.disabled = true;
+      saveButton.classList.add("modal__button_disabled");
+      closemodal(addModal);
+    });
+
+    function isValidUrl(string) {
+      try {
+        new URL(string);
+        return true;
+      } catch (_) {
+        return false;
+      }
+    }
+
+    // Function to close modal on Escape key press
+    function closemodalOnEsc(modalEl) {
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closemodal(modalEl);
+        }
+      });
+    }
+
+    // Attach the closemodalOnEsc function to each modal
+    closemodalOnEsc(addModal);
+    closemodalOnEsc(editModal);
+    closemodalOnEsc(imageModal);
+  });
 });
-})
