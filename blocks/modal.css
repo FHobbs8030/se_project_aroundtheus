@@ -97,7 +97,7 @@
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   outline: none;
-  padding: 0;
+  padding: 0px;
   height: 27.26px;
   margin-top: 14px;
   margin-bottom: 5px;
@@ -208,23 +208,27 @@
   .modal {
     width: 600px;
   }
-  .modal__container {
+
+    .modal__container {
     top: 20px;
-    left: auto;
-    width: 282px;
+    width: 60%;
     height: 322px;
     padding: 25px 22px;
   }
+ 
   .modal__image {
     width: 240px;
     height: 299px;
   }
+
   .modal__caption {
     width: 240px;
   }
+
   .modal__title {
+    width: 238px;
+    max-height: 22px;
     font-size: 18px;
-    margin: 0px 0px 76px 0px;
   }
 
   .modal__save-button {
@@ -234,45 +238,74 @@
 
 @media screen and (max-width: 480px) {
   .modal {
-    width: 480px;
+    width: 100%;
+    max-width: 480px;
   }
 
-  .modal__image-wrapper {
-    width: auto;
-    height: auto;
+  .modal__container {
+    max-width: 100%;
+  }
+
+  .modal__image {
+    width: 100%;
+  }
+
+  .modal__caption {
+    font-size: 15px; /* Adjust for readability */
+  }
+
+  .modal__title {
+    font-size: 18px;
+  }
+
+  .modal__input {
+    font-size: 13px;
+    max-width: 100%;
+    padding: 0px;
+  }
+
+  .modal__save-button {
+    font-size: 16px;
+    height: 45px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .modal {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
+    padding: 18px; 
   }
 
   .modal__container {
-    max-width: 282px;
-    max-height: 322px;
-    padding: 25px 22px;
+    left: -19px;
+    width: 282px;
   }
 
-  .modal__image-wrapper {
-    width: 240px;
-    height: 249px;
+  .modal__container-image {
+    padding: 11.5px 21px;
   }
 
-  .modal__close-button {
-    top: -39px;
-    left: 242px;
+  .modal__image {
+    width: 100%;
+    max-height: 299px; 
+  }
+
+  .modal__caption {
+    font-size: 12px; 
   }
 
   .modal__title {
-    width: 238px;
-    height: 22px;
+    font-size: 16px;
+    margin-bottom: 24px;
   }
 
   .modal__input {
-    max-width: 238px;
-    max-height: 25px;
-    font-size: 10px;
-    padding: 0px;
+    font-size: 12px;
+  }
+
+  .modal__save-button {
+    font-size: 14px;
+    height: 40px;
   }
 }
