@@ -113,139 +113,98 @@ document.addEventListener("DOMContentLoaded", () => {
   function openmodal(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
+
+    if (!modal.hasAttribute("data-listener-attached")) {
+      document.addEventListener("keydown", closeModalOnEscListener);
+      modal.setAttribute("data-listener-attached", "true");
+    }
   }
 
-  function closemodal(modal) {
-    modal.classList.remove("modal_open");
-    modal.classList.add("modal_hidden");
+  function closeModal(modalEl) {
+    modalEl.classList.remove("modal_open");
+    modalEl.classList.add("modal_hidden");
+    document.removeEventListener("keydown", closeModalOnEscListener); 
+    modalEl.removeAttribute("data-listener-attached");
   }
 
-  function resetModal(modal) {
-    const form = modal.querySelector("form");
-    form.reset();
-
-    const errorMessages = modal.querySelectorAll(".modal__input-error");
-    errorMessages.forEach((errorMessage) => {
-      errorMessage.textContent = "";
-    });
-
-    const inputs = form.querySelectorAll(".modal__input");
-    inputs.forEach((input) => {
-      input.classList.remove("modal__input_type_error");
-    });
-
-    const saveButton = modal.querySelector(".modal__save-button");
-    saveButton.disabled = true;
-    saveButton.classList.add("modal__button_disabled");
+  function closeModalOnEscListener(event) {
+    if (event.key === "Escape") {
+      const openModal = document.querySelector(".modal_open");
+      if (openModal) {
+        closeModal(openModal); 
+      }
+    }
   }
 
-  closeAddModalButton.addEventListener("click", () => {
-    closemodal(addModal);
-  });
-
-  closeEditModalButton.addEventListener("click", () => {
-    closemodal(editModal);
-  });
+  closeAddModalButton.addEventListener("click", () => closeModal(addModal));
+  closeEditModalButton.addEventListener("click", () => closeModal(editModal));
+  closeImageModalButton.addEventListener("click", () => closeModal(imageModal));
 
   addModal.addEventListener("click", (event) => {
     if (event.target === addModal) {
-      closemodal(addModal);
+      closeModal(addModal);
     }
   });
 
   editModal.addEventListener("click", (event) => {
     if (event.target === editModal) {
-      closemodal(editModal);
+      closeModal(editModal);
     }
   });
 
   imageModal.addEventListener("click", (event) => {
     if (event.target === imageModal) {
-      closemodal(imageModal);
+      closeModal(imageModal);
     }
-  });
-
-  closeImageModalButton.addEventListener("click", () => {
-    closemodal(imageModal);
   });
 
   openEditModalButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openmodal(editModal);
+  });
 
-    const saveButton = editForm.querySelector("button[type='submit']");
+  openAddModalButton.addEventListener("click", () => openmodal(addModal));
+
+  cardForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const placeName = placeInput.value.trim();
+    const link = linkInput.value.trim();
+
+    if (!isValidUrl(link)) {
+      alert("Please enter a valid URL.");
+      return;
+    }
+
+    let newPlace;
+    if (imageLibrary[placeName]) {
+      newPlace = imageLibrary[placeName];
+    } else {
+      newPlace = {
+        name: placeName,
+        link: link,
+        alt: placeName,
+      };
+    }
+
+    const newCardElement = getCardElement(newPlace);
+    cardsContainer.prepend(newCardElement);
+
+    placeInput.value = "";
+    linkInput.value = "";
+    const saveButton = addForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
-
-    checkInputValidity(editForm, nameInput, config);
-    checkInputValidity(editForm, aboutMeInput, config);
+    closeModal(addModal);
   });
 
-  openAddModalButton.addEventListener("click", () => {
-    openmodal(addModal);
-
-    editForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      profileName.textContent = nameInput.value;
-      profileAboutMe.textContent = aboutMeInput.value;
-      closemodal(editModal);
-    });
-
-    cardForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      const placeName = placeInput.value.trim();
-      const link = linkInput.value.trim();
-
-      if (!isValidUrl(link)) {
-        alert("Please enter a valid URL.");
-        return;
-      }
-
-      let newPlace;
-      if (imageLibrary[placeName]) {
-        newPlace = imageLibrary[placeName];
-      } else {
-        newPlace = {
-          name: placeName,
-          link: link,
-          alt: placeName,
-        };
-      }
-
-      const newCardElement = getCardElement(newPlace);
-      cardsContainer.prepend(newCardElement);
-
-      placeInput.value = "";
-      linkInput.value = "";
-      const saveButton = addForm.querySelector(".modal__save-button");
-      // disableButton(saveButton) future state
-      saveButton.disabled = true;
-      saveButton.classList.add("modal__button_disabled");
-      closemodal(addModal);
-    });
-
-    function isValidUrl(string) {
-      try {
-        new URL(string);
-        return true;
-      } catch (_) {
-        return false;
-      }
+  function isValidUrl(string) {
+    try {
+      new URL(string);
+      return true;
+    } catch (_) {
+      return false;
     }
-
-    function closemodalOnEsc(modalEl) {
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closemodal(modalEl);
-        }
-      });
-    }
-
-    closemodalOnEsc(addModal);
-    closemodalOnEsc(editModal);
-    closemodalOnEsc(imageModal);
-  });
+  }
 });
