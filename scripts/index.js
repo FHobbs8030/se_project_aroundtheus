@@ -107,53 +107,43 @@ document.addEventListener("DOMContentLoaded", () => {
     cardsContainer.appendChild(cardElement);
   });
 
-  // Open the Edit profile modal
   openEditModalButton.addEventListener("click", () => {
-    // Set the input values to the current profile information
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openmodal(editModal);
 
-    // Disable the Save button initially
     const saveButton = editForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
 
-    validateFormInputs(); // Manually trigger validation on modal input fields
+    validateFormInputs(); 
   });
 
-  // Open the Add New Place modal
   openAddModalButton.addEventListener("click", () => {
     openmodal(addModal);
 
-    // Disable the Save button initially
     const saveButton = addForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
 
-    validateAddFormInputs(); // Manually trigger validation on Add modal input fields
+    validateAddFormInputs(); 
   });
 
-  // Add event listener for closing modals
   closeAddModalButton.addEventListener("click", () => closeModal(addModal));
   closeEditModalButton.addEventListener("click", () => closeModal(editModal));
   closeImageModalButton.addEventListener("click", () => closeModal(imageModal));
 
-  // Handle the form submission for saving profile changes
   editForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
-    // Update the profile with the new values
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
 
-    // Close the modal after saving changes
     closeModal(editModal);
   });
 
-  // Handle the form submission for adding a new place
   addForm.addEventListener("submit", (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); 
 
     const placeTitle = document.querySelector("#place").value.trim();
     const imageUrl = document.querySelector("#link").value.trim();
@@ -173,23 +163,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const newCardElement = getCardElement(newPlace);
     cardsContainer.prepend(newCardElement);
 
-    // Reset form fields
     document.querySelector("#place").value = "";
     document.querySelector("#link").value = "";
 
-    // Disable the Save button and close modal
     const saveButton = addForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
     closeModal(addModal);
   });
 
-  // Function to validate the Add New Place form inputs
   function validateAddFormInputs() {
     const inputs = addForm.querySelectorAll(".modal__input");
     const saveButton = addForm.querySelector(".modal__save-button");
 
-    // Validate inputs and toggle Save button state
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidity(addForm, input, config);
@@ -197,11 +183,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Initially check if the form is valid
     toggleSaveButtonState(inputs, saveButton, config);
   }
 
-  // Function to check the input validity
   function checkInputValidity(formEl, inputEl, options) {
     if (inputEl.validity.valid) {
       hideInputError(formEl, inputEl, options);
@@ -210,7 +194,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Function to show error messages for invalid inputs
   function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
     errorMessageEl.textContent = inputEl.validationMessage;
@@ -219,7 +202,6 @@ document.addEventListener("DOMContentLoaded", () => {
     errorMessageEl.classList.add("visible");
   }
 
-  // Function to hide error messages
   function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(inputErrorClass);
@@ -228,7 +210,6 @@ document.addEventListener("DOMContentLoaded", () => {
     errorMessageEl.classList.remove("visible");
   }
 
-  // Function to toggle the Save button state based on input validity
   function toggleSaveButtonState(
     inputEls,
     saveButton,
@@ -247,7 +228,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Enable form validation
   function enableValidation(options) {
     const formEls = [...document.querySelectorAll(options.formSelector)];
     formEls.forEach((formEl) => {
@@ -271,7 +251,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   enableValidation(config);
 
-  // Modal open and close logic
   function openmodal(modal) {
     modal.classList.remove("modal_hidden");
     modal.classList.add("modal_open");
