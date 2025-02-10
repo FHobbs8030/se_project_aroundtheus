@@ -260,7 +260,6 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.setAttribute("data-listener-attached", "true");
     }
 
-    // Close modal if background is clicked
     modal.addEventListener("click", (event) => {
       if (event.target === modal) {
         closeModal(modal);
