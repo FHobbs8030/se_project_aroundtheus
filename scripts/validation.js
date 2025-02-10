@@ -18,7 +18,7 @@ function checkInputValidity(formEl, inputEl, options) {
   if (inputEl.validity.valid) {
     hideInputError(formEl, inputEl, options);
   } else {
-    console.log("yo its invalud bro");
+    console.log("yo its invalid bro");
     showInputError(formEl, inputEl, options);
   }
 }
@@ -41,6 +41,7 @@ function setEventListeners(formEl, options) {
   const inputEls = formEl.querySelectorAll(options.inputSelector);
   const saveButton = formEl.querySelector(options.saveButtonSelector);
   toggleSaveButtonState(inputEls, saveButton, options);
+
   inputEls.forEach((inputEl) => {
     inputEl.addEventListener("input", () => {
       checkInputValidity(formEl, inputEl, options);
@@ -62,7 +63,7 @@ function enableValidation(options) {
 }
 
 const config = {
-  formSelector: "#edit-form, #add-form, modal-form",
+  formSelector: ".modal__form",
   inputSelector: ".modal__input",
   saveButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__button_disabled",

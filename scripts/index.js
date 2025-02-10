@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
-  // Image Library
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -111,13 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
     openmodal(editModal);
-
-    const saveButton = editForm.querySelector(".modal__save-button");
-    saveButton.disabled = true;
-    saveButton.classList.add("modal__button_disabled");
-
-    validateFormInputs();
-  });
+   });
 
   openAddModalButton.addEventListener("click", () => {
     openmodal(addModal);
@@ -126,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
 
-    validateAddFormInputs();
+    validateFormInputs(addForm, saveButton);
   });
 
   closeAddModalButton.addEventListener("click", () => closeModal(addModal));
@@ -135,10 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   editForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
-
     closeModal(editModal);
   });
 
@@ -148,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const placeTitle = document.querySelector("#place").value.trim();
     const imageUrl = document.querySelector("#link").value.trim();
 
-    // Validate the URL
     if (!isValidUrl(imageUrl)) {
       alert("Please enter a valid URL.");
       return;
@@ -161,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const newCardElement = getCardElement(newPlace);
-    cardsContainer.prepend(newCardElement);
+    cardsContainer.preprepend(newCardElement);
 
     document.querySelector("#place").value = "";
     document.querySelector("#link").value = "";
@@ -172,84 +162,18 @@ document.addEventListener("DOMContentLoaded", () => {
     closeModal(addModal);
   });
 
-  function validateAddFormInputs() {
-    const inputs = addForm.querySelectorAll(".modal__input");
-    const saveButton = addForm.querySelector(".modal__save-button");
+  function validateFormInputs(formEl, saveButton) {
+    const inputs = formEl.querySelectorAll(".modal__input");
 
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
-        checkInputValidity(addForm, input, config);
+        checkInputValidity(formEl, input, config);
         toggleSaveButtonState(inputs, saveButton, config);
       });
     });
 
     toggleSaveButtonState(inputs, saveButton, config);
   }
-
-  function checkInputValidity(formEl, inputEl, options) {
-    if (inputEl.validity.valid) {
-      hideInputError(formEl, inputEl, options);
-    } else {
-      showInputError(formEl, inputEl, options);
-    }
-  }
-
-  function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-    errorMessageEl.textContent = inputEl.validationMessage;
-    inputEl.classList.add(inputErrorClass);
-    errorMessageEl.classList.add(errorClass);
-    errorMessageEl.classList.add("visible");
-  }
-
-  function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
-    const errorMessageEl = formEl.querySelector(`#${inputEl.id}-error`);
-    inputEl.classList.remove(inputErrorClass);
-    errorMessageEl.textContent = "";
-    errorMessageEl.classList.remove(errorClass);
-    errorMessageEl.classList.remove("visible");
-  }
-
-  function toggleSaveButtonState(
-    inputEls,
-    saveButton,
-    { inactiveButtonClass }
-  ) {
-    const isFormValid = Array.from(inputEls).every(
-      (inputEl) => inputEl.validity.valid
-    );
-
-    if (isFormValid) {
-      saveButton.classList.remove(inactiveButtonClass);
-      saveButton.disabled = false;
-    } else {
-      saveButton.classList.add(inactiveButtonClass);
-      saveButton.disabled = true;
-    }
-  }
-
-  function enableValidation(options) {
-    const formEls = [...document.querySelectorAll(options.formSelector)];
-    formEls.forEach((formEl) => {
-      formEl.addEventListener("submit", (evt) => {
-        evt.preventDefault();
-        console.log("Form submitted successfully!");
-      });
-
-      setEventListeners(formEl, options);
-    });
-  }
-
-  const config = {
-    formSelector: "#edit-form, #add-form, modal-form",
-    inputSelector: ".modal__input",
-    saveButtonSelector: ".modal__save-button",
-    inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: "modal__input_type_error",
-    errorClass: "modal__error_visible",
-  };
-
-  enableValidation(config);
 
   function openmodal(modal) {
     modal.classList.remove("modal_hidden");
