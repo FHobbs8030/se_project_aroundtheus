@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
 
-    validateFormInputs(); 
+    validateFormInputs();
   });
 
   openAddModalButton.addEventListener("click", () => {
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.disabled = true;
     saveButton.classList.add("modal__button_disabled");
 
-    validateAddFormInputs(); 
+    validateAddFormInputs();
   });
 
   closeAddModalButton.addEventListener("click", () => closeModal(addModal));
@@ -134,7 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
   closeImageModalButton.addEventListener("click", () => closeModal(imageModal));
 
   editForm.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     profileName.textContent = nameInput.value;
     profileAboutMe.textContent = aboutMeInput.value;
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addForm.addEventListener("submit", (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
 
     const placeTitle = document.querySelector("#place").value.trim();
     const imageUrl = document.querySelector("#link").value.trim();
@@ -259,6 +259,13 @@ document.addEventListener("DOMContentLoaded", () => {
       document.addEventListener("keydown", closeModalOnEscListener);
       modal.setAttribute("data-listener-attached", "true");
     }
+
+    // Close modal if background is clicked
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
   }
 
   function closeModal(modalEl) {
