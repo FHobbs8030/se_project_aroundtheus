@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const profileAboutMe = document.querySelector(".profile__about_me");
   const cardsContainer = document.querySelector("#cards-container");
 
+  const placeInput = document.querySelector("#place");
+  const linkInput = document.querySelector("#link");
+
   const imageLibrary = {
     "The Grand Canyon": {
       name: "The Grand Canyon",
@@ -68,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     imageLibrary["Latemar"],
     imageLibrary["Vanoise National Park"],
     imageLibrary["Lago di Braies"],
+    imageLibrary["The Grand Canyon"], // Initially included but will be hidden
   ];
 
   function getCardElement(data) {
@@ -101,23 +105,52 @@ document.addEventListener("DOMContentLoaded", () => {
     return cardElement;
   }
 
+  // Add all cards, including The Grand Canyon
   initialCards.forEach((cardData) => {
     const cardElement = getCardElement(cardData);
     cardsContainer.appendChild(cardElement);
   });
 
+  // Hide the "The Grand Canyon" card after adding it
+  const grandCanyonCard = Array.from(cardsContainer.children).find(
+    (card) =>
+      card.querySelector(".cards__title").textContent === "The Grand Canyon"
+  );
+  if (grandCanyonCard) {
+    grandCanyonCard.style.display = "none"; // Hide The Grand Canyon card
+  }
+
+  // Handle opening the edit modal
   openEditModalButton.addEventListener("click", () => {
     nameInput.value = profileName.textContent;
     aboutMeInput.value = profileAboutMe.textContent;
+
+    // Open the edit modal
     openmodal(editModal);
-   });
+
+    // Disable the save button when the modal is opened
+    const saveButton = editForm.querySelector(".modal__save-button");
+    saveButton.disabled = true;
+    saveButton.classList.add("modal__save-button_disabled"); // Add the disabled class to reflect the state
+
+    // Validate the form inputs
+    validateFormInputs(editForm, saveButton);
+
+    // Add event listeners for input changes to check for changes
+    nameInput.addEventListener("input", () =>
+      checkAndEnableSaveButton(saveButton)
+    );
+    aboutMeInput.addEventListener("input", () =>
+      checkAndEnableSaveButton(saveButton)
+    );
+  });
 
   openAddModalButton.addEventListener("click", () => {
     openmodal(addModal);
 
     const saveButton = addForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
-    saveButton.classList.add("modal__button_disabled");
+    saveButton.classList.add("modal__save-button_disabled");
 
     validateFormInputs(addForm, saveButton);
   });
@@ -151,16 +184,73 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const newCardElement = getCardElement(newPlace);
-    cardsContainer.preprepend(newCardElement);
+    cardsContainer.prepend(newCardElement);
 
     document.querySelector("#place").value = "";
     document.querySelector("#link").value = "";
 
     const saveButton = addForm.querySelector(".modal__save-button");
     saveButton.disabled = true;
-    saveButton.classList.add("modal__button_disabled");
+    saveButton.classList.add("modal__save-button_disabled");
     closeModal(addModal);
   });
+
+  // Automatically fill the URL when the title is filled out
+  placeInput.addEventListener("input", () => {
+    const title = placeInput.value.trim().toLowerCase(); // Make the title lowercase for case-insensitive comparison
+    const matchingPlace = Object.keys(imageLibrary).find(
+      (key) => key.toLowerCase() === title
+    );
+
+    if (matchingPlace) {
+      // If a match is found, populate the URL field with the corresponding link
+      let url = imageLibrary[matchingPlace].link;
+
+      // Clean the URL (removing "-add" or any unwanted part)
+      if (url.includes("-add")) {
+        url = url.replace("-add", ""); // Remove the unwanted part
+      }
+
+      linkInput.value = url; // Set the cleaned URL
+    } else {
+      linkInput.value = ""; // Clear the URL if no match
+    }
+
+    toggleSaveButton(); // Recheck the button state after populating the URL
+  });
+
+  function toggleSaveButton() {
+    const title = placeInput.value.trim();
+    const url = linkInput.value.trim();
+    const saveButton = addForm.querySelector(".modal__save-button");
+
+    if (title && isValidUrl(url)) {
+      saveButton.disabled = false;
+      saveButton.classList.remove("modal__save-button_disabled");
+      saveButton.classList.add("modal__button_enabled");
+    } else {
+      saveButton.disabled = true;
+      saveButton.classList.remove("modal__button_enabled");
+      saveButton.classList.add("modal__save-button_disabled");
+    }
+  }
+
+  function checkAndEnableSaveButton(saveButton) {
+    const nameChanged =
+      nameInput.value.trim() !== profileName.textContent.trim();
+    const aboutChanged =
+      aboutMeInput.value.trim() !== profileAboutMe.textContent.trim();
+
+    if (nameChanged || aboutChanged) {
+      saveButton.disabled = false;
+      saveButton.classList.remove("modal__save-button_disabled");
+      saveButton.classList.add("modal__button_enabled");
+    } else {
+      saveButton.disabled = true;
+      saveButton.classList.add("modal__save-button_disabled");
+      saveButton.classList.remove("modal__button_enabled");
+    }
+  }
 
   function validateFormInputs(formEl, saveButton) {
     const inputs = formEl.querySelectorAll(".modal__input");
@@ -168,11 +258,11 @@ document.addEventListener("DOMContentLoaded", () => {
     inputs.forEach((input) => {
       input.addEventListener("input", () => {
         checkInputValidity(formEl, input, config);
-        toggleSaveButtonState(inputs, saveButton, config);
+        toggleSaveButton(); // Ensure toggleSaveButton is triggered after each input
       });
     });
 
-    toggleSaveButtonState(inputs, saveButton, config);
+    toggleSaveButton(); // Initial state check when the modal opens
   }
 
   function openmodal(modal) {
@@ -204,6 +294,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (openModal) {
         closeModal(openModal);
       }
+    }
+  }
+
+  function isValidUrl(url) {
+    try {
+      // Use URL constructor to validate
+      new URL(url);
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 });
