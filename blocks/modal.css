@@ -102,6 +102,21 @@
   margin-bottom: 5px;
 }
 
+.modal__input-error_visible {
+  visibility: visible;
+  color: red;
+}
+
+.modal__input-type-error {
+  border: none;
+  border-bottom: 1px solid rgba(255, 0, 0, 1);
+  width: 358;
+  height: 44;
+  top: 708px;
+  left: 107px;
+  border-width: 1px;
+}
+
 .modal__input-wrapper {
   display: flex;
   flex-direction: column;

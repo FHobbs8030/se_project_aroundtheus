@@ -3,7 +3,6 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   errorMessageEl.textContent = inputEl.validationMessage;
   inputEl.classList.add(inputErrorClass);
   errorMessageEl.classList.add(errorClass); 
-  errorMessageEl.classList.add("modal__input-error_visible"); 
 }
 
 
@@ -54,7 +53,6 @@ function enableValidation(options) {
   formEls.forEach((formEl) => {
     formEl.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      console.log("Form submitted successfully!");
     });
 
     setEventListeners(formEl, options);
@@ -66,8 +64,8 @@ const config = {
   inputSelector: "modal__input",
   saveButtonSelector: "modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
+  inputErrorClass: "modal__input-type-error",
+  errorClass: "modal__input-error_visible",
 };
 
 enableValidation(config);
