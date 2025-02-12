@@ -18,7 +18,6 @@ function checkInputValidity(formEl, inputEl, options) {
   if (inputEl.validity.valid) {
     hideInputError(formEl, inputEl, options);
   } else {
-    console.log("yo its invalid bro");
     showInputError(formEl, inputEl, options);
   }
 }
