@@ -166,12 +166,6 @@
 }
 
 .modal__input-error {
-  max-width: 100%;
-  word-wrap: break-word;
-  white-space: normal;
-}
-
-.modal__input-error {
   color: red;
   position: absolute;
   left: 0px;
@@ -189,7 +183,7 @@
   height: 16px;
 }
 
-.modal__input-error.visible {
+.modal__input-error_visible {
   visibility: visible;
 }
 
