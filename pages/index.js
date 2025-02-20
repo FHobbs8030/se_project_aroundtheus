@@ -1,5 +1,15 @@
 import Card from "../components/Card.js";
-import FormValidator from "../components/FormValidator.js"; // Import FormValidator class
+import { FormValidator } from "../components/FormValidator.js"; // Corrected import
+
+// Validation Configuration
+const validationConfig = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  saveButtonSelector: ".modal__save-button",
+  inactiveButtonClass: "modal__save-button_disabled",
+  inputErrorClass: "modal__input-error",
+  errorClass: "modal__input-error_visible",
+};
 
 // Handle image click to open the modal
 function handleImageClick(data) {
@@ -48,7 +58,6 @@ function closeModalOnEscListener(event) {
   }
 }
 
-// Complete initial cards data
 const initialCardsData = [
   // {
   //   name: "The Grand Canyon",
@@ -90,30 +99,69 @@ const initialCardsData = [
 // Cards container
 const cardsContainer = document.querySelector("#cards-container");
 
-// Create and add cards to the container
 initialCardsData.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
   cardsContainer.appendChild(card.getElement());
 });
 
-// Form validation settings
-const validationConfig = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  saveButtonSelector: ".modal__save-button",
-  inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input-error",
-  errorClass: "modal__input-error_visible",
-};
-
-// Select form elements to apply validation
+// Initialize FormValidator instances for the forms
 const editForm = document.querySelector("#edit-form");
 const addForm = document.querySelector("#add-form");
 
-// Create FormValidator instances for each form
 const editFormValidator = new FormValidator(validationConfig, editForm);
 const addFormValidator = new FormValidator(validationConfig, addForm);
 
-// Enable validation for each form
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+
+// Open and close modals (edit, add, image)
+const openEditModalButton = document.querySelector(".profile__edit-button");
+const openAddModalButton = document.querySelector(".profile__add-button");
+
+const editModal = document.getElementById("edit-modal");
+const addModal = document.getElementById("add-modal");
+
+openEditModalButton.addEventListener("click", () => {
+  openModal(editModal);
+});
+
+openAddModalButton.addEventListener("click", () => {
+  openModal(addModal);
+});
+
+const closeEditModalButton = document.querySelector("#edit-modal-close");
+const closeAddModalButton = document.querySelector("#add-modal-close");
+
+closeEditModalButton.addEventListener("click", () => {
+  closeModal(editModal);
+});
+
+closeAddModalButton.addEventListener("click", () => {
+  closeModal(addModal);
+});
+
+const closeImageModalButton = document.querySelector("#image-modal-close");
+
+if (closeImageModalButton) {
+  closeImageModalButton.addEventListener("click", () => {
+    const imageModal = document.querySelector("#image-modal");
+    closeModal(imageModal);
+  });
+}
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal(modal);
+    }
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_open");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+});
