@@ -101,6 +101,7 @@ const cardsContainer = document.querySelector("#cards-container");
 
 initialCardsData.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
+  console.log(card.generateCard()); // Log the generated card
   cardsContainer.appendChild(card.getElement());
 });
 

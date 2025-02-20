@@ -25,4 +25,8 @@ export default class Card {
 
     return cardElement;
   }
+
+  getElement() {
+    return this.generateCard();
+  }
 }
