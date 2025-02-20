@@ -64,34 +64,38 @@ const openEditModalButton = document.querySelector(".profile__edit-button");
 openEditModalButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-
   openModal(editModal);
 });
 
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
-
   const newCardData = {
     name: titleInput.value,
     link: urlInput.value,
     alt: titleInput.value,
   };
-
   const newCard = new Card(newCardData, "#card-template", handleImageClick);
   const cardElement = newCard.getElement();
-
   cardsContainer.insertBefore(cardElement, cardsContainer.firstChild);
+
+  addSaveButton.disabled = true;
+  addSaveButton.classList.add(validationConfig.inactiveButtonClass);
+
+  titleInput.value = "";
+  urlInput.value = "";
 
   closeModal(addModal);
 });
 
-const saveButton = document.querySelector(".modal__save-button");
+const saveButton = document.querySelector(".modal__save-button"); 
 
 saveButton.addEventListener("click", (e) => {
   e.preventDefault();
-
   profileName.textContent = nameInput.value;
   profileAbout.textContent = aboutInput.value;
+
+  saveButton.disabled = true;
+  saveButton.classList.add(validationConfig.inactiveButtonClass);
 
   closeModal(editModal);
 });
@@ -129,8 +133,6 @@ const titleToUrlMapping = {
     "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
   "Lago di Braies":
     "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  "The Grand Canyon":
-    "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww",
 };
 
 function openModal(modal) {
