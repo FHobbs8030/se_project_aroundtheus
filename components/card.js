@@ -21,8 +21,9 @@ export default class Card {
     cardImage.alt = this._data.alt;
     cardTitle.textContent = this._data.name;
 
-    deleteButton.addEventListener("click", () => {
-      this._handleDeleteCard(cardElement);
+    deleteButton.addEventListener("click", (event) => {
+      event.stopPropagation(); 
+      this._handleDeleteCard(cardElement); 
     });
 
     heartButton.addEventListener("click", () => {

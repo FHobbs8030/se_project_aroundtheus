@@ -79,7 +79,8 @@ addForm.addEventListener("submit", (e) => {
 
   const newCard = new Card(newCardData, "#card-template", handleImageClick);
   const cardElement = newCard.getElement();
-  cardsContainer.appendChild(cardElement);
+
+  cardsContainer.insertBefore(cardElement, cardsContainer.firstChild);
 
   closeModal(addModal);
 });
