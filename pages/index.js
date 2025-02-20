@@ -157,7 +157,14 @@ function closeModalOnEscListener(event) {
   }
 }
 
-const cards = document.querySelectorAll(".cards__card");
+const closeButtons = document.querySelectorAll(".modal__close-button");
+
+closeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal"); 
+    closeModal(modal); 
+  });
+});
 
 cardData.forEach((card) => {
   const cardElement = new Card(
@@ -184,12 +191,10 @@ const editForm = document.querySelector("#edit-form");
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
 
-// Open Add Modal when clicking on "Add" button
 openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
 });
 
-// Close Modal Event Listeners for Add and Edit modals
 const closeAddModalButton = document.querySelector("#add-modal-close");
 const closeEditModalButton = document.querySelector("#edit-modal-close");
 
@@ -201,7 +206,6 @@ closeAddModalButton.addEventListener("click", () => {
   closeModal(addModal);
 });
 
-// Close modal when clicking outside modal content
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
