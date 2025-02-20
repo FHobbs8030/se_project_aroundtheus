@@ -99,9 +99,9 @@ const addFormValidator = new FormValidator(validationConfig, addForm);
 addFormValidator.enableValidation();
 
 titleInput.addEventListener("input", () => {
-  if (titleInput.value.trim() === "The Grand Canyon") {
-    urlInput.value =
-      "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww";
+  const title = titleInput.value.trim();
+  if (titleToUrlMapping[title]) {
+    urlInput.value = titleToUrlMapping[title];
   } else {
     urlInput.value = "";
   }
@@ -115,15 +115,22 @@ titleInput.addEventListener("input", () => {
   }
 });
 
-urlInput.addEventListener("input", () => {
-  if (urlInput.validity.valid && titleInput.value.trim()) {
-    addSaveButton.disabled = false;
-    addSaveButton.classList.remove(validationConfig.inactiveButtonClass);
-  } else {
-    addSaveButton.disabled = true;
-    addSaveButton.classList.add(validationConfig.inactiveButtonClass);
-  }
-});
+const titleToUrlMapping = {
+  "Yosemite Valley":
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+  "Lake Louise":
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
+  "Bald Mountains":
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
+  Latemar:
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
+  "Vanoise National Park":
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
+  "Lago di Braies":
+    "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
+  "The Grand Canyon":
+    "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww",
+};
 
 function openModal(modal) {
   modal.classList.remove("modal_hidden");
@@ -161,18 +168,52 @@ const closeButtons = document.querySelectorAll(".modal__close-button");
 
 closeButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    const modal = button.closest(".modal"); 
-    closeModal(modal); 
+    const modal = button.closest(".modal");
+    closeModal(modal);
   });
 });
 
-cardData.forEach((card) => {
-  const cardElement = new Card(
-    card,
-    "#card-template",
-    handleImageClick
-  ).getElement();
-  cardsContainer.appendChild(cardElement);
+document.addEventListener("DOMContentLoaded", () => {
+  cardData.forEach((card) => {
+    const cardElement = new Card(
+      card,
+      "#card-template",
+      handleImageClick
+    ).getElement();
+    cardsContainer.appendChild(cardElement);
+  });
+
+  openAddModalButton.addEventListener("click", () => {
+    openModal(addModal);
+  });
+
+  const closeAddModalButton = document.querySelector("#add-modal-close");
+  const closeEditModalButton = document.querySelector("#edit-modal-close");
+
+  closeEditModalButton.addEventListener("click", () => {
+    closeModal(editModal);
+  });
+
+  closeAddModalButton.addEventListener("click", () => {
+    closeModal(addModal);
+  });
+
+  document.querySelectorAll(".modal").forEach((modal) => {
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal(modal);
+      }
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      const openModal = document.querySelector(".modal_open");
+      if (openModal) {
+        closeModal(openModal);
+      }
+    }
+  });
 });
 
 function handleImageClick(data) {
@@ -190,35 +231,3 @@ const editForm = document.querySelector("#edit-form");
 
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
-
-openAddModalButton.addEventListener("click", () => {
-  openModal(addModal);
-});
-
-const closeAddModalButton = document.querySelector("#add-modal-close");
-const closeEditModalButton = document.querySelector("#edit-modal-close");
-
-closeEditModalButton.addEventListener("click", () => {
-  closeModal(editModal);
-});
-
-closeAddModalButton.addEventListener("click", () => {
-  closeModal(addModal);
-});
-
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal(modal);
-    }
-  });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_open");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-});

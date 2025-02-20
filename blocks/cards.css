@@ -74,7 +74,7 @@
   cursor: pointer;
 }
 
-.cards__heart__active {
+.cards__heart_active {
   background: url("../images/black_heart.svg") no-repeat center;
 }
 
