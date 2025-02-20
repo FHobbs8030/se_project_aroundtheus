@@ -1,3 +1,4 @@
+// Card.js
 export default class Card {
   constructor(data, templateSelector, handleImageClick) {
     this._data = data;
@@ -22,8 +23,8 @@ export default class Card {
     cardTitle.textContent = this._data.name;
 
     deleteButton.addEventListener("click", (event) => {
-      event.stopPropagation(); 
-      this._handleDeleteCard(cardElement); 
+      event.stopPropagation();
+      this._handleDeleteCard(cardElement);
     });
 
     heartButton.addEventListener("click", () => {
@@ -42,7 +43,7 @@ export default class Card {
   }
 
   _handleDeleteCard(cardElement) {
-    cardElement.remove(); 
+    cardElement.remove();
   }
 
   _handleHeartButton(heartButton) {

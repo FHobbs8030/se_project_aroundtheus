@@ -66,6 +66,7 @@ const addFormValidator = new FormValidator(validationConfig, addForm);
 document.addEventListener("DOMContentLoaded", () => {
   const editForm = document.querySelector("#edit-form");
   const editFormValidator = new FormValidator(validationConfig, editForm);
+
   const saveButton = document.querySelector(".modal__save-button"); 
 
   openEditModalButton.addEventListener("click", () => {
