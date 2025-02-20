@@ -1,69 +1,16 @@
 import Card from "../components/Card.js";
-import { FormValidator } from "../components/FormValidator.js"; // Corrected import
+import { FormValidator } from "../components/FormValidator.js";
 
-// Validation Configuration
 const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   saveButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input-error",
+  inputErrorClass: "modal__input-type-error",
   errorClass: "modal__input-error_visible",
 };
 
-// Handle image click to open the modal
-function handleImageClick(data) {
-  const modalImage = document.querySelector(".modal__image");
-  const modalCaption = document.querySelector(".modal__caption");
-
-  modalImage.src = data.link;
-  modalImage.alt = data.name;
-  modalCaption.textContent = data.name;
-
-  openModal(document.querySelector("#image-modal"));
-}
-
-// Open modal function
-function openModal(modal) {
-  modal.classList.remove("modal_hidden");
-  modal.classList.add("modal_open");
-
-  if (!modal.hasAttribute("data-listener-attached")) {
-    document.addEventListener("keydown", closeModalOnEscListener);
-    modal.setAttribute("data-listener-attached", "true");
-  }
-
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal(modal);
-    }
-  });
-}
-
-// Close modal function
-function closeModal(modalEl) {
-  modalEl.classList.remove("modal_open");
-  modalEl.classList.add("modal_hidden");
-  document.removeEventListener("keydown", closeModalOnEscListener);
-  modalEl.removeAttribute("data-listener-attached");
-}
-
-// Close modal on ESC key press
-function closeModalOnEscListener(event) {
-  if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_open");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
-}
-
-const initialCardsData = [
-  // {
-  //   name: "The Grand Canyon",
-  //   link: "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww",
-  //   alt: "A beautiful landscape of the Grand Canyon",
-  // },
+const cardData = [
   {
     name: "Yosemite Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
@@ -96,42 +43,153 @@ const initialCardsData = [
   },
 ];
 
-// Cards container
 const cardsContainer = document.querySelector("#cards-container");
 
-initialCardsData.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template", handleImageClick);
-  console.log(card.generateCard()); // Log the generated card
-  cardsContainer.appendChild(card.getElement());
-});
-
-// Initialize FormValidator instances for the forms
-const editForm = document.querySelector("#edit-form");
+const addModal = document.getElementById("add-modal");
 const addForm = document.querySelector("#add-form");
-
-const editFormValidator = new FormValidator(validationConfig, editForm);
-const addFormValidator = new FormValidator(validationConfig, addForm);
-
-editFormValidator.enableValidation();
-addFormValidator.enableValidation();
-
-// Open and close modals (edit, add, image)
-const openEditModalButton = document.querySelector(".profile__edit-button");
-const openAddModalButton = document.querySelector(".profile__add-button");
+const titleInput = addForm.querySelector("#place");
+const urlInput = addForm.querySelector("#link");
+const addSaveButton = addForm.querySelector(".modal__save-button");
 
 const editModal = document.getElementById("edit-modal");
-const addModal = document.getElementById("add-modal");
+const nameInput = document.querySelector("#name");
+const aboutInput = document.querySelector("#about");
+
+const profileName = document.querySelector(".profile__name");
+const profileAbout = document.querySelector(".profile__about");
+
+const openAddModalButton = document.querySelector(".profile__add-button");
+const openEditModalButton = document.querySelector(".profile__edit-button");
 
 openEditModalButton.addEventListener("click", () => {
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
+
   openModal(editModal);
 });
 
+addSaveButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const newCardData = {
+    name: titleInput.value,
+    link: urlInput.value,
+    alt: titleInput.value,
+  };
+
+  const newCard = new Card(newCardData, "#card-template", handleImageClick);
+  const cardElement = newCard.getElement();
+  cardsContainer.appendChild(cardElement);
+
+  closeModal(addModal);
+});
+
+const saveButton = document.querySelector(".modal__save-button");
+
+saveButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+
+  closeModal(editModal);
+});
+
+const addFormValidator = new FormValidator(validationConfig, addForm);
+addFormValidator.enableValidation();
+
+titleInput.addEventListener("input", () => {
+  if (titleInput.value.trim() === "The Grand Canyon") {
+    urlInput.value =
+      "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww";
+  } else {
+    urlInput.value = "";
+  }
+
+  if (titleInput.value.trim() && urlInput.validity.valid) {
+    addSaveButton.disabled = false;
+    addSaveButton.classList.remove(validationConfig.inactiveButtonClass);
+  } else {
+    addSaveButton.disabled = true;
+    addSaveButton.classList.add(validationConfig.inactiveButtonClass);
+  }
+});
+
+urlInput.addEventListener("input", () => {
+  if (urlInput.validity.valid && titleInput.value.trim()) {
+    addSaveButton.disabled = false;
+    addSaveButton.classList.remove(validationConfig.inactiveButtonClass);
+  } else {
+    addSaveButton.disabled = true;
+    addSaveButton.classList.add(validationConfig.inactiveButtonClass);
+  }
+});
+
+function openModal(modal) {
+  modal.classList.remove("modal_hidden");
+  modal.classList.add("modal_open");
+
+  if (!modal.hasAttribute("data-listener-attached")) {
+    document.addEventListener("keydown", closeModalOnEscListener);
+    modal.setAttribute("data-listener-attached", "true");
+  }
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      closeModal(modal);
+    }
+  });
+}
+
+function closeModal(modalEl) {
+  modalEl.classList.remove("modal_open");
+  modalEl.classList.add("modal_hidden");
+  document.removeEventListener("keydown", closeModalOnEscListener);
+  modalEl.removeAttribute("data-listener-attached");
+}
+
+function closeModalOnEscListener(event) {
+  if (event.key === "Escape") {
+    const openModal = document.querySelector(".modal_open");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+}
+
+const cards = document.querySelectorAll(".cards__card");
+
+cardData.forEach((card) => {
+  const cardElement = new Card(
+    card,
+    "#card-template",
+    handleImageClick
+  ).getElement();
+  cardsContainer.appendChild(cardElement);
+});
+
+function handleImageClick(data) {
+  const modalImage = document.querySelector(".modal__image");
+  const modalCaption = document.querySelector(".modal__caption");
+
+  modalImage.src = data.link;
+  modalImage.alt = data.name;
+  modalCaption.textContent = data.name;
+
+  openModal(document.querySelector("#image-modal"));
+}
+
+const editFormValidator = new FormValidator(validationConfig, editForm);
+editFormValidator.enableValidation();
+
+// Open Add Modal when clicking on "Add" button
 openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
 });
 
-const closeEditModalButton = document.querySelector("#edit-modal-close");
+// Close Modal Event Listeners for Add and Edit modals
 const closeAddModalButton = document.querySelector("#add-modal-close");
+const closeEditModalButton = document.querySelector("#edit-modal-close");
 
 closeEditModalButton.addEventListener("click", () => {
   closeModal(editModal);
@@ -141,15 +199,7 @@ closeAddModalButton.addEventListener("click", () => {
   closeModal(addModal);
 });
 
-const closeImageModalButton = document.querySelector("#image-modal-close");
-
-if (closeImageModalButton) {
-  closeImageModalButton.addEventListener("click", () => {
-    const imageModal = document.querySelector("#image-modal");
-    closeModal(imageModal);
-  });
-}
-
+// Close modal when clicking outside modal content
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (event) => {
     if (event.target === modal) {
