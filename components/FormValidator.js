@@ -8,7 +8,6 @@ export class FormValidator {
     this._submitButton = formElement.querySelector(settings.saveButtonSelector);
   }
 
-  // Private method to check input validity
   _checkInputValidity(inputElement) {
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
@@ -20,21 +19,18 @@ export class FormValidator {
     }
   }
 
-  // Private method to show error message
   _showInputError(inputElement, errorElement) {
     errorElement.textContent = inputElement.validationMessage;
     inputElement.classList.add(this._settings.inputErrorClass);
     errorElement.classList.add(this._settings.errorClass);
   }
 
-  // Private method to hide error message
   _hideInputError(inputElement, errorElement) {
     errorElement.textContent = "";
     inputElement.classList.remove(this._settings.inputErrorClass);
     errorElement.classList.remove(this._settings.errorClass);
   }
 
-  // Private method to toggle submit button state
   _toggleSubmitButtonState() {
     const isValid = this._inputs.every((input) => input.validity.valid);
     if (isValid) {
@@ -46,7 +42,6 @@ export class FormValidator {
     }
   }
 
-  // Private method to set event listeners on inputs
   _setEventListeners() {
     this._inputs.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
@@ -56,13 +51,11 @@ export class FormValidator {
     });
   }
 
-  // Public method to enable validation on the form
   enableValidation() {
     this._setEventListeners();
     this._toggleSubmitButtonState();
   }
 
-  // Public method to reset the form validation (and disable submit button)
   resetValidation() {
     this._inputs.forEach((inputElement) => {
       this._hideInputError(

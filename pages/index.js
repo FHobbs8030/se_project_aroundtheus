@@ -68,7 +68,7 @@ openEditModalButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-addSaveButton.addEventListener("click", (e) => {
+addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const newCardData = {
@@ -178,6 +178,8 @@ function handleImageClick(data) {
 
   openModal(document.querySelector("#image-modal"));
 }
+
+const editForm = document.querySelector("#edit-form");
 
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
