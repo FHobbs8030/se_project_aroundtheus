@@ -3,43 +3,42 @@ export default class Card {
     this._data = data;
     this._template = document.querySelector(templateSelector).content;
     this._handleImageClick = handleImageClick;
-    this._openModal = openModal;
+    // this._openModal = openModal;
   }
 
   _getTemplate() {
     const cardElement = this._template.cloneNode(true);
+    this._cardElement = cardElement; // Store the card element
+    this._cardImage = cardElement.querySelector(".cards__image");
+    this._cardTitle = cardElement.querySelector(".cards__title");
+    this._deleteButton = cardElement.querySelector(".cards__delete-button");
+    this._heartButton = cardElement.querySelector(".cards__heart");
     return cardElement;
   }
 
-  generateCard() {
-    const cardElement = this._getTemplate();
-    const cardImage = cardElement.querySelector(".cards__image");
-    const cardTitle = cardElement.querySelector(".cards__title");
-    const deleteButton = cardElement.querySelector(".cards__delete-button");
-    const heartButton = cardElement.querySelector(".cards__heart");
-
-    cardImage.src = this._data.link;
-    cardImage.alt = this._data.alt;
-    cardTitle.textContent = this._data.name;
-
-    deleteButton.addEventListener("click", (event) => {
+  _setEventListeners() {
+    this._deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
-      const card = deleteButton.closest(".cards__card");
+      const card = this._deleteButton.closest(".cards__card");
       if (card) {
         card.remove();
       }
     });
 
-    heartButton.addEventListener("click", () => {
-      this._handleHeartButton(heartButton);
+    this._heartButton.addEventListener("click", () => {
+      this._handleHeartButton(this._heartButton);
     });
 
-    cardImage.addEventListener("click", () => {
+    this._cardImage.addEventListener("click", () => {
       this._handleImageClick(this._data);
       this._openModal(document.querySelector("#image-modal"));
     });
+  }
 
-    return cardElement;
+  generateCard() {
+    this._getTemplate(); // Set class fields
+    this._setEventListeners(); // Set event listeners
+    return this._cardElement;
   }
 
   getElement() {

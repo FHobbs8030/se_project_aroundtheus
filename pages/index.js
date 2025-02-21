@@ -46,7 +46,7 @@ const cardData = [
 const cardsContainer = document.querySelector("#cards-container");
 
 const addModal = document.getElementById("add-modal");
-const addForm = document.querySelector("#add-form");
+const addForm = document.forms["add-form"];
 const titleInput = addForm.querySelector("#place");
 const urlInput = addForm.querySelector("#link");
 const addSaveButton = addForm.querySelector(".modal__save-button");
@@ -77,9 +77,11 @@ addForm.addEventListener("submit", (e) => {
     alt: titleInput.value,
   };
 
-  const newCard = new Card(newCardData, "#card-template", handleImageClick);
-  const cardElement = newCard.getElement();
+  const cardElement = createCard(newCardData);
   cardsContainer.prepend(cardElement);
+
+  addForm.reset();
+  addFormValidator.toggleSubmitButtonState();
 
   closeModal(addModal);
 });
@@ -95,42 +97,32 @@ saveButton.addEventListener("click", (e) => {
   closeModal(editModal);
 });
 
-const addFormValidator = new FormValidator(validationConfig, addForm);
-addFormValidator.enableValidation();
+const formValidators = {};
 
-titleInput.addEventListener("input", () => {
-  if (titleInput.value.trim() === "The Grand Canyon") {
-    urlInput.value =
-      "https://images.unsplash.com/photo-1547036346-addd3025caa4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fFRoZSUyMEdyYW5kJTIwQ2FueW9ufGVufDB8fDB8fHww";
-  } else {
-    urlInput.value = "";
-  }
+function enableValidation(config) {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
 
-  if (titleInput.value.trim() && urlInput.validity.valid) {
-    addSaveButton.disabled = false;
-    addSaveButton.classList.remove(validationConfig.inactiveButtonClass);
-  } else {
-    addSaveButton.disabled = true;
-    addSaveButton.classList.add(validationConfig.inactiveButtonClass);
-  }
-});
+  formList.forEach((formElement) => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute("name");
 
-urlInput.addEventListener("input", () => {
-  if (urlInput.validity.valid && titleInput.value.trim()) {
-    addSaveButton.disabled = false;
-    addSaveButton.classList.remove(validationConfig.inactiveButtonClass);
-  } else {
-    addSaveButton.disabled = true;
-    addSaveButton.classList.add(validationConfig.inactiveButtonClass);
-  }
-});
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
+}
+
+enableValidation(validationConfig);
 
 function openModal(modal) {
   modal.classList.remove("modal_hidden");
   modal.classList.add("modal_open");
 
   if (!modal.hasAttribute("data-listener-attached")) {
-    document.addEventListener("keydown", closeModalOnEscListener);
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal(modal);
+      }
+    });
     modal.setAttribute("data-listener-attached", "true");
   }
 
@@ -166,12 +158,13 @@ closeButtons.forEach((button) => {
   });
 });
 
+function createCard(item) {
+  const newCard = new Card(item, "#card-template", handleImageClick);
+  return newCard.getElement();
+}
+
 cardData.forEach((card) => {
-  const cardElement = new Card(
-    card,
-    "#card-template",
-    handleImageClick
-  ).getElement();
+  const cardElement = createCard(card);
   cardsContainer.prepend(cardElement);
 });
 
@@ -212,13 +205,4 @@ document.querySelectorAll(".modal").forEach((modal) => {
       closeModal(modal);
     }
   });
-});
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    const openModal = document.querySelector(".modal_open");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
 });
