@@ -1,9 +1,9 @@
-// Card.js
 export default class Card {
-  constructor(data, templateSelector, handleImageClick) {
+  constructor(data, templateSelector, handleImageClick, openModal) {
     this._data = data;
     this._template = document.querySelector(templateSelector).content;
     this._handleImageClick = handleImageClick;
+    this._openModal = openModal;
   }
 
   _getTemplate() {
@@ -24,8 +24,12 @@ export default class Card {
 
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
-      this._handleDeleteCard(cardElement);
+      const card = deleteButton.closest(".cards__card"); // Find the parent card element
+      if (card) {
+        card.remove(); // Remove the card from the DOM
+      }
     });
+
 
     heartButton.addEventListener("click", () => {
       this._handleHeartButton(heartButton);
@@ -33,6 +37,7 @@ export default class Card {
 
     cardImage.addEventListener("click", () => {
       this._handleImageClick(this._data);
+      this._openModal(document.querySelector("#image-modal"));
     });
 
     return cardElement;
@@ -40,10 +45,6 @@ export default class Card {
 
   getElement() {
     return this.generateCard();
-  }
-
-  _handleDeleteCard(cardElement) {
-    cardElement.remove();
   }
 
   _handleHeartButton(heartButton) {
