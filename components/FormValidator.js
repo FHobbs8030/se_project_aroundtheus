@@ -63,7 +63,8 @@ export class FormValidator {
         this._formElement.querySelector(`#${inputElement.id}-error`)
       );
     });
-    this._submitButton.disabled = true;
-    this._submitButton.classList.add(this._settings.inactiveButtonClass);
+    // this._submitButton.disabled = true;
+    // this._submitButton.classList.add(this._settings.inactiveButtonClass);
+    this._toggleSubmitButtonState();
   }
 }
