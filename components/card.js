@@ -24,12 +24,11 @@ export default class Card {
 
     deleteButton.addEventListener("click", (event) => {
       event.stopPropagation();
-      const card = deleteButton.closest(".cards__card"); // Find the parent card element
+      const card = deleteButton.closest(".cards__card");
       if (card) {
-        card.remove(); // Remove the card from the DOM
+        card.remove();
       }
     });
-
 
     heartButton.addEventListener("click", () => {
       this._handleHeartButton(heartButton);
