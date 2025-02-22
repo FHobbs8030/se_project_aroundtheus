@@ -68,35 +68,6 @@ openEditModalButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-addForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const newCardData = {
-    name: titleInput.value,
-    link: urlInput.value,
-    alt: titleInput.value,
-  };
-
-  const cardElement = createCard(newCardData);
-  cardsContainer.prepend(cardElement);
-
-  addForm.reset();
-  addFormValidator.toggleSubmitButtonState();
-
-  closeModal(addModal);
-});
-
-const saveButton = document.querySelector(".modal__save-button");
-
-saveButton.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = aboutInput.value;
-
-  closeModal(editModal);
-});
-
 const formValidators = {};
 
 function enableValidation(config) {
@@ -112,6 +83,37 @@ function enableValidation(config) {
 }
 
 enableValidation(validationConfig);
+
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const newCardData = {
+    name: titleInput.value,
+    link: urlInput.value,
+    alt: titleInput.value,
+  };
+
+  const cardElement = createCard(newCardData);
+  cardsContainer.prepend(cardElement);
+
+  addForm.reset();
+  console.log(formValidators);
+
+  formValidators["card-form"].toggleSubmitButtonState();
+
+  closeModal(addModal);
+});
+
+const saveButton = document.querySelector(".modal__save-button");
+
+saveButton.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+
+  closeModal(editModal);
+});
 
 function openModal(modal) {
   modal.classList.remove("modal_hidden");
