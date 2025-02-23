@@ -93,6 +93,7 @@ function enableValidation(config) {
 
 enableValidation(validationConfig);
 
+// Add form submit handler instead of submit button click handler
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -111,16 +112,13 @@ addForm.addEventListener("submit", (e) => {
   closeModal(addModal);
 });
 
-// Automatically fill the URL input when the title input changes
 titleInput.addEventListener("input", () => {
   const title = titleInput.value.trim();
   if (title) {
-    // Generate URL using a format that links to an actual image file
     const generatedURL = `https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/${title
       .replace(/\s+/g, "-")
       .toLowerCase()}.jpg`;
     urlInput.value = generatedURL;
-    // Update the modal image preview as well
     modalImage.src = generatedURL;
     modalImage.alt = title;
     modalCaption.textContent = title;
@@ -172,7 +170,6 @@ function closeModalOnEscListener(event) {
   }
 }
 
-// Universal close button listener
 closeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
