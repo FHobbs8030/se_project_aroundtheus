@@ -93,7 +93,6 @@ function enableValidation(config) {
 
 enableValidation(validationConfig);
 
-// Add form submit handler instead of submit button click handler
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
