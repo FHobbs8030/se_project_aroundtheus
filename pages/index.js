@@ -61,6 +61,17 @@ const profileAbout = document.querySelector(".profile__about");
 const openAddModalButton = document.querySelector(".profile__add-button");
 const openEditModalButton = document.querySelector(".profile__edit-button");
 
+const closeAddModalButton = document.querySelector("#add-modal-close");
+const closeEditModalButton = document.querySelector("#edit-modal-close");
+
+const editForm = document.querySelector("#edit-form");
+
+const modalImage = document.querySelector(".modal__image");
+const modalCaption = document.querySelector(".modal__caption");
+
+const saveButton = document.querySelector(".modal__save-button");
+const closeButtons = document.querySelectorAll(".modal__close-button");
+
 openEditModalButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
@@ -103,8 +114,6 @@ addForm.addEventListener("submit", (e) => {
 
   closeModal(addModal);
 });
-
-const saveButton = document.querySelector(".modal__save-button");
 
 saveButton.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -151,8 +160,6 @@ function closeModalOnEscListener(event) {
   }
 }
 
-const closeButtons = document.querySelectorAll(".modal__close-button");
-
 closeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
@@ -171,9 +178,6 @@ cardData.forEach((card) => {
 });
 
 function handleImageClick(data) {
-  const modalImage = document.querySelector(".modal__image");
-  const modalCaption = document.querySelector(".modal__caption");
-
   modalImage.src = data.link;
   modalImage.alt = data.name;
   modalCaption.textContent = data.name;
@@ -181,17 +185,12 @@ function handleImageClick(data) {
   openModal(document.querySelector("#image-modal"));
 }
 
-const editForm = document.querySelector("#edit-form");
-
 const editFormValidator = new FormValidator(validationConfig, editForm);
 editFormValidator.enableValidation();
 
 openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
 });
-
-const closeAddModalButton = document.querySelector("#add-modal-close");
-const closeEditModalButton = document.querySelector("#edit-modal-close");
 
 closeEditModalButton.addEventListener("click", () => {
   closeModal(editModal);
