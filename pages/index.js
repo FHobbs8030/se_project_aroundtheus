@@ -61,8 +61,7 @@ const profileAbout = document.querySelector(".profile__about");
 const openAddModalButton = document.querySelector(".profile__add-button");
 const openEditModalButton = document.querySelector(".profile__edit-button");
 
-const closeAddModalButton = document.querySelector("#add-modal-close");
-const closeEditModalButton = document.querySelector("#edit-modal-close");
+const closeButtons = document.querySelectorAll(".modal__close-button");
 
 const editForm = document.querySelector("#edit-form");
 
@@ -70,7 +69,6 @@ const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
 
 const saveButton = document.querySelector(".modal__save-button");
-const closeButtons = document.querySelectorAll(".modal__close-button");
 
 openEditModalButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
@@ -108,14 +106,28 @@ addForm.addEventListener("submit", (e) => {
   cardsContainer.prepend(cardElement);
 
   addForm.reset();
-  console.log(formValidators);
-
   formValidators["card-form"].toggleSubmitButtonState();
 
   closeModal(addModal);
 });
 
-saveButton.addEventListener("submit", (e) => {
+// Automatically fill the URL input when the title input changes
+titleInput.addEventListener("input", () => {
+  const title = titleInput.value.trim();
+  if (title) {
+    // Generate URL using a format that links to an actual image file
+    const generatedURL = `https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/${title
+      .replace(/\s+/g, "-")
+      .toLowerCase()}.jpg`;
+    urlInput.value = generatedURL;
+    // Update the modal image preview as well
+    modalImage.src = generatedURL;
+    modalImage.alt = title;
+    modalCaption.textContent = title;
+  }
+});
+
+saveButton.addEventListener("click", (e) => {
   e.preventDefault();
 
   profileName.textContent = nameInput.value;
@@ -160,6 +172,7 @@ function closeModalOnEscListener(event) {
   }
 }
 
+// Universal close button listener
 closeButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
@@ -190,14 +203,6 @@ editFormValidator.enableValidation();
 
 openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
-});
-
-closeEditModalButton.addEventListener("click", () => {
-  closeModal(editModal);
-});
-
-closeAddModalButton.addEventListener("click", () => {
-  closeModal(addModal);
 });
 
 document.querySelectorAll(".modal").forEach((modal) => {
