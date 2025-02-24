@@ -75,6 +75,39 @@ openEditModalButton.addEventListener("click", () => {
   aboutInput.value = profileAbout.textContent;
 
   openModal(editModal);
+  resetSaveButtonState();
+});
+
+function resetSaveButtonState() {
+  const isNameValid = nameInput.value.trim() !== "";
+  const isAboutValid = aboutInput.value.trim() !== "";
+
+  saveButton.disabled = !(isNameValid && isAboutValid);
+  saveButton.classList.toggle(
+    "modal__save-button_disabled",
+    !(isNameValid && isAboutValid)
+  );
+}
+
+editModal.addEventListener("input", () => {
+  const isNameValid = nameInput.value.trim() !== "";
+  const isAboutValid = aboutInput.value.trim() !== "";
+
+  saveButton.disabled = !(isNameValid && isAboutValid);
+  saveButton.classList.toggle(
+    "modal__save-button_disabled",
+    !(isNameValid && isAboutValid)
+  );
+});
+
+saveButton.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  profileName.textContent = nameInput.value;
+  profileAbout.textContent = aboutInput.value;
+
+  closeModal(editModal);
+  resetSaveButtonState();
 });
 
 const formValidators = {};
@@ -122,15 +155,6 @@ titleInput.addEventListener("input", () => {
     modalImage.alt = title;
     modalCaption.textContent = title;
   }
-});
-
-saveButton.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  profileName.textContent = nameInput.value;
-  profileAbout.textContent = aboutInput.value;
-
-  closeModal(editModal);
 });
 
 function openModal(modal) {
