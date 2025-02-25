@@ -123,7 +123,6 @@ openEditModalButton.addEventListener("click", () => {
   openModal(editModal);
 });
 
-
 titleInput.addEventListener("input", () => {
   const title = titleInput.value.trim();
   if (title) {
@@ -182,13 +181,6 @@ function closeModalOnEscListener(event) {
   }
 }
 
-closeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const modal = button.closest(".modal");
-    closeModal(modal);
-  });
-});
-
 function createCard(item) {
   const newCard = new Card(item, "#card-template", handleImageClick);
   return newCard.getElement();
@@ -214,10 +206,9 @@ openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
 });
 
-document.querySelectorAll(".modal").forEach((modal) => {
-  modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      closeModal(modal);
-    }
+document.querySelectorAll(".modal__close-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    closeModal(modal);
   });
 });
