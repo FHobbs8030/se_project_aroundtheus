@@ -111,10 +111,8 @@ addForm.addEventListener("submit", (e) => {
 
   const cardElement = createCard(newCardData);
   cardsContainer.prepend(cardElement);
-
   addForm.reset();
   formValidators["card-form"].toggleSubmitButtonState();
-
   closeModal(addModal);
 });
 
@@ -161,5 +159,22 @@ document.querySelectorAll(".modal__close-button").forEach((button) => {
   button.addEventListener("click", () => {
     const modal = button.closest(".modal");
     closeModal(modal);
+  });
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    const openModal = document.querySelector(".modal_open");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
+});
+
+document.querySelectorAll(".modal").forEach((modal) => {
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal(modal);
+    }
   });
 });
