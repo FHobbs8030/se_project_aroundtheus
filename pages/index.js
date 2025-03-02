@@ -60,19 +60,16 @@ const profileAbout = document.querySelector(".profile__about");
 const openAddModalButton = document.querySelector(".profile__add-button");
 const openEditModalButton = document.querySelector(".profile__edit-button");
 
-const closeButtons = document.querySelectorAll(".modal__close-button");
-
 const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
 
 const previewImageModal = document.querySelector("#image-modal");
-const editModalForm = editModal.querySelector("#edit-form");
 
 function handleImageClick(data) {
   modalImage.src = data.link;
   modalImage.alt = data.name;
   modalCaption.textContent = data.name;
-  openModal(previewImageModal); // Use the previewImageModal variable
+  openModal(previewImageModal);
 }
 
 openEditModalButton.addEventListener("click", () => {
@@ -112,7 +109,7 @@ addForm.addEventListener("submit", (e) => {
   closeModal(addModal);
 });
 
-editModalForm.addEventListener("submit", (e) => {
+document.querySelector("#edit-form").addEventListener("submit", (e) => {
   e.preventDefault();
 
   profileName.textContent = nameInput.value;
