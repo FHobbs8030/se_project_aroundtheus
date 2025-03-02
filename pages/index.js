@@ -132,14 +132,25 @@ saveButton.addEventListener("submit", (e) => {
   closeModal(editModal);
 });
 
-function openModal(modal) {
-  modal.classList.remove("modal_hidden");
-  modal.classList.add("modal_open");
-}
-
 function closeModal(modalEl) {
   modalEl.classList.remove("modal_open");
   modalEl.classList.add("modal_hidden");
+  document.removeEventListener("keydown", handleEscapeClose);
+}
+
+function openModal(modal) {
+  modal.classList.remove("modal_hidden");
+  modal.classList.add("modal_open");
+  document.addEventListener("keydown", handleEscapeClose);
+}
+
+function handleEscapeClose(e) {
+  if (e.key === "Escape") {
+    const openModal = document.querySelector(".modal_open");
+    if (openModal) {
+      closeModal(openModal);
+    }
+  }
 }
 
 function createCard(item) {
@@ -163,35 +174,14 @@ document.querySelectorAll(".modal__close-button").forEach((button) => {
   });
 });
 
-// document.addEventListener("keydown", (e) => {
-//   if (e.key === "Escape") {
-//     const openModal = document.querySelector(".modal_open");
-//     if (openModal) {
-//       closeModal(openModal);
-//     }
-//   }
-// });
-
-function handleEscapeClose(e) {
+document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     const openModal = document.querySelector(".modal_open");
     if (openModal) {
       closeModal(openModal);
     }
   }
-}
-
-function openModal(modal) {
-  modal.classList.remove("modal_hidden");
-  modal.classList.add("modal_open");
-  document.addEventListener("keydown", handleEscapeClose);
-}
-
-function closeModal(modalEl) {
-  modalEl.classList.remove("modal_open");
-  modalEl.classList.add("modal_hidden");
-  document.removeEventListener("keydown", handleEscapeClose);
-}
+});
 
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (e) => {
