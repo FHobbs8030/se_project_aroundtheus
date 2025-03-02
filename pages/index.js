@@ -49,7 +49,6 @@ const addModal = document.getElementById("add-modal");
 const addForm = document.forms["add-form"];
 const titleInput = addForm.querySelector("#place");
 const urlInput = addForm.querySelector("#link");
-const addSaveButton = addForm.querySelector(".modal__save-button");
 
 const editModal = document.getElementById("edit-modal");
 const nameInput = document.querySelector("#name");
@@ -63,25 +62,22 @@ const openEditModalButton = document.querySelector(".profile__edit-button");
 
 const closeButtons = document.querySelectorAll(".modal__close-button");
 
-const editForm = document.querySelector("#edit-form");
-
 const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
 
-const saveButton = document.querySelector(".modal__save-button");
 const previewImageModal = document.querySelector("#image-modal");
+const editModalForm = editModal.querySelector("#edit-form");
 
 function handleImageClick(data) {
   modalImage.src = data.link;
   modalImage.alt = data.name;
   modalCaption.textContent = data.name;
-  openModal(document.querySelector("#image-modal"));
+  openModal(previewImageModal); // Use the previewImageModal variable
 }
 
 openEditModalButton.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   aboutInput.value = profileAbout.textContent;
-
   openModal(editModal);
 });
 
@@ -113,17 +109,10 @@ addForm.addEventListener("submit", (e) => {
   const cardElement = createCard(newCardData);
   cardsContainer.prepend(cardElement);
   addForm.reset();
-  formValidators["card-form"].toggleSubmitButtonState();
   closeModal(addModal);
 });
 
-openEditModalButton.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
-  openModal(editModal);
-});
-
-saveButton.addEventListener("submit", (e) => {
+editModalForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   profileName.textContent = nameInput.value;
