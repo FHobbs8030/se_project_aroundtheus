@@ -69,6 +69,7 @@ const modalImage = document.querySelector(".modal__image");
 const modalCaption = document.querySelector(".modal__caption");
 
 const saveButton = document.querySelector(".modal__save-button");
+const previewImageModal = document.querySelector("#image-modal");
 
 function handleImageClick(data) {
   modalImage.src = data.link;
@@ -117,12 +118,12 @@ addForm.addEventListener("submit", (e) => {
 });
 
 openEditModalButton.addEventListener("click", () => {
-  nameInput.value = "";
-  aboutInput.value = "";
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
   openModal(editModal);
 });
 
-saveButton.addEventListener("click", (e) => {
+saveButton.addEventListener("submit", (e) => {
   e.preventDefault();
 
   profileName.textContent = nameInput.value;
@@ -162,14 +163,35 @@ document.querySelectorAll(".modal__close-button").forEach((button) => {
   });
 });
 
-document.addEventListener("keydown", (e) => {
+// document.addEventListener("keydown", (e) => {
+//   if (e.key === "Escape") {
+//     const openModal = document.querySelector(".modal_open");
+//     if (openModal) {
+//       closeModal(openModal);
+//     }
+//   }
+// });
+
+function handleEscapeClose(e) {
   if (e.key === "Escape") {
     const openModal = document.querySelector(".modal_open");
     if (openModal) {
       closeModal(openModal);
     }
   }
-});
+}
+
+function openModal(modal) {
+  modal.classList.remove("modal_hidden");
+  modal.classList.add("modal_open");
+  document.addEventListener("keydown", handleEscapeClose);
+}
+
+function closeModal(modalEl) {
+  modalEl.classList.remove("modal_open");
+  modalEl.classList.add("modal_hidden");
+  document.removeEventListener("keydown", handleEscapeClose);
+}
 
 document.querySelectorAll(".modal").forEach((modal) => {
   modal.addEventListener("click", (e) => {
