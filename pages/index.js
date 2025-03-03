@@ -53,7 +53,6 @@ const urlInput = addForm.querySelector("#link");
 const editModal = document.getElementById("edit-modal");
 const nameInput = document.querySelector("#name");
 const aboutInput = document.querySelector("#about");
-const submitButton = editModal.querySelector(".modal__save-button");
 
 const profileName = document.querySelector(".profile__name");
 const profileAbout = document.querySelector(".profile__about");
@@ -74,11 +73,8 @@ function handleImageClick(data) {
 }
 
 openEditModalButton.addEventListener("click", () => {
-  nameInput.value = "";
-  aboutInput.value = "";
-
-  submitButton.disabled = true;
-  submitButton.classList.add(validationConfig.inactiveButtonClass); 
+  nameInput.value = profileName.textContent;
+  aboutInput.value = profileAbout.textContent;
   openModal(editModal);
 });
 
@@ -101,11 +97,6 @@ enableValidation(validationConfig);
 addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  if (!titleInput.value || !urlInput.value) {
-    formValidators["card-form"].toggleSubmitButtonState(); 
-    return; 
-  }
-
   const newCardData = {
     name: titleInput.value,
     link: urlInput.value,
@@ -116,7 +107,7 @@ addForm.addEventListener("submit", (e) => {
   cardsContainer.prepend(cardElement);
 
   addForm.reset();
-  formValidators["card-form"].toggleSubmitButtonState(); 
+  formValidators["card-form"].toggleSubmitButtonState();
   closeModal(addModal);
 });
 
@@ -135,7 +126,7 @@ function closeModal(modalEl) {
   document.removeEventListener("keydown", handleEscapeClose);
 
   if (modalEl === addModal) {
-    addForm.reset(); 
+    addForm.reset();
   } else if (modalEl === editModal) {
   }
 }
@@ -174,15 +165,6 @@ document.querySelectorAll(".modal__close-button").forEach((button) => {
     const modal = button.closest(".modal");
     closeModal(modal);
   });
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    const openModal = document.querySelector(".modal_open");
-    if (openModal) {
-      closeModal(openModal);
-    }
-  }
 });
 
 document.querySelectorAll(".modal").forEach((modal) => {
