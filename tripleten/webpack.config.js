@@ -1,10 +1,34 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-  entry: './src/index.js', // Entry point for your application
+  entry: "./src/index.js",
   output: {
-    filename: 'bundle.js', // Name of the bundled output file
-    path: path.resolve(__dirname, 'dist'), // Output folder for the bundled file
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "dist"),
   },
-  mode: 'development', // Set Webpack mode (development/production)
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "dist"),
+      watch: true,
+    },
+    port: 8080,
+    open: true,
+  },
+
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(jpg|jpeg|png|svg)$/,
+        use: ["file-loader"],
+      },
+    ],
+  },
+  resolve: {
+    extensions: [".js", ".css"],
+  },
+  mode: "development",
 };
