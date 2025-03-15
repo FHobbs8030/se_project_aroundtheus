@@ -1,38 +1,32 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/index.js", 
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js", 
+    path: path.resolve(__dirname, "dist"), 
   },
+  mode: "production",
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-          },
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.(jpg|jpeg|png|svg)$/,
-        use: ["file-loader"],
+        test: /\.css$/, 
+        use: [
+          MiniCssExtractPlugin.loader, 
+          "css-loader", 
+        ],
       },
     ],
   },
-  devServer: {
-    static: path.join(__dirname, "dist"),
-    compress: true,
-    port: 8080,
-    open: true,
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "styles.css", 
+    }),
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
 };
