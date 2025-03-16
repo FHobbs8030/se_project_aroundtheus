@@ -1,8 +1,10 @@
 const path = require("path");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/pages/index.js", 
   output: {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
@@ -12,13 +14,41 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"], 
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-    ],
+      {
+          loader: "file-loader",
+            options: {
+              name: "[path][name].[ext]", // Preserve the original file name and path
+              outputPath: "../se_project_aroundtheus/src/images", // Set the output folder for images in dist
+              publicPath: "../se_project_aroundtheus/src/images", // Ensure the correct path when referenced in the HTML
+      },
+  }],
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "./src/pages/index.css",
+    }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html",
+      template: "./src/index.html", 
+      filename: "index.html",
     }),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
+  devServer: {
+    compress: true,
+    port: 8080,
+    open: true,
+    static: {
+      directory: path.join(__dirname, "dist"),
+    },
+    devMiddleware: {
+      publicPath: "/",
+    },
+  },
 };
+
+
