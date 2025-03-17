@@ -1,5 +1,6 @@
 export class FormValidator {
   constructor(settings, formElement) {
+    console.log("FormValidator initialized with form:", formElement.id);
     this._settings = settings;
     this._formElement = formElement;
     this._inputs = Array.from(
@@ -33,6 +34,12 @@ export class FormValidator {
 
   toggleSubmitButtonState() {
     const isValid = this._inputs.every((input) => input.validity.valid);
+     console.log(
+       "Form validity state:",
+       isValid,
+       "for form:",
+       this._formElement.id
+     );
     if (isValid) {
       this._submitButton.disabled = false;
       this._submitButton.classList.remove(this._settings.inactiveButtonClass);
@@ -52,6 +59,7 @@ export class FormValidator {
   }
 
   enableValidation() {
+    console.log("Form validation enabled for:", this._formElement.id);
     this._setEventListeners();
     this.toggleSubmitButtonState();
   }

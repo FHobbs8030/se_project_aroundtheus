@@ -4,12 +4,16 @@ const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/pages/index.js", 
+  entry: "./src/pages/index.js",
+
   output: {
-    filename: "main.js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist"),
+    clean: true,
+    assetModuleFilename: "assets/[hash][ext][query]",
   },
-  mode: "production",
+
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
   module: {
     rules: [
       {
@@ -17,27 +21,51 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
       {
-          loader: "file-loader",
-            options: {
-              name: "[path][name].[ext]", // Preserve the original file name and path
-              outputPath: "../se_project_aroundtheus/src/images", // Set the output folder for images in dist
-              publicPath: "../se_project_aroundtheus/src/images", // Ensure the correct path when referenced in the HTML
+        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        type: "asset/resource",
       },
-  }],
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
   },
+
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "./src/pages/index.css",
+      filename: "[name].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
-      template: "./src/index.html", 
+      template: "./src/index.html",
       filename: "index.html",
     }),
   ],
+
+  performance: {
+    hints: false,
+  },
+
   optimization: {
     minimize: true,
     minimizer: [new TerserPlugin()],
+    runtimeChunk: "single",
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all",
+        },
+      },
+    },
   },
+
   devServer: {
     compress: true,
     port: 8080,
@@ -45,10 +73,17 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
+    client: {
+      overlay: true,
+      progress: true,
+    },
+    hot: true,
     devMiddleware: {
       publicPath: "/",
+      writeToDisk: true,
+    },
+    headers: {
+      "Cache-Control": "no-store",
     },
   },
 };
-
-

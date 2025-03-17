@@ -343,8 +343,8 @@ template {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(c8ba52b05a9ef10f4758.woff2) format("woff2"),
-    url(8c206db99195777c6769.woff) format("woff");
+  src: url(assets/c8ba52b05a9ef10f4758.woff2) format("woff2"),
+    url(assets/8c206db99195777c6769.woff) format("woff");
 }
 
 @font-face {
@@ -352,8 +352,8 @@ template {
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(293fd13dbca5a3e450ef.woff2) format("woff2"),
-    url(9053572c46aeb4b16caa.woff) format("woff");
+  src: url(assets/293fd13dbca5a3e450ef.woff2) format("woff2"),
+    url(assets/9053572c46aeb4b16caa.woff) format("woff");
 }
 
 @font-face {
@@ -361,7 +361,7 @@ template {
   font-style: normal;
   font-weight: 900;
   font-display: swap;
-  src: url(9ed71fbc8206e8069042.woff2) format("woff2");
+  src: url(assets/9ed71fbc8206e8069042.woff2) format("woff2");
 }
 
 .cards {
@@ -391,7 +391,7 @@ template {
 }
 
 .cards__delete-button {
-  background: transparent url(c4cab034c663a4bbb9e3.svg) center no-repeat;
+  background: transparent url(assets/a85cc5e25106301e909e.svg) center no-repeat;
   border: none;
   padding: 0;
   width: 18px;
@@ -430,7 +430,7 @@ template {
 }
 
 .cards__heart {
-  background: url(0faf1bf182858054ac83.svg) no-repeat center;
+  background: url(assets/490e8e45f6fd07daa7ff.svg) no-repeat center;
   width: 32px;
   height: 32px;
   border: none;
@@ -441,7 +441,7 @@ template {
 }
 
 .cards__heart_active {
-  background: url(3da9cc26d4c311a5bb95.svg) no-repeat center;
+  background: url(assets/f8482d28867cec189b08.svg) no-repeat center;
 }
 
 .cards__heart:hover {
@@ -676,7 +676,7 @@ template {
 }
 
 .modal__close-button {
-  background: transparent url(bf53603c50c6edd3da8e.svg) center no-repeat;
+  background: transparent url(assets/61b629a4dc3574160af9.svg) center no-repeat;
   position: absolute;
   top: -35px;
   right: -35px;
@@ -834,6 +834,7 @@ template {
 
 body,
 html {
+  background-color: #fff; 
   margin: 0;
   padding: 0;
 }
@@ -934,7 +935,7 @@ html {
 }
 
 .profile__add-button {
-  background: transparent url(8a6cde7d9f75102e695f.svg) center no-repeat;
+  background: transparent url(assets/d5d6f8af0577b9c95ee4.svg) center no-repeat;
   display: block;
   width: 150px;
   height: 50px;
@@ -955,7 +956,7 @@ html {
 }
 
 .profile__edit-button {
-  background: transparent url(dd3b3cd512a3dbef24fa.svg) center no-repeat;
+  background: transparent url(assets/a1892ea72cb87c8fc3aa.svg) center no-repeat;
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid #fff;
   display: flex;

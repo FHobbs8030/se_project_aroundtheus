@@ -1,12 +1,12 @@
-import("../pages/index.css")
-  .then(() => {
-    console.log("CSS Loaded Successfully");
-  })
-  .catch((err) => {
-    console.error("Error loading CSS:", err);
-  });
+console.log("Starting the index.js file...");
+import "../pages/index.css";
 import Card from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
+import logoPath from "../images/logo.svg";
+import profileImagePath from "../images/jacques-cousteau.jpg";
+
+document.querySelector(".header__logo").src = logoPath;
+document.querySelector(".profile__image").src = profileImagePath;
 
 const validationConfig = {
   formSelector: ".modal__form",
@@ -160,7 +160,7 @@ function createCard(item) {
 
 cardData.forEach((card) => {
   const cardElement = createCard(card);
-  cardsContainer.prepend(cardElement);
+  cardsContainer.append(cardElement);
 });
 
 openAddModalButton.addEventListener("click", () => {
@@ -181,3 +181,4 @@ document.querySelectorAll(".modal").forEach((modal) => {
     }
   });
 });
+console.log("index.js File Loaded");
