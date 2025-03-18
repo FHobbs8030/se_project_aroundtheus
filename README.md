@@ -19,7 +19,8 @@ This is the final project Sprint 5 of the Software Engineering program at Triple
 
 ## Take a Look at the Project
 
-click [here](https://FHobbs8030.github.io/se_project_aroundtheus/src/index.html)
+click [here] https://FHobbs8030.github.io/se_project_aroundtheus/src/index.html
+
 
 =========================================
 
