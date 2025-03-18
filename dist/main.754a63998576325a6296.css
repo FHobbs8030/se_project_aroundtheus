@@ -1,6 +1,3 @@
-/*!****************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/vendor/normalize.css ***!
-  \****************************************************************************/
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -341,9 +338,6 @@ template {
 [hidden] {
   display: none;
 }
-/*!************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/vendor/fonts.css ***!
-  \************************************************************************/
 @font-face {
   font-family: "Inter";
   font-style: normal;
@@ -370,9 +364,6 @@ template {
   src: url(assets/9ed71fbc8206e8069042.woff2) format("woff2");
 }
 
-/*!************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/cards.css ***!
-  \************************************************************************/
 .cards {
   display: grid;
   margin: 50px 0px 0px 0px;
@@ -457,9 +448,6 @@ template {
   opacity: 0.5;
   cursor: pointer;
 }
-/*!*************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/footer.css ***!
-  \*************************************************************************/
 .footer {
   display: flex;
   align-items: center;
@@ -498,9 +486,6 @@ template {
   }
 }
 
-/*!*************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/header.css ***!
-  \*************************************************************************/
 .header {
   margin: 45px 0px 0px 0px;
   color: #ffffff;
@@ -525,9 +510,6 @@ template {
     padding: 0px 0px 32px 27px;
   }
 }
-/*!************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/modal.css ***!
-  \************************************************************************/
 .modal {
   position: fixed;
   top: 0;
@@ -850,9 +832,6 @@ template {
   }
 }
 
-/*!***********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/page.css ***!
-  \***********************************************************************/
 body,
 html {
   margin: 0;
@@ -888,9 +867,6 @@ html {
   }
 }
 
-/*!**************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/blocks/profile.css ***!
-  \**************************************************************************/
 .profile {
   display: flex;
   flex-direction: row;
@@ -1117,8 +1093,12 @@ html {
   }
 }
 
-/*!***********************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./src/pages/index.css ***!
-  \***********************************************************************/
-
+/* @import url("/vendor/normalize.css");
+@import url("/vendor/fonts.css");
+@import url("/blocks/cards.css");
+@import url("/blocks/footer.css");
+@import url("/blocks/header.css");
+@import url("/blocks/modal.css");
+@import url("/blocks/page.css");
+@import url("/blocks/profile.css"); */ 
 
