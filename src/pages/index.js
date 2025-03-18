@@ -2,11 +2,20 @@ console.log("Starting the index.js file...");
 import "../pages/index.css";
 import Card from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
-import logoPath from "../images/logo.svg";
 import profileImagePath from "../images/jacques-cousteau.jpg";
+import logoPath from "../images/logo.svg";
+
+console.log("DOM Content Loading...");
 
 document.querySelector(".header__logo").src = logoPath;
 document.querySelector(".profile__image").src = profileImagePath;
+
+document.querySelector(".header__logo").addEventListener("load", () => {
+  console.log("Logo image loaded successfully");
+});
+document.querySelector(".profile__image").addEventListener("load", () => {
+  console.log("Profile image loaded successfully");
+});
 
 const validationConfig = {
   formSelector: ".modal__form",
@@ -155,13 +164,9 @@ function handleEscapeClose(e) {
 
 function createCard(item) {
   const newCard = new Card(item, "#card-template", handleImageClick);
+  const cardElement = newCard.getElement();
   return newCard.getElement();
 }
-
-cardData.forEach((card) => {
-  const cardElement = createCard(card);
-  cardsContainer.append(cardElement);
-});
 
 openAddModalButton.addEventListener("click", () => {
   openModal(addModal);
@@ -181,4 +186,16 @@ document.querySelectorAll(".modal").forEach((modal) => {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  cardData.forEach((card) => {
+    const cardElement = createCard(card);
+    cardsContainer.append(cardElement);
+  });
+});
+
+window.addEventListener("load", () => {
+  console.log("Window fully loaded - All resources are loaded");
+});
+
 console.log("index.js File Loaded");
