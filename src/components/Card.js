@@ -1,52 +1,32 @@
 export default class Card {
-  constructor(data, templateSelector, handleImageClick) {
+  constructor(data, templateSelector, handleCardClick) {
     this._data = data;
-    this._template = document.querySelector(templateSelector).content;
-    this._handleImageClick = handleImageClick;
+    this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
-    const cardElement = this._template.cloneNode(true);
-    this._cardElement = cardElement;
-    this._cardImage = cardElement.querySelector(".cards__image");
-    this._cardTitle = cardElement.querySelector(".cards__title");
-    this._deleteButton = cardElement.querySelector(".cards__delete-button");
-    this._heartButton = cardElement.querySelector(".cards__heart");
+    const cardElement = document
+      .querySelector(this._templateSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
     return cardElement;
   }
 
-  _setEventListeners() {
-    this._deleteButton.addEventListener("click", (event) => {
-      event.stopPropagation();
-      const card = this._deleteButton.closest(".cards__card");
-      if (card) {
-        card.remove();
-      }
-    });
-
-    this._heartButton.addEventListener("click", () => {
-      this._handleHeartButton(this._heartButton);
-    });
-
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this._data);
-    });
-  }
-
   generateCard() {
-    this._getTemplate();
+    this._element = this._getTemplate();
+    this._element.querySelector(".card__title").textContent = this._data.title;
+    this._element.querySelector(".card__image").src = this._data.image;
     this._setEventListeners();
-    this._cardImage.src = this._data.link;
-    this._cardImage.alt = this._data.name;
-    this._cardTitle.textContent = this._data.name;
-    return this._cardElement;
+    return this._element;
   }
 
-  getElement() {
-    return this.generateCard();
-  }
-
-  _handleHeartButton(heartButton) {
-    heartButton.classList.toggle("cards__heart_active");
+  _setEventListeners() {
+    this._element
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleCardClick(this._data);
+      });
+    // Add listeners for other actions (e.g., like, delete) as needed.
   }
 }

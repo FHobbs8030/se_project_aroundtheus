@@ -1,76 +1,74 @@
-export class FormValidator {
-  constructor(settings, formElement) {
-    console.log("FormValidator initialized with form:", formElement.id);
-    this._settings = settings;
+export default class FormValidator {
+  constructor(config, formElement) {
+    this._config = config;
     this._formElement = formElement;
-    this._inputs = Array.from(
-      formElement.querySelectorAll(settings.inputSelector)
+    this._inputList = Array.from(
+      this._formElement.querySelectorAll(this._config.inputSelector)
     );
-    this._submitButton = formElement.querySelector(settings.saveButtonSelector);
+    this._buttonElement = this._formElement.querySelector(
+      this._config.submitButtonSelector
+    );
+  }
+
+  _showInputError(inputElement, errorMessage) {
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
+    inputElement.classList.add(this._config.inputErrorClass);
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add(this._config.errorClass);
+  }
+
+  _hideInputError(inputElement) {
+    const errorElement = this._formElement.querySelector(
+      `.${inputElement.id}-error`
+    );
+    inputElement.classList.remove(this._config.inputErrorClass);
+    errorElement.classList.remove(this._config.errorClass);
+    errorElement.textContent = "";
   }
 
   _checkInputValidity(inputElement) {
-    const errorElement = this._formElement.querySelector(
-      `#${inputElement.id}-error`
-    );
-    if (inputElement.validity.valid) {
-      this._hideInputError(inputElement, errorElement);
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement, inputElement.validationMessage);
     } else {
-      this._showInputError(inputElement, errorElement);
+      this._hideInputError(inputElement);
     }
   }
 
-  _showInputError(inputElement, errorElement) {
-    errorElement.textContent = inputElement.validationMessage;
-    inputElement.classList.add(this._settings.inputErrorClass);
-    errorElement.classList.add(this._settings.errorClass);
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => !inputElement.validity.valid);
   }
 
-  _hideInputError(inputElement, errorElement) {
-    errorElement.textContent = "";
-    inputElement.classList.remove(this._settings.inputErrorClass);
-    errorElement.classList.remove(this._settings.errorClass);
-  }
-
-  toggleSubmitButtonState() {
-    const isValid = this._inputs.every((input) => input.validity.valid);
-     console.log(
-       "Form validity state:",
-       isValid,
-       "for form:",
-       this._formElement.id
-     );
-    if (isValid) {
-      this._submitButton.disabled = false;
-      this._submitButton.classList.remove(this._settings.inactiveButtonClass);
+  _toggleButtonState() {
+    if (this._hasInvalidInput()) {
+      this._buttonElement.disabled = true;
     } else {
-      this._submitButton.disabled = true;
-      this._submitButton.classList.add(this._settings.inactiveButtonClass);
+      this._buttonElement.disabled = false;
     }
   }
 
   _setEventListeners() {
-    this._inputs.forEach((inputElement) => {
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this.toggleSubmitButtonState();
+        this._toggleButtonState();
       });
     });
   }
 
   enableValidation() {
-    console.log("Form validation enabled for:", this._formElement.id);
+    this._formElement.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
     this._setEventListeners();
-    this.toggleSubmitButtonState();
   }
 
   resetValidation() {
-    this._inputs.forEach((inputElement) => {
-      this._hideInputError(
-        inputElement,
-        this._formElement.querySelector(`#${inputElement.id}-error`)
-      );
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
     });
-    this.toggleSubmitButtonState();
+    this._toggleButtonState();
   }
 }
