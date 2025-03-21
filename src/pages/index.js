@@ -1,4 +1,4 @@
-console.log("Starting the index.js file...");
+import { initialCards } from "./components/data.js";
 import "./index.css";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
@@ -22,43 +22,10 @@ const validationConfig = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input-type-error", 
-  errorClass: "modal__input-error_visible", 
+  inputErrorClass: "modal__input-type-error",
+  errorClass: "modal__input-error_visible",
 };
-
-const cardData = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-    alt: "Yosemite Valley",
-  },
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-    alt: "Lake Louise",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-    alt: "Bald Mountains",
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-    alt: "Latemar",
-  },
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-    alt: "Vanoise National Park",
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-    alt: "Lago di Braies",
-  },
-];
-
+  
 const cardsContainer = document.querySelector("#cards-container");
 
 const addModal = document.getElementById("add-modal");
