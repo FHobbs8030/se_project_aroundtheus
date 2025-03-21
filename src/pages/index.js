@@ -1,7 +1,7 @@
 console.log("Starting the index.js file...");
 import "./index.css";
 import Card from "../components/Card.js";
-import { FormValidator } from "../components/FormValidator.js";
+import FormValidator from "../components/FormValidator.js";
 import profileImagePath from "../images/jacques-cousteau.jpg";
 import logoPath from "../images/logo.svg";
 
@@ -20,10 +20,10 @@ document.querySelector(".profile__image").addEventListener("load", () => {
 const validationConfig = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
-  saveButtonSelector: ".modal__save-button",
+  submitButtonSelector: ".modal__save-button",
   inactiveButtonClass: "modal__save-button_disabled",
-  inputErrorClass: "modal__input-type-error",
-  errorClass: "modal__input-error_visible",
+  inputErrorClass: "modal__input-type-error", 
+  errorClass: "modal__input-error_visible", 
 };
 
 const cardData = [
@@ -123,7 +123,7 @@ addForm.addEventListener("submit", (e) => {
   cardsContainer.prepend(cardElement);
 
   addForm.reset();
-  formValidators["card-form"].toggleSubmitButtonState();
+  formValidators["card-form"].resetValidation();
   closeModal(addModal);
 });
 
@@ -150,6 +150,13 @@ function closeModal(modalEl) {
 function openModal(modal) {
   modal.classList.remove("modal_hidden");
   modal.classList.add("modal_open");
+
+  if (modal === addModal) {
+    formValidators["card-form"].resetValidation();
+  } else if (modal === editModal) {
+    formValidators["profile-form"].resetValidation();
+  }
+
   document.addEventListener("keydown", handleEscapeClose);
 }
 
@@ -164,8 +171,7 @@ function handleEscapeClose(e) {
 
 function createCard(item) {
   const newCard = new Card(item, "#card-template", handleImageClick);
-  const cardElement = newCard.getElement();
-  return newCard.getElement();
+  return newCard.generateCard();
 }
 
 openAddModalButton.addEventListener("click", () => {

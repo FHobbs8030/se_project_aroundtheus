@@ -1,30 +1,30 @@
-.cards {
-  display: grid;
-  margin: 50px 0px 0px 0px;
-  grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-  column-gap: 17px;
-  row-gap: 20px;
-  max-width: 880px;
-  justify-items: center;
+.card {
+position: relative;
+width: 282px;  
+display: flex;
+flex-direction: column;
+border-radius: 10px;
+overflow: hidden;
+background: #FFFFFF;  
+border: 1px solid rgba(0, 0, 0, 0.1);  
 }
-
-.cards__card {
-  position: relative;
-  width: 282px;
-  background-color: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 0;
-}
-
-.cards__image {
+.card__image {
   width: 282px;
   height: 282px;
+  object-fit: cover;  
+  display: block;  
   border-radius: 10px 10px 0px 0px;
   cursor: pointer;
 }
 
-.cards__delete-button {
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  gap: 20px;  
+  justify-content: center;
+}
+
+.card__delete-button {
   background: transparent url("../images/trash.svg") center no-repeat;
   border: none;
   padding: 0;
@@ -37,12 +37,12 @@
   z-index: 1;
 }
 
-.cards__delete-button:hover {
+.card__delete-button:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 
-.cards__title {
+.card__title {
   color: black;
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
@@ -53,32 +53,37 @@
   overflow: hidden;
   align-items: center;
   flex: 1;
-  margin: 25px 0px 25px 20px;
+  margin: 0 0 0 20px; 
 }
 
-.cards__footer {
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
-  min-width: 0;
+.card__footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 282px;
+height: 79px;  
+background: #FFFFFF;
+padding: 0;
+margin: 0;
 }
 
-.cards__heart {
-  background: url("../images/heart.svg") no-repeat center;
-  width: 32px;
-  height: 32px;
-  border: none;
-  margin-top: 31px;
-  margin-right: 22.24px;
-  margin-bottom: 29.87px;
-  cursor: pointer;
+.card__heart {
+background: url("../images/heart.svg") center no-repeat;
+width: 21px;
+height: 19px;
+border: none;
+padding: 0;
+margin: 0 20px 0 0;
+cursor: pointer;
+transition: opacity 0.3s ease;
 }
 
-.cards__heart_active {
-  background: url("../images/black_heart.svg") no-repeat center;
+.card__heart_active {
+  background: url("../images/heart-filled.svg") center no-repeat;
+  opacity: 1;
 }
 
-.cards__heart:hover {
+.card__heart:hover {
   opacity: 0.5;
   cursor: pointer;
 }

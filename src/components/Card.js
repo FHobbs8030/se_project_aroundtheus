@@ -15,10 +15,26 @@ export default class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector(".card__title").textContent = this._data.title;
-    this._element.querySelector(".card__image").src = this._data.image;
+    const cardImage = this._element.querySelector(".card__image");
+    cardImage.src = this._data.link;
+    cardImage.alt = this._data.name;
+    this._element.querySelector(".card__title").textContent = this._data.name;
     this._setEventListeners();
     return this._element;
+  }
+
+  _handleLikeClick() {
+    const likeButton = this._element.querySelector(".card__heart");
+    likeButton.classList.toggle("card__heart_active");
+  }
+
+  // _handleDeleteClick() {
+  //   const DeleteButton = this._element.remove();
+  //   DeleteButton.classList.toggle("card__delete-button_active")
+  // }
+
+  _handleDeleteClick() {
+    this._element.remove();
   }
 
   _setEventListeners() {
@@ -27,6 +43,17 @@ export default class Card {
       .addEventListener("click", () => {
         this._handleCardClick(this._data);
       });
-    // Add listeners for other actions (e.g., like, delete) as needed.
+
+    this._element
+      .querySelector(".card__heart")
+      .addEventListener("click", () => {
+        this._handleLikeClick();
+      });
+
+    this._element
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => {
+        this._handleDeleteClick();
+      });
   }
 }
