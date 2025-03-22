@@ -1,27 +1,33 @@
 .card {
-position: relative;
-width: 282px;  
-display: flex;
-flex-direction: column;
-border-radius: 10px;
-overflow: hidden;
-background: #FFFFFF;  
-border: 1px solid rgba(0, 0, 0, 0.1);  
+  position: relative;
+  width: 282px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 .card__image {
-  width: 282px;
+  width: 100%;
   height: 282px;
-  object-fit: cover;  
-  display: block;  
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
+  display: block;
   border-radius: 10px 10px 0px 0px;
   cursor: pointer;
 }
 
 .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 282px);
-  gap: 20px;  
-  justify-content: center;
+ display: grid;
+ grid-template-columns: repeat(3, 282px);
+ gap: 20px;
+ justify-content: center;
+ max-width: 926px;
+ margin: 0 auto;
+ padding: 0 40px; 
+ box-sizing: border-box; 
 }
 
 .card__delete-button {
@@ -53,29 +59,29 @@ border: 1px solid rgba(0, 0, 0, 0.1);
   overflow: hidden;
   align-items: center;
   flex: 1;
-  margin: 0 0 0 20px; 
+  margin: 0 0 0 20px;
 }
 
 .card__footer {
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 282px;
-height: 79px;  
-background: #FFFFFF;
-padding: 0;
-margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 79px;
+  background: #ffffff;
+  padding: 0;
+  margin: 0;
 }
 
 .card__heart {
-background: url("../images/heart.svg") center no-repeat;
-width: 21px;
-height: 19px;
-border: none;
-padding: 0;
-margin: 0 20px 0 0;
-cursor: pointer;
-transition: opacity 0.3s ease;
+  background: url("../images/heart.svg") center no-repeat;
+  width: 21px;
+  height: 19px;
+  border: none;
+  padding: 0;
+  margin: 0 20px 0 0;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
 .card__heart_active {

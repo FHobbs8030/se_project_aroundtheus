@@ -28,11 +28,6 @@ export default class Card {
     likeButton.classList.toggle("card__heart_active");
   }
 
-  // _handleDeleteClick() {
-  //   const DeleteButton = this._element.remove();
-  //   DeleteButton.classList.toggle("card__delete-button_active")
-  // }
-
   _handleDeleteClick() {
     this._element.remove();
   }
