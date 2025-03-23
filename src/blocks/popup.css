@@ -36,10 +36,18 @@
   right: -40px;
   width: 40px;
   height: 40px;
-  background: transparent url('../images/close-icon.svg') center no-repeat;
+  background: transparent;
   border: none;
   cursor: pointer;
   padding: 0;
+  color: #fff;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.popup__close::before {
+  content: "×";
 }
 
 .popup__close:hover {
