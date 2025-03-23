@@ -12,6 +12,30 @@
   font-weight: 400;
   line-height: 21.78px;
   text-align: left;
+  margin-left: 19px;
+}
+
+@media screen and (max-width: 600px) {
+  .footer__title {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: left;
+    margin-left: 0; 
+}
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    width: 282px;
+    margin: 36px 0px 36px 85px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .footer {
+    width: 282px;
+    margin: 36px 0px 36px 19px;
+  }
 }
 
 @media screen and (max-width: 900px) {
