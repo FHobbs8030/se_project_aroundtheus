@@ -1,4 +1,4 @@
-.modal {
+.popup {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,13 +15,13 @@
   transition: opacity 0.3s linear, visibility 0.3s linear;
 }
 
-.modal_open {
+.popup_open {
   overflow: hidden;
   visibility: visible;
   opacity: 1;
 }
 
-.modal__container {
+.popup__container {
   position: relative;
   top: 57px;
   left: 0px;
@@ -38,7 +38,7 @@
   outline: none;
 }
 
-.modal__image {
+.popup__image {
   display: block;
   width: 433px;
   max-height: 509px;
@@ -46,7 +46,7 @@
   border-radius: 10px;
 }
 
-.modal__container-image {
+.popup__container-image {
   position: fixed;
   top: 55%;
   left: 50%;
@@ -60,7 +60,7 @@
   z-index: 100;
 }
 
-.modal__caption {
+.popup__caption {
   margin-top: 10px;
   color: white;
   font-size: 16px;
@@ -71,7 +71,7 @@
   width: 100%;
 }
 
-.modal__title {
+.popup__title {
   position: relative;
   left: -1px;
   display: flex;
@@ -85,7 +85,7 @@
   margin: 0 0 54px 0;
 }
 
-.modal__input {
+.popup__input {
   width: 100%;
   font-family: "Inter", Arial, sans-serif;
   color: rgba(0, 0, 0, 1);
@@ -102,12 +102,12 @@
   margin-bottom: 5px;
 }
 
-.modal__input-error_visible {
+.popup__input-error_visible {
   visibility: visible;
   color: red;
 }
 
-.modal__input-type-error {
+.popup__input-type-error {
   border: none;
   border-bottom: 1px solid rgba(255, 0, 0, 1);
   width: 358;
@@ -117,13 +117,13 @@
   border-width: 1px;
 }
 
-.modal__input-wrapper {
+.popup__input-wrapper {
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
-.modal__input-label {
+.popup__input-label {
   position: relative;
   display: block;
   font-family: "Inter", Arial, sans-serif;
@@ -134,7 +134,7 @@
   margin-bottom: 30px;
 }
 
-.modal__save-button {
+.popup__save-button {
   position: relative;
   bottom: 0px;
   width: 100%;
@@ -152,18 +152,18 @@
   cursor: pointer;
 }
 
-.modal__save-button:hover {
+.popup__save-button:hover {
   background-color: #333333;
   opacity: 0.6;
   transition: 0.2s;
 }
 
-.modal__save-button_disabled {
+.popup__save-button_disabled {
   cursor: not-allowed;
   opacity: 20%;
 }
 
-.modal__close-button {
+.popup__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   position: absolute;
   top: -35px;
@@ -174,13 +174,13 @@
   z-index: 5;
 }
 
-.modal__close-button:hover {
+.popup__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.modal__input-error {
+.popup__input-error {
   color: red;
   position: absolute;
   left: 0px;
@@ -198,121 +198,121 @@
   height: 16px;
 }
 
-.modal__input-error_visible {
+.popup__input-error_visible {
   visibility: visible;
 }
 
-.modal__button_disabled {
+.popup__button_disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.modal__button_enabled {
+.popup__button_enabled {
   opacity: 1;
   cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
-  .modal {
+  .popup {
     width: 600px;
   }
 
-  .modal__container {
+  .popup__container {
     top: 20px;
     width: 60%;
     height: 322px;
     padding: 25px 22px;
   }
 
-  .modal__image {
+  .popup__image {
     width: 240px;
     height: 299px;
   }
 
-  .modal__caption {
+  .popup__caption {
     width: 240px;
   }
 
-  .modal__title {
+  .popup__title {
     width: 238px;
     max-height: 22px;
     font-size: 18px;
   }
 
-  .modal__save-button {
+  .popup__save-button {
     font-size: 14px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .modal {
+  .popup {
     width: 100%;
     max-width: 480px;
   }
 
-  .modal__container {
+  .popup__container {
     max-width: 100%;
   }
 
-  .modal__image {
+  .popup__image {
     width: 100%;
   }
 
-  .modal__caption {
+  .popup__caption {
     font-size: 15px;
   }
 
-  .modal__title {
+  .popup__title {
     font-size: 18px;
   }
 
-  .modal__input {
+  .popup__input {
     font-size: 13px;
     max-width: 100%;
     padding: 0px;
   }
 
-  .modal__save-button {
+  .popup__save-button {
     font-size: 16px;
     height: 45px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .modal {
+  .popup {
     width: 100%;
     max-width: 320px;
     padding: 18px;
   }
 
-  .modal__container {
+  .popup__container {
     left: -19px;
     width: 282px;
   }
 
-  .modal__image {
+  .popup__image {
     width: 100%;
     max-height: 299px;
   }
 
-  .modal__caption {
+  .popup__caption {
     font-size: 12px;
   }
 
-  .modal__title {
+  .popup__title {
     font-size: 18px;
   }
 
-  .modal__input {
+  .popup__input {
     font-size: 12px;
   }
 
-  .modal__save-button {
+  .popup__save-button {
     font-size: 14px;
     height: 40px;
   }
 
-  .modal__close-button {
+  .popup__close-button {
     width: 26px;
     height: 26px;
     top: -29px;
