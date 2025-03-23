@@ -163,7 +163,7 @@
   opacity: 20%;
 }
 
-.popup__close {
+.popup__close-button {
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   position: absolute;
   top: -35px;
@@ -174,7 +174,7 @@
   z-index: 5;
 }
 
-.popup__close:hover {
+.popup__close-button:hover {
   opacity: 0.6;
   cursor: pointer;
   transition: 0.2s;
