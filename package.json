@@ -25,5 +25,8 @@
     "webpack": "^5.x.x",
     "webpack-cli": "^4.x.x",
     "webpack-dev-server": "^4.x.x"
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
   }
 }

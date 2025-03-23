@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="Fred Hobbs" />
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <title>Around the US</title>
   </head>
   <body class="page">
@@ -50,89 +50,89 @@
         <p class="footer__title">© 2024 Around The U.S.</p>
       </footer>
     </div>
-    <div class="modal" id="image-modal">
-      <div class="modal__container-image">
+    <div class="popup" id="image-popup">
+      <div class="popup__container-image">
         <button
           type="button"
-          class="modal__close-button modal__close-button_image"
-          id="image-modal-close"
+          class="popup__close-button popup__close-button_image"
+          id="image-popup-close"
           title="Close image"
         ></button>
-        <img class="modal__image" src="" alt="" />
-        <p class="modal__caption"></p>
+        <img class="popup__image" src="" alt="" />
+        <p class="popup__caption"></p>
       </div>
     </div>
-    <div class="modal" id="edit-modal">
-      <div class="modal__container">
+    <div class="popup" id="edit-popup">
+      <div class="popup__container">
         <button
           type="button"
-          class="modal__close-button"
-          id="edit-modal-close"
+          class="popup__close-button"
+          id="edit-popup-close"
           title="Close"
         ></button>
-        <form id="edit-form" name="profile-form" class="modal__form">
-          <h2 class="modal__title">Edit profile</h2>
-          <div class="modal__input-wrapper"></div>
-          <label class="modal__input-label">
+        <form id="edit-form" name="profile-form" class="popup__form">
+          <h2 class="popup__title">Edit profile</h2>
+          <div class="popup__input-wrapper"></div>
+          <label class="popup__input-label">
             <input
               id="name"
               name="name"
               placeholder="Name"
-              class="modal__input"
+              class="popup__input"
               minlength="2"
               maxlength="200"
               required
               autocomplete="name"
             />
-            <span class="modal__input-error" id="name-error"></span>
+            <span class="popup__input-error" id="name-error"></span>
           </label>
-          <label class="modal__input-label">
+          <label class="popup__input-label">
             <input
               id="about"
               name="about"
               placeholder="About"
-              class="modal__input"
+              class="popup__input"
               minlength="2"
               maxlength="200"
               required
               autocomplete="off"
             />
-            <span class="modal__input-error" id="about-error"></span>
+            <span class="popup__input-error" id="about-error"></span>
           </label>
-          <button type="submit" class="modal__save-button" disabled="disabled">
+          <button type="submit" class="popup__save-button" disabled="disabled">
             Save
           </button>
         </form>
       </div>
     </div>
-    <div class="modal" id="add-modal">
-      <div class="modal__container">
+    <div class="popup" id="add-popup">
+      <div class="popup__container">
         <button
-          class="modal__close-button"
+          class="popup__close-button"
           title="Close"
           type="button"
-          id="add-modal-close"
+          id="add-popup-close"
         ></button>
-        <form id="add-form" name="card-form" class="modal__form">
-          <h2 class="modal__title">New place</h2>
-          <!-- <div class="modal__input-wrapper"></div> -->
-          <label class="modal__input-label">
+        <form id="add-form" name="card-form" class="popup__form">
+          <h2 class="popup__title">New place</h2>
+          <!-- <div class="popup__input-wrapper"></div> -->
+          <label class="popup__input-label">
             <input
               id="place"
               name="place" 
               placeholder="Title"
-              class="modal__input"
+              class="popup__input"
               minlength="1"
               maxlength="30"
               required
               autocomplete="on"
             />
-            <span class="modal__input-error" id="place-error"></span>
+            <span class="popup__input-error" id="place-error"></span>
           </label>
-          <!-- <div class="modal__input-wrapper"></div> -->
-          <label class="modal__input-label">
+          <!-- <div class="popup__input-wrapper"></div> -->
+          <label class="popup__input-label">
             <input
-              class="modal__input"
+              class="popup__input"
               id="link"
               name="link"
               type="url"
@@ -140,14 +140,13 @@
               required
               autocomplete="on"
             />
-            <span class="modal__input-error" id="link-error"></span>
+            <span class="popup__input-error" id="link-error"></span>
           </label>
-          <button type="submit" class="modal__save-button" disabled="disabled">
+          <button type="submit" class="popup__save-button" disabled="disabled">
             Save
           </button>
         </form>
       </div>
     </div>
-    <script src="https://unpkg.com/uuid@latest/dist/umd/uuidv4.min.js"></script>
   </body>
 </html>
