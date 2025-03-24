@@ -24,8 +24,7 @@ export default class Card {
     this._cardImage.alt = this._data.name;
     this._cardTitle.textContent = this._data.name;
 
-    this._setEventListeners();
-    this._toggleDeleteButtonVisibility();
+    this._setEventListeners()
 
     return this._element;
   }
@@ -34,17 +33,8 @@ export default class Card {
     this._element.remove();
   }
 
-  _toggleDeleteButtonVisibility() {
-    if (this._isCardLiked()) {
-      this._deleteButton.classList.add("card__delete-button_hidden");
-    } else {
-      this._deleteButton.classList.remove("card__delete-button_hidden");
-    }
-  }
-
   _handleLikeClick() {
     this._likeButton.classList.toggle("card__heart_active");
-    this._toggleDeleteButtonVisibility();
   }
 
   _isCardLiked() {
