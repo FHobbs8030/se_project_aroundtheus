@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { initialCards } from "../components/data.js";
+import { initialCards, validationConfig } from "../utils/constants.js";
 import "./index.css";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -13,15 +13,6 @@ document.querySelector(".profile__image").src = profileImagePath;
 
 document.querySelector(".header__logo").addEventListener("load", () => {});
 document.querySelector(".profile__image").addEventListener("load", () => {});
-
-const validationConfig = {
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__save-button",
-  inactiveButtonClass: "popup__save-button_disabled",
-  inputErrorClass: "popup__input-type-error",
-  errorClass: "popup__input-error_visible",
-};
 
 const cardsContainer = document.querySelector("#cards-container");
 
