@@ -21,14 +21,13 @@
 }
 
 .cards {
- display: grid;
- grid-template-columns: repeat(3, 282px);
- gap: 20px;
- justify-content: center;
- max-width: 926px;
- margin: 0 auto;
- padding: 0 40px; 
- box-sizing: border-box; 
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  gap: 20px;
+  justify-content: center;
+  max-width: 926px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .card__delete-button {
