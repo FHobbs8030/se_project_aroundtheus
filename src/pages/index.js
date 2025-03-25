@@ -1,10 +1,12 @@
 import { v4 as uuidv4 } from "uuid";
+import Section from "../components/Section.js";
 import { initialCards, validationConfig } from "../utils/constants.js";
 import "./index.css";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
+import UserInfo from "../components/UserInfo.js";
 import profileImagePath from "../images/jacques-cousteau.jpg";
 import logoPath from "../images/logo.svg";
 
@@ -14,7 +16,22 @@ document.querySelector(".profile__image").src = profileImagePath;
 document.querySelector(".header__logo").addEventListener("load", () => {});
 document.querySelector(".profile__image").addEventListener("load", () => {});
 
-const cardsContainer = document.querySelector("#cards-container");
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const cardElement = createCard(cardData);
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards"
+);
+
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__about",
+  avatarSelector: ".profile__image",
+});
 
 const addpopup = document.getElementById("add-popup");
 const addForm = document.forms["add-form"];
@@ -43,21 +60,16 @@ editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
 
 function handleProfileFormSubmit(formData) {
-  profileName.textContent = formData.name;
-  profileAbout.textContent = formData.about;
+userInfo.setUserInfo({
+  name: formData.name,
+  about: formData.about,
+});
   editProfilePopup.close();
 }
 
-function handleAddCardFormSubmit(formData) {
-  const newCardData = {
-    name: formData.place,
-    link: formData.link,
-    alt: formData.place,
-    id: uuidv4(),
-  };
-
-  const cardElement = createCard(newCardData);
-  cardsContainer.prepend(cardElement);
+function handleAddCardFormSubmit(data) {
+  const cardElement = createCard(data);
+  cardSection.addItem(cardElement);
   addCardPopup.close();
 }
 
@@ -66,10 +78,22 @@ function handleImageClick(data) {
 }
 
 openEditpopupButton.addEventListener("click", () => {
-  nameInput.value = profileName.textContent;
-  aboutInput.value = profileAbout.textContent;
+  formValidators["edit-form"].resetValidation();
+  const currentUserInfo = userInfo.getUserInfo();
+  console.log("Current user info:", currentUserInfo); 
+  nameInput.value = currentUserInfo.name;
+  aboutInput.value = currentUserInfo.about;
   editProfilePopup.open();
 });
+
+// openEditpopupButton.addEventListener("click", () => {
+//   console.log("Edit button clicked"); 
+//   formValidators["edit-form"].resetValidation(); 
+//   const userData = userInfo.getUserInfo();
+//   nameInput.value = userData.name;
+//   aboutInput.value = userData.about;
+//   editProfilePopup.open();
+// });
 
 const formValidators = {};
 
@@ -93,14 +117,13 @@ function createCard(item) {
 }
 
 openAddpopupButton.addEventListener("click", () => {
+  console.log("Add button clicked");
+  formValidators["add-form"].resetValidation(); 
   addCardPopup.open();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  initialCards.forEach((card) => {
-    const cardElement = createCard(card);
-    cardsContainer.append(cardElement);
-  });
+  cardSection.renderItems();
 });
 
 window.addEventListener("load", () => {});

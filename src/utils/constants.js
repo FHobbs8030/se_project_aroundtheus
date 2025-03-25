@@ -39,3 +39,6 @@ export const validationConfig = {
   inputErrorClass: "popup__input-type-error",
   errorClass: "popup__input-error_visible",
 };
+
+console.log("initialCards:", initialCards);
+console.log("validationConfig:", validationConfig);
