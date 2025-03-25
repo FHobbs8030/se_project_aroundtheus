@@ -18,27 +18,27 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
-  _checkInputValidity() {
-    const isValid = this._inputList.every((input) => input.value.trim() !== "");
-    if (isValid) {
-      this.enableSubmitButton();
-    } else {
-      this.disableSubmitButton();
-    }
-  }
+  // _checkInputValidity() {
+  //   const isValid = this._inputList.every((input) => input.value.trim() !== "");
+  //   if (isValid) {
+  //     this.enableSubmitButton();
+  //   } else {
+  //     this.disableSubmitButton();
+  //   }
+  // }
 
   setEventListeners() {
     super.setEventListeners();
 
-    this._inputList.forEach((input) => {
-      input.addEventListener("input", () => {
-        this._checkInputValidity();
-      });
-    });
+    // this._inputList.forEach((input) => {
+    //   input.addEventListener("input", () => {
+    //     this._checkInputValidity();
+    //   });
+    // });
 
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this.disableSubmitButton();
+      // this.disableSubmitButton();
       const formValues = this._getInputValues();
       const result = this._handleFormSubmit(formValues);
 
@@ -58,19 +58,19 @@ export default class PopupWithForm extends Popup {
     });
   }
 
-  disableSubmitButton() {
-    this._submitButton.disabled = true;
-    this._submitButton.textContent = "Saving...";
-  }
+  // disableSubmitButton() {
+  //   this._submitButton.disabled = true;
+  //   this._submitButton.textContent = "Saving...";
+  // }
 
-  enableSubmitButton() {
-    this._submitButton.disabled = false;
-    this._submitButton.textContent = this._defaultSubmitText;
-  }
+  // enableSubmitButton() {
+  //   this._submitButton.disabled = false;
+  //   this._submitButton.textContent = this._defaultSubmitText;
+  // }
 
   open() {
     super.open();
-    this._checkInputValidity();
+    // this._checkInputValidity();
   }
 
 }

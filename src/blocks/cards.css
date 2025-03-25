@@ -97,13 +97,13 @@
   opacity: 0.5;
   cursor: pointer;
 }
-
+/* 
 @media screen and (max-width: 900px) {
   .cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
-}
+} */
 
 @media screen and (max-width: 600px) {
   .cards {
