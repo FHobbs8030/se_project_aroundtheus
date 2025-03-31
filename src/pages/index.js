@@ -28,12 +28,12 @@ const userInfo = new UserInfo({
 api
   .getUserInfo()
   .then((userData) => {
+    console.log("User data received:", userData);
     userInfo.setUserInfo(userData);
   })
   .catch((err) => console.error(err));
 
 document.querySelector(".header__logo").src = logoPath;
-document.querySelector(".profile__image").src = profileImagePath;
 
 const addpopup = document.getElementById("add-popup");
 const addForm = document.forms["add-form"];
