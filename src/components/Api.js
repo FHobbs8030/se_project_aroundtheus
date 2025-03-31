@@ -11,45 +11,53 @@ class Api {
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then(this._checkResponse);
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
   }
 
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
-    }).then(this._checkResponse);
+    })
+      .then(this._checkResponse)
+      .then((data) => {
+        return data;
+      });
   }
 
   async updateUserInfo(data) {
     const res = await fetch(`${this._baseUrl}/users/me`, {
-          method: "PATCH",
-          headers: this._headers,
-          body: JSON.stringify({
-              name: data.name,
-              about: data.about,
-          }),
-      });
-      return this._checkResponse(res);
+      method: "PATCH",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        about: data.about,
+      }),
+    });
+    return this._checkResponse(res);
   }
 
   async addNewCard(data) {
     const res = await fetch(`${this._baseUrl}/cards`, {
-          method: "POST",
-          headers: this._headers,
-          body: JSON.stringify({
-              name: data.name,
-              link: data.link,
-          }),
-      });
-      return this._checkResponse(res);
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify({
+        name: data.name,
+        link: data.link,
+      }),
+    });
+    return this._checkResponse(res);
   }
 
   async deleteCard(cardId) {
     const res = await fetch(`${this._baseUrl}/cards/${cardId}`, {
-          method: "DELETE",
-          headers: this._headers,
-      });
-      return this._checkResponse(res);
+      method: "DELETE",
+      headers: this._headers,
+    });
+    return this._checkResponse(res);
   }
 
   addLike(cardId) {

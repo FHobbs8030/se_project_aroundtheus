@@ -28,7 +28,6 @@ const userInfo = new UserInfo({
 api
   .getUserInfo()
   .then((userData) => {
-    console.log("User data received:", userData);
     userInfo.setUserInfo(userData);
   })
   .catch((err) => console.error(err));
