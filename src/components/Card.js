@@ -1,3 +1,6 @@
+import heartIcon from "../images/heart.svg";
+import heartFilledIcon from "../images/heart-filled.svg";
+
 export default class Card {
   constructor(
     data,
@@ -11,9 +14,8 @@ export default class Card {
     this._link = data.link;
     this._likes = data.likes || [];
     this._cardId = data._id;
-    this._ownerId = data.owner;
+    this._ownerId = data.owner?._id || data.owner;
     this._userId = userId;
-
     this._templateSelector = templateSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
@@ -21,60 +23,86 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardTemplate = document
+    const cardElement = document
       .querySelector(this._templateSelector)
       .content.querySelector(".card")
       .cloneNode(true);
-    return cardTemplate;
+    return cardElement;
+  }
+
+  _updateLikes(likes) {
+    this._likes = likes || [];
+    const likeCountElement = this._element.querySelector(".card__like-count");
+    if (likeCountElement) {
+      likeCountElement.textContent = this._likes.length;
+    }
+    this._updateLikeState();
   }
 
   _isLiked() {
-    return this._likes.some((user) => user._id === this._userId);
+    return (
+      Array.isArray(this._likes) &&
+      this._likes.some(
+        (like) => like._id === this._userId || like === this._userId
+      )
+    );
   }
 
   _updateLikeState() {
-    if (this._isLiked()) {
-      this._likeButton.classList.add("card__heart_active");
-    } else {
-      this._likeButton.classList.remove("card__heart_active");
-    }
-    this._likeCount.textContent = this._likes.length;
+    if (!this._likeButton) return;
+
+    this._likeButton.style.backgroundImage = this._isLiked()
+      ? `url(${heartFilledIcon})`
+      : `url(${heartIcon})`;
+  }
+
+  _removeCard() {
+    this._element.remove();
+    this._element = null;
   }
 
   _setEventListeners() {
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick(this._cardId, this._isLiked(), (newLikes) => {
-        this._likes = newLikes;
-        this._updateLikeState();
+    if (this._likeButton) {
+      this._likeButton.addEventListener("click", () => {
+        this._handleLikeClick(this._cardId, this._isLiked())
+          .then((updatedCard) => {
+            this._updateLikes(updatedCard.likes);
+          })
+          .catch((err) => console.error("Like update failed:", err));
       });
-    });
+    }
 
-    this._imageElement.addEventListener("click", () => {
-      this._handleImageClick({ name: this._name, link: this._link });
-    });
+    if (this._cardImage) {
+      this._cardImage.addEventListener("click", () => {
+        this._handleImageClick(this._name, this._link);
+      });
+    }
 
-    if (this._userId === this._ownerId) {
+    if (this._deleteButton) {
       this._deleteButton.addEventListener("click", () => {
-        this._handleDeleteClick(this._cardId).then(() => {
-          this._element.remove();
-          this._element = null;
-        });
+        this._handleDeleteClick(this._cardId);
       });
-    } else {
-      this._deleteButton.remove();
     }
   }
 
   generateCard() {
     this._element = this._getTemplate();
-    this._imageElement = this._element.querySelector(".card__image");
+    this._cardImage = this._element.querySelector(".card__image");
     this._likeButton = this._element.querySelector(".card__heart");
     this._likeCount = this._element.querySelector(".card__like-count");
     this._deleteButton = this._element.querySelector(".card__delete-button");
 
     this._element.querySelector(".card__title").textContent = this._name;
-    this._imageElement.src = this._link;
-    this._imageElement.alt = this._name;
+    this._cardImage.src = this._link;
+    this._cardImage.alt = this._name;
+
+    if (this._likeCount) {
+      this._likeCount.textContent = this._likes.length;
+    }
+
+    if (this._ownerId !== this._userId && this._deleteButton) {
+      this._deleteButton.remove();
+    }
 
     this._updateLikeState();
     this._setEventListeners();

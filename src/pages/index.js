@@ -29,22 +29,23 @@ api
   .getUserInfo()
   .then((userData) => {
     userInfo.setUserInfo(userData);
+    return api.getInitialCards();
+  })
+  .then((cards) => {
+    cards.reverse().forEach((cardData) => {
+      renderCard(cardData);
+    });
   })
   .catch((err) => console.error(err));
 
 document.querySelector(".header__logo").src = logoPath;
 
-const addpopup = document.getElementById("add-popup");
 const addForm = document.forms["add-form"];
 const cardNameInput = addForm.querySelector("#place");
 const cardLinkInput = addForm.querySelector("#link");
 
-const editpopup = document.getElementById("edit-popup");
 const profileNameInput = document.querySelector("#name");
 const aboutInput = document.querySelector("#about");
-
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
 
 const openAddpopupButton = document.querySelector(".profile__add-button");
 const openEditpopupButton = document.querySelector(".profile__edit-button");
@@ -71,28 +72,14 @@ const cardSection = new Section(
   ".cards"
 );
 
-api
-  .getInitialCards()
-  .then((cards) => {
-    cards.reverse().forEach((cardData) => {
-      renderCard(cardData);
-    });
-  })
-  .catch((err) => console.error(err));
-
 function handleProfileFormSubmit(formData) {
   api
     .updateUserInfo(formData)
     .then((res) => {
-      userInfo.setUserInfo({
-        name: res.name,
-        about: res.about,
-      });
+      userInfo.setUserInfo({ name: res.name, about: res.about });
       editProfilePopup.close();
     })
-    .catch((err) => {
-      console.error("Error updating profile:", err);
-    });
+    .catch((err) => console.error("Error updating profile:", err));
 }
 
 function handleAddCardFormSubmit(formData) {
@@ -105,8 +92,8 @@ function handleAddCardFormSubmit(formData) {
     .catch((err) => console.error(err));
 }
 
-function handleImageClick(data) {
-  imagePopup.open(data);
+function handleImageClick(name, link) {
+  imagePopup.open({ name, link });
 }
 
 openEditpopupButton.addEventListener("click", () => {
@@ -175,13 +162,12 @@ document.querySelector(".profile__image").addEventListener("click", () => {
   avatarPopup.open();
 });
 
-function handleLikeClick(cardId, isLiked, updateLikesCallback) {
-  const likeAction = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
-  likeAction
-    .then((updatedCard) => {
-      updateLikesCallback(updatedCard.likes);
-    })
-    .catch((err) => console.error(err));
+function handleLikeClick(cardId, isLiked) {
+  if (isLiked) {
+    return api.removeLike(cardId);
+  } else {
+    return api.addLike(cardId);
+  }
 }
 
 function handleDeleteClick(cardId) {

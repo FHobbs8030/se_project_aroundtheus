@@ -78,32 +78,19 @@
 }
 
 .card__heart {
-  background: url("../images/heart.svg") center no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
   width: 21px;
   height: 19px;
-  border: none;
-  padding: 0;
-  margin: 0 20px 0 0;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.card__heart_active {
-  background: url("../images/heart-filled.svg") center no-repeat;
-  opacity: 1;
 }
 
 .card__heart:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-/* 
-@media screen and (max-width: 900px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-} */
 
 @media screen and (max-width: 600px) {
   .cards {
