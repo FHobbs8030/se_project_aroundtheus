@@ -23,11 +23,10 @@ export default class Card {
   }
 
   _getTemplate() {
-    const cardElement = document
-      .querySelector(this._templateSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
-    return cardElement;
+    const template = document.querySelector(this._templateSelector);
+    if (!template) return null;
+    const clone = template.content.querySelector(".card").cloneNode(true);
+    return clone;
   }
 
   _updateLikes(likes) {
@@ -50,7 +49,7 @@ export default class Card {
 
   _updateLikeState() {
     if (!this._likeButton) return;
-
+    console.log("Like state:", this._isLiked());
     this._likeButton.style.backgroundImage = this._isLiked()
       ? `url(${heartFilledIcon})`
       : `url(${heartIcon})`;
@@ -66,7 +65,9 @@ export default class Card {
       this._likeButton.addEventListener("click", () => {
         this._handleLikeClick(this._cardId, this._isLiked())
           .then((updatedCard) => {
-            this._updateLikes(updatedCard.likes);
+            if (updatedCard && updatedCard.likes) {
+              this._updateLikes(updatedCard.likes);
+            }
           })
           .catch((err) => console.error("Like update failed:", err));
       });
@@ -80,13 +81,19 @@ export default class Card {
 
     if (this._deleteButton) {
       this._deleteButton.addEventListener("click", () => {
-        this._handleDeleteClick(this._cardId);
+        this._handleDeleteClick(this._cardId)
+          .then(() => {
+            this._removeCard();
+          })
+          .catch((err) => console.error("Delete failed:", err));
       });
     }
   }
 
   generateCard() {
     this._element = this._getTemplate();
+    if (!this._element) return null;
+
     this._cardImage = this._element.querySelector(".card__image");
     this._likeButton = this._element.querySelector(".card__heart");
     this._likeCount = this._element.querySelector(".card__like-count");

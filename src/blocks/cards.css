@@ -92,6 +92,10 @@
   cursor: pointer;
 }
 
+.card__heart_active {
+  background: url("../images/heart-filled.svg") center no-repeat;
+}
+
 @media screen and (max-width: 600px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
