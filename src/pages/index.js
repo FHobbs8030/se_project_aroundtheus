@@ -1,31 +1,28 @@
 import { v4 as uuidv4 } from "uuid";
 import Section from "../components/Section.js";
-import { initialCards, validationConfig } from "../utils/constants.js";
+import { validationConfig } from "../utils/constants.js";
 import "./index.css";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import UserInfo from "../components/UserInfo.js";
-import profileImagePath from "../images/jacques-cousteau.jpg";
 import logoPath from "../images/logo.svg";
+import Api from "../components/Api.js";
+import profileImagePath from "../images/jacques-cousteau.jpg";
+import heart from "../images/heart.svg";
+
+console.log("Heart icon path test:", heart);
 
 document.querySelector(".header__logo").src = logoPath;
-document.querySelector(".profile__image").src = profileImagePath;
 
-document.querySelector(".header__logo").addEventListener("load", () => {});
-document.querySelector(".profile__image").addEventListener("load", () => {});
-
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const cardElement = createCard(cardData);
-      cardSection.addItem(cardElement);
-    },
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "49b1b68f-7c8f-45c7-9c0e-4dcf6a213fcc",
+    "Content-Type": "application/json",
   },
-  ".cards"
-);
+});
 
 const userInfo = new UserInfo({
   nameSelector: ".profile__name",
@@ -33,77 +30,104 @@ const userInfo = new UserInfo({
   avatarSelector: ".profile__image",
 });
 
-const addpopup = document.getElementById("add-popup");
-const addForm = document.forms["add-form"];
-const titleInput = addForm.querySelector("#place");
-const urlInput = addForm.querySelector("#link");
-
-const editpopup = document.getElementById("edit-popup");
-const nameInput = document.querySelector("#name");
-const aboutInput = document.querySelector("#about");
-
-const profileName = document.querySelector(".profile__name");
-const profileAbout = document.querySelector(".profile__about");
-
-const openAddpopupButton = document.querySelector(".profile__add-button");
-const openEditpopupButton = document.querySelector(".profile__edit-button");
-
 const imagePopup = new PopupWithImage("#image-popup");
 const editProfilePopup = new PopupWithForm(
   "#edit-popup",
   handleProfileFormSubmit
 );
 const addCardPopup = new PopupWithForm("#add-popup", handleAddCardFormSubmit);
+const avatarPopup = new PopupWithForm("#avatar-popup", handleAvatarFormSubmit);
 
 imagePopup.setEventListeners();
 editProfilePopup.setEventListeners();
 addCardPopup.setEventListeners();
+avatarPopup.setEventListeners();
 
-function handleProfileFormSubmit(formData) {
-userInfo.setUserInfo({
-  name: formData.name,
-  about: formData.about,
-});
-  editProfilePopup.close();
-}
+const cardSection = new Section(
+  {
+    items: [],
+    renderer: (item) => {
+      const cardElement = createCard(item);
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards"
+);
 
-function handleAddCardFormSubmit(data) {
-  const cardElement = createCard(data);
-  cardSection.addItem(cardElement);
-  addCardPopup.close();
-}
+cardSection.setItems = function (items) {
+  this._items = items;
+};
+api
+  .getUserInfo()
+  .then((userData) => {
+    console.log("Avatar from API:", userData.avatar);
+    userInfo.setUserInfo({
+      name: userData.name,
+      about: userData.about,
+      avatar: profileImagePath, // force the local Jacques image
+      // avatar: userData.avatar || profileImagePath,
+      _id: userData._id,
+    });
+    return api.getInitialCards();
+  })
+  .then((cards) => {
+    cardSection.setItems(cards.reverse());
+    cardSection.renderItems();
+  })
+  .catch((err) => console.error(err));
 
-function handleImageClick(data) {
-  imagePopup.open(data);
-}
+// api
+//   .getUserInfo()
+//   .then((userData) => {
+//     userInfo.setUserInfo({
+//       name: userData.name,
+//       about: userData.about,
+// avatar: userData.avatar || profileImagePath,
+//       _id: userData._id,
+//     });
+//     return api.getInitialCards();
+//   })
+//   .then((cards) => {
+//     cardSection.setItems(cards.reverse());
+//     cardSection.renderItems();
+//   })
+//   .catch((err) => console.error(err));
+
+const addForm = document.forms["add-form"];
+const cardNameInput = addForm.querySelector("#place");
+const cardLinkInput = addForm.querySelector("#link");
+
+const profileNameInput = document.querySelector("#name");
+const aboutInput = document.querySelector("#about");
+
+const openAddpopupButton = document.querySelector(".profile__add-button");
+const openEditpopupButton = document.querySelector(".profile__edit-button");
 
 openEditpopupButton.addEventListener("click", () => {
   formValidators["edit-form"].resetValidation();
   const currentUserInfo = userInfo.getUserInfo();
-  console.log("Current user info:", currentUserInfo); 
-  nameInput.value = currentUserInfo.name;
+  profileNameInput.value = currentUserInfo.name;
   aboutInput.value = currentUserInfo.about;
   editProfilePopup.open();
 });
 
-// openEditpopupButton.addEventListener("click", () => {
-//   console.log("Edit button clicked"); 
-//   formValidators["edit-form"].resetValidation(); 
-//   const userData = userInfo.getUserInfo();
-//   nameInput.value = userData.name;
-//   aboutInput.value = userData.about;
-//   editProfilePopup.open();
-// });
+openAddpopupButton.addEventListener("click", () => {
+  formValidators["add-form"].resetValidation();
+  addCardPopup.open();
+});
+
+document.querySelector(".profile__image").addEventListener("click", () => {
+  formValidators["avatar-form"].resetValidation();
+  avatarPopup.open();
+});
 
 const formValidators = {};
 
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
-
   formList.forEach((formElement) => {
     const validator = new FormValidator(config, formElement);
     const formName = formElement.getAttribute("name");
-
     formValidators[formName] = validator;
     validator.enableValidation();
   });
@@ -111,19 +135,66 @@ function enableValidation(config) {
 
 enableValidation(validationConfig);
 
-function createCard(item) {
-  const newCard = new Card(item, "#card-template", handleImageClick);
-  return newCard.generateCard();
+function createCard(data) {
+  const card = new Card(
+    data,
+    userInfo.getUserId(),
+    "#card-template",
+    handleImageClick,
+    handleDeleteClick,
+    handleLikeClick
+  );
+  return card.generateCard();
 }
 
-openAddpopupButton.addEventListener("click", () => {
-  console.log("Add button clicked");
-  formValidators["add-form"].resetValidation(); 
-  addCardPopup.open();
-});
+function renderCard(data) {
+  const cardElement = createCard(data);
+  cardSection.addItem(cardElement);
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  cardSection.renderItems();
-});
+function handleImageClick(name, link) {
+  imagePopup.open({ name, link });
+}
 
-window.addEventListener("load", () => {});
+function handleProfileFormSubmit(formData) {
+  api
+    .updateUserInfo(formData)
+    .then((res) => {
+      userInfo.setUserInfo({ name: res.name, about: res.about });
+      editProfilePopup.close();
+    })
+    .catch((err) => console.error("Error updating profile:", err));
+}
+
+function handleAddCardFormSubmit(formData) {
+  api
+    .addNewCard(formData)
+    .then((cardData) => {
+      renderCard(cardData);
+      addCardPopup.close();
+    })
+    .catch((err) => console.error(err));
+}
+
+function handleAvatarFormSubmit(formData) {
+  api
+    .updateAvatar({ avatar: formData.avatar })
+    .then((res) => {
+      userInfo.setUserInfo({ avatar: res.avatar });
+      avatarPopup.close();
+    })
+    .catch((err) => console.error("Error:", err));
+}
+
+function handleLikeClick(cardId, isLiked) {
+  const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
+  return action
+    .then((updatedCard) => updatedCard)
+    .catch((err) => {
+      console.error("Like API failed:", err);
+    });
+}
+
+function handleDeleteClick(cardId) {
+  return api.deleteCard(cardId);
+}

@@ -12,6 +12,13 @@ module.exports = {
     publicPath: "",
     clean: true,
   },
+  devtool: "source-map",
+  resolve: {
+    alias: {
+      components: path.resolve(__dirname, "src/components/"),
+      images: path.resolve(__dirname, "src/images/"),
+    },
+  },
   module: {
     rules: [
       {
@@ -31,7 +38,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|svg|jpg|gif|woff2?|eot|ttf|otf)$/,
         type: "asset/resource",
       },
     ],
@@ -39,9 +46,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
-      favicon: "./src/images/favicon.ico", 
+      favicon: "./src/images/favicon.ico",
     }),
-    new CleanWebpackPlugin(), 
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
     }),
