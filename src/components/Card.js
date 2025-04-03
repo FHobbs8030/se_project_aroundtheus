@@ -101,6 +101,11 @@ export default class Card {
 
     this._element.querySelector(".card__title").textContent = this._name;
     this._cardImage.src = this._link;
+    this._cardImage.onerror = () => {
+      console.error(`Failed to load image: ${this._link}`);
+      // Optionally set a fallback image
+      this._cardImage.src = "path/to/fallback-image.jpg";
+    };
     this._cardImage.alt = this._name;
 
     if (this._likeCount) {

@@ -57,14 +57,15 @@ const cardSection = new Section(
 cardSection.setItems = function (items) {
   this._items = items;
 };
-
 api
   .getUserInfo()
   .then((userData) => {
+    console.log("Avatar from API:", userData.avatar);
     userInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
-      avatar: userData.avatar || profileImagePath,
+      avatar: profileImagePath, // force the local Jacques image
+      // avatar: userData.avatar || profileImagePath,
       _id: userData._id,
     });
     return api.getInitialCards();
@@ -74,6 +75,23 @@ api
     cardSection.renderItems();
   })
   .catch((err) => console.error(err));
+
+// api
+//   .getUserInfo()
+//   .then((userData) => {
+//     userInfo.setUserInfo({
+//       name: userData.name,
+//       about: userData.about,
+// avatar: userData.avatar || profileImagePath,
+//       _id: userData._id,
+//     });
+//     return api.getInitialCards();
+//   })
+//   .then((cards) => {
+//     cardSection.setItems(cards.reverse());
+//     cardSection.renderItems();
+//   })
+//   .catch((err) => console.error(err));
 
 const addForm = document.forms["add-form"];
 const cardNameInput = addForm.querySelector("#place");
