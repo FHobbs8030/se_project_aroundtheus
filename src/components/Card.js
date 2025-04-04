@@ -33,7 +33,11 @@ export default class Card {
     this._likes = likes || [];
     const likeCountElement = this._element.querySelector(".card__like-count");
     if (likeCountElement) {
-      likeCountElement.textContent = this._likes.length;
+      if (this._likes.length === 0) {
+        likeCountElement.textContent = "";
+      } else {
+        likeCountElement.textContent = this._likes.length;
+      }
     }
     this._updateLikeState();
   }
@@ -49,7 +53,6 @@ export default class Card {
 
   _updateLikeState() {
     if (!this._likeButton) return;
-    console.log("Like state:", this._isLiked());
     this._likeButton.style.backgroundImage = this._isLiked()
       ? `url(${heartFilledIcon})`
       : `url(${heartIcon})`;
@@ -103,13 +106,16 @@ export default class Card {
     this._cardImage.src = this._link;
     this._cardImage.onerror = () => {
       console.error(`Failed to load image: ${this._link}`);
-      // Optionally set a fallback image
       this._cardImage.src = "path/to/fallback-image.jpg";
     };
     this._cardImage.alt = this._name;
 
     if (this._likeCount) {
-      this._likeCount.textContent = this._likes.length;
+      if (this._likes.length === 0) {
+        this._likeCount.textContent = "";
+      } else {
+        this._likeCount.textContent = this._likes.length;
+      }
     }
 
     if (this._ownerId !== this._userId && this._deleteButton) {
