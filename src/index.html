@@ -30,19 +30,16 @@
       <p class="footer__copyright">© 2024 Around The U.S.</p>
     </footer>
 
-    <template id="card-template">
-      <article class="card">
-        <img class="card__image" src="#" alt="Card Image" />
-        <button class="card__delete-button" type="button" aria-label="Delete card"></button>
-        <div class="card__footer">
-          <h2 class="card__title"></h2>
-          <div class="card__like-container">
-            <button class="card__heart" type="button" aria-label="Like card"></button>
-            <span class="card__like-count">0</span>
-          </div>
-        </div>
-      </article>
-    </template>
+ <template id="card-template">
+  <article class="card">
+    <img class="card__image" src="#" alt="Image" />
+    <button class="card__delete-button"></button>
+    <div class="card__footer">
+      <h2 class="card__title"></h2>
+      <button class="card__heart"></button>
+    </div>
+  </article>
+</template>
 
     <div class="popup popup_type_image" id="image-popup">
       <div class="popup__image-container">

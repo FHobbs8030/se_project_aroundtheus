@@ -53,9 +53,13 @@ module.exports = {
       filename: "[name].[contenthash].css",
     }),
   ],
-  devServer: {
+ devServer: {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-  },
-};
+    compress: true,
+    port: 8080,
+    open: true, 
+    hot: true
+},
+}

@@ -78,6 +78,7 @@
 }
 
 .card__heart {
+  background: transparent url("../images/heart.svg") center no-repeat;
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;

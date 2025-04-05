@@ -1,6 +1,7 @@
 import heartIcon from "../images/heart.svg";
 import heartFilledIcon from "../images/heart-filled.svg";
-
+console.log("Heart icon webpack path:", heartIcon);
+console.log("Heart filled icon webpack path:", heartFilledIcon);
 export default class Card {
   constructor(
     data,
@@ -53,6 +54,7 @@ export default class Card {
 
   _updateLikeState() {
     if (!this._likeButton) return;
+
     this._likeButton.style.backgroundImage = this._isLiked()
       ? `url(${heartFilledIcon})`
       : `url(${heartIcon})`;
