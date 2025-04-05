@@ -78,24 +78,21 @@
 }
 
 .card__heart {
-  background: transparent url("../images/heart.svg") center no-repeat;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background: transparent;
   border: none;
   cursor: pointer;
   width: 21px;
   height: 19px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 22.24px;
 }
 
 .card__heart:hover {
   opacity: 0.5;
   cursor: pointer;
 }
-
-/* .card__heart_active {
-  background: url("../images/heart-filled.svg") center no-repeat;
-} */
 
 @media screen and (max-width: 600px) {
   .cards {

@@ -1,28 +1,15 @@
 .header {
-  max-width: 880px;  
-  margin: 45px auto 0;  
-  padding: 0 40px;  
-  box-sizing: border-box;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  padding: 45px 0 40px;
 }
 
 .header__logo {
   width: 173px;
-  height: 33px;
-  padding: 0px 0px 41px 0px;
+  height: auto;
 }
-
-/* @media screen and (max-width: 900px) {
-  .header {
-    max-width: 100%;
-    width: 100%;
-  }
-} */
 
 @media screen and (max-width: 600px) {
   .header {
-    margin: 28px 0px 0px 0px;
+    margin: 0px;
   }
 
   .header__logo {
@@ -33,15 +20,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .header {
-    width: 480px;
-    max-width: 100%;  /* Allow full width */
-    padding: 0;  /* Remove padding to allow full bleed */
-    box-sizing: border-box;
-
-  }
-
   .header__logo {
-    padding-left: 27px;  /* Add specific padding to the logo instead */
+    padding-left: 27px;  
   }
 }
