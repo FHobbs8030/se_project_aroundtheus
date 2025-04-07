@@ -40,6 +40,12 @@
   margin: 10px 0 0;
 }
 
+.profile__title {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
 .profile__edit-button {
   width: 24px;
   height: 24px;
