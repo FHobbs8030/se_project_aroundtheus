@@ -2,7 +2,6 @@ import { v4 as uuidv4 } from "uuid";
 import "./index.css";
 import Section from "../components/Section.js";
 import { validationConfig } from "../utils/constants.js";
-import "./index.css";
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithConfirm from "../components/PopupWithConfirm.js";
@@ -12,11 +11,8 @@ import UserInfo from "../components/UserInfo.js";
 import logoPath from "../images/logo.svg";
 import Api from "../components/Api.js";
 import profileImagePath from "../images/jacques-cousteau.jpg";
-import heart from "../images/heart.svg";
-import heartFilled from "../images/heart-filled.svg";
-
-console.log("Heart icon path test:", heart);
-console.log("Heart filled icon path test:", heartFilled);
+import heartIcon from "../images/heart.svg";
+import heartFilledIcon from "../images/heart-filled.svg";
 
 document.querySelector(".header__logo").src = logoPath;
 
@@ -67,7 +63,6 @@ cardSection.setItems = function (items) {
 api
   .getUserInfo()
   .then((userData) => {
-    console.log("Avatar from API:", userData.avatar);
     userInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
