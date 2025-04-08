@@ -11,14 +11,15 @@
 }
 
 @media screen and (max-width: 600px) {
-  .header {
-    margin: 0px;
-  }
+.header .container {
+  margin-bottom: 42px;
+}
 
   .header__logo {
     width: 126px;
     height: 24px;
-    padding: 0px 0px 32px 20px;
+    margin: 0;
+    padding: 28px 0px 32px 27px;
   }
 }
 
