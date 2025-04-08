@@ -1,40 +1,102 @@
-# se_project_aroundtheus
+# Around The U.S.
 
-This is the final project Sprint 5 of the Software Engineering program at TripleTen. It was created using Modals and java script introductory, based on the design brief.
+An interactive photo gallery built as part of the TripleTen Web Development Bootcamp.  
+The project is fully responsive, includes form validation, and connects to an external API to persist user data and cards.
 
-## Project features
+## Project Overview
 
-- modals
-- Semantic HTML5
-- Flexbox
-- Positioning
-- Flat BEM file structure
-- Responsive Design
+"Around The U.S." lets users:
+- Edit their profile information
+- Change their profile avatar
+- Add new cards (places with images and names)
+- Delete cards with confirmation
+- Like/unlike cards
+- View enlarged images in a popup
+- All changes are saved to the server and persist after page reload!
 
-## The Plans on improving this project are
+## Technologies Used
 
--This page is presently under construction for Upgrades using javaScript
+- HTML5 & CSS3
+- Flexbox & Grid layout
+- BEM Methodology (Flat BEM structure)
+- JavaScript (ES6+)
+- Object-Oriented Programming (OOP)
+- API Integration (CRUD operations)
+- Webpack (with Babel, autoprefixer, image and CSS minification)
+- Form Validation with real-time feedback
+- Responsive Design for all devices
+- Accessibility improvements
+- Prettier & W3C Validation Passed ✅
+- Favicon for professional polish ✨
 
-=========================================
+## Features
 
-## Take a Look at the Project
+- ✅ Profile Editing with "Saving..." loading state
+- ✅ Add new places dynamically
+- ✅ Delete cards with confirmation and loading indicator
+- ✅ Like and unlike functionality
+- ✅ Persistent data (after page reload)
+- ✅ Proper error handling with user-friendly messages
+- ✅ Form validation and reset states when opening
+- ✅ Responsive and mobile-optimized
+- ✅ Favicon included
+- ✅ Ready for deployment
 
-click [here](https://FHobbs8030.github.io/se_project_aroundtheus/src/index.html)
+## Screenshots
 
+| Desktop View | Mobile View | Popups |
+| ------------ | ----------- | ------ |
+| ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) | ![Popups](./screenshots/popup.png) |
 
+> _To update your screenshots, simply place your images in the `/screenshots/` folder and replace the placeholders._
 
-=========================================
+## Live Demo
 
-## Watch the Presentation
+👉 [View on GitHub Pages](https://fhobbs8030.github.io/se_project_aroundtheus/)
 
-click [here](https://github.com/user-attachments/assets/5cfacafb-053e-448f-a66e-2a506c7a0679)
+## How to Run Locally
 
-========================================================
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/FHobbs8030/se_project_aroundtheus.git
+   ```
 
-![1280px](https://github.com/user-attachments/assets/0ba21fc6-f4e6-43d0-9dd4-2e2cd889f56f)
+2. Navigate to the project directory:
+   ```bash
+   cd se_project_aroundtheus
+   ```
 
-![800px](https://github.com/user-attachments/assets/36696942-99dc-4fc1-96cb-fc53c40de836)
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-![320px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/8fb14860-bfbf-4ae8-92b8-7eedb6f5e40a)
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-==============================================
+5. Build for production:
+   ```bash
+   npm run build
+   ```
+
+## Favicon
+
+The favicon is already included in your project.  
+Make sure `favicon.ico` is in your `images/` directory and linked in your HTML:
+
+```html
+<link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
+```
+
+## Project Status
+
+✅ Final version complete  
+✅ All requirements met  
+✅ Ready for deployment and showcase!
+
+## Author
+
+Fred Hobbs  
+GitHub: [FHobbs8030](https://github.com/FHobbs8030)

@@ -8,23 +8,24 @@
   height: auto;
   margin-top: 45px;
   margin-bottom: 40px;
+  transition: width 0.3s ease, padding 0.3s ease, margin 0.3s ease;
 }
 
 @media screen and (max-width: 600px) {
-.header .container {
-  margin-bottom: 42px;
-}
+  .header .container {
+    margin-bottom: 42px;
+  }
 
   .header__logo {
     width: 126px;
     height: 24px;
     margin: 0;
-    padding: 28px 0px 32px 27px;
+    padding: 28px 0 32px 27px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .header__logo {
-    padding-left: 27px;  
+    padding-left: 27px;
   }
 }

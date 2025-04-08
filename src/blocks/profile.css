@@ -18,6 +18,14 @@
   object-fit: cover;
   background-color: #ccc;
   cursor: pointer;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.profile__image:hover,
+.profile__image:focus {
+  opacity: 0.7;
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
 }
 
 .profile__info {
@@ -54,8 +62,11 @@
   transition: opacity 0.2s ease;
 }
 
-.profile__edit-button:hover {
+.profile__edit-button:hover,
+.profile__edit-button:focus {
   opacity: 0.6;
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
 }
 
 .profile__add-button::before {
@@ -73,8 +84,11 @@
   transition: opacity 0.2s ease;
 }
 
-.profile__add-button:hover {
+.profile__add-button:hover,
+.profile__add-button:focus {
   opacity: 0.6;
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
 }
 
 @media screen and (max-width: 600px) {

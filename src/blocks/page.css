@@ -8,6 +8,13 @@ html {
   color: #fff;
 }
 
+button,
+input,
+textarea,
+select {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
 .page {
   min-height: 100vh;
   display: flex;
@@ -16,8 +23,9 @@ html {
 
 .page__content {
   flex: 1;
-  max-width: 100%;
-  margin: 0 200px 0px 200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5%;
   box-sizing: border-box;
   color: #fff;
 }

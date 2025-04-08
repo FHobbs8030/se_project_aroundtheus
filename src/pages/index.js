@@ -60,22 +60,45 @@ cardSection.setItems = function (items) {
   this._items = items;
 };
 
-api
-  .getUserInfo()
-  .then((userData) => {
-    userInfo.setUserInfo({
-      name: userData.name,
-      about: userData.about,
-      avatar: userData.avatar || profileImagePath,
-      _id: userData._id,
+function showError(message) {
+  alert(message);
+}
+
+function startLoadingState() {
+  document.body.style.cursor = "progress";
+}
+
+function stopLoadingState() {
+  document.body.style.cursor = "default";
+}
+
+function initializeApp() {
+  startLoadingState();
+  api
+    .getUserInfo()
+    .then((userData) => {
+      userInfo.setUserInfo({
+        name: userData.name,
+        about: userData.about,
+        avatar: userData.avatar || profileImagePath,
+        _id: userData._id,
+      });
+      return api.getInitialCards();
+    })
+    .then((cards) => {
+      cardSection.setItems(cards.reverse());
+      cardSection.renderItems();
+    })
+    .catch((err) => {
+      showError("Failed to load initial data. Please try again later.");
+      console.error(err);
+    })
+    .finally(() => {
+      stopLoadingState();
     });
-    return api.getInitialCards();
-  })
-  .then((cards) => {
-    cardSection.setItems(cards.reverse());
-    cardSection.renderItems();
-  })
-  .catch((err) => console.error(err));
+}
+
+initializeApp();
 
 const addForm = document.forms["add-form"];
 const cardNameInput = addForm.querySelector("#place");
@@ -88,14 +111,16 @@ const openAddpopupButton = document.querySelector(".profile__add-button");
 const openEditpopupButton = document.querySelector(".profile__edit-button");
 
 openEditpopupButton.addEventListener("click", () => {
-  formValidators["edit-form"].resetValidation();
   const currentUserInfo = userInfo.getUserInfo();
   profileNameInput.value = currentUserInfo.name;
   aboutInput.value = currentUserInfo.about;
+  formValidators["edit-form"].resetValidation();
   editProfilePopup.open();
 });
 
 openAddpopupButton.addEventListener("click", () => {
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
   formValidators["add-form"].resetValidation();
   addCardPopup.open();
 });
@@ -135,7 +160,8 @@ function createCard(data) {
               confirmPopup.close();
             })
             .catch((err) => {
-              console.error("Delete failed:", err);
+              showError("Failed to delete the card.");
+              console.error(err);
               reject(err);
             });
         });
@@ -157,33 +183,48 @@ function handleImageClick(name, link) {
 }
 
 function handleProfileFormSubmit(formData) {
+  editProfilePopup.renderLoading(true);
   api
     .updateUserInfo(formData)
     .then((res) => {
       userInfo.setUserInfo({ name: res.name, about: res.about });
       editProfilePopup.close();
     })
-    .catch((err) => console.error("Error updating profile:", err));
+    .catch((err) => {
+      showError("Error updating profile.");
+      console.error(err);
+    })
+    .finally(() => editProfilePopup.renderLoading(false));
 }
 
 function handleAddCardFormSubmit(formData) {
+  addCardPopup.renderLoading(true);
   api
     .addNewCard(formData)
     .then((cardData) => {
       renderCard(cardData);
       addCardPopup.close();
     })
-    .catch((err) => console.error(err));
+    .catch((err) => {
+      showError("Error adding new card.");
+      console.error(err);
+    })
+    .finally(() => addCardPopup.renderLoading(false));
 }
 
 function handleAvatarFormSubmit(formData) {
+  avatarPopup.renderLoading(true);
   api
     .updateAvatar({ avatar: formData.avatar })
     .then((res) => {
       userInfo.setUserInfo({ avatar: res.avatar });
       avatarPopup.close();
     })
-    .catch((err) => console.error("Error:", err));
+    .catch((err) => {
+      showError("Error updating avatar.");
+      console.error(err);
+    })
+    .finally(() => avatarPopup.renderLoading(false));
 }
 
 function handleLikeClick(cardId, isLiked) {
@@ -191,6 +232,7 @@ function handleLikeClick(cardId, isLiked) {
   return action
     .then((updatedCard) => updatedCard)
     .catch((err) => {
-      console.error("Like API failed:", err);
+      showError("Failed to update like status.");
+      console.error(err);
     });
 }
