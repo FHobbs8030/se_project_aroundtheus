@@ -1,13 +1,14 @@
-
 .profile {
   display: flex;
   align-items: center;
   margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 
 .profile__avatar-wrapper {
   position: relative;
   margin-right: 30px;
+  flex-shrink: 0;
 }
 
 .profile__image {
@@ -21,18 +22,14 @@
 
 .profile__info {
   flex-grow: 1;
-}
-
-.profile__info-header {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+  min-width: 200px;
 }
 
 .profile__name {
   font-size: 42px;
   font-weight: 500;
   margin: 0;
+  line-height: 1.2;
 }
 
 .profile__about {
@@ -43,7 +40,8 @@
 .profile__title {
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 .profile__edit-button {
@@ -53,6 +51,11 @@
   background-size: contain;
   border: none;
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.profile__edit-button:hover {
+  opacity: 0.6;
 }
 
 .profile__add-button::before {
@@ -66,40 +69,61 @@
   height: 50px;
   background: none;
   border: 1px solid #fff;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 }
 
-.profile__add-button:hover::before {
-  color: #00ffff;
+.profile__add-button:hover {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 600px) {
   .profile {
     flex-direction: column;
     text-align: center;
+    margin-bottom: 40px;
   }
 
   .profile__avatar-wrapper {
     margin: 0 0 20px;
   }
 
-  .profile__info-header {
+  .profile__info {
+    width: 100%;
+  }
+
+  .profile__title {
     justify-content: center;
     margin-bottom: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .profile__name {
+    font-size: 28px;
+  }
+
+  .profile__about {
+    font-size: 16px;
   }
 
   .profile__add-button {
-    margin: 20px 0 0;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 282px;
   }
 }
 
 @media screen and (max-width: 320px) {
- .profile__add-button {
-  width: 282px;
-}
+  .profile__name {
+    width: auto;
+    font-size: 22px;
+  }
 
-.profile__name {
-  width: 196px;
-  height: 22px;
-  font-size: 22px;
-}
+  .profile__about {
+    font-size: 14px;
+  }
+
+  .profile__add-button {
+    width: 100%;
+  }
 }
