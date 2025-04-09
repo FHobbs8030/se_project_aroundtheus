@@ -106,8 +106,8 @@
   background: transparent url("../images/large-close-icon.svg") center no-repeat;
   background-size: contain;
   position: absolute;
-  top: -32px;
-  right: -32px;
+  right: -30px;
+  top: -30px;
   width: 32px;
   height: 32px;
   border: none;
@@ -122,6 +122,9 @@
 
 @media screen and (max-width: 600px) {
   .popup__container {
+    top: 15px;
+    max-width: 244px;
+    max-height: 267px;
     padding: 25px 22px;
   }
 
@@ -130,8 +133,10 @@
   }
 
   .popup__container .popup__close-button {
-    top: -28px;
-    right: -28px;
+    width: 26px;
+    height: 26px;
+    top: -23px;
+    right: -23px;
   }
 
   .popup__container_type_image .popup__close-button {
@@ -159,12 +164,11 @@
 @media screen and (max-width: 320px) {
   .popup__container {
     width: 282px;
-    top: 15px;
   }
 
   .popup__container .popup__close-button {
-    top: -24px;
-    right: -24px;
+    right: 6px;
+    top: -28px;
   }
 
   .popup__container_type_image .popup__close-button {

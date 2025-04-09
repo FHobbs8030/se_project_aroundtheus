@@ -11,8 +11,6 @@ import UserInfo from "../components/UserInfo.js";
 import logoPath from "../images/logo.svg";
 import Api from "../components/Api.js";
 import profileImagePath from "../images/jacques-cousteau.jpg";
-import heartIcon from "../images/heart.svg";
-import heartFilledIcon from "../images/heart-filled.svg";
 
 document.querySelector(".header__logo").src = logoPath;
 
@@ -60,52 +58,28 @@ cardSection.setItems = function (items) {
   this._items = items;
 };
 
-function showError(message) {
-  alert(message);
-}
-
-function startLoadingState() {
-  document.body.style.cursor = "progress";
-}
-
-function stopLoadingState() {
-  document.body.style.cursor = "default";
-}
-
-function initializeApp() {
-  startLoadingState();
-  api
-    .getUserInfo()
-    .then((userData) => {
-      userInfo.setUserInfo({
-        name: userData.name,
-        about: userData.about,
-        avatar: userData.avatar || profileImagePath,
-        _id: userData._id,
-      });
-      return api.getInitialCards();
-    })
-    .then((cards) => {
-      cardSection.setItems(cards.reverse());
-      cardSection.renderItems();
-    })
-    .catch((err) => {
-      showError("Failed to load initial data. Please try again later.");
-      console.error(err);
-    })
-    .finally(() => {
-      stopLoadingState();
+api
+  .getUserInfo()
+  .then((userData) => {
+    userInfo.setUserInfo({
+      name: userData.name,
+      about: userData.about,
+      avatar: userData.avatar || profileImagePath,
+      _id: userData._id,
     });
-}
-
-initializeApp();
+    return api.getInitialCards();
+  })
+  .then((cards) => {
+    cardSection.setItems(cards.reverse());
+    cardSection.renderItems();
+  })
+  .catch((err) => console.error(err));
 
 const addForm = document.forms["add-form"];
-const cardNameInput = addForm.querySelector("#place");
-const cardLinkInput = addForm.querySelector("#link");
-
 const profileNameInput = document.querySelector("#name");
 const aboutInput = document.querySelector("#about");
+const cardNameInput = addForm.querySelector("#place");
+const cardLinkInput = addForm.querySelector("#link");
 
 const openAddpopupButton = document.querySelector(".profile__add-button");
 const openEditpopupButton = document.querySelector(".profile__edit-button");
@@ -153,6 +127,7 @@ function createCard(data) {
     (cardId) => {
       return new Promise((resolve, reject) => {
         confirmPopup.setSubmitAction(() => {
+          confirmPopup.renderLoading(true);
           api
             .deleteCard(cardId)
             .then(() => {
@@ -160,10 +135,10 @@ function createCard(data) {
               confirmPopup.close();
             })
             .catch((err) => {
-              showError("Failed to delete the card.");
-              console.error(err);
+              showError(err);
               reject(err);
-            });
+            })
+            .finally(() => confirmPopup.renderLoading(false));
         });
         confirmPopup.open();
       });
@@ -190,10 +165,7 @@ function handleProfileFormSubmit(formData) {
       userInfo.setUserInfo({ name: res.name, about: res.about });
       editProfilePopup.close();
     })
-    .catch((err) => {
-      showError("Error updating profile.");
-      console.error(err);
-    })
+    .catch((err) => showError(err))
     .finally(() => editProfilePopup.renderLoading(false));
 }
 
@@ -205,10 +177,7 @@ function handleAddCardFormSubmit(formData) {
       renderCard(cardData);
       addCardPopup.close();
     })
-    .catch((err) => {
-      showError("Error adding new card.");
-      console.error(err);
-    })
+    .catch((err) => showError(err))
     .finally(() => addCardPopup.renderLoading(false));
 }
 
@@ -220,19 +189,18 @@ function handleAvatarFormSubmit(formData) {
       userInfo.setUserInfo({ avatar: res.avatar });
       avatarPopup.close();
     })
-    .catch((err) => {
-      showError("Error updating avatar.");
-      console.error(err);
-    })
+    .catch((err) => showError(err))
     .finally(() => avatarPopup.renderLoading(false));
 }
 
 function handleLikeClick(cardId, isLiked) {
   const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
-  return action
-    .then((updatedCard) => updatedCard)
-    .catch((err) => {
-      showError("Failed to update like status.");
-      console.error(err);
-    });
+  return action.catch((err) => {
+    showError(err);
+  });
+}
+
+function showError(error) {
+  alert(`An error occurred: ${error}`);
+  console.error(error);
 }
