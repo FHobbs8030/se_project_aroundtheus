@@ -126,12 +126,12 @@
 }
 
 .popup__save-button_disabled {
-    background-color: #fff;
-    color: #000;
-    opacity: 0.2;
-    border: 1px solid #000;
-    pointer-events: none;
-    cursor: default;
+  background-color: #fff;
+  color: #000;
+  opacity: 0.2;
+  border: 1px solid #000;
+  pointer-events: none;
+  cursor: default;
 }
 
 .popup__close-button {

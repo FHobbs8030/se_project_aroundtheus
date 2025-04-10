@@ -57,7 +57,7 @@
   border: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .profile__edit-button:hover {

@@ -1,7 +1,5 @@
 import heartIcon from "../images/heart.svg";
 import heartFilledIcon from "../images/heart-filled.svg";
-console.log("Heart icon webpack path:", heartIcon);
-console.log("Heart filled icon webpack path:", heartFilledIcon);
 export default class Card {
   constructor(
     data,
@@ -23,6 +21,25 @@ export default class Card {
     this._handleLikeClick = handleLikeClick;
   }
 
+  generateCard() {
+    this._element = this._getTemplate();
+    if (!this._element) return null;
+
+    this._likeButton = this._element.querySelector(".card__like-button");
+    const cardImage = this._element.querySelector(".card__image");
+    const cardTitle = this._element.querySelector(".card__title");
+
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardTitle.textContent = this._name;
+
+    this._setEventListeners();
+
+    this._updateLikes(this._likes);
+
+    return this._element;
+  }
+
   _getTemplate() {
     const template = document.querySelector(this._templateSelector);
     if (!template) return null;
@@ -30,34 +47,26 @@ export default class Card {
     return clone;
   }
 
-  _updateLikes(likes) {
-    this._likes = likes || [];
-    const likeCountElement = this._element.querySelector(".card__like-count");
-    if (likeCountElement) {
-      if (this._likes.length === 0) {
-        likeCountElement.textContent = "";
-      } else {
-        likeCountElement.textContent = this._likes.length;
-      }
-    }
+  _updateLikes(isLiked) {
+    this._likeState = isLiked;
     this._updateLikeState();
   }
 
   _isLiked() {
-    return (
-      Array.isArray(this._likes) &&
-      this._likes.some(
-        (like) => like._id === this._userId || like === this._userId
-      )
-    );
+    return this._likeState;
   }
 
   _updateLikeState() {
-    if (!this._likeButton) return;
+    if (!this._likeButton) {
+      console.log("Like button not found");
+      return;
+    }
 
-    this._likeButton.style.backgroundImage = this._isLiked()
-      ? `url(${heartFilledIcon})`
-      : `url(${heartIcon})`;
+    if (this._likeState) {
+      this._likeButton.style.backgroundImage = `url(${heartIcon})`;
+    } else {
+      this._likeButton.style.backgroundImage = `url(${heartFilledIcon})`;
+    }
   }
 
   _removeCard() {
@@ -70,63 +79,12 @@ export default class Card {
       this._likeButton.addEventListener("click", () => {
         this._handleLikeClick(this._cardId, this._isLiked())
           .then((updatedCard) => {
-            if (updatedCard && updatedCard.likes) {
-              this._updateLikes(updatedCard.likes);
+            if (updatedCard && updatedCard.isLiked !== undefined) {
+              this._updateLikes(updatedCard.isLiked);
             }
           })
           .catch((err) => console.error("Like update failed:", err));
       });
     }
-
-    if (this._cardImage) {
-      this._cardImage.addEventListener("click", () => {
-        this._handleImageClick(this._name, this._link);
-      });
-    }
-
-    if (this._deleteButton) {
-      this._deleteButton.addEventListener("click", () => {
-        this._handleDeleteClick(this._cardId)
-          .then(() => {
-            this._removeCard();
-          })
-          .catch((err) => console.error("Delete failed:", err));
-      });
-    }
-  }
-
-  generateCard() {
-    this._element = this._getTemplate();
-    if (!this._element) return null;
-
-    this._cardImage = this._element.querySelector(".card__image");
-    this._likeButton = this._element.querySelector(".card__heart");
-    this._likeCount = this._element.querySelector(".card__like-count");
-    this._deleteButton = this._element.querySelector(".card__delete-button");
-
-    this._element.querySelector(".card__title").textContent = this._name;
-    this._cardImage.src = this._link;
-    this._cardImage.onerror = () => {
-      console.error(`Failed to load image: ${this._link}`);
-      this._cardImage.src = "path/to/fallback-image.jpg";
-    };
-    this._cardImage.alt = this._name;
-
-    if (this._likeCount) {
-      if (this._likes.length === 0) {
-        this._likeCount.textContent = "";
-      } else {
-        this._likeCount.textContent = this._likes.length;
-      }
-    }
-
-    if (this._ownerId !== this._userId && this._deleteButton) {
-      this._deleteButton.remove();
-    }
-
-    this._updateLikeState();
-    this._setEventListeners();
-
-    return this._element;
   }
 }

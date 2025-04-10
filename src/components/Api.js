@@ -77,5 +77,4 @@ class Api {
     }).then(this._checkResponse);
   }
 }
-
 export default Api;
