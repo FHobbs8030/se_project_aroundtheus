@@ -58,6 +58,8 @@ cardSection.setItems = function (items) {
   this._items = items;
 };
 
+const loadingText = document.querySelector(".loading-text");
+
 api
   .getUserInfo()
   .then((userData) => {
@@ -72,8 +74,16 @@ api
   .then((cards) => {
     cardSection.setItems(cards.reverse());
     cardSection.renderItems();
+    if (loadingText) {
+      loadingText.style.display = "none";
+    }
   })
-  .catch((err) => console.error(err));
+  .catch((err) => {
+    showError(err);
+    if (loadingText) {
+      loadingText.textContent = "Failed to load cards. Please try again later.";
+    }
+  });
 
 const addForm = document.forms["add-form"];
 const profileNameInput = document.querySelector("#name");

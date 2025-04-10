@@ -1,36 +1,29 @@
 {
-  "name": "tripleten",
+  "name": "around-the-us",
   "version": "1.0.0",
-  "description": "Educational platform",
-  "main": "index.js",
+  "description": "Around The U.S. interactive project with cards and profile editing.",
+  "main": "src/index.js",
   "scripts": {
-    "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "dev": "webpack serve --mode development",
-    "predeploy": "npm run build",
+    "build": "webpack --mode production",
     "deploy": "gh-pages -d dist"
-},
-
+  },
   "author": "Fred Hobbs",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.x.x",
-    "@babel/preset-env": "^7.x.x",
-    "autoprefixer": "^10.4.21",
-    "babel-loader": "^8.x.x",
-    "clean-webpack-plugin": "^4.0.0",
-    "css-loader": "^6.x.x",
-    "cssnano": "^7.0.6",
-    "gh-pages": "^6.3.0",
-    "html-webpack-plugin": "^5.x.x",
-    "mini-css-extract-plugin": "^2.x.x",
-    "postcss-loader": "^8.1.1",
-    "terser-webpack-plugin": "^5.x.x",
-    "webpack": "^5.x.x",
-    "webpack-cli": "^4.x.x",
-    "webpack-dev-server": "^4.x.x"
-  },
   "dependencies": {
-    "uuid": "^11.1.0"
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/preset-env": "^7.21.0",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^6.7.3",
+    "gh-pages": "^6.0.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.7.5",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.0"
   }
 }

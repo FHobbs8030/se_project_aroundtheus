@@ -1,26 +1,17 @@
-.header .container {
+.header__line {
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-  margin-bottom: 40px;
+  padding-bottom: 40px;
 }
 
 .header__logo {
   width: 173px;
   height: auto;
   margin-top: 45px;
-  margin-bottom: 40px;
-  transition: width 0.3s ease;
-}
-
-@media screen and (max-width: 1024px) {
-  .header__logo {
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
 }
 
 @media screen and (max-width: 600px) {
-  .header .container {
-    margin-bottom: 42px;
+  .header__line {
+    padding-bottom: 42px;
   }
 
   .header__logo {
