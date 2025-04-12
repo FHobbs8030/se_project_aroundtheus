@@ -96,7 +96,6 @@
   .profile {
     flex-direction: column;
     align-items: center;
-    text-align: center;
   }
 
   .profile__avatar-wrapper {
@@ -121,7 +120,7 @@
   }
 
   .profile__add-button {
-    margin-top: 20px;
+    margin: 20px;
     width: 100%;
     max-width: 282px;
   }

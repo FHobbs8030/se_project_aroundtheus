@@ -1,26 +1,24 @@
 .header__line {
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
-  padding-bottom: 40px;
 }
 
-.header__logo {
+/* .header__logo {
   width: 173px;
   height: auto;
   margin-top: 45px;
-}
+} */
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .header__line {
     padding-bottom: 42px;
-  }
+  } */
 
   .header__logo {
     width: 126px;
     height: 24px;
     margin: 0;
-    padding: 28px 0 32px 27px;
+    padding: 28px 0 0 27px;
   }
-}
 
 @media screen and (max-width: 480px) {
   .header__logo {

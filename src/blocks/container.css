@@ -6,17 +6,17 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 1024px) {
+/* @media screen and (max-width: 1024px) {
   .container {
     padding: 0 16px;
   }
-}
+} */
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .container {
     padding: 0 12px;
   }
-}
+} */
 
 @media screen and (max-width: 480px) {
   .container {
