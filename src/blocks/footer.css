@@ -2,10 +2,21 @@
   display: flex;
   align-items: center;
   margin: 40px auto;
-  max-width: 1200px;
+  max-width: 880px; /* Make sure this matches container */
   width: 100%;
-  padding: 0 20px;
+  /* padding: 0 20px; */
   box-sizing: border-box;
+}
+
+.footer__copyright {
+  color: #545454;
+  width: 100%;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: left;
+  margin: 0;
 }
 
 .footer__title {
@@ -19,22 +30,30 @@
   margin: 0;
 }
 
+/* Match your container padding exactly! ✅ */
 @media screen and (max-width: 600px) {
+  .footer {
+    padding: 0 20px;
+  }
+
+   .footer__copyright {
+    font-size: 14px;
+    line-height: 17px;
+   }
   .footer__title {
     font-size: 14px;
     line-height: 17px;
-    text-align: left;
   }
-}
+   }
 
 @media screen and (max-width: 480px) {
   .footer {
-    padding: 0 15px;
+    padding: 0 8px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .footer {
-    padding: 0 10px;
+    padding: 0 8px;
   }
 }

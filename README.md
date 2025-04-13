@@ -1,11 +1,12 @@
-# Around The U.S.
+# Around The U.S
 
 An interactive photo gallery built as part of the TripleTen Web Development Bootcamp.  
 The project is fully responsive, includes form validation, and connects to an external API to persist user data and cards.
 
 ## Project Overview
 
-"Around The U.S." lets users:
+Around The U.S. lets users:
+
 - Edit their profile information
 - Change their profile avatar
 - Add new cards (places with images and names)
@@ -31,7 +32,7 @@ The project is fully responsive, includes form validation, and connects to an ex
 
 ## Features
 
-- ✅ Profile Editing with "Saving..." loading state
+- ✅ Profile editing with "Saving..." loading state
 - ✅ Add new places dynamically
 - ✅ Delete cards with confirmation and loading indicator
 - ✅ Like and unlike functionality
@@ -48,7 +49,7 @@ The project is fully responsive, includes form validation, and connects to an ex
 | ------------ | ----------- | ------ |
 | ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) | ![Popups](./screenshots/popup.png) |
 
-> _To update your screenshots, simply place your images in the `/screenshots/` folder and replace the placeholders._
+> To update your screenshots, place your images in the `/screenshots/` folder and replace the placeholders.
 
 ## Live Demo
 
@@ -57,46 +58,60 @@ The project is fully responsive, includes form validation, and connects to an ex
 ## How to Run Locally
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/FHobbs8030/se_project_aroundtheus.git
-   ```
 
-2. Navigate to the project directory:
-   ```bash
-   cd se_project_aroundtheus
-   ```
+````bash
+git clone https://github.com/FHobbs8030/se_project_aroundtheus.git
+Navigate to the project directory:
 
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+bash
+Copy
+Edit
+cd se_project_aroundtheus
+Install dependencies:
 
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
+bash
+Copy
+Edit
+npm install
+Run the development server:
 
-5. Build for production:
-   ```bash
-   npm run build
-   ```
+bash
+Copy
+Edit
+npm run dev
+Build for production:
 
-## Favicon
+bash
+Copy
+Edit
+npm run build
+Favicon
+The favicon is already included in your project.
+Ensure that favicon.ico is in your images/ directory and linked in your HTML:
 
-The favicon is already included in your project.  
-Make sure `favicon.ico` is in your `images/` directory and linked in your HTML:
-
-```html
+html
+Copy
+Edit
 <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
-```
-
-## Project Status
-
-✅ Final version complete  
-✅ All requirements met  
+Project Status
+✅ Final version complete
+✅ All requirements met
 ✅ Ready for deployment and showcase!
 
-## Author
+Author
+Fred Hobbs
+GitHub: FHobbs8030
 
-Fred Hobbs  
-GitHub: [FHobbs8030](https://github.com/FHobbs8030)
+yaml
+Copy
+Edit
+
+---
+
+### ✅ Improvements Applied:
+- Fixed code block syntax ✅
+- Fixed spacing for better readability ✅
+- Fixed GitHub profile clickable link ✅
+- Ready to copy + paste as final version ✅
+
+---
