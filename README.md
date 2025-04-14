@@ -57,59 +57,49 @@ Around The U.S. lets users:
 
 1. Clone the repository:
 
-````bash
+```bash
 git clone https://github.com/FHobbs8030/se_project_aroundtheus.git
+```
+
 Navigate to the project directory:
 
-bash
-Copy
-Edit
+```bash
 cd se_project_aroundtheus
+```
+
 Install dependencies:
 
-bash
-Copy
-Edit
+```bash
 npm install
+```
+
 Run the development server:
 
-bash
-Copy
-Edit
+```bash
 npm run dev
+```
+
 Build for production:
 
-bash
-Copy
-Edit
+```bash
 npm run build
-Favicon
-The favicon is already included in your project.
-Ensure that favicon.ico is in your images/ directory and linked in your HTML:
+```
 
-html
-Copy
-Edit
-<link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
-Project Status
+## Project Status
+
 ✅ Final version complete
 ✅ All requirements met
 ✅ Ready for deployment and showcase!
 
-Author
-Fred Hobbs
-GitHub: FHobbs8030
+### ✅ Improvements Applied
 
-yaml
-Copy
-Edit
-
----
-
-### ✅ Improvements Applied:
 - Fixed code block syntax ✅
 - Fixed spacing for better readability ✅
 - Fixed GitHub profile clickable link ✅
 - Ready to copy + paste as final version ✅
 
----
+## Author
+
+Fred Hobbs
+GitHub: FHobbs8030
+(<https://github.com/FHobbs8030>)
