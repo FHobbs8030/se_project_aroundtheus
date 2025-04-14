@@ -19,6 +19,7 @@
   overflow: hidden;
   visibility: visible;
   opacity: 1;
+  transition: visibility 0s, opacity 0.6s;  
 }
 
 .popup__container {
@@ -30,7 +31,7 @@
   border-radius: 10px;
   padding: 34px 36px 36.51px 36px;
   box-sizing: border-box;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease; 
   outline: none;
 }
 
@@ -43,6 +44,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  transition: none;
 }
 
 .popup__image {
@@ -154,7 +156,7 @@
 
 @media screen and (max-width: 600px) {
   .popup__container {
-    top: 15px;
+    top: 5px; 
     max-width: 244px;
     max-height: 267px;
     padding: 25px 22px;
@@ -190,6 +192,8 @@
 
   .popup__save-button {
     font-size: 14px;
+    margin-top: auto;
+    margin-bottom: 25px;
   }
 }
 

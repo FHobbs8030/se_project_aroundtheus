@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   margin: 40px auto;
-  max-width: 880px; /* Make sure this matches container */
+  max-width: 884px;
   width: 100%;
-  /* padding: 0 20px; */
   box-sizing: border-box;
+  padding: 0;
 }
 
 .footer__copyright {
@@ -19,41 +19,25 @@
   margin: 0;
 }
 
-.footer__title {
-  color: #545454;
-  width: 100%;
-  font-family: "Inter", Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.78px;
-  text-align: left;
-  margin: 0;
-}
-
-/* Match your container padding exactly! ✅ */
 @media screen and (max-width: 600px) {
-  .footer {
-    padding: 0 20px;
-  }
-
-   .footer__copyright {
-    font-size: 14px;
-    line-height: 17px;
-   }
-  .footer__title {
+  .footer__copyright {
     font-size: 14px;
     line-height: 17px;
   }
-   }
+}
 
 @media screen and (max-width: 480px) {
   .footer {
     padding: 0 8px;
   }
+
+   .footer__copyright {
+   margin-left: 83px;
+  }
 }
 
 @media screen and (max-width: 320px) {
-  .footer {
-    padding: 0 8px;
+  .footer__copyright  {
+    margin: 0;
   }
 }
