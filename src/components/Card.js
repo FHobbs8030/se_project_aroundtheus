@@ -77,7 +77,7 @@ export default class Card {
 _setEventListeners() {
   if (this._likeButton) {
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick(this._cardId, this._isLiked());  // Add parentheses to call the function
+      this._handleLikeClick(this._cardId, this._isLiked());  
     });
   }
 

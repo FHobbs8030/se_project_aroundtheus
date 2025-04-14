@@ -2,17 +2,6 @@
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-/* .header__logo {
-  width: 173px;
-  height: auto;
-  margin-top: 45px;
-} */
-
-/* @media screen and (max-width: 600px) {
-  .header__line {
-    padding-bottom: 42px;
-  } */
-
   .header__logo {
     width: 126px;
     height: 24px;

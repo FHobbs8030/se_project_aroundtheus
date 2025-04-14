@@ -49,8 +49,6 @@ Around The U.S. lets users:
 | ------------ | ----------- | ------ |
 | ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) | ![Popups](./screenshots/popup.png) |
 
-> To update your screenshots, place your images in the `/screenshots/` folder and replace the placeholders.
-
 ## Live Demo
 
 👉 [View on GitHub Pages](https://fhobbs8030.github.io/se_project_aroundtheus/)
