@@ -1,8 +1,8 @@
 .container {
-  max-width: 926px;
-  width: 100%;
+  max-width: 880px;
   margin: 0 auto;
   padding: 0;
+  width: 100%;
   box-sizing: border-box;
 }
 

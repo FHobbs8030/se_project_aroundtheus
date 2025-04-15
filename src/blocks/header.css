@@ -1,13 +1,19 @@
-.header__line {
+/* .header__line {
+  border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+} */
+
+.header {
+  max-width: 880px;
+  padding-top: 45px;
   border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-  .header__logo {
-    width: 126px;
-    height: 24px;
-    margin: 0;
-    padding: 28px 0 0 27px;
-  }
+.header__logo {
+  width: 173px;
+  height: 33px;
+  margin: 0 0 41px 0;
+  padding: 28px 0 0 27px;
+}
 
 @media screen and (max-width: 480px) {
   .header__logo {
