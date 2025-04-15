@@ -134,13 +134,14 @@ function createCard(data) {
     userInfo.getUserId(),
     "#card-template",
     handleImageClick,
-    (cardId) => {
+    (cardId, cardElement) => {
       return new Promise((resolve, reject) => {
         confirmPopup.setSubmitAction(() => {
           confirmPopup.renderLoading(true);
           api
             .deleteCard(cardId)
             .then(() => {
+              cardElement.remove();
               resolve();
               confirmPopup.close();
             })
@@ -155,6 +156,7 @@ function createCard(data) {
     },
     handleLikeClick
   );
+
   return card.generateCard();
 }
 
@@ -203,11 +205,29 @@ function handleAvatarFormSubmit(formData) {
     .finally(() => avatarPopup.renderLoading(false));
 }
 
-function handleLikeClick(cardId, isLiked) {
+function handleLikeClick(cardId, isLiked, cardInstance) {
   const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
-  return action.catch((err) => {
-    showError(err);
-  });
+
+  action
+    .then((updatedCard) => {
+      console.log("API Like Response:", updatedCard);
+
+      let likes = Array.isArray(updatedCard.likes) ? updatedCard.likes : [];
+
+      if (!likes.length) {
+        console.log("Fallback: manually updating likes...");
+        const currentUserId = userInfo.getUserId();
+
+        likes = isLiked
+          ? cardInstance._likes.filter((user) => user._id !== currentUserId)
+          : [...cardInstance._likes, { _id: currentUserId }];
+      }
+
+      cardInstance.updateLikes(likes);
+    })
+    .catch((err) => {
+      showError(err);
+    });
 }
 
 function showError(error) {

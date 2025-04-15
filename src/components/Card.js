@@ -1,5 +1,6 @@
 import heartIcon from "../images/heart.svg";
 import heartFilledIcon from "../images/heart-filled.svg";
+
 export default class Card {
   constructor(
     data,
@@ -27,7 +28,7 @@ export default class Card {
 
     this._cardImage = this._element.querySelector(".card__image");
     this._likeButton = this._element.querySelector(".card__like-button");
-    this._deleteButton = this._element.querySelector(".card__delete-button"); 
+    this._deleteButton = this._element.querySelector(".card__delete-button");
     const cardTitle = this._element.querySelector(".card__title");
 
     this._cardImage.src = this._link;
@@ -35,7 +36,7 @@ export default class Card {
     cardTitle.textContent = this._name;
 
     this._setEventListeners();
-    this._updateLikes(this._likes);
+    this.updateLikes(this._likes);
 
     return this._element;
   }
@@ -43,30 +44,32 @@ export default class Card {
   _getTemplate() {
     const template = document.querySelector(this._templateSelector);
     if (!template) return null;
-    const clone = template.content.querySelector(".card").cloneNode(true);
-    return clone;
+    return template.content.querySelector(".card").cloneNode(true);
   }
 
-  _updateLikes(isLiked) {
-    this._likeState = isLiked;
+  updateLikes(likes) {
+    console.log("updateLikes called with:", likes);
+    this._likes = Array.isArray(likes) ? likes : [];
+    this._likeState = this._likes.some((user) => user._id === this._userId);
     this._updateLikeState();
   }
 
   _isLiked() {
-    return this._likeState;
+    return Array.isArray(this._likes)
+      ? this._likes.some((user) => user._id === this._userId)
+      : false;
   }
 
   _updateLikeState() {
     if (!this._likeButton) {
-      console.log("Like button not found");
+      console.warn("Like button not found.");
       return;
     }
 
-    if (this._likeState) {
-      this._likeButton.style.backgroundImage = `url(${heartIcon})`;
-    } else {
-      this._likeButton.style.backgroundImage = `url(${heartFilledIcon})`;
-    }
+    console.log("Like state is:", this._likeState);
+    this._likeButton.style.backgroundImage = this._likeState
+      ? `url(${heartFilledIcon})`
+      : `url(${heartIcon})`;
   }
 
   _removeCard() {
@@ -74,23 +77,23 @@ export default class Card {
     this._element = null;
   }
 
-_setEventListeners() {
-  if (this._likeButton) {
-    this._likeButton.addEventListener("click", () => {
-      this._handleLikeClick(this._cardId, this._isLiked());  
-    });
-  }
+  _setEventListeners() {
+    if (this._likeButton) {
+      this._likeButton.addEventListener("click", () => {
+        this._handleLikeClick(this._cardId, this._isLiked(), this);
+      });
+    }
 
-  if (this._deleteButton) {
-    this._deleteButton.addEventListener("click", () => {
-      this._handleDeleteClick(this._cardId);
-    });
-  }
+    if (this._deleteButton) {
+      this._deleteButton.addEventListener("click", () => {
+        this._handleDeleteClick(this._cardId, this._element);
+      });
+    }
 
-  if (this._cardImage) {
-    this._cardImage.addEventListener("click", () => {
-      this._handleImageClick(this._name, this._link);
-    });
+    if (this._cardImage) {
+      this._cardImage.addEventListener("click", () => {
+        this._handleImageClick(this._name, this._link);
+      });
+    }
   }
-}
 }
