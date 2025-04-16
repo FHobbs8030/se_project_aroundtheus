@@ -12,6 +12,9 @@ import logoPath from "../images/logo.svg";
 import Api from "../components/Api.js";
 import profileImagePath from "../images/jacques-cousteau.jpg";
 
+const avatarElement = document.querySelector(".profile__avatar-wrapper");
+console.log("Avatar element:", avatarElement);
+
 document.querySelector(".header__logo").src = logoPath;
 
 const api = new Api({
@@ -35,6 +38,7 @@ const editProfilePopup = new PopupWithForm(
 );
 const addCardPopup = new PopupWithForm("#add-popup", handleAddCardFormSubmit);
 const avatarPopup = new PopupWithForm("#avatar-popup", handleAvatarFormSubmit);
+console.log("Avatar popup initialized:", avatarPopup);
 const confirmPopup = new PopupWithConfirm("#confirm-popup");
 
 imagePopup.setEventListeners();
@@ -109,10 +113,13 @@ openAddpopupButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-document.querySelector(".profile__image").addEventListener("click", () => {
-  formValidators["avatar-form"].resetValidation();
-  avatarPopup.open();
-});
+document
+  .querySelector(".profile__avatar-wrapper")
+  .addEventListener("click", () => {
+    console.log("Avatar clicked!");
+    formValidators["avatar-form"].resetValidation();
+    avatarPopup.open();
+  });
 
 const formValidators = {};
 
