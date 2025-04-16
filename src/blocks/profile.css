@@ -24,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6) url('../images/pencil.png') center center no-repeat;
+  background: rgba(0, 0, 0, 0.8) url('../images/pencil.png') center center no-repeat;
   background-size: 26px 26px; 
   z-index: 1;
 }

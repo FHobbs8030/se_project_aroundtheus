@@ -95,6 +95,21 @@
   cursor: pointer;
 }
 
+.card__like-count {
+  position: absolute;
+  bottom: 14px;
+  right: 22px;
+  font-family: "Inter", Arial, sans-serif;
+  width: 21px;
+  height: 19px;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 1);
+  text-align: center;
+  margin-top: 3px;
+}
+
 @media screen and (max-width: 600px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);

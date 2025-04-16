@@ -67,10 +67,11 @@ const loadingText = document.querySelector(".loading-text");
 api
   .getUserInfo()
   .then((userData) => {
+    console.log("API avatar URL:", userData.avatar);
     userInfo.setUserInfo({
       name: userData.name,
       about: userData.about,
-      avatar: userData.avatar || profileImagePath,
+      avatar: profileImagePath,
       _id: userData._id,
     });
     return api.getInitialCards();
@@ -164,7 +165,6 @@ function createCard(data) {
     },
     handleLikeClick
   );
-
   return card.generateCard();
 }
 
@@ -215,22 +215,17 @@ function handleAvatarFormSubmit(formData) {
 
 function handleLikeClick(cardId, isLiked, cardInstance) {
   const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
-
   action
     .then((updatedCard) => {
       console.log("API Like Response:", updatedCard);
-
       let likes = Array.isArray(updatedCard.likes) ? updatedCard.likes : [];
-
       if (!likes.length) {
         console.log("Fallback: manually updating likes...");
         const currentUserId = userInfo.getUserId();
-
         likes = isLiked
           ? cardInstance._likes.filter((user) => user._id !== currentUserId)
           : [...cardInstance._likes, { _id: currentUserId }];
       }
-
       cardInstance.updateLikes(likes);
     })
     .catch((err) => {
