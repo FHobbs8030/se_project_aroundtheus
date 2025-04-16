@@ -76,6 +76,7 @@ api
     return api.getInitialCards();
   })
   .then((cards) => {
+    console.log("Cards received from API:", cards);
     cardSection.setItems(cards.reverse());
     cardSection.renderItems();
     if (loadingText) {
