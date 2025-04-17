@@ -14,7 +14,7 @@
   margin-right: 24px;
   border-radius: 50%;
   overflow: hidden;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .profile__avatar-wrapper:hover::after {
@@ -24,8 +24,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8) url('../images/pencil.png') center center no-repeat;
-  background-size: 26px 26px; 
+  background: rgba(0, 0, 0, 0.8) url("../images/pencil.png") center center
+    no-repeat;
+  background-size: 26px 26px;
   z-index: 1;
 }
 

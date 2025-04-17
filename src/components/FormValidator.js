@@ -73,7 +73,6 @@ export default class FormValidator {
   }
 
   resetValidation() {
-    console.log("resetValidation called");
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     });

@@ -31,13 +31,13 @@
     padding: 0 8px;
   }
 
-   .footer__copyright {
-   margin-left: 83px;
+  .footer__copyright {
+    margin-left: 83px;
   }
 }
 
 @media screen and (max-width: 320px) {
-  .footer__copyright  {
+  .footer__copyright {
     margin: 0;
   }
 }

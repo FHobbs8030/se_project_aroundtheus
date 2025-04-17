@@ -1,4 +1,3 @@
-
 import { v4 as uuidv4 } from "uuid";
 import "./index.css";
 import Section from "../components/Section.js";
@@ -31,7 +30,10 @@ const userInfo = new UserInfo({
 });
 
 const imagePopup = new PopupWithImage("#image-popup");
-const editProfilePopup = new PopupWithForm("#edit-popup", handleProfileFormSubmit);
+const editProfilePopup = new PopupWithForm(
+  "#edit-popup",
+  handleProfileFormSubmit
+);
 const addCardPopup = new PopupWithForm("#add-popup", handleAddCardFormSubmit);
 const avatarPopup = new PopupWithForm("#avatar-popup", handleAvatarFormSubmit);
 const confirmPopup = new PopupWithConfirm("#confirm-popup");
@@ -108,10 +110,12 @@ openAddpopupButton.addEventListener("click", () => {
   addCardPopup.open();
 });
 
-document.querySelector(".profile__avatar-wrapper").addEventListener("click", () => {
-  formValidators["avatar-form"].resetValidation();
-  avatarPopup.open();
-});
+document
+  .querySelector(".profile__avatar-wrapper")
+  .addEventListener("click", () => {
+    formValidators["avatar-form"].resetValidation();
+    avatarPopup.open();
+  });
 
 const formValidators = {};
 

@@ -1,4 +1,3 @@
-
 import heartIcon from "../images/heart.svg";
 import heartFilledIcon from "../images/heart-filled.svg";
 
@@ -39,7 +38,7 @@ export default class Card {
     cardTitle.textContent = this._name;
 
     this._setEventListeners();
-    this.updateLikes(this._liked); 
+    this.updateLikes(this._liked);
 
     return this._element;
   }
