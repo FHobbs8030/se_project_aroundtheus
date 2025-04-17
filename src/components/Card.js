@@ -51,7 +51,6 @@ export default class Card {
 
   updateLikes(likes) {
     this._likes = Array.isArray(likes) ? likes : [];
-    this._likeState = this._likes.some((user) => user._id === this._userId);
     if (this._likeCounter) {
       this._likeCounter.textContent = this._likes.length;
     }
