@@ -21,6 +21,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleLikeClick = handleLikeClick;
+    this._liked = data.isLiked || false;
   }
 
   generateCard() {
@@ -38,7 +39,7 @@ export default class Card {
     cardTitle.textContent = this._name;
 
     this._setEventListeners();
-    this.updateLikes(this._likes);
+    this.updateLikes(this._liked); 
 
     return this._element;
   }
@@ -49,18 +50,16 @@ export default class Card {
     return template.content.querySelector(".card").cloneNode(true);
   }
 
-  updateLikes(likes) {
-    this._likes = Array.isArray(likes) ? likes : [];
+  updateLikes(isLiked) {
+    this._liked = isLiked;
     if (this._likeCounter) {
-      this._likeCounter.textContent = this._likes.length;
+      this._likeCounter.textContent = isLiked ? "1" : "0";
     }
     this._updateLikeState();
   }
 
   _isLiked() {
-    return Array.isArray(this._likes)
-      ? this._likes.some((user) => user._id === this._userId)
-      : false;
+    return this._liked;
   }
 
   _updateLikeState() {
