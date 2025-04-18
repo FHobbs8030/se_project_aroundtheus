@@ -211,14 +211,7 @@ function handleLikeClick(cardId, isLiked, cardInstance) {
   const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
   action
     .then((updatedCard) => {
-      let likes = Array.isArray(updatedCard.likes) ? updatedCard.likes : [];
-      if (!likes.length) {
-        const currentUserId = userInfo.getUserId();
-        likes = isLiked
-          ? cardInstance._likes.filter((user) => user._id !== currentUserId)
-          : [...cardInstance._likes, { _id: currentUserId }];
-      }
-      cardInstance.updateLikes(likes);
+  
     })
     .catch((err) => {
       showError(err);
