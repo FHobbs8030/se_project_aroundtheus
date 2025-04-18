@@ -1,40 +1,105 @@
-# se_project_aroundtheus
+# Around The U.S
 
-This is the final project Sprint 5 of the Software Engineering program at TripleTen. It was created using Modals and java script introductory, based on the design brief.
+An interactive photo gallery built as part of the TripleTen Web Development Bootcamp.  
+The project is fully responsive, includes form validation, and connects to an external API to persist user data and cards.
 
-## Project features
+## Project Overview
 
-- modals
-- Semantic HTML5
-- Flexbox
-- Positioning
-- Flat BEM file structure
-- Responsive Design
+Around The U.S. lets users:
 
-## The Plans on improving this project are
+- Edit their profile information
+- Change their profile avatar
+- Add new cards (places with images and names)
+- Delete cards with confirmation
+- Like/unlike cards
+- View enlarged images in a popup
+- All changes are saved to the server and persist after page reload!
 
--This page is presently under construction for Upgrades using javaScript
+## Technologies Used
 
-=========================================
+- HTML5 & CSS3
+- Flexbox & Grid layout
+- BEM Methodology (Flat BEM structure)
+- JavaScript (ES6+)
+- Object-Oriented Programming (OOP)
+- API Integration (CRUD operations)
+- Webpack (with Babel, autoprefixer, image and CSS minification)
+- Form Validation with real-time feedback
+- Responsive Design for all devices
+- Accessibility improvements
+- Prettier & W3C Validation Passed ✅
+- Favicon for professional polish ✨
 
-## Take a Look at the Project
+## Features
 
-click [here](https://FHobbs8030.github.io/se_project_aroundtheus/src/index.html)
+- ✅ Profile editing with "Saving..." loading state
+- ✅ Add new places dynamically
+- ✅ Delete cards with confirmation and loading indicator
+- ✅ Like and unlike functionality
+- ✅ Persistent data (after page reload)
+- ✅ Proper error handling with user-friendly messages
+- ✅ Form validation and reset states when opening
+- ✅ Responsive and mobile-optimized
+- ✅ Favicon included
+- ✅ Ready for deployment
 
+## Screenshots
 
+| Desktop View | Mobile View | Popups |
+| ------------ | ----------- | ------ |
+| ![Desktop](./screenshots/desktop.png) | ![Mobile](./screenshots/mobile.png) | ![Popups](./screenshots/popup.png) |
 
-=========================================
+## Live Demo
 
-## Watch the Presentation
+👉 [View on GitHub Pages](https://fhobbs8030.github.io/se_project_aroundtheus/)
 
-click [here](https://github.com/user-attachments/assets/5cfacafb-053e-448f-a66e-2a506c7a0679)
+## How to Run Locally
 
-========================================================
+1. Clone the repository:
 
-![1280px](https://github.com/user-attachments/assets/0ba21fc6-f4e6-43d0-9dd4-2e2cd889f56f)
+```bash
+git clone https://github.com/FHobbs8030/se_project_aroundtheus.git
+```
 
-![800px](https://github.com/user-attachments/assets/36696942-99dc-4fc1-96cb-fc53c40de836)
+Navigate to the project directory:
 
-![320px](https://github.com/FHobbs8030/se_project_aroundtheus/assets/63701522/8fb14860-bfbf-4ae8-92b8-7eedb6f5e40a)
+```bash
+cd se_project_aroundtheus
+```
 
-==============================================
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Project Status
+
+✅ Final version complete
+✅ All requirements met
+✅ Ready for deployment and showcase!
+
+### ✅ Improvements Applied
+
+- Fixed code block syntax ✅
+- Fixed spacing for better readability ✅
+- Fixed GitHub profile clickable link ✅
+- Ready to copy + paste as final version ✅
+
+## Author
+
+Fred Hobbs
+GitHub: FHobbs8030
+(<https://github.com/FHobbs8030>)
