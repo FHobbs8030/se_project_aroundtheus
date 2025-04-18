@@ -55,10 +55,6 @@ const cardSection = new Section(
   ".cards"
 );
 
-cardSection.setItems = function (items) {
-  this._items = items;
-};
-
 const loadingText = document.querySelector(".loading-text");
 
 api
