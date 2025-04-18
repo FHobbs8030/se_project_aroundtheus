@@ -26,7 +26,8 @@
   position: relative;
   background-color: white;
   width: 100%;
-  max-width: 284px;
+  max-width: 358px;
+  max-height: 342px;
   border-radius: 10px;
   padding: 34px 36px 36.51px 36px;
   box-sizing: border-box;
