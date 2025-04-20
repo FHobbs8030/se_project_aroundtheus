@@ -210,9 +210,7 @@ function handleAvatarFormSubmit(formData) {
 function handleLikeClick(cardId, isLiked, cardInstance) {
   const action = isLiked ? api.removeLike(cardId) : api.addLike(cardId);
   action
-    .then((updatedCard) => {
-  
-    })
+    .then((updatedCard) => { cardInstance.updateLikes(!isLiked)})
     .catch((err) => {
       showError(err);
     });
