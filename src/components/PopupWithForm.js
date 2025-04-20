@@ -5,50 +5,49 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
     this._form = this._popup.querySelector(".popup__form");
-    this._inputList = Array.from(this._form.querySelectorAll(".popup__input"));
-    this._submitButton = this._form.querySelector(".popup__save-button");
-    this._defaultSubmitText = this._submitButton.textContent;
-  }
 
-  setInputValues(data) {
-    console.log("Setting input values with data:", data);
-    this._inputList.forEach((input) => {
-      input.value = data[input.name];
-    });
+    if (!this._form) {
+      console.error(`Form not found in popup ${popupSelector}`);
+      return;
+    }
+
+    this._inputList = this._form.querySelectorAll(".popup__input");
+    this._submitButton = this._form.querySelector(".popup__save-button");
+
+    if (!this._submitButton) {
+      console.error(`Submit button not found in form ${popupSelector}`);
+      return;
+    }
+
+    this._defaultButtonText = this._submitButton.textContent;
   }
 
   _getInputValues() {
-    const formValues = {};
+    this._formValues = {};
     this._inputList.forEach((input) => {
-      formValues[input.name] = input.value;
+      this._formValues[input.name] = input.value;
     });
-    return formValues;
+    return this._formValues;
   }
 
   setEventListeners() {
     super.setEventListeners();
-
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
-
-      const formValues = this._getInputValues();
-      const result = this._handleFormSubmit(formValues);
-
-      if (result instanceof Promise) {
-        result
-          .then(() => {
-            this._form.reset();
-          })
-          .catch((err) => {
-            console.error(err);
-          });
-      } else {
-        this._form.reset();
-      }
+      this._handleFormSubmit(this._getInputValues());
     });
   }
 
-  open() {
-    super.open();
+  close() {
+    super.close();
+    this._form.reset();
+  }
+
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._defaultButtonText;
+    }
   }
 }
