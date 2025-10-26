@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open",
-    "dev": "webpack serve --mode development"
+    "dev": "webpack serve --mode development  --open"
   },
   "author": "Fred Hobbs",
   "license": "ISC",
@@ -22,9 +22,9 @@
     "mini-css-extract-plugin": "^2.x.x",
     "postcss-loader": "^8.1.1",
     "terser-webpack-plugin": "^5.x.x",
-    "webpack": "^5.x.x",
-    "webpack-cli": "^4.x.x",
-    "webpack-dev-server": "^4.x.x"
+    "webpack": "^5.99.9",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.2"
   },
   "dependencies": {
     "uuid": "^11.1.0"
