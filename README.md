@@ -32,6 +32,7 @@ Around The U.S. lets users:
 
 ## Features
 
+<<<<<<< HEAD
 - ✅ Profile editing with "Saving..." loading state
 - ✅ Add new places dynamically
 - ✅ Delete cards with confirmation and loading indicator
@@ -42,6 +43,9 @@ Around The U.S. lets users:
 - ✅ Responsive and mobile-optimized
 - ✅ Favicon included
 - ✅ Ready for deployment
+=======
+click [here](https://FHobbs8030.github.io/se_project_aroundtheus/)
+>>>>>>> origin/main
 
 ## Screenshots
 
