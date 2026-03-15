@@ -96,9 +96,9 @@ The layout adapts smoothly across multiple screen sizes:
 
 ## 🎥 Project Demo
 
-Watch the demo:
+Watch the demo walkthrough:
 
-https://github.com/FHobbs8030/se_project_aroundtheus/raw/main/demo/aroundtheus_demo.mp4
+[![Watch the demo](./src/images/project-preview.png)](https://www.loom.com/share/YOUR_VIDEO_ID)
 
 ---
 
