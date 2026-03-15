@@ -20,11 +20,11 @@ Built using modern frontend development practices including **semantic HTML, res
 
 ---
 
-## 🚀 Live Project
-
-🌐 **View the project here**
-
-[Live Demo](https://FHobbs8030.github.io/se_project_aroundtheus/index.html)
+<p align="center">
+  <a href="https://FHobbs8030.github.io/se_project_aroundtheus">
+    <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge" alt="Live Demo"/>
+  </a>
+</p>
 
 ---
 
