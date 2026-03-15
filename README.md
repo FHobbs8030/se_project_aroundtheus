@@ -1,5 +1,7 @@
 # 🌎 Around The U.S. – Responsive Photo Gallery
 
+![Project Preview](./images/project-preview.png)
+
 ![HTML](https://img.shields.io/badge/HTML5-Structure-orange)
 ![CSS](https://img.shields.io/badge/CSS3-Styling-blue)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Interactivity-yellow)
