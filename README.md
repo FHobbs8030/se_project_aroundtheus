@@ -23,12 +23,12 @@ Built using modern frontend development practices including **semantic HTML, res
 ---
 
 <p align="center">
-  <a href="LIVE_LINK">
-    <img src="https://img.shields.io/badge/LIVE-DEMO-brightgreen?style=for-the-badge"/>
+  <a href="https://FHobbs8030.github.io/se_project_aroundtheus">
+    <img src="https://img.shields.io/badge/LIVE-DEMO-2ea44f?style=for-the-badge"/>
   </a>
   &nbsp;&nbsp;&nbsp;
-  <a href="VIDEO_LINK">
-    <img src="https://img.shields.io/badge/VIDEO-DEMO-red?style=for-the-badge"/>
+  <a href="https://youtu.be/5cItGnBH_sM">
+    <img src="https://img.shields.io/badge/VIDEO-DEMO-e5533d?style=for-the-badge"/>
   </a>
 </p>
 
