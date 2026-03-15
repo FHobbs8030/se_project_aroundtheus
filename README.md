@@ -1,12 +1,18 @@
-# 🌎 Around The U.S. – Responsive Photo Gallery
+<!-- markdownlint-disable MD033 -->
+<h1 align="center">🌎 Around The U.S.</h1>
+<p align="center">Responsive Photo Gallery built with HTML, CSS, and JavaScript</p>
 
-![Project Preview](./src/images/project-preview.png)
+<p align="center">
+  <img src="./src/images/project-preview.png" alt="Project Preview" width="900"/>
+</p>
 
-![HTML](https://img.shields.io/badge/HTML5-Structure-orange)
-![CSS](https://img.shields.io/badge/CSS3-Styling-blue)
-![JavaScript](https://img.shields.io/badge/JavaScript-Interactivity-yellow)
-![Responsive](https://img.shields.io/badge/Responsive-Design-green)
-![BEM](https://img.shields.io/badge/BEM-CSS%20Methodology-purple)
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-Structure-orange" alt="HTML Badge"/>
+  <img src="https://img.shields.io/badge/CSS3-Styling-blue" alt="CSS Badge"/>
+  <img src="https://img.shields.io/badge/JavaScript-Interactivity-yellow" alt="JavaScript Badge"/>
+  <img src="https://img.shields.io/badge/Responsive-Design-green" alt="Responsive Badge"/>
+  <img src="https://img.shields.io/badge/BEM-CSS%20Methodology-purple" alt="BEM Badge"/>
+</p>
 
 A responsive web application showcasing beautiful locations across the United States.
 
