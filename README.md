@@ -96,9 +96,7 @@ The layout adapts smoothly across multiple screen sizes:
 
 ## 🎥 Project Demo
 
-Watch the demo walkthrough:
-
-[![Watch the Demo](./src/images/project-preview.png)](https://www.youtube.com/embed/5cItGnBH_sM)
+[![Watch the Demo](https://img.youtube.com/vi/5cItGnBH_sM/maxresdefault.jpg)](https://youtu.be/5cItGnBH_sM)
 
 ---
 
