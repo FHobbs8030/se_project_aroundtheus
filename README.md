@@ -96,11 +96,7 @@ The layout adapts smoothly across multiple screen sizes:
 
 ## 🎥 Project Demo
 
-<p align="center">
-  <a href="https://github.com/FHobbs8030/se_project_aroundtheus/blob/main/demo/aroundtheus_demo.mp4">
-    <img src="./src/images/project-preview.png" width="900">
-  </a>
-</p>
+https://github.com/FHobbs8030/se_project_aroundtheus/raw/main/demo/aroundtheus_demo.mp4
 
 ---
 
