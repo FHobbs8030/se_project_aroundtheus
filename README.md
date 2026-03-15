@@ -3,7 +3,9 @@
 <p align="center">Responsive Photo Gallery built with HTML, CSS, and JavaScript</p>
 
 <p align="center">
+  <a href="https://FHobbs8030.github.io/se_project_aroundtheus">
   <img src="./src/images/project-preview.png" alt="Project Preview" width="900"/>
+</a>
 </p>
 
 <p align="center">
