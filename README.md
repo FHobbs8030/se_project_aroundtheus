@@ -23,9 +23,14 @@ Built using modern frontend development practices including **semantic HTML, res
 ---
 
 <p align="center">
+ <p align="center">
   <a href="https://FHobbs8030.github.io/se_project_aroundtheus">
-    <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge" alt="Live Demo"/>
+    <img src="https://img.shields.io/badge/Live-Demo-brightgreen?style=for-the-badge"/>
   </a>
+  <a href="https://youtu.be/5cItGnBH_sM">
+    <img src="https://img.shields.io/badge/Video-Demo-red?style=for-the-badge"/>
+  </a>
+</p>
 </p>
 
 ---
