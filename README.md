@@ -96,7 +96,11 @@ The layout adapts smoothly across multiple screen sizes:
 
 ## 🎥 Project Demo
 
-[![Watch the Demo](https://img.youtube.com/vi/5cItGnBH_sM/maxresdefault.jpg)](https://youtu.be/5cItGnBH_sM)
+<p align="center">
+  <a href="https://youtu.be/5cItGnBH_sM">
+    <img src="https://img.youtube.com/vi/5cItGnBH_sM/maxresdefault.jpg" width="900">
+  </a>
+</p>
 
 ---
 
