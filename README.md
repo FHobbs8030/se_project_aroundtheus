@@ -98,7 +98,7 @@ The layout adapts smoothly across multiple screen sizes:
 
 Watch the demo walkthrough:
 
-[![Watch the demo](./src/images/project-preview.png)](https://www.loom.com/share/YOUR_VIDEO_ID)
+[Watch the demo](https://youtu.be/5cltGnBH_sM)
 
 ---
 
